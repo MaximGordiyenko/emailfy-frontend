@@ -1,0 +1,280 @@
+.reg-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 90%;
+  width: 400px;
+  .register {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    .logo {
+      margin-left: 20px;
+      align-self: flex-start;
+      img {
+        width: 120px;
+        height: 34px;
+      }
+    }
+    h1 {
+      font-family: MacPawFixelBold;
+      text-align: left;
+      margin-left: 20px;
+      color: var(--default-grey-90);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      .email {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        position: relative;
+        .reg-error-show {
+          font-size: 14px;
+          display: flex;
+          color: red;
+          font-family: MacPawFixelRegular;
+          margin: 10px 0 0 20px;
+        }
+        .reg-error-hide {
+          display: none;
+        }
+        span {
+          font-family: MacPawFixelMedium, 'sans-serif';
+          color: var(--default-grey-90);
+          font-size: 14px;
+          margin: 0 0 5px 20px;
+        }
+        .reg-email-field {
+          width: 100%;
+          padding: 10px 20px;
+          height: 48px;
+          box-sizing: border-box;
+          font-size: 14px;
+          border: 1.5px solid #D4D5D8;
+          border-radius: 10px;
+          font-family: MacPawFixelMedium;
+          line-height: 25px;
+          outline: #7E9D00;
+        }
+        :focus {
+          border: 1.5px solid #7E9D00;
+        }
+        input::placeholder {
+          font-family: MacPawFixelMedium, "sans-serif";
+          font-size: 14px;
+          opacity: 0.3;
+        }
+        .wrong-email-field{
+          width: 100%;
+          padding: 10px 20px;
+          height: 48px;
+          box-sizing: border-box;
+          font-size: 14px;
+          border: 1.5px solid var(--default-red);
+          border-radius: 10px;
+          font-family: MacPawFixelMedium;
+          line-height: 25px;
+        }
+        .clear-area {
+          position: absolute;
+          right: 20px;
+          width: 25px;
+          height: 25px;
+          bottom: 25%;
+          cursor: pointer;
+        }
+        .x-hide {
+          display: none;
+        }
+      }
+      .pass {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        margin-top: 20px;
+        label {
+          font-family: MacPawFixelMedium;
+          color: #2A2B3B;
+          font-size: 14px;
+          margin: 0 0 5px 20px;
+        }
+        .pass-input {
+          width: 100%;
+          position: relative;
+          .reg-pass-field {
+            width: 100%;
+            padding: 10px 20px;
+            height: 48px;
+            box-sizing: border-box;
+            font-size: 16px;
+            border: 1.5px solid #D4D5D8;
+            border-radius: 10px;
+            font-family: MacPawFixelMedium;
+            line-height: 25px;
+            outline: none;
+          }
+          :focus {
+            border: 1.5px solid #7E9D00;
+          }
+          .reg-pass-field::placeholder {
+            font-family: MacPawFixelRegular;
+            font-size: 14px;
+            opacity: 0.3;
+          }
+          .reg-eye {
+            position: absolute;
+            right: 20px;
+            top: 12px;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+          }
+          .hide-eye{
+            display: none;
+          }
+        }
+        .wrong-pass-field{
+          width: 100%;
+          padding: 10px 20px;
+          height: 48px;
+          box-sizing: border-box;
+          font-size: 14px;
+          border: 1.5px solid var(--default-red);
+          border-radius: 10px;
+          font-family: MacPawFixelMedium;
+          line-height: 25px;
+        }
+      }
+      .sign-up {
+        display: flex;
+        margin: 20px 0 20px;
+        cursor: pointer;
+        width: 100%;
+        background: #7E9D00;
+        box-sizing: border-box;
+        height: 44px;
+        border: none;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 14px;
+        div {
+          color: #F2F2F2;
+          font-family: MacPawFixelMedium;
+        }
+        &:disabled {
+          background: var(--default-grey-10);
+          div {
+            color: var(--default-grey-40);
+          }
+        }
+      }
+      .sign-up:hover {
+        opacity: 0.8;
+      }
+      .sign-disabled {
+        opacity: 0.5;
+        display: flex;
+        padding: 10px 20px;
+        height: 44px;
+        box-sizing: border-box;
+        margin: 20px 0 20px;
+        cursor: pointer;
+        width: 100%;
+        background: #C7C7C7;
+        border: none;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        div {
+          color: #F2F2F2;
+          font-family: MacPawFixelMedium;
+        }
+      }
+      .error-message-reg{
+        text-align: left;
+        align-self: flex-start;
+        margin: 5px 0 0 20px;
+        font-family: MacPawFixelMedium;
+        color: var(--default-red);
+        font-size: 14px;
+      }
+    }
+    .input-conditions{
+      width: 100%;
+      li{
+        font-family: MacPawFixelMedium;
+        font-size: 14px;
+        color: var(--default-grey-90);
+        opacity: 0.4;
+      }
+    }
+    .error-conditions{
+      width: 100%;
+      li{
+        font-family: MacPawFixelMedium;
+        font-size: 14px;
+        color: var(--default-red);
+        opacity: 1;
+      }
+    }
+    .privacy {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      img {
+        align-self: flex-start;
+        width: 16px;
+        height: 16px;
+        margin: 2px;
+      }
+      p {
+        color: var(--default-grey-40);
+        margin: 0;
+        font-size: 13px;
+        line-height: 150%;
+        font-family: MacPawFixelMedium;
+        a {
+          font-size: 14px;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .log-in {
+    display: flex;
+    margin-top: 100px;
+    align-self: center;
+    font-family: MacPawFixelMedium;
+    font-size: 16px;
+    color: var(--default-grey-90);
+    p {
+      margin: 0 0 0 5px;
+      text-decoration: underline;
+      cursor: pointer;
+      color: var(--default-green);
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.reg-wrapper {
+  opacity: 1;
+  animation: fadeIn .25s ease-in-out;
+}

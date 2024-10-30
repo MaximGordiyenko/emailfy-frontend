@@ -1,0 +1,6 @@
+.text-and-icon-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px 0 30px;
+}
