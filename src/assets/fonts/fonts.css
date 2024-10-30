@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'MacPawFixelBlack';
+  font-style: normal;
+  src: url('./MacPawFixelText-Black.ttf');
+  src: local('MacPawFixelBlack'), url('./MacPawFixelText-Black.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MacPawFixelBold';
+  font-style: normal;
+  src: url('./MacPawFixelText-Bold.ttf');
+  src: local('MacPawFixelBold'), url('./MacPawFixelText-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MacPawFixelLight';
+  font-style: normal;
+  src: url('./MacPawFixelText-Light.ttf');
+  src: local('MacPawFixelLight'), url('./MacPawFixelText-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MacPawFixelExtraBold';
+  font-style: normal;
+  src: url('./MacPawFixelText-ExtraBold.ttf');
+  src: local('MacPawFixelExtraBold'), url('./MacPawFixelText-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MacPawFixelMedium';
+  font-style: normal;
+  src: url('./MacPawFixelText-Medium.ttf');
+  src: local('MacPawFixelMedium'), url('./MacPawFixelText-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MacPawFixelThin';
+  font-style: normal;
+  src: url('./MacPawFixelText-Thin.ttf');
+  src: local('MacPawFixelThin'), url('./MacPawFixelText-Thin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MacPawFixelSemiBold';
+  font-style: normal;
+  src: url('./MacPawFixelText-SemiBold.ttf');
+  src: local('MacPawFixelSemiBold'), url('./MacPawFixelText-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MacPawFixelRegular';
+  font-style: normal;
+  src: url('./MacPawFixelText-Regular.ttf');
+  src: local('MacPawFixelRegular'), url('./MacPawFixelText-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'GilroyBold';
+  font-style: normal;
+  src: url('./gilroy-bold.ttf');
+  src: local('GilroyBold'), url('./gilroy-bold.ttf') format('truetype');
+}
