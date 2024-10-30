@@ -1,0 +1,103 @@
+.drop-zone-wrapper {
+  border: 1px solid var(--default-grey-10);
+  border-radius: 20px;
+  background: url("../../assets/images/upload_html_bg.svg") center no-repeat;
+  background-size: cover;
+  height: 310px;
+  margin: 5px 0 0 0;
+  display: flex;
+  justify-content: center;
+
+  &.is-drag-accept {
+    border: 1px dashed var(--border-color-btn-hover);
+  }
+
+  &.is-drag-reject {
+    border: 1px dashed var(--default-orange);
+  }
+
+  .drop-zone {
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+
+    .progress-bar {
+      height: 30px;
+      border-radius: 8px;
+
+      .progress-bar-text {
+        position: relative;
+        top: -10px;
+      }
+    }
+  }
+
+  .preview {
+    height: 35vh;
+    overflow: hidden;
+    transform: scale(0.8);
+  }
+}
+
+.dropzone-input {
+}
+
+.drop-image-container {
+  .drop-image-preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 1px solid var(--default-grey-30);
+    padding: 15px;
+    border-radius: 10px;
+    align-items: center;
+
+    & > img {
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    & > button {
+      background: var(--default-grey-10);
+      border-color: var(--default-grey-10);
+      &:hover {
+        background: var(--default-grey-20);
+      }
+    }
+  }
+
+  & .drop-image-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    cursor: context-menu;
+    border: 1px dashed var(--default-green);
+    border-radius: 10px;
+
+    & .drop-image-placeholder-text {
+      font-family: MacpawFixelMedium;
+      font-size: 14px;
+      color: var(--default-grey-40);
+
+      & .drop-image-placeholder-link {
+        color: var(--default-green);
+        font-weight: 700;
+        text-decoration-line: underline;
+        cursor: pointer;
+      }
+    }
+
+    & .drop-image-placeholder-abbr {
+      font-weight: bolder;
+      font-size: 14px;
+      text-align: center;
+      color: var(--default-grey-50);
+    }
+  }
+}

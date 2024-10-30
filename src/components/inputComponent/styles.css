@@ -1,0 +1,217 @@
+.brand-input-icon-block {
+  .brand-label-styles {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 20px;
+    font-family: MacPawFixelSemiBold, "sans-serif";
+    font-size: 12px;
+    color: var(--campaign-default-label-color);
+  }
+
+  .brand-input-icon-wrapper {
+    position: relative;
+    margin: 15px 0;
+
+    .brand-search-icon, .brand-close-icon {
+      position: absolute;
+      top: 14px;
+      cursor: pointer;
+      caret-color: transparent;
+    }
+
+    .position-left {
+      left: 8px;
+    }
+
+    .position-right {
+      right: 10px;
+    }
+
+    .brand-input-styles {
+      width: 100%;
+      height: 40px;
+      padding: 10px 0 10px 20px;
+      margin: 0;
+      box-sizing: border-box;
+      border-radius: 10px;
+      border: 1px solid var(--default-grey-10);
+      outline: none;
+      font-size: 12px;
+
+      &:focus {
+        outline: 1px solid var(--default-green);
+      }
+
+      &.errors {
+        border: 1px solid var(--default-red);
+      }
+
+      &.is-active-icon {
+        padding: 0 25px;
+      }
+    }
+
+    .input-bg-color {
+      background: var(--default-white);
+    }
+
+    .default-input-bg-color {
+      background: var(--btn-icon-bg-pressed);
+    }
+  }
+}
+
+.input-box {
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+
+  label {
+    font-family: MacPawFixelMedium;
+    color: #2A2B3B;
+    font-size: 14px;
+    margin: 5px 0 5px 20px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px 20px;
+    height: 48px;
+    box-sizing: border-box;
+    font-size: 14px;
+    border: 1px solid #D4D5D8;
+    border-radius: 10px;
+    font-family: MacPawFixelMedium;
+    line-height: 25px;
+    outline: #7E9D00;
+  }
+  :focus {
+    border: 1px solid #7E9D00;
+  }
+
+  input::placeholder {
+    font-family: MacPawFixelRegular;
+    font-size: 14px;
+    opacity: 0.3;
+  }
+}
+
+.wrong-input {
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  label {
+    font-family: MacPawFixelMedium;
+    color: #2A2B3B;
+    font-size: 14px;
+    margin: 5px 0 5px 20px;
+  }
+  input{
+    width: 100%;
+    padding: 10px 20px;
+    height: 48px;
+    box-sizing: border-box;
+    font-size: 14px;
+    border: 1.5px solid var(--default-red);
+    border-radius: 10px;
+    font-family: MacPawFixelMedium;
+    line-height: 25px;
+  }
+}
+
+.react-select-container {
+  margin: 10px 0;
+
+  .react-select__control {
+    .react-select__value-container {
+      .react-select__single-value {
+        padding: 10px 0 10px 10px;
+      }
+
+      .react-select__placeholder {
+        padding: 10px 0 10px 10px;
+
+        .select-placeholder-text {
+          font-size: 12px;
+          color: var(--default-grey-50);
+        }
+      }
+    }
+
+    .react-select__indicators {
+    }
+  }
+
+  .react-select__menu {
+    margin: 3px 0;
+
+    .react-select__menu-list {
+      padding: 0;
+
+      .react-select__option {
+        font-size: 12px;
+        background: var(--default-grey-10);
+        display: block;
+        width: 97%;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        background: var(--default-grey-10);
+        padding: 10px;
+        box-sizing: border-box;
+        margin: 8px;
+        border-radius: 10px;
+        color: var(--default-grey-90);
+      }
+    }
+  }
+}
+
+.group-inputs-block {
+  border: 1px solid var(--default-grey-10);
+  border-radius: 10px;
+  background: var(--default-white);
+  padding: 8px 10px;
+
+  &.focused {
+    border: 1px solid var(--default-green);
+  }
+
+  &.errors {
+    border: 1px solid var(--default-red);
+  }
+
+  & input {
+    outline: none;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+  }
+
+  .hr {
+    height: 1px;
+    width: 100%;
+    background: var(--te-icon-bg-pressed);
+  }
+}
+
+.error-message {
+  font-family: MacPawFixelRegular;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: left;
+  color: var(--default-red);
+  padding: 5px 20px;
+}
+
+.brand-group-input-styles {
+  font-size: 12px;
+  padding: 10px 0 10px 10px;
+}

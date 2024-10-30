@@ -1,0 +1,16 @@
+.color-picker {
+  .color-picker_circle {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    margin-right: 10px;
+  }
+  
+  .color-picker_hidden {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+  }
+}

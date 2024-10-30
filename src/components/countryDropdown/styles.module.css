@@ -1,0 +1,120 @@
+/* add css module styles here (optional) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+.container {
+  width: 100%;
+  height: 44px;
+  position: relative;
+  font-family: MacPawFixelMedium;
+}
+
+.dropdown {
+  background: var(--default-white);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  border: 1px solid var(--default-grey-10);
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  padding: 0 20px;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.dropdown_items_wrapper {
+  position: relative;
+  margin-top: 5px;
+  transition: all 0.5s;
+  background: var(--default-white);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.search_icon{
+  position: absolute;
+  left: 20px;
+}
+
+.dropdown_items {
+  padding: 10px;
+  height: 346px;
+  overflow-y: scroll;
+}
+
+.input_wrapper {
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.country_search {
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background: #f4f4f5;
+  padding: 5px 10px 5px 40px;
+  height: 36px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.country_search::placeholder {
+  font-family: 'Poppins';
+  font-size: 13px;
+  color: rgb(168, 168, 168);
+}
+
+/* width */
+.dropdown_items::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.dropdown_items::-webkit-scrollbar-track {
+  background: var(--default-white);
+}
+
+/* Handle */
+.dropdown_items::-webkit-scrollbar-thumb {
+  background: var(--default-grey-20);
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+.dropdown_items::-webkit-scrollbar-thumb:hover {
+  background: #696969;
+}
+
+
+.dropdown_item {
+  margin-bottom: 20px;
+  display: flex;
+  cursor: pointer;
+}
+
+.dropdown_item_title {
+  margin-left: 15px;
+  margin-top: -2px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  color: #484848;
+}
+
+.selected_country {
+  font-size: 15px;
+  font-weight: 500;
+  color: #484848;
+  margin-left: 15px;
+}
+
+.country_flag {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}

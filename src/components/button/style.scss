@@ -1,0 +1,35 @@
+.border-btn{
+  width: 100%;
+  background: transparent;
+  border-radius: 10px;
+  border: 1.50px #BFCE80 solid;;
+  height: 44px;
+  padding: 10px 20px;
+  cursor: pointer;
+  .btn-text{
+    color: var(--default-grey-90);
+    font-size: 14px;
+    font-family: MacPawFixelMedium, "sans-serif";
+  }
+}
+
+.filled-btn{
+  width: 100%;
+  background: var(--default-green);
+  border-radius: 10px;
+  border: none;
+  height: 44px;
+  padding: 10px 20px;
+  cursor: pointer;
+  &:disabled{
+    background: var(--default-grey-10);
+    .btn-text{
+      color: var(--default-grey-40);
+    }
+  }
+  .btn-text{
+    color: var(--default-white);
+    font-size: 14px;
+    font-family: MacPawFixelMedium, "sans-serif";
+  }
+}
