@@ -1,0 +1,43 @@
+.stat-card{
+  padding: 30px;
+  box-sizing: border-box;
+  background: #FAFAFA;
+  border-radius: 20px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  span{
+    color: var(--default-grey-90, #2A2B3B);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: MacPawFixelMedium, 'sans-serif';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%; /* 15.4px */
+    text-transform: capitalize;
+  }
+  .stat-value{
+    display: flex;
+    align-items: flex-end;
+    margin-top: 10px;
+    .value{
+      color: var(--default-grey-90, #2A2B3B);
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-family: MacPawFixelBold;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 110%; /* 26.4px */
+    }
+    p{
+      margin: 0;
+      color: var(--Grey-40, #AAAAB1);
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-family: MacPawFixelBold;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 110%;
+    }
+  }
+}

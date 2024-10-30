@@ -1,0 +1,57 @@
+.line-chart-container {
+  box-sizing: border-box;
+  margin-top: 40px;
+  border-radius: 20px;
+  position: relative;
+  .line-chart-title{
+    position: absolute;
+    top: 0;
+    z-index: 222;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 30px;
+    box-sizing: border-box;
+    .legend{
+      display: flex;
+      align-items: center;
+      .circle{
+        width: 12px;
+        height: 12px;
+        background: #7e9d00;
+        border-radius: 100%;
+      }
+      span{
+        font-family: 'MacPawFixelMedium', sans-serif;
+        color: var(--Grey-50, #95959D);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 110%; /* 15.4px */
+        margin-left: 10px;
+      }
+    }
+    h1{
+      font-family: 'MacPawFixelBold', sans-serif;
+      color: var(--default-grey-90, #2A2B3B);
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 110%; /* 26.4px */
+    }
+  }
+  div{
+    div{
+
+    }
+  }
+  .google-visualization-tooltip {
+    border: 1px solid #ddd; // Customize tooltip border
+    border-radius: 20px;
+    font-family: MacPawFixelBold;
+    background: var(--default-grey-90, #2A2B3B);
+  }
+  .google-visualization-tooltip-square{
+    display: none;
+  }
+}
+// НЕМОЖНА використувати стилі глобально бо це впливає на весь проект

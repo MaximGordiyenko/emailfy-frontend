@@ -1,0 +1,131 @@
+.cam-modal-wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2222;
+  background: rgba(0, 0, 0, 0.80);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .cam-modal{
+    width: 668px;
+    border-radius: 20px;
+    padding: 30px;
+    background: var(--default-white);
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    .cam-title{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      .modal-title{
+        margin: 0;
+        font-family: MacPawFixelBold;
+        color: var(--default-grey-90);
+        font-size: 24px;
+        line-height: 33px;
+      }
+      .modal-title-text{
+        color: var(--Grey-70, #6A6B76);
+        text-align: center;
+        font-family: MacPawFixelMedium, 'sans-serif';
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .close-btn{
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        .close-btn-icon{
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+    .cam-modal-cards{
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      width: 100%;
+      .modal-card{
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 29px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        position: relative;
+        border: 1px solid transparent; /* Add a transparent border by default */
+        transition: border-color 0.3s;
+        .modal-card-upgrade{
+          position: absolute;
+          top: -12px;
+          height: 24px;
+          padding: 0 10px;
+          border-radius: 24px;
+          box-sizing: border-box;
+          background-color: var(--default-green);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 5px;
+          .modal-card-upgrade-icon{
+            width: 12px;
+            height: 12px;
+          }
+          .modal-card-upgrade-text{
+            font-family: MacPawFixelMedium;
+            font-size: 10px;
+            letter-spacing: 0.05em;
+            color: var(--default-white);
+          }
+        }
+        .modal-main-img{
+          width: 120px;
+          height: 120px;
+        }
+        .modal-card-title{
+          color: var(--default-grey-90);
+          font-family: MacPawFixelBold;
+          font-size: 16px;
+        }
+        &:hover {
+          border: 1px solid var(--hover-color);
+        }
+
+        &:hover {
+          --hover-color: var(--default-white); // Default hover color, change it to your default border color
+        }
+
+        // Set unique hover colors for each card
+        &:hover[data-hover="#7E9D00"] {
+          --hover-color: #7E9D00; // Color from MODAL_CARDS[0].hover
+        }
+
+        &:hover[data-hover="#666DA5"] {
+          --hover-color: #666DA5; // Color from MODAL_CARDS[1].hover
+        }
+
+        &:hover[data-hover="#D36700"] {
+          --hover-color: #D36700; // Color from MODAL_CARDS[2].hover
+        }
+      }
+    }
+  }
+}

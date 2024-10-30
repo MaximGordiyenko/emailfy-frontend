@@ -1,0 +1,39 @@
+.subs-list{
+  height: 400px;
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 70px;
+  .subs-stat-box{
+    width: 215px;
+    height: 57px;
+    .stat-tittle{
+      display: flex;
+      align-items: center;
+      .country-name{
+        color: var(--Grey-40, #AAAAB1);
+        font-family: MacPawFixelMedium, 'sans-serif';
+        font-size: 12px;
+        line-height: 110%; /* 13.2px */
+        margin-left: 5px;
+      }
+    }
+    .count-subs{
+      display: flex;
+      .percentage{
+        color: var(--default-grey-90, #2A2B3B);
+        font-family: MacPawFixelBold, "sans-serif";
+        font-size: 20px;
+        line-height: 110%; /* 22px */
+      }
+      .count{
+        color: var(--Grey-40, #AAAAB1);
+        font-family: MacPawFixelBold, 'sans-serif';
+        font-size: 12px;
+        line-height: 110%;
+        align-self: flex-end;
+        margin-left: 5px;
+      }
+    }
+  }
+}

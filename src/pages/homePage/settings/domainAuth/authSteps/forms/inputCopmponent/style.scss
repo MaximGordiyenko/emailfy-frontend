@@ -1,0 +1,53 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  label{
+    align-self: flex-start;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  .custom-copy-input{
+    border-radius: 10px;
+    border: 1px solid var(--grey-10, #EAEAEC);
+    background: var(--main-palette-white, #FAFAFA);
+    display: flex;
+    height: 48px;
+    padding: 10px 48px 10px 20px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    box-sizing: border-box;
+    outline: none;
+  }
+  img{
+    position: absolute;
+    right: 20px;
+    top: 54%;
+    cursor: pointer;
+  }
+  .copy-input-success{
+    width: 60px;
+    height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    top: 74px;
+    border-radius: 0 0 6px 6px;
+    background-color: var(--default-green);
+    color: var(--default-white);
+    transition: .2s;
+    span{
+      visibility: hidden;
+    }
+    &.show-tooltip{
+      height: 30px;
+      span{
+        visibility: visible;
+      }
+    }
+  }
+}
