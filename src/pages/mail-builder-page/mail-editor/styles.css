@@ -1,0 +1,402 @@
+.mail-editor {
+  background: var(--default-white);
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 5px;
+
+  &.is-preview-mode {
+    min-height: 0;
+    overflow: auto;
+  }
+
+  &.is-desktop-mode {
+    width: 700px;
+    min-height: 80vh;
+    overflow: hidden;
+  }
+
+  &.is-mobile-mode {
+    width: 320px;
+    height: 80vh;
+    border: 5px solid var(--border-color);
+    border-radius: 30px;
+    caret-color: transparent;
+  }
+
+  &.is-editor-mode {
+    max-width: 700px;
+    min-height: 80vh;
+  }
+
+  .initial-editor-placeholder {
+    border: 1px dashed var(--default-grey-50);
+    border-radius: 5px;
+    font-family: MacPawFixelMedium;
+    caret-color: transparent;
+
+    .placeholder-top-text {
+      color: var(--default-grey-50);
+      text-align: center;
+    }
+
+    .placeholder-bottom-text {
+      color: var(--default-grey-50);
+      font-weight: 700;
+      text-align: center;
+    }
+  }
+
+  /*styles apply while dragging block from init tabs to editor*/
+  .building-blocks-item {
+    .building-icon {
+      display: none;
+    }
+
+    .building-text {
+      display: none;
+    }
+
+    &.on-drag-splitter {
+      display: block;
+    }
+  }
+
+  .layout-blocks-item {
+    .layout-icon {
+      display: none;
+    }
+
+    &.on-drag-splitter {
+      display: block;
+    }
+  }
+
+  .editor-block {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 0;
+    margin: 5px 0;
+
+    &:hover {
+      .paragraph-build-block + .border-over-child,
+      .heading-build-block + .border-over-child,
+      .html-build-block + .border-over-child,
+      .list-build-block + .border-over-child,
+      .button-build-block + .border-over-child,
+      .image-build-block + .border-over-child,
+      .spacing-build-block + .border-over-child,
+      .divider-build-block + .border-over-child,
+      .social-build-block + .border-over-child,
+      .footer-build-block + .border-over-child,
+      .video-build-block + .border-over-child,
+      .giphy-build-block + .border-over-child {
+        border: 1px solid var(--default-green-bg-hover);
+      }
+    }
+
+    .is-active-icon-delete {
+      display: none;
+
+      & rect {
+        fill: var(--default-green);
+
+        &:hover {
+          fill: var(--default-green-bg-pressed);
+        }
+      }
+    }
+
+    .video-container {
+      width: 100%;
+
+      .video-build-block {
+        .link-of-player {
+          position: relative;
+          display: block;
+
+          .image-of-player {
+            display: block;
+          }
+
+          .button-of-player {
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 100%;
+            background: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+
+          .button-of-player::after {
+            content: '';
+            border-top: 15px solid transparent;
+            border-left: 20px solid #000;
+            border-bottom: 15px solid transparent;
+            position: absolute;
+            top: 20%;
+            left: 36%;
+          }
+
+          .button-of-player:hover {
+            cursor: pointer;
+            opacity: 0.8;
+            border: 3px solid #fff;
+            position: absolute;
+            box-shadow: none;
+          }
+        }
+      }
+
+    }
+
+    /* Shows border around child block */
+    .border-over-child {
+      display: block;
+      position: absolute;
+      top: -1px;
+      height: 100%;
+      border-radius: 5px;
+
+      &:hover {
+        border: 1px solid var(--default-green-bg-hover);
+      }
+    }
+
+    .border-over-child.is-active-border {
+      border: 1px solid var(--default-green-bg-hover);
+    }
+
+    .layout-child.layout-tab-active {
+      border: 1px dashed var(--default-green);
+    }
+
+    .layout-container {
+      display: flex;
+      width: 100%;
+
+      @media(max-width: 768px) {
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      &.is-layout-container-mobile-mode {
+        flex-wrap: wrap;
+      }
+
+      .layout-child {
+        z-index: 1;
+        position: relative;
+        text-align: center;
+
+        @media(max-width: 768px) {
+          width: 100%!important;
+        }
+
+        &.is-layout-child-mobile-mode {
+          margin: 0 0 10px 0;
+        }
+
+        &:not(:first-child) {
+          margin-left: 5px;
+        }
+
+        /* hide splitter inside editor while item moves */
+        .on-drag-splitter {
+          display: none;
+        }
+
+        /* add border around content of the child block only */
+        .is-active-content-border {
+          border: 1px dotted var(--default-green-bg-hover);
+        }
+
+        /* add border around content of the child block on hover only */
+        .is-hover-block:hover {
+          border: 1px solid var(--default-green-bg-hover);
+        }
+
+        .giphy-container {
+          .giphy-build-block {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 100px;
+            z-index: 3;
+
+            &::after {
+              border: none;
+            }
+          }
+        }
+
+        .video-container {
+          .video-build-block {
+            position: relative;
+
+            &.no-linkable-content {
+              z-index: -1;
+            }
+
+            &::after {
+              border: none;
+            }
+          }
+        }
+      }
+
+      .drop-your-content-here {
+        min-height: 130px;
+        height: 100px;
+        width: 100%;
+        border: 1px dashed var(--border-color);
+        color: var(--default-grey-30);
+        caret-color: transparent;
+        font-family: MacPawFixelMedium;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .layout-child.drop-your-content-here::after {
+        content: 'Drop your content here';
+        caret-color: transparent;
+        color: var(--default-grey-50);
+        font-family: MacPawFixelMedium;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      /* Additional style for ::after pseudo-element during drag-over */
+      .layout-child.drop-your-content-here.highlight-layout-child::after {
+        color: var(--default-green);
+      }
+
+      .layout-child.highlight-layout-child {
+        border: 0.1rem solid var(--default-green-bg-hover);
+      }
+
+      .is-active-icon-delete {
+        display: block;
+        position: absolute;
+        left: calc(50% - 22px);
+        cursor: pointer;
+        margin: 5px 0 0 0;
+      }
+
+      .is-active-icon-drag::after {
+        content: url(../../../assets/images/dragIcon.svg);
+        cursor: move;
+        position: relative;
+        top: 5px;
+        left: 12px;
+      }
+    }
+  }
+
+  /*hide item by default then show when click-hold*/
+  .sortable-chosen {
+    border: none;
+
+    &:hover {
+      border: none;
+    }
+
+    &:active {
+      border: none;
+    }
+  }
+
+  /*hide draggable item*/
+  .sortable-ghost {
+    .build-block-content {
+      display: none;
+    }
+
+    /* StickyIcon */
+    .icon-button {
+      display: none;
+    }
+  }
+
+  .sortable-ghost:hover {
+    border: none;
+  }
+
+  .sortable-ghost:active {
+    border: none;
+  }
+
+  /*shows placeholder 'drop content here' inside editor while item moves*/
+  .sortable-ghost .on-drag-splitter {
+    display: block;
+  }
+
+  .on-drag-splitter {
+    display: none;
+    position: relative;
+    text-align: center;
+    font-weight: 700;
+    font-size: 10px;
+    font-family: MacPawFixelMedium;
+    width: 100%;
+    margin: 20px auto;
+    color: var(--default-green);
+  }
+
+  .on-drag-splitter::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--default-green);
+    transform: translateY(-50%);
+  }
+
+  .on-drag-splitter::after {
+    content: 'Drop your contnet here';
+    display: inline-block;
+    position: relative;
+    background-color: white;
+    border: 1px solid var(--default-green);
+    border-radius: 40px;
+    padding: 5px 10px;
+    line-height: 1;
+    z-index: 1;
+  }
+
+  /* GIPHY */
+  .giphy-build-block.drop-your-content-here::after {
+    content: 'GIPHY';
+  }
+
+  .video-build-block.drop-your-content-here::after {
+    content: 'VIDEO';
+  }
+
+  .giphy-build-block.drop-your-content-here::after,
+  .video-build-block.drop-your-content-here::after {
+    caret-color: transparent;
+    color: var(--default-grey-50);
+    text-align: center;
+    font-family: Kinetika;
+    font-size: 24px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    min-height: 100px;
+    width: 100%;
+  }
+}

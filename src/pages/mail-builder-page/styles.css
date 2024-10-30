@@ -1,0 +1,40 @@
+.mail-builder-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f2f2f2;
+  justify-content: space-between;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  
+  .workspace-container {
+    margin: 80px 0 0 0;
+    display: flex;
+    flex: 1;
+    
+    .workspace-tools {
+      box-sizing: border-box;
+      background-color: #ffffff;
+      border: 1px solid #e8e8e8;
+    }
+    
+    .workspace-editor {
+      width: 100%;
+      height: 90vh;
+      margin: 0 auto;
+      overflow: auto;
+      
+      &.is-mobile-mode {
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+@media (max-width: 1280px) and (max-height: 800px) {
+  .curr-tag {
+    .tag-box {
+      margin: 90px 0 0 17vw;
+    }
+  }
+}
