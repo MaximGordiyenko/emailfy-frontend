@@ -1,0 +1,188 @@
+.icon-button_close:hover circle {
+  fill: var(--btn-icon-bg-hover);
+  cursor: pointer;
+}
+
+/* StickyIcon of BorderOverChild component */
+.icon-button {
+  visibility: hidden;
+  position: relative;
+  top: 3px;
+  right: 0;
+  z-index: 2;
+  background-color: initial;
+  border: none;
+  cursor: pointer;
+  width: 35px;
+  height: 25px;
+  padding: 4px;
+
+  & > .sticky-icon {
+    border-radius: 0;
+  }
+
+  &:nth-of-type(2) {
+    right: -30px;
+    top: -22px;
+  }
+
+  &:nth-of-type(3) {
+    right: -60px;
+    top: -47px;
+  }
+
+  &.is-active {
+    visibility: visible;
+
+    & rect {
+      fill: var(--default-green);
+
+      &:hover {
+        fill: var(--default-green-bg-pressed);
+      }
+    }
+  }
+}
+
+.icon-button-horizontal {
+  visibility: hidden;
+  background-color: initial;
+  border: none;
+  cursor: pointer;
+  margin: 5px 0 0 0;
+
+  &:nth-of-type(1) svg {
+    transform: rotate(90deg);
+  }
+
+  &.active {
+    visibility: visible;
+
+    & rect {
+      fill: var(--default-green);
+
+      &:hover {
+        fill: var(--default-green-bg-pressed);
+      }
+    }
+  }
+}
+
+/* Parent .media-query-btn-wrapper in the Header */
+.media-query-icon-btn {
+  & path {
+    stroke: var(--default-grey-30);
+  }
+
+  &:hover path {
+    stroke: var(--default-grey-50);
+  }
+
+  &.is-desktop path, &.is-mobile path {
+    stroke: var(--default-grey-90);
+  }
+}
+
+.tool-btn-icon {
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 10px 30px;
+
+  &:hover {
+    border: 1px solid var(--border-color-btn-hover);
+  }
+
+  & path {
+    stroke: var(--default-grey-30);
+  }
+
+  &:hover path {
+    stroke: var(--default-grey-50);
+  }
+}
+
+.undo-icon, .redo-icon {
+  & path {
+    stroke: var(--default-grey-30);
+  }
+
+  &:hover path {
+    stroke: var(--default-grey-50);
+  }
+}
+
+.btn-preview-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  margin: 0 10px;
+
+  &.campaign-modal {
+    border: 1px solid var(--campaign-btn-border-color);
+  }
+
+  &:hover {
+    border: 1px solid var(--border-color-btn-hover);
+  }
+
+  .btn-preview-text {
+    opacity: .3;
+  }
+
+  &:hover .btn-preview-text {
+    opacity: 1;
+  }
+
+  .btn-preview-icon {
+    opacity: .3;
+    padding: 0 5px;
+  }
+
+  &:hover .btn-preview-icon {
+    opacity: 1;
+  }
+}
+
+.brand-button-styles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  color: var(--default-grey-50);
+  width: 100%;
+  margin: 20px 0;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-family: MacPawFixelMedium;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:not(:first-child) {
+    margin-left: 30px;
+  }
+
+  &:hover {}
+
+  &.brand-btn-variant-active {
+    color: var(--default-white);
+    background: var(--default-green);
+
+    &:hover {
+      background: var(--default-green-bg-hover);
+    }
+  }
+
+  &.brand-btn-variant-passive {
+    color: var(--btn-icon-color-default);
+    background: var(--btn-icon-bg-default);
+
+    &:hover {
+      background: var(--btn-icon-bg-hover);
+    }
+  }
+}

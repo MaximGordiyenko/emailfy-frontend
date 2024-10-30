@@ -1,0 +1,40 @@
+.input-pass-box{
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  position: relative;
+  label{
+    font-family: MacPawFixelMedium;
+    color: #2A2B3B;
+    font-size: 14px;
+    margin: 5px 0 5px 20px;
+  }
+  input{
+    width: 100%;
+    padding: 10px 20px;
+    height: 44px;
+    box-sizing: border-box;
+    font-size: 14px;
+    border: 1.5px solid #D4D5D8;
+    border-radius: 10px;
+    font-family: MacPawFixelMedium;
+    line-height: 25px;
+    outline: #7E9D00;
+  }:focus{
+     border: 1.5px solid #7E9D00;
+   }
+  input::placeholder{
+    font-family: MacPawFixelRegular;
+    font-size: 14px;
+    opacity: 0.3;
+  }
+  img{
+    top:52%;
+    right: 20px;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+  }
+}
