@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import dropdown from '../../assets/images/dropdownActive.png';
 import dropdownblack from '../../assets/images/blackdropdown.png';
-import calendar from '../../assets/images/Dashboard/Linear/Time/Calendar.svg';
+import calendar from '../../assets/images/dashboard/calendar-icon.svg';
 const DashboardDropdown = ({ label, options, onSelect, isSelectedItem, placeholder }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isOpen, setIsOpen] = useState(false);

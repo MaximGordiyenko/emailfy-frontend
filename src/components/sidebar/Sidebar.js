@@ -1,26 +1,24 @@
-import './style.scss';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
+
+import { useDispatch } from 'react-redux';
+import { clearFields } from '../../store/campaignSlice';
 
 import settingsIcon from '../../assets/images/settings-outline.svg';
 import audienceIcon from '../../assets/images/audience-outline.svg';
-import dashboardIcon from '../../assets/images/dashboard-outline.svg';
+import dashboardIcon from '../../assets/images/dashboard/db-outline-dark-icon.svg';
 import campaignsIcon from '../../assets/images/campaigns-outline.svg';
-import analyticsIcon from '../../assets/images/analytics-outline.svg';
-
+import analyticsIcon from '../../assets/images/analytic/analytics-outline.svg';
 import audienceActiveIcon from '../../assets/images/audience-filled.svg';
-import dashboardActiveIcon from '../../assets/images/dashboard-filled.svg';
+import dashboardActiveIcon from '../../assets/images/dashboard/db-filled-white-icon.svg';
 import campaignsActiveIcon from '../../assets/images/campaigns-filled.svg';
 import settingsActiveIcon from '../../assets/images/settings-filled.svg';
 import analyticsActiveIcon from '../../assets/images/analytics-filled.svg';
-
 import logo from '../../assets/images/logoRedesigned.png';
-// import wallet from '../../assets/images/Compaigns/Bold/Money/Wallet 2.svg';
-// import currency from '../../assets/images/Compaigns/Union.svg';
-import stars from '../../assets/images/Compaigns/Bold/Weather/Stars.svg';
+import stars from '../../assets/images/compaigns/Stars.svg';
+
 import { Logout } from '../logoutPopup/Logout';
-import { clearFields } from '../../store/campaignSlice';
-import { useDispatch } from 'react-redux';
+import './styles.css';
 
 const sidebarItems = [
   {
@@ -44,7 +42,6 @@ const sidebarItems = [
     path: '/audience',
     id: 3,
   },
-  // { img: img5, img2: img10, title: 'Tags', path: '/tags', id: 4 },
   {
     img: campaignsIcon,
     img2: campaignsActiveIcon,
@@ -97,18 +94,11 @@ export const Sidebar = () => {
   };
 
   return showSideBar ? (
-    <div className="sidebar-wrapper">
+    <div className="sidebar-container">
       <div className="upper-box">
         <div className="side-logo">
           <img src={logo} alt="side-logo" />
         </div>
-        {/*<div className={'balance'}>*/}
-        {/*  <img src={wallet} alt={'sidebar-wallet'} />*/}
-        {/*  <div className={'count-balance'}>*/}
-        {/*    <img src={currency} alt={'sidebar-currency'} />*/}
-        {/*    <span>2800.00</span>*/}
-        {/*  </div>*/}
-        {/*</div>*/}
         {sidebarItems.map((item, index) => {
           const isCurrPath = location.pathname.includes(item.path);
           return (
@@ -137,13 +127,6 @@ export const Sidebar = () => {
         })}
       </div>
       <div className={'lower-tabs'}>
-        <div className={'upgrade-plan'}>
-          <img src={stars} alt={'sidebar-stars'} />
-          <div className={'sidebar-up-plane'}>
-            <span className={'up-plan-span'}>Upgrade plan</span>
-            <p className={'up-plan-text'}>Get the most out of Emailfy</p>
-          </div>
-        </div>
         <Logout onLogout={handleNav} />
       </div>
     </div>

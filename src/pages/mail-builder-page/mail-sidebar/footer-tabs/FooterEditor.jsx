@@ -6,9 +6,9 @@ import Typography from '@mui/material/Typography';
 
 import { Accordion } from '../../../../components/accordion/Accordion';
 
-import TextSquare from '../../../../assets/icons/tab/footer/TextSquare.svg';
-import ChatRoundLike from '../../../../assets/icons/tab/footer/ChatRoundLike.svg';
-import UserMinusRounded from '../../../../assets/icons/tab/footer/UserMinusRounded.svg';
+import TextSquare from '../../../../assets/images/footer/TextSquare.svg';
+import ChatRoundLike from '../../../../assets/images/footer/ChatRoundLike.svg';
+import UserMinusRounded from '../../../../assets/images/footer/UserMinusRounded.svg';
 
 import { MailBuilderContext } from '../../../../context/MailBuilderContext';
 

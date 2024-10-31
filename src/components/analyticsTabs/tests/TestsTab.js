@@ -1,5 +1,5 @@
 import './style.scss';
-import noStatsCampaigns from '../../../assets/images/Dashboard/Frame 981287.svg';
+import noStatsCampaigns from '../../../assets/images/dashboard/Frame 981287.svg';
 import { useNavigate } from 'react-router-dom';
 export const TestsTab = () => {
   const navigate = useNavigate();

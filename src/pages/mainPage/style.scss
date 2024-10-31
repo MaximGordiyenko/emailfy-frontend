@@ -1,32 +1,3 @@
-.mainpage {
-  display: flex;
-  background-color: var(--default-white);
-  height: 100vh;
-  width: 100vw;
-  justify-content: space-evenly;
-  align-items: center;
-  position: relative;
-  padding: 30px;
-  box-sizing: border-box;
-  z-index: 999;
-  .img-wrapper {
-    width: 50%;
-    border-radius: 30px;
-    height: 100%;
-    align-self: flex-start;
-    background: url('../../assets/images/Log-in_IMG (1).jpg') center no-repeat;
-    background-size: cover;
-  }
-  .main-form-wrapper {
-    width: 50%;
-    height: 800px;
-    z-index: 222;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-  }
-}
-
 .verify {
   display: flex;
   background-color: #f2f2f2;
@@ -37,43 +8,51 @@
   z-index: 999;
   padding: 30px;
   box-sizing: border-box;
+  
   .verify-message {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     width: 50%;
+    
     .inner-text {
       width: 400px;
+      
       .verify-title {
         font-family: MacPawFixelBold;
         color: var(--default-grey-90);
         font-size: 32px;
       }
+      
       .text-verify {
         font-family: MacPawFixelMedium;
         font-size: 14px;
         color: var(--default-grey-90);
+        
         span {
           color: var(--default-green);
         }
       }
     }
+    
     .resend {
       cursor: default;
       font-family: MacPawFixelMedium;
       font-weight: normal;
       color: var(--default-grey-50);
       font-size: 14px;
+      
       a {
         cursor: pointer;
         color: var(--default-green);
       }
     }
   }
+  
   .img-wrapper {
     width: 50%;
-    background: url('../../assets/images/Log-in_IMG (1).jpg') center no-repeat;
+    background: url('../../assets/images/login-page/LoginPageBrandLogo.jpg') center no-repeat;
     background-size: cover;
     height: 100%;
     border-radius: 30px;
@@ -90,42 +69,49 @@
   z-index: 999;
   padding: 30px;
   box-sizing: border-box;
+  
   .inner-confirm-box {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     width: 50%;
+    
     .confirm-message {
       width: 400px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      
       .confirm-title {
         font-family: MacPawFixelBold;
         color: var(--default-grey-90);
         font-size: 32px;
         margin: 0;
       }
+      
       .confirm-text {
         margin: 0;
         font-family: MacPawFixelMedium;
         font-size: 14px;
         color: var(--default-grey-90);
         cursor: default;
+        
         span {
           color: var(--default-green);
         }
       }
+      
       .filled-btn {
         width: 205px;
         margin-top: 30px;
       }
     }
   }
+  
   .img-wrapper {
     width: 50%;
-    background: url('../../assets/images/Log-in_IMG (1).jpg') center no-repeat;
+    background: url('../../assets/images/login-page/LoginPageBrandLogo.jpg') center no-repeat;
     background-size: cover;
     height: 100%;
     border-radius: 30px;
@@ -144,11 +130,13 @@
   z-index: 999;
   padding: 30px 30px 30px 140px;
   box-sizing: border-box;
+  
   .text-wrapper {
     max-width: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
     p {
       color: var(--main-palette-dark, #2a2b3b);
       font-family: MacPawFixelMedium;
@@ -157,10 +145,12 @@
       font-weight: 500;
       line-height: normal;
       margin: 0;
+      
       b {
         color: #7e9d00;
       }
     }
+    
     span {
       color: var(--grey-50, #95959d);
       text-align: center;
@@ -169,16 +159,19 @@
       font-style: normal;
       font-weight: 500;
       line-height: normal;
+      
       b {
         color: #7e9d00;
         cursor: pointer;
         font-family: MacPawFixelBold;
       }
     }
+    
     .two-factor-input-box {
       display: flex;
       gap: 5px;
       margin: 30px 0;
+      
       input {
         width: 30px;
         height: 40px;
@@ -187,11 +180,13 @@
         border: none;
         border-radius: 10px;
         outline: none;
+        
         &:after {
           outline: 1px solid #7e9d00; // Darken the outline color on active
         }
       }
     }
+    
     button {
       display: flex;
       margin: 20px 0 20px;
@@ -205,24 +200,29 @@
       justify-content: center;
       padding: 10px 20px;
       border-radius: 10px;
+      
       div {
         color: #f2f2f2;
         font-family: MacPawFixelMedium;
       }
+      
       :disabled {
         div {
           opacity: 0.5;
         }
       }
     }
+    
     button:hover {
       opacity: 0.8;
     }
   }
+  
   .img-wrapper {
     width: 50%;
     height: 100%;
     box-sizing: border-box;
+    
     .confirmated-img {
       width: 100%;
       height: 100%;
@@ -244,43 +244,50 @@
   z-index: 999;
   padding: 30px;
   box-sizing: border-box;
+  
   .img-wrapper {
     width: 50%;
-    background: url('../../assets/images/Log-in_IMG (1).jpg') center no-repeat;
+    background: url('../../assets/images/login-page/LoginPageBrandLogo.jpg') center no-repeat;
     background-size: cover;
     height: 100%;
     border-radius: 30px;
   }
+  
   .form-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: left;
     width: 50%;
-    .request-accepted{
+    
+    .request-accepted {
       width: 400px;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 30px;
       text-align: center;
-      .accepted-req-title{
+      
+      .accepted-req-title {
         margin: 0 20px;
         max-width: 400px;
         font-family: MacPawFixelBold;
         font-size: 32px;
         color: var(--default-grey-90);
       }
-      .send-text{
+      
+      .send-text {
         margin: 10px 20px 0;
         font-family: MacPawFixelMedium;
         font-size: 14px;
         color: var(--default-grey-90);
-        span{
+        
+        span {
           color: var(--default-green);
         }
       }
-      .resend{
+      
+      .resend {
         color: var(--grey-50, #95959d);
         text-align: center;
         font-family: MacPawFixelMedium;
@@ -288,6 +295,7 @@
         font-style: normal;
         font-weight: 500;
         line-height: normal;
+        
         a {
           color: #7e9d00;
           cursor: pointer;
@@ -295,6 +303,7 @@
         }
       }
     }
+    
     .inner-content {
       width: 400px;
       display: flex;
@@ -302,8 +311,10 @@
       align-items: center;
       gap: 30px;
       text-align: left;
+      
       .description-box {
         width: 100%;
+        
         .forgot-title {
           margin: 0 20px;
           max-width: 400px;
@@ -311,6 +322,7 @@
           font-size: 32px;
           color: var(--default-grey-90);
         }
+        
         .forgot-text {
           margin: 10px 20px 0;
           font-family: MacPawFixelMedium;
@@ -318,13 +330,15 @@
           color: var(--default-grey-90);
         }
       }
+      
       .form {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         text-align: left;
         width: 400px;
-        .filled-btn{
+        
+        .filled-btn {
           margin-top: 20px;
         }
       }
@@ -332,7 +346,7 @@
   }
 }
 
-.reset-wrapper{
+.reset-wrapper {
   display: flex;
   background-color: var(--default-white);
   height: 100vh;
@@ -343,12 +357,14 @@
   padding: 30px;
   box-sizing: border-box;
   z-index: 999;
+  
   .form-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: left;
     width: 50%;
+    
     .inner-content {
       width: 400px;
       display: flex;
@@ -356,6 +372,7 @@
       align-items: center;
       gap: 30px;
       text-align: left;
+      
       .forgot-title {
         margin: 0 20px;
         max-width: 400px;
@@ -363,26 +380,31 @@
         font-size: 32px;
         color: var(--default-grey-90);
       }
+      
       .form {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         text-align: left;
         width: 400px;
+        
         .pass-reset, .pass-repeat {
           display: flex;
           flex-direction: column;
           width: 100%;
           align-items: flex-start;
+          
           label {
             font-family: MacPawFixelMedium;
             color: #2A2B3B;
             font-size: 14px;
             margin: 0 0 5px 20px;
           }
+          
           .pass-input {
             width: 100%;
             position: relative;
+            
             .reg-pass-field {
               width: 100%;
               padding: 10px 20px;
@@ -395,14 +417,17 @@
               line-height: 25px;
               outline: none;
             }
+            
             :focus {
               border: 1.5px solid #7E9D00;
             }
+            
             .reg-pass-field::placeholder {
               font-family: MacPawFixelRegular;
               font-size: 14px;
               opacity: 0.3;
             }
+            
             img {
               position: absolute;
               right: 12px;
@@ -411,11 +436,13 @@
               height: 24px;
               cursor: pointer;
             }
-            .eye-hide{
+            
+            .eye-hide {
               display: none;
             }
           }
-          .wrong-pass-field{
+          
+          .wrong-pass-field {
             width: 100%;
             padding: 10px 20px;
             height: 48px;
@@ -427,38 +454,44 @@
             line-height: 25px;
           }
         }
-        .input-reset-conditions{
+        
+        .input-reset-conditions {
           width: 100%;
           margin: 10px 0 20px;
-          li{
+          
+          li {
             font-family: MacPawFixelMedium;
             font-size: 14px;
             color: var(--default-grey-90);
             opacity: 0.4;
           }
         }
-        .error-conditions{
+        
+        .error-conditions {
           width: 100%;
           margin: 10px 0 20px;
-          li{
+          
+          li {
             font-family: MacPawFixelMedium;
             font-size: 14px;
             color: var(--default-red);
             opacity: 1;
           }
         }
-        .filled-btn{
+        
+        .filled-btn {
           margin-top: 20px;
         }
       }
     }
   }
+  
   .img-wrapper {
     width: 50%;
     border-radius: 30px;
     height: 100%;
     align-self: flex-start;
-    background: url('../../assets/images/Log-in_IMG (1).jpg') center no-repeat;
+    background: url('../../assets/images/login-page/LoginPageBrandLogo.jpg') center no-repeat;
     background-size: cover;
   }
 }

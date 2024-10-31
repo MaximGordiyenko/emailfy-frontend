@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './styles.module.css';
 import { CaretDownIcon } from './assets/caret-down';
-import search from '../../assets/images/Linear/Search/Minimalistic Magnifer.svg';
+import search from '../../assets/images/Minimalistic Magnifer.svg';
 import { Loader } from '../loader/Loader';
 
 export const ReactCountryDropdown = (props) => {

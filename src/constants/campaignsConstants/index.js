@@ -1,6 +1,6 @@
-import html from '../../assets/images/Compaigns/Frame 980935.svg';
-import text from '../../assets/images/Compaigns/Frame 980936.svg';
-import custom from '../../assets/images/Compaigns/Frame 980938.svg';
+import html from '../../assets/images/compaigns/Frame 980935.svg';
+import text from '../../assets/images/compaigns/Frame 980936.svg';
+import custom from '../../assets/images/compaigns/Frame 980938.svg';
 import blackHole from '../../assets/images/blackHole.svg';
 import emails from '../../assets/images/emails.png';
 import all from '../../assets/images/all.png';

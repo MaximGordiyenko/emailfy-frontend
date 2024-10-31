@@ -1,7 +1,7 @@
 import './style.scss';
 import circle from '../../../assets/images/CheckCircle.png';
 import ProgressBar from '../../../components/progressBar/ProgressBar';
-import audience from '../../../assets/images/audienceicon.png';
+import audience from '../../../assets/images/audience/audienceicon.png';
 
 export const GetStarted = () => {
   const completed = 1;

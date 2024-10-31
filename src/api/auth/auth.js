@@ -1,4 +1,24 @@
 import axios from 'axios';
+import { authApi } from '../base';
+
+export async function signUp(login, password) {
+  return await authApi.post(`/api/auth/account/signup`, {
+    email: login,
+    password: password,
+  });
+}
+
+export async function signIn(email, password, remember) {
+  return await authApi.post(`/api/auth/account/signin`, {
+    email,
+    password,
+    remember,
+  });
+}
+
+export async function getRefreshToken() {
+  return await authApi.post(`/api/auth/account/refreshToken`);
+}
 
 export async function signup(login, password) {
   return await axios.post(`/api/auth/signup`, {

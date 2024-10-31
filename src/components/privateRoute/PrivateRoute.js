@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAccessToken } from '../../api/auth/auth';
-import { MainPage } from '../../pages/mainPage/MainPage';
+import { AuthLayout } from '../layouts/AuthLayout';
 
 const PrivateRoute = ({ element }) => {
   const [isLogged, setIsLogged] = useState(false);
@@ -14,12 +14,12 @@ const PrivateRoute = ({ element }) => {
         setIsLogged(true);
       } else {
         setIsLogged(false);
-        navigate('/loginpage');
+        navigate('/signIn');
       }
     })();
   }, []);
 
-  return <>{isLogged ? element : <MainPage />}</>;
+  return <>{isLogged ? element : <AuthLayout />}</>;
 };
 
 export default PrivateRoute;

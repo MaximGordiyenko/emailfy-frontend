@@ -1,25 +1,11 @@
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { clearFields } from '../../store/campaignSlice';
-import './styles.scss';
+import './styles.css';
 
 const BrandHeader = ({ icon, description, params, content }) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const handleDescriptionClick = () => {
     navigate('/' + description.toLowerCase());
-    dispatch(
-      clearFields([
-        'campaign_name',
-        'subject',
-        'from_name',
-        'from_email',
-        'sendTo',
-        'html',
-        'campaign_text',
-      ]),
-    );
   };
 
   return (

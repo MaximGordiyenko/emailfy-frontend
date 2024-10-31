@@ -20,7 +20,10 @@ export const VerifyPage = () => {
             <span>{enteredEmail}</span>
           </p>
           <h5 className={'resend'}>
-            Didn&apos;t get the email? <a onClick={handleNav} href="">Resend</a>
+            Didn&apos;t get the email?{' '}
+            <a onClick={handleNav} href="#">
+              Resend
+            </a>
           </h5>
         </div>
       </div>

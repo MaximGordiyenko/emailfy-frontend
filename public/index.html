@@ -8,96 +8,10 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo512.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Emailfy</title>
-<!--    <script>-->
-<!--      document.onreadystatechange = function () {-->
-<!--        if (document.readyState !== 'complete') {-->
-<!--          document.querySelector('body').style.visibility = 'hidden';-->
-<!--          document.querySelector('.holder').style.visibility = 'visible';-->
-<!--        } else {-->
-<!--          document.querySelector('.holder').style.display = 'none';-->
-<!--          document.querySelector('body').style.visibility = 'visible';-->
-<!--        }-->
-<!--      };-->
-<!--    </script>-->
-    <style>
-      .holder {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        z-index: 2222;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #FBFBFB;
-        opacity: 1;
-        transition: opacity 0.5s ease-in-out;
-      }
-      
-      .loader-gif {
-        z-index: 222;
-        width: 200px;
-        height: 200px;
-      }
-      
-      .holder-hide {
-        display: none!important;
-      }
-      
-      .preloader div {
-        position: absolute;
-        width: 70%;
-        height: 70%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        overflow: hidden;
-        animation: animatePreloader 1s infinite linear;
-        transform-origin: 50% 100%;
-      }
-      
-      .preloader div:before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 50%;
-        top: 50%;
-        transform: translateX(-50%);
-        border: 3px solid #fafafa;
-        border-radius: 50%;
-        box-sizing: border-box;
-      }
-      
-      .preloader div:nth-child(2) {
-        width: 30%;
-        height: 30%;
-        top: 20%;
-        animation: animatePreloader 0.5s infinite linear;
-      }
-      
-      @keyframes animatePreloader {
-        0% {
-          transform: translateX(-50%) translateY(-50%) rotateZ(0deg);
-        }
-        100% {
-          transform: translateX(-50%) translateY(-50%) rotateZ(360deg);
-        }
-      }
-    </style>
+    <script src="http://localhost:8097"></script>
   </head>
   <body>
     <div id="root"></div>
     <div id="modal"></div>
-<!--    <div class="holder">-->
-<!--      <img class="loader-gif" src="%PUBLIC_URL%/Loader2.gif" />-->
-<!--    </div>-->
   </body>
-  <!--  <div class='loader-wrapper' id="loader-wrapper">-->
-  <!--    <img class='rotate-circle' countryDropdown="%PUBLIC_URL%/Stamp.png"/>-->
-  <!--    <img class='loader-logo' countryDropdown="%PUBLIC_URL%/preloader.png"/>-->
-  <!--  </div>-->
 </html>

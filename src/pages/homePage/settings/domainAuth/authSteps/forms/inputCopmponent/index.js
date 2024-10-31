@@ -1,5 +1,5 @@
 import React from 'react';
-import copy from '../../../../../../../assets/images/Linear/Essentional, UI/Copy.svg';
+import copy from '../../../../../../../assets/images/Copy.svg';
 import './style.scss';
 
 const InputComponent = ({ placeholderText, labelText }) => {

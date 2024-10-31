@@ -1,5 +1,5 @@
-import logout from '../../assets/images/Linear/Arrows Action/Logout 2.svg';
-import user from '../../assets/images/Linear/Users/User Circle.svg';
+import logout from '../../assets/images/Logout 2.svg';
+import user from '../../assets/images/User Circle.svg';
 import menuDots from '../../assets/images/menuDots.svg';
 import './style.scss';
 import React, { useState } from 'react';

@@ -22,15 +22,12 @@ export const MailBuilderPage = () => {
     showMailPreview && mediaQuery === initMobileMediaQuery ? ' is-mobile-mode' : '';
 
   return (
-    <div className="mail-builder-page">
-      <PreviewBuilderHeader />
-      <div className="workspace-container">
-        <div className="workspace-tools">
-          <SidebarTools />
-        </div>
-        <div className={`workspace-editor${isMobileMode}`} ref={workspaceWidthRef}>
-          <MailEditor />
-        </div>
+    <div className="workspace-container">
+      <div className="workspace-tools">
+        <SidebarTools />
+      </div>
+      <div className={`workspace-editor${isMobileMode}`} ref={workspaceWidthRef}>
+        <MailEditor />
       </div>
     </div>
   );

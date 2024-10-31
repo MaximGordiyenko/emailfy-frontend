@@ -1,58 +1,64 @@
 import './App.scss';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { HomePage } from './pages/homePage/homePage';
-import { Sidebar } from './components/sidebar/Sidebar';
-import { Audience } from './pages/homePage/audience/audience';
-import { Upload } from './pages/homePage/audience/uploadFile/Upload';
-import { Segmentation } from './pages/homePage/audience/segmentation/Segmentation';
-import { UploadManually } from './pages/homePage/audience/uploadManually/ManualUpload';
+import { MainLayout } from './components/layouts/MainLayout';
+import { AudiencePage } from './pages/homePage/audience/AudiencePage';
+import { UploadPage } from './pages/homePage/audience/uploadFile/UploadPage';
+import { SegmentationPage } from './pages/homePage/audience/segmentation/SegmentationPage';
+import { ManualUploadPage } from './pages/homePage/audience/uploadManually/ManualUploadPage';
 import { SegmentManually } from './pages/homePage/audience/segmentManual/SegmentationManual';
 import { Tags } from './pages/homePage/tags/tags';
 import { TagPage } from './pages/homePage/tags/tagPage/tagPage';
-import { Campaigns } from './pages/homePage/campaigns/Campaigns';
-import { MainPage } from './pages/mainPage/MainPage';
+import { CampaignsPage } from './pages/homePage/campaigns/CampaignsPage';
 import { ForgotPassword } from './pages/mainPage/ForgotPassword';
 import { VerifyPage } from './pages/mainPage/VerifyPage';
 import { ConfirmationPage } from './pages/mainPage/Confirmation';
 import { MailBuilderPage } from './pages/mail-builder-page/MailBuilderPage';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
-import { Settings } from './pages/homePage/settings/Settings';
+import { SettingsPage } from './pages/homePage/settings/SettingsPage';
 import { DomainAuth } from './pages/homePage/settings/domainAuth/DomainAuth';
-// import { EnableAuth } from './pages/mainPage/EnableAuth';
-// import { DisableAuth } from './pages/mainPage/DisableAuth';
 import { LoggedBy2FA } from './pages/mainPage/LoggedBy2FA';
-import { Dashboard } from './pages/homePage/dashboard/dashboard';
-import { Analytics } from './pages/homePage/analytics/Analytics';
+import { DashboardPage } from './pages/homePage/dashboard/DashboardPage';
+import { AnalyticsPage } from './pages/homePage/analytics/AnalyticsPage';
 import { UploadManualText } from './pages/homePage/campaigns/email-capmaign/UploadManualText';
 import { UploadHTML } from './pages/homePage/campaigns/email-capmaign/UploadHTML';
 import { CampaignsTextPreview } from './pages/homePage/campaigns/email-capmaign/CampaignsTextPreview';
 import { CampaignsHtmlPreview } from './pages/homePage/campaigns/email-capmaign/CampaignsHtmlPreview';
-import { ResetPass, ResetPassword } from './pages/mainPage/ResetPass';
+import { ResetPass } from './pages/mainPage/ResetPass';
 import { MailPreviewPage } from './pages/mail-builder-page/mail-preview/MailPreviewPage';
 import { MailBuilderProvider } from './context/MailBuilderContext';
+import { SignInPage } from './pages/auth-page/SignInPage';
+import { ROUTE } from './routes/routes.constants';
+import { RouterProvider } from 'react-router';
+import { routes } from './routes/routes';
 
 function App() {
   return (
     <MailBuilderProvider>
+      {/*<RouterProvider router={routes} />*/}
       <Router>
         <div className={'App'}>
-          <Sidebar />
           <Routes>
-            <Route path={'/loginpage'} element={<MainPage />} />
-            <Route path={'/'} element={<PrivateRoute element={<HomePage />} />} />
-            {/*<Route path={'/dashboard'} element={<PrivateRoute element={<Dashboard />} />} />*/}
-            <Route path={'/dashboard'} element={<Dashboard />} />
-            <Route path={'/analytics'} element={<PrivateRoute element={<Analytics />} />} />
-            <Route path={'/audience'} element={<PrivateRoute element={<Audience />} />} />
-            <Route path={'/audience/:id'} element={<PrivateRoute element={<Upload />} />} />
+            <Route path={`/${ROUTE.signIn}`} element={<SignInPage />} />
+            <Route element={<MainLayout />}>
+              <Route path={'/dashboard'} element={<DashboardPage />} />
+              <Route path={'/analytics'} element={<AnalyticsPage />} />
+              <Route path={'/audience/uploadmanually'} element={<ManualUploadPage />} />
+            </Route>
+            <Route path={'/audience'} element={<AudiencePage />} />
+            <Route path={'/audience/:id'} element={<UploadPage />} />
+            <Route path={'/dashboard'} element={<PrivateRoute element={<DashboardPage />} />} />
+            <Route path={'/analytics'} element={<PrivateRoute element={<AnalyticsPage />} />} />
+            <Route path={'/audience'} element={<PrivateRoute element={<AudiencePage />} />} />
+            <Route path={'/audience/:id'} element={<PrivateRoute element={<UploadPage />} />} />
             <Route
               path={'/audience/uploadmanually'}
-              element={<PrivateRoute element={<UploadManually />} />}
+              element={<PrivateRoute element={<ManualUploadPage />} />}
             />
             <Route
               path={'/audience/segmentation'}
-              element={<PrivateRoute element={<Segmentation />} />}
+              element={<PrivateRoute element={<SegmentationPage />} />}
             />
+            <Route path={'/campaigns'} element={<PrivateRoute element={<CampaignsPage />} />} />
             <Route
               path={`/campaigns/create/html`}
               element={<PrivateRoute element={<UploadHTML />} />}
@@ -73,8 +79,7 @@ function App() {
               path={'/audience/manualsegment'}
               element={<PrivateRoute element={<SegmentManually />} />}
             />
-            <Route path={'/tags'} element={<PrivateRoute element={<Tags />} />} />
-            <Route path={'/campaigns'} element={<PrivateRoute element={<Campaigns />} />} />
+            <Route path={'/tags'} element={<Tags />} />
             <Route path={'/tags/:id'} element={<PrivateRoute element={<TagPage />} />} />
             <Route path={'/forgotpass'} element={<ForgotPassword />} />
             <Route path={'/verify'} element={<PrivateRoute element={<VerifyPage />} />} />
@@ -85,7 +90,7 @@ function App() {
               element={<PrivateRoute element={<DomainAuth />} />}
             />
             <Route path={'/logged_2fa'} element={<LoggedBy2FA />} />
-            <Route path={'/settings'} element={<PrivateRoute element={<Settings />} />} />
+            <Route path={'/settings'} element={<PrivateRoute element={<SettingsPage />} />} />
             <Route path={'/mail-builder-page'} element={<MailBuilderPage />} />
             <Route
               path={'/mail-builder-page/mail-preview'}

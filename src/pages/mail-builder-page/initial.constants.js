@@ -35,8 +35,8 @@ import { HtmlBuildBlock } from './mail-sidebar/html-tabs/HtmlBuildBlock';
 import { FooterBuildBlock } from './mail-sidebar/footer-tabs/FooterBuildBlock';
 import { VideoBuildBlock } from './mail-sidebar/video-tabs/VideoBuildBlock';
 import { GiphyBuildBlock } from './mail-sidebar/giphy-tabs/GiphyBuildBlock';
-import Instagram from '../../assets/icons/tab/footer/Instagram.png';
-import Twitter from '../../assets/icons/tab/footer/Twitter.png';
+import Instagram from '../../assets/images/footer/Instagram.png';
+import Twitter from '../../assets/images/footer/Twitter.png';
 
 export const buildingBlocksInitialState = [
   {
