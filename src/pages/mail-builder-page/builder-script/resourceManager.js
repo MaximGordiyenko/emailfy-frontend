@@ -1,5 +1,5 @@
 import * as resourcesApi from '../../../api/builder/resources';
-import { getAccessToken } from '../../../api/auth/auth';
+import { getToken } from '../../../api/API';
 
 export function findActiveResources(block, resources = []) {
   if (block instanceof Array) {
@@ -45,7 +45,7 @@ export function isUpdatedResources(block, oldResources) {
 }
 
 export async function uploadResource(file, cid) {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const templateId = localStorage.getItem('current_template_id');
   const form_data = new FormData();
   form_data.append('data', file);
@@ -54,7 +54,7 @@ export async function uploadResource(file, cid) {
 }
 
 export async function updateResources(block) {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const templateId = localStorage.getItem('current_template_id');
   const resources = (await resourcesApi.get_resources(access_token, templateId)).data;
   const outdatedResources = findOutdatedResources(block, resources);
@@ -64,13 +64,13 @@ export async function updateResources(block) {
 }
 
 export async function removeResource(resource_id) {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const templateId = localStorage.getItem('current_template_id');
   await resourcesApi.delete_resource(access_token, templateId, resource_id);
 }
 
 export async function getResourceTempURL(resource_id) {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const templateId = localStorage.getItem('current_template_id');
   return (await resourcesApi.get_resource(access_token, templateId, resource_id)).data.url;
 }

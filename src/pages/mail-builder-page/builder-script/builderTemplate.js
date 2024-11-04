@@ -1,8 +1,8 @@
 import * as scriptApi from '../../../api/builder/script';
 import * as contentApi from '../../../api/builder/email_contents';
-import { getAccessToken } from '../../../api/auth/auth';
 import * as templateApi from '../../../api/builder/templates';
 import { initBlock, filterBlockProperties } from './builderScript';
+import { getToken } from '../../../api/API';
 
 export function setCurrentTemplateId(template_id) {
   localStorage.setItem('current_template_id', template_id);
@@ -13,7 +13,7 @@ export function setEditorType(type) {
 }
 
 export async function getEditorType() {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const template_id = localStorage.getItem('current_template_id');
   if (template_id) {
     return (await templateApi.get_template(access_token, template_id)).data.editor_type;
@@ -23,7 +23,7 @@ export async function getEditorType() {
 }
 
 export async function getName() {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const template_id = localStorage.getItem('current_template_id');
   if (template_id) {
     return (await templateApi.get_template(access_token, template_id)).data.name;
@@ -33,7 +33,7 @@ export async function getName() {
 }
 
 export async function loadScript() {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const template_id = localStorage.getItem('current_template_id');
   if (template_id) {
     return initBlock((await scriptApi.get_script(access_token, template_id)).data);
@@ -43,7 +43,7 @@ export async function loadScript() {
 }
 
 export async function loadContent(content_id = '00000000-0000-0000-0000-000000000000') {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const template_id = localStorage.getItem('current_template_id');
   if (template_id) {
     return (await contentApi.get_content(access_token, template_id, content_id)).data;
@@ -57,7 +57,7 @@ export async function loadContent(content_id = '00000000-0000-0000-0000-00000000
 }
 
 export async function setName(name) {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const template_id = localStorage.getItem('current_template_id');
   if (template_id) {
     return await templateApi.update_template(access_token, template_id, { name });
@@ -69,7 +69,7 @@ export async function setName(name) {
 }
 
 export async function saveScript(rootBlocks) {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const template_id = localStorage.getItem('current_template_id');
   const script = filterBlockProperties(rootBlocks);
   if (template_id) {
@@ -89,7 +89,7 @@ export async function saveScript(rootBlocks) {
 }
 
 export async function saveContent(newContent, content_id = '00000000-0000-0000-0000-000000000000') {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const template_id = localStorage.getItem('current_template_id');
   if (template_id) {
     const content = {

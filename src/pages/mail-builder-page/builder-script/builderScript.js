@@ -2,7 +2,6 @@ import { buildingBlocksInitialState, layoutBlocksInitialState } from '../initial
 import * as scriptApi from '../../../api/builder/script';
 import * as contentApi from '../../../api/builder/email_contents';
 import * as resourceManager from './resourceManager';
-import { getAccessToken } from '../../../api/auth/auth';
 import * as templateApi from '../../../api/builder/templates';
 import { v4 as uuidv4 } from 'uuid';
 import { RootHtml, MailEditorToHTML } from '../../../helpers/TypeResolverComponent';

@@ -1,8 +1,10 @@
-import { useNavigate, useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+import { useNavigate, Link } from 'react-router-dom';
 import { ROUTE } from '../../routes/routes.constants';
 
-import { useDispatch } from 'react-redux';
-import { loginAccount } from '../../store/accountSlice.js';
+import { useAuth } from '../../context/AuthContext';
+import { useMutation } from 'react-query';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -12,11 +14,15 @@ import { Form, Button } from 'antd';
 import CheckboxForm from '../../components/forms/Checkbox.tsx';
 import AuthInput from '../../components/forms/AuthInput.tsx';
 
-import brandLogo from '../../assets/images/logoRedesigned.png';
+import { signIn } from '../../api/auth/auth';
 
+import brandLogo from '../../assets/images/logoRedesigned.png';
 import './styles.css';
 
-export const SignInPage = () => {
+export const LoginPage = () => {
+  const navigate = useNavigate();
+  const { login } = useAuth();
+
   const {
     control,
     handleSubmit,
@@ -30,17 +36,22 @@ export const SignInPage = () => {
     },
   });
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const from = location.state?.from?.pathname || '/';
+  const { mutate } = useMutation((data) => signIn(data), {
+    onSuccess({ accessToken }) {
+      login(accessToken, navigate);
+      toast.success('You successfully logged in');
+    },
+    onError(error) {
+      if (error.response?.data?.message) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error('An unexpected error occurred');
+      }
+    },
+  });
 
   const onSubmit = async (data) => {
-    const result = await dispatch(loginAccount(data));
-    if (loginAccount.fulfilled.match(result)) {
-      navigate(from);
-    }
+    await mutate(data);
   };
 
   return (
@@ -57,8 +68,8 @@ export const SignInPage = () => {
             placeholder={'Enter your email'}
             type={'text'}
             control={control}
-            validateStatus={errors.password ? 'error' : ''}
-            help={errors.password?.message}
+            validateStatus={errors.email ? 'error' : ''}
+            help={errors.email?.message}
           />
 
           <AuthInput
@@ -87,7 +98,7 @@ export const SignInPage = () => {
       </div>
       <span className={'redirect-link-container'}>
         Not registered yet?
-        <p onClick={() => navigate(`${ROUTE.signUp}`)}>Sign Up</p>
+        <Link to={`/${ROUTE.registration}`}>Sign Up</Link>
       </span>
     </div>
   );

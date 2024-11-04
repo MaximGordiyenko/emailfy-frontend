@@ -1,6 +1,6 @@
 export const ROUTE = {
-  signIn: 'signIn',
-  signUp: 'signUp',
+  login: 'login',
+  registration: 'registration',
   dashboard: 'dashboard',
   analytics: 'analytics',
   audience: 'audience',
@@ -14,6 +14,7 @@ export const ROUTE = {
   textPreview: 'create/text/preview',
   tags: 'tags',
   forgotPassword: 'forgotpass',
+  unauthorized: 'unauthorized',
   verifyPage: 'verify',
   confirmation: 'confirmation',
   settings: 'settings',

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getAccessToken } from '../../../api/auth/auth';
 import { check_smtp, delete_smtp, get_smtp } from '../../../api/settings/settings';
 import { initialSmtpData, initialStatusData } from '../../../constants';
 import validIcon from '../../../assets/images/validCheckCircle.svg';
 // import notValidIcon from '../../../assets/images/notValidCheckCircle.svg';
 import pendingIcon from '../../../assets/images/clockCircle.svg';
 import tubeSpinner from '../../../assets/images/tube-spinner.svg';
+import { getToken } from '../../../api/API';
 
 export const DomainInfo = () => {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ export const DomainInfo = () => {
 
   const getSmtp = async () => {
     try {
-      const access_token = await getAccessToken();
+      const access_token = getToken('accessToken');
       const { data } = await get_smtp(access_token);
       if (!data.error) {
         setSmtp(data);
@@ -33,7 +33,7 @@ export const DomainInfo = () => {
   const handleCheckStatus = async () => {
     setStatusLoading(true);
     try {
-      const access_token = await getAccessToken();
+      const access_token = getToken('accessToken');
       const response = await check_smtp(access_token);
       setStatusData(response.data);
     } catch (e) {
@@ -45,7 +45,7 @@ export const DomainInfo = () => {
 
   const handleRemove = async () => {
     try {
-      const access_token = await getAccessToken();
+      const access_token = getToken('accessToken');
       const response = await delete_smtp(access_token);
       console.log('delete_smtp response: ', response);
       setSmtp(initialSmtpData);

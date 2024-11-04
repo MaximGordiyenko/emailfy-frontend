@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './styles.module.css';
 import { CaretDownIcon } from './assets/caret-down';
 import search from '../../assets/images/Minimalistic Magnifer.svg';
-import { Loader } from '../loader/Loader';
+import { LoadingSpinner } from '../loader/LoadingSpinner';
 
 export const ReactCountryDropdown = (props) => {
   const [countries, setCountries] = useState([]);
@@ -98,7 +98,7 @@ export const ReactCountryDropdown = (props) => {
   return (
     <div className={styles.container} ref={dropdownRef}>
       {loading ? (
-        <Loader />
+        <LoadingSpinner />
       ) : (
         <>
           <div className={styles.dropdown} onClick={toggleDropDown}>

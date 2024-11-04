@@ -4,16 +4,20 @@ import menuDots from '../../assets/images/menuDots.svg';
 import './style.scss';
 import React, { useState } from 'react';
 import userAvatar from '../../assets/images/Ellipse 1853.svg';
-import { removeAccessToken } from '../../api/auth/auth';
+import { ROUTE } from '../../routes/routes.constants';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 export const Logout = ({ onLogout }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const { logout } = useAuth();
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const handleLogout = () => {
-    removeAccessToken();
-    onLogout();
+  const handleLogout = async (event) => {
+    event.preventDefault();
+    logout(navigate);
     setIsOpen(false);
   };
 

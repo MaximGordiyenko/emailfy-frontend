@@ -8,15 +8,18 @@ import { signUpValidation } from '../../validation/auth.js';
 import { Form, Button } from 'antd';
 import AuthInput from '../../components/forms/AuthInput.tsx';
 
-import { useDispatch } from 'react-redux';
-import { registerAccount } from '../../store/accountSlice.js';
-
 import brandLogo from '../../assets/images/logoRedesigned.png';
 import alertIcon from '../../assets/images/alert_circle.png';
 
+import { toast } from 'react-toastify';
+import { useAuth } from '../../context/AuthContext';
 import './styles.css';
+import { useMutation } from 'react-query';
+import { signUp } from '../../api/auth/auth';
 
-export const SignUpPage = () => {
+export const RegisterPage = () => {
+  // const { register } = useAuth();
+
   const {
     control,
     handleSubmit,
@@ -30,19 +33,23 @@ export const SignUpPage = () => {
     },
   });
 
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const location = useLocation();
 
-  const from = location.state?.from?.pathname || '/signIn';
-
+  const { mutate } = useMutation((data) => signUp(data), {
+    onSuccess() {
+      toast.success('You are register successfully');
+      navigate(`/${ROUTE.login}`);
+    },
+    onError(error) {
+      if (Array.isArray(error.response.data.error)) {
+        error.response.data.error.forEach((el) => toast.error(el.message));
+      } else {
+        toast.error(error.response.data.message);
+      }
+    },
+  });
   const onSubmit = async (data) => {
-    dispatch(registerAccount(data));
-    const result = await dispatch(registerAccount(data));
-    console.log(result);
-    if (registerAccount.fulfilled.match(result)) {
-      navigate(from);
-    }
+    mutate(data);
   };
 
   return (
@@ -59,8 +66,8 @@ export const SignUpPage = () => {
             placeholder={'Enter your email'}
             type={'text'}
             control={control}
-            validateStatus={errors.password ? 'error' : ''}
-            help={errors.password?.message}
+            validateStatus={errors.email ? 'error' : ''}
+            help={errors.email?.message}
           />
 
           <AuthInput
@@ -79,19 +86,22 @@ export const SignUpPage = () => {
             placeholder={'Confirm your password'}
             type={'password'}
             control={control}
-            validateStatus={errors.password ? 'error' : ''}
-            help={errors.password?.message}
+            validateStatus={errors.confirmPassword ? 'error' : ''}
+            help={errors.confirmPassword?.message}
           />
 
           <Form.Item>
             <Button type="primary" htmlType="submit" block>
-              Log in
+              Register
             </Button>
           </Form.Item>
         </Form>
         <div className={'input-conditions'}>
           <li>Must contain at least 8 characters</li>
-          <li>Must contain at least 1 uppercase character;</li>
+          <li>Must contain at least one uppercase character</li>
+          <li>Must contain at least one lowercase character</li>
+          <li>Must contain at least one number</li>
+          <li>Must contain at least one special character @, $, !, %, *, ?, &</li>
         </div>
         <div className={'privacy-container'}>
           <img src={alertIcon} alt={'alert'} />
@@ -108,8 +118,8 @@ export const SignUpPage = () => {
         </div>
       </div>
       <span className={'redirect-link-container'}>
-        Already have an account?
-        <p onClick={() => navigate(`${ROUTE.signIn}`)}>Sign In</p>
+        Already have an account? {``}
+        <Link to={`/${ROUTE.login}`}>Sign In</Link>
       </span>
     </div>
   );

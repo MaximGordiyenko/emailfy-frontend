@@ -21,9 +21,10 @@ const MapBubbleChart = () => {
   useEffect(() => {
     const fetchMapData = async () => {
       const response = await fetch('https://code.highcharts.com/mapdata/custom/world.topo.json');
+      console.log(response);
       const data = await response.json();
       setGeojsonData(data);
-      dispatch(setSubscribersData(subscribersData)); // Dispatch the action with subscribersData
+      // dispatch(setSubscribersData(subscribersData)); // Dispatch the action with subscribersData
     };
     fetchMapData();
   }, []);

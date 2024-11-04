@@ -3,8 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import { ReactCountryDropdown } from '../../countryDropdown';
 import aiInfoImage from '../../../assets/images/aiInfo.svg';
 import closeCircle from '../../../assets/images/closeCircle.svg';
-import { getAccessToken } from '../../../api/auth/auth';
 import * as companyInfoAPI from '../../../api/settings/company_info';
+import { getToken } from '../../../api/API';
 
 export const CompanyInfo = ({ onSave, setOnSave }) => {
   const [showBanner, setShowBanner] = useState(true);
@@ -21,7 +21,7 @@ export const CompanyInfo = ({ onSave, setOnSave }) => {
   useEffect(() => {
     if (!onSave) return;
     (async () => {
-      const access_token = await getAccessToken();
+      const access_token = getToken('accessToken');
       await companyInfoAPI.set_company_info(access_token, {
         name,
         description,
@@ -47,7 +47,7 @@ export const CompanyInfo = ({ onSave, setOnSave }) => {
     }
 
     (async () => {
-      const access_token = await getAccessToken();
+      const access_token = getToken('accessToken');
       const companyInfo = (await companyInfoAPI.get_company_info(access_token)).data;
       if (companyInfo) {
         setName(companyInfo.name || '');

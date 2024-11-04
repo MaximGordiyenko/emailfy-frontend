@@ -6,13 +6,13 @@ import account from './accountSlice.js';
 
 const store = configureStore({
   reducer: {
-    user,
+    // user,
     // campaign,
-    file,
-    account,
+    // file,
+    // account,
   },
 });
 
 // export type RootState = ReturnType<typeof store.getState>;
 
-export default store;
+// export default store;

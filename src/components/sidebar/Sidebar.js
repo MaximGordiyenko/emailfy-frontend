@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 
-import { useDispatch } from 'react-redux';
-import { clearFields } from '../../store/campaignSlice';
+// import { useDispatch } from 'react-redux';
+// import { clearFields } from '../../store/campaignSlice';
 
 import settingsIcon from '../../assets/images/settings-outline.svg';
 import audienceIcon from '../../assets/images/audience-outline.svg';
@@ -63,7 +63,7 @@ export const Sidebar = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const activePath = location.pathname ? { background: '#7E9D00', borderRadius: '10px' } : null;
 
@@ -72,26 +72,19 @@ export const Sidebar = () => {
     const isClearCampaignFrom = sidebarItems.some((el) => el.path.includes(location.pathname));
 
     if (isClearCampaignFrom) {
-      dispatch(
-        clearFields([
-          'campaign_name',
-          'subject',
-          'from_name',
-          'from_email',
-          'sendTo',
-          'html',
-          'campaign_text',
-        ]),
-      );
+      // dispatch(
+      //   clearFields([
+      //     'campaign_name',
+      //     'subject',
+      //     'from_name',
+      //     'from_email',
+      //     'sendTo',
+      //     'html',
+      //     'campaign_text',
+      //   ]),
+      // );
     }
   }, [location]);
-
-  const handleNav = () => {
-    localStorage.removeItem('user');
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('token_2fa');
-    navigate('/loginpage', { replace: true });
-  };
 
   return showSideBar ? (
     <div className="sidebar-container">
@@ -127,7 +120,7 @@ export const Sidebar = () => {
         })}
       </div>
       <div className={'lower-tabs'}>
-        <Logout onLogout={handleNav} />
+        <Logout />
       </div>
     </div>
   ) : null;

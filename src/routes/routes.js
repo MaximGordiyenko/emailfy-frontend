@@ -5,8 +5,8 @@ import { MainLayout } from '../components/layouts/MainLayout';
 import { DashboardPage } from '../pages/homePage/dashboard/DashboardPage';
 import { AnalyticsPage } from '../pages/homePage/analytics/AnalyticsPage';
 import { AuthLayout } from '../components/layouts/AuthLayout';
-import { SignInPage } from '../pages/auth-page/SignInPage';
-import { SignUpPage } from '../pages/auth-page/SignUpPage';
+import { LoginPage } from '../pages/auth-page/LoginPage';
+import { RegisterPage } from '../pages/auth-page/RegisterPage';
 import { AudiencePage } from '../pages/homePage/audience/AudiencePage';
 import { UploadPage } from '../pages/homePage/audience/uploadFile/UploadPage';
 import { ManualUploadPage } from '../pages/homePage/audience/uploadManually/ManualUploadPage';
@@ -29,18 +29,19 @@ import { MailBuilderPage } from '../pages/mail-builder-page/MailBuilderPage';
 import { MailPreviewPage } from '../pages/mail-builder-page/mail-preview/MailPreviewPage';
 import { MailBuilderLayout } from '../components/layouts/MailBuilderLayout';
 import { SettingsPage } from '../pages/homePage/settings/SettingsPage';
+import { PrivateRoute } from './PrivateRoute';
 
 export const routes = createBrowserRouter([
   {
     element: <AuthLayout />,
     children: [
       {
-        path: `${ROUTE.signIn}`,
-        element: <SignInPage />,
+        path: `${ROUTE.login}`,
+        element: <LoginPage />,
       },
       {
-        path: `${ROUTE.signUp}`,
-        element: <SignUpPage />,
+        path: `${ROUTE.registration}`,
+        element: <RegisterPage />,
       },
     ],
   },
@@ -49,7 +50,11 @@ export const routes = createBrowserRouter([
     children: [
       {
         path: `${ROUTE.dashboard}`,
-        element: <DashboardPage />,
+        element: (
+          <PrivateRoute>
+            <DashboardPage />
+          </PrivateRoute>
+        ),
       },
       {
         path: `${ROUTE.analytics}`,
@@ -148,6 +153,6 @@ export const routes = createBrowserRouter([
   },
   {
     path: '/',
-    element: <Navigate to="/dashboard" replace />,
+    element: <Navigate to={`${ROUTE.login}`} replace />,
   },
 ]);

@@ -1,10 +1,10 @@
 import * as statisticsApi from '../../../api/analytics/statistics';
-import { getAccessToken } from '../../../api/auth/auth';
 import * as groupsApi from '../../../api/subscribes/groups';
 import * as taskApi from '../../../api/task/tasks';
+import { getToken } from '../../../api/API';
 
 export async function getBasicStatistics(period) {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const to_time = Math.round(Date.now() / 1000);
   const from_time = Math.round(to_time - period / 1000);
 
@@ -99,7 +99,7 @@ export async function getBasicStatistics(period) {
 }
 
 export async function getSubscriptionsStatistics(period) {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const to_time = Math.round(Date.now() / 1000);
   const from_time = Math.round(to_time - period / 1000);
 
@@ -126,7 +126,7 @@ export async function getSubscriptionsStatistics(period) {
 }
 
 export async function getAudienceListGrowth(period) {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const to_time = Math.round(Date.now() / 1000);
   const from_time = Math.round(to_time - period / 1000);
 
@@ -157,7 +157,7 @@ export async function getAudienceListGrowth(period) {
 }
 
 export async function getDailyOpenStatistics(day) {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const from_time = Math.round(day / 1000);
   const to_time = from_time + 24 * 60 * 60;
 
@@ -176,7 +176,7 @@ export async function getDailyOpenStatistics(day) {
 }
 
 export async function getDailyClickStatistics(day) {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const from_time = Math.round(day / 1000);
   const to_time = from_time + 24 * 60 * 60;
 
@@ -218,7 +218,7 @@ result example: {
 }
 */
 export async function getUsersStatistics() {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const statistics = (await statisticsApi.get_users_statistics(access_token)).data;
 
   return {

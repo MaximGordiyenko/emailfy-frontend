@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import * as analyticsApi from '../../../api/builder/analytics';
-import { getAccessToken } from '../../../api/auth/auth';
+import { getToken } from '../../../api/API';
 
 async function initOpenTag(html, access_token, template_id) {
   const id = uuidv4();
@@ -78,7 +78,7 @@ async function removeAnalytics(access_token, template_id) {
 export async function initAnalytics(textHtml, buttons = {}) {
   const parser = new DOMParser();
   const html = parser.parseFromString(textHtml, 'text/html');
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const template_id = localStorage.getItem('current_template_id');
   await removeAnalytics(access_token, template_id);
   const skip_links = [];

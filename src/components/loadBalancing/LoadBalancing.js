@@ -15,9 +15,9 @@ import magicStickPurple from '../../assets/images/magicStickPurple.svg';
 import altArrowDownGrey from '../../assets/images/altArrowDownGrey.svg';
 import { chartHeaderTitle, loadValues, tabs, timeInterval } from './constants';
 import { timeload } from '../../api/task/tasks';
-import { getAccessToken } from '../../api/auth/auth';
 import { sendTestEmail } from '../../pages/mail-builder-page/builder-script/testEmail';
 import { useFormContext } from 'react-hook-form';
+import { getToken } from '../../api/API';
 
 const getTimeInterval = (date = new Date(), length = 24) => {
   const minutes = length === 96 ? 15 : length === 48 ? 30 : 60;
@@ -74,7 +74,7 @@ export const LoadBalancing = () => {
   const getChartData = async (step) => {
     if (startDate) {
       const partsCount = step === timeInterval.quarter ? 96 : step === timeInterval.half ? 48 : 24;
-      const accessToken = await getAccessToken();
+      const accessToken = getToken('accessToken');
       const fromDate = startDate.getTime();
       const toTime = fromDate + 86400000;
       const data = await timeload(accessToken, fromDate, toTime, partsCount, true);

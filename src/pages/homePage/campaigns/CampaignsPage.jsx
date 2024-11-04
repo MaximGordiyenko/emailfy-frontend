@@ -12,13 +12,13 @@ import { SubHeader } from './subHeader/SubHeaderCampaign';
 import { TAB_ITEMS } from '../../../constants/campaignsConstants';
 import notFound from '../../../assets/images/compaigns/Frame 981286.svg';
 import { CampaignModal } from './createCampaignModal/CampaignModal';
-import { getAccessToken } from '../../../api/auth/auth';
 import * as templatesAPI from '../../../api/builder/templates';
 import * as scriptAPI from '../../../api/builder/script';
 import * as tasksAPI from '../../../api/task/tasks';
 import * as builderTemplate from '../../mail-builder-page/builder-script/builderTemplate';
 import { format } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
+import { getToken } from '../../../api/API';
 
 const STATUSES = {
   in_queue: 'Scheduled',
@@ -71,7 +71,7 @@ export const CampaignsPage = () => {
 
   useEffect(() => {
     (async () => {
-      const access_token = await getAccessToken();
+      const access_token = getToken('accessToken');
       const templates = (await templatesAPI.get_templates(access_token)).data;
       const tasks = (await tasksAPI.list(access_token)).data;
       const cards = templates.map((template) => {
@@ -133,7 +133,7 @@ export const CampaignsPage = () => {
     const updatedFilteredCards = [...filterCards];
     const template_id = updatedFilteredCards[index].id;
     (async () => {
-      const access_token = await getAccessToken();
+      const access_token = getToken('accessToken');
       await templatesAPI.delete_template(access_token, template_id);
     })();
     updatedFilteredCards.splice(index, 1);

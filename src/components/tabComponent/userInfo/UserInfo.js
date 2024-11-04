@@ -8,9 +8,9 @@ import { Button } from '../../../pages/homePage/settings/domainAuth/authSteps/fo
 import checkCircle from '../../../assets/images/validCheckCircle.svg';
 import axios from 'axios';
 import { setToken2FA } from '../../../store/userSlice';
-import { getAccessToken } from '../../../api/auth/auth';
 import * as userInfoAPI from '../../../api/settings/user_info';
 import * as emailSettingsAPI from '../../../api/settings/email';
+import { getToken } from '../../../api/API';
 
 export const UserInfo = ({ onSave, setOnSave }) => {
   const [email, setEmailState] = useState('');
@@ -33,7 +33,7 @@ export const UserInfo = ({ onSave, setOnSave }) => {
 
   useEffect(() => {
     (async () => {
-      const accessToken = await getAccessToken();
+      const accessToken = getToken('accessToken');
       const userInfo = (await userInfoAPI.get_user_info(accessToken)).data;
       console.log(userInfo, 'userInfo');
       setEmailState(userInfo.email);
@@ -43,7 +43,7 @@ export const UserInfo = ({ onSave, setOnSave }) => {
   useEffect(() => {
     if (!onSave) return;
     (async () => {
-      const accessToken = await getAccessToken();
+      const accessToken = getToken('accessToken');
       await emailSettingsAPI.change_email(accessToken, email);
       setOnSave(false);
     })();
@@ -55,7 +55,7 @@ export const UserInfo = ({ onSave, setOnSave }) => {
 
   const handleDisableEnableAuth = async () => {
     try {
-      const accessToken = await getAccessToken();
+      const accessToken = getToken('accessToken');
       const req = await fetch('/api/settings/auth', {
         method: 'POST',
         headers: {
@@ -85,7 +85,7 @@ export const UserInfo = ({ onSave, setOnSave }) => {
       console.log(storedEmail, 'storedEmail');
       setSavedEmail(storedEmail);
 
-      const accessToken = await getAccessToken();
+      const accessToken = getToken('accessToken');
 
       fetch('/api/settings/auth', {
         method: 'GET',

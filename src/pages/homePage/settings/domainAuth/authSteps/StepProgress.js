@@ -9,10 +9,10 @@ import { SixthForm } from './forms/SixthForm';
 import { FourthForm } from './forms/FourthForm';
 import { FifthForm } from './forms/FifthForm';
 import { domainAuthSteps as steps, newSMTPInitialData } from '../../../../../constants';
-import { getAccessToken } from '../../../../../api/auth/auth';
 import { get_new_smtp, set_smtp } from '../../../../../api/settings/settings';
 import * as companyInfoAPI from '../../../../../api/settings/company_info';
 import * as userInfoAPI from '../../../../../api/settings/user_info';
+import { getToken } from '../../../../../api/API';
 
 export const NewSmtpContext = createContext(newSMTPInitialData);
 
@@ -55,7 +55,7 @@ const StepProgress = () => {
   };
 
   const getCompanyName = async () => {
-    const access_token = await getAccessToken();
+    const access_token = getToken('accessToken');
     const companyInfo = await companyInfoAPI.get_company_info(access_token);
     if (companyInfo?.data?.name) {
       setCompanyName(companyInfo.data.name);
@@ -63,7 +63,7 @@ const StepProgress = () => {
   };
 
   const getUserName = async () => {
-    const access_token = await getAccessToken();
+    const access_token = getToken('accessToken');
     const userInfo = await userInfoAPI.get_user_info(access_token);
     if (userInfo.data.username) {
       setUserName(userInfo.data.username);
@@ -72,7 +72,7 @@ const StepProgress = () => {
 
   const getNewSmtp = async () => {
     try {
-      const accessToken = await getAccessToken();
+      const accessToken = getToken('accessToken');
       const { data } = await get_new_smtp(accessToken);
       setNewSMTP(data);
     } catch (error) {
@@ -85,7 +85,7 @@ const StepProgress = () => {
       const name = companyName || userName;
       if (email && name && domainName && newSMTP.dkim_private_key) {
         const selector = email.split('@')[0];
-        const accessToken = await getAccessToken();
+        const accessToken = getToken('accessToken');
         const body = {
           email,
           name,

@@ -7,11 +7,11 @@ import { v4 as uuidv4 } from 'uuid';
 import { format } from 'date-fns';
 import { InputSelect } from '../../../../components/inputComponent/InputSelect';
 import { InputText } from '../../../../components/inputComponent/InputText';
-import { getAccessToken } from '../../../../api/auth/auth';
 import * as groupApi from '../../../../api/subscribes/groups';
 import { GroupInputs } from '../../../../components/inputComponent/GroupInputs';
 import { get_smtp } from '../../../../api/settings/settings';
 import './style.css';
+import { getToken } from '../../../../api/API';
 
 export const UploadCampaignForm = ({ onInputChange }) => {
   const [audienceList, setAudienceList] = useState([]);
@@ -28,7 +28,7 @@ export const UploadCampaignForm = ({ onInputChange }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const access_token = await getAccessToken();
+        const access_token = getToken('accessToken');
         const rootGroup = (await groupApi.get_root(access_token)).data;
         const groups = (await groupApi.get_subgroups(access_token, rootGroup.id)).data;
         const core_users_count = (await groupApi.get_subscribers_count(access_token, rootGroup.id))

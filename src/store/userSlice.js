@@ -1,10 +1,24 @@
 import { createAsyncThunk, createSlice, createAction } from '@reduxjs/toolkit';
-import * as authApi from '../api/auth/auth';
-import { getAccessToken, saveAccessToken } from '../api/auth/auth';
+// import {
+//   check,
+//   confirm_registration,
+//   delete_device,
+//   get_devices,
+//   refresh,
+//   refresh_token,
+//   removeAccessToken,
+//   saveAccessToken,
+//   send_code,
+//   signIn,
+//   signOut,
+//   signUp,
+//   sign_2fa,
+//   signup,
+// } from '../api/auth/auth';
 
 export const registerUser = createAsyncThunk('user/registerUser', async (userRegisterData) => {
   try {
-    const req = await authApi.signup(userRegisterData.login, userRegisterData.password);
+    const req = await signup(userRegisterData.login, userRegisterData.password);
     console.log(req, 'req');
     if (req.status !== 200) {
       setError('user with this credential already exists');
@@ -19,7 +33,7 @@ export const registerUser = createAsyncThunk('user/registerUser', async (userReg
 
 export const verifyUser = createAsyncThunk('user/verifyUser', async (token) => {
   try {
-    const req = await authApi.confirm_registration(token);
+    const req = await confirm_registration(token);
     if (req.status !== 200) {
       throw new Error(`Request failed with status code ${req.status}, ${await req.data}`);
     }
@@ -33,7 +47,7 @@ export const verifyUser = createAsyncThunk('user/verifyUser', async (token) => {
 
 export const loginUser = createAsyncThunk('user/loginUser', async (userCredentials) => {
   try {
-    const req = await authApi.signin(
+    const req = await signin(
       userCredentials.login,
       userCredentials.password,
       userCredentials.remember,
@@ -57,7 +71,7 @@ export const loginUser = createAsyncThunk('user/loginUser', async (userCredentia
 export const sendCode2FA = createAsyncThunk('user/sendCode2FA', async () => {
   const token_2fa = localStorage.getItem('token_2fa');
   try {
-    const req = await authApi.send_code(token_2fa);
+    const req = await send_code(token_2fa);
     if (req.status !== 200) {
       throw new Error(`Request failed with status code ${req.status}, ${await req.data}`);
     }
@@ -71,7 +85,7 @@ export const sendCode2FA = createAsyncThunk('user/sendCode2FA', async () => {
 export const verifyCode2FA = createAsyncThunk('user/verifyCode2FA', async (code) => {
   const token2FA = localStorage.getItem('token_2fa');
   try {
-    const req = await authApi.sign_2fa(token2FA, code);
+    const req = await sign_2fa(token2FA, code);
     if (req.status !== 200) {
       throw new Error(`Request failed with status code ${req.status}, ${await req.data}`);
     }

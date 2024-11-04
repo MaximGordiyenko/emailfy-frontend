@@ -8,11 +8,11 @@ import './style.scss';
 import { TagsInput } from 'react-tag-input-component';
 import CustomDropdown from '../../../../components/dropdownComponent/CustomDropdown';
 import checked from '../../../../assets/images/Check Circle.svg';
-import { getAccessToken } from '../../../../api/auth/auth';
 import * as groupApi from '../../../../api/subscribes/groups';
 import { start_import_csv } from '../../../../api/subscribes/import_csv';
 import { useSelector } from 'react-redux';
 import BrandHeader from '../../../../components/header/BrandHeader';
+import { getToken } from '../../../../api/API';
 
 export const SegmentationPage = () => {
   const [selected, setSelected] = useState([]);
@@ -27,7 +27,7 @@ export const SegmentationPage = () => {
   useEffect(() => {
     const fetchGroups = async () => {
       try {
-        const access_token = await getAccessToken();
+        const access_token = getToken('accessToken');
         const rootGroup = (await groupApi.get_root(access_token)).data;
         const subgroups = (await groupApi.get_subgroups(access_token, rootGroup.id)).data;
         const options = [
@@ -64,7 +64,7 @@ export const SegmentationPage = () => {
 
   const handleSubmit = async () => {
     const formData = new FormData();
-    const access_token = await getAccessToken();
+    const access_token = getToken('accessToken');
     const file = new File([uploadedFile.data], uploadedFile.name, { type: uploadedFile.type });
     formData.append('csv', file);
     try {

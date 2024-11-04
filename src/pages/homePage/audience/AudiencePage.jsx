@@ -10,8 +10,8 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { AudienceList } from './audienceList/AudienceList';
 import * as groupApi from '../../../api/subscribes/groups';
-import { getAccessToken } from '../../../api/auth/auth';
 import BrandHeader from '../../../components/header/BrandHeader';
+import { getToken } from '../../../api/API';
 
 export const AudiencePage = () => {
   const [isShowContacts, setisShowContacts] = useState(false);
@@ -19,7 +19,7 @@ export const AudiencePage = () => {
 
   useEffect(() => {
     (async () => {
-      const access_token = await getAccessToken();
+      const access_token = getToken('accessToken');
       const rootGroup = (await groupApi.get_root(access_token)).data;
       const groups = (await groupApi.get_subgroups(access_token, rootGroup.id)).data;
       setisShowContacts(groups.length > 0);

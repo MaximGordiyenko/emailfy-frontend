@@ -8,7 +8,7 @@ import { Modal } from '../../../../components/modal/Modal';
 import { format } from 'date-fns';
 import { v4 as uuidv4 } from 'uuid';
 import * as groupApi from '../../../../api/subscribes/groups';
-import { getAccessToken } from '../../../../api/auth/auth';
+import { getToken } from '../../../../api/API';
 
 const mockDate = format(new Date(2024, 0, 26), 'MMM d, yyyy');
 const generateNewDate = () => format(new Date(Date.now()), 'MMM d, yyyy');
@@ -32,7 +32,7 @@ export const AudienceList = () => {
 
   useEffect(() => {
     (async () => {
-      const access_token = await getAccessToken();
+      const access_token = getToken('accessToken');
       const rootGroup = (await groupApi.get_root(access_token)).data;
       const groups = (await groupApi.get_subgroups(access_token, rootGroup.id)).data;
       const core_users_count = (await groupApi.get_subscribers_count(access_token, rootGroup.id))
@@ -82,7 +82,7 @@ export const AudienceList = () => {
 
   const onCreateNewGroup = async () => {
     toggleCreateModal();
-    const access_token = await getAccessToken();
+    const access_token = getToken('accessToken');
     const rootGroup = (await groupApi.get_root(access_token)).data;
     const groups = (await groupApi.create(access_token, rootGroup.id, 'icon', name)).data;
     console.log('created a new group', groups);

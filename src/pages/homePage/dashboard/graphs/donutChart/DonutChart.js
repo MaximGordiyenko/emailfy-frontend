@@ -1,14 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Highcharts from 'highcharts';
 import { useSelector } from 'react-redux';
 
 const DonutChart = () => {
-  const selectedOption = useSelector((state) => state.user.selectedOption);
+  // const selectedOption = useSelector((state) => state).user.selectedOption;
+  const [options, setOptions] = useState('Year');
 
   const getData = () => {
     let dataset;
 
-    switch (selectedOption) {
+    switch (options) {
       case 'Year':
         dataset = { unsubscribes: 25, subscribers: 75 };
         break;
@@ -99,7 +100,7 @@ const DonutChart = () => {
         },
       ],
     });
-  }, [selectedOption]);
+  }, [options]);
 
   return <div id="container"></div>;
 };

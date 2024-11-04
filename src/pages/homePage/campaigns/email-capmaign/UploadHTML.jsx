@@ -11,7 +11,6 @@ import { Button } from '../../../../components/button/Button';
 import { UploadCampaignForm } from './UploadCampaignForm';
 import { UploadHtmlForm } from './UploadHTMLForm';
 import { create_template } from '../../../../api/builder/templates';
-import { getAccessToken } from '../../../../api/auth/auth';
 import { InputText } from '../../../../components/inputComponent/InputText';
 import { PenEditIcon } from '../../../../components/inputComponent/PenEditIcon';
 import { CampaignStepper } from './CampaignStepper';
@@ -26,6 +25,7 @@ import * as builderTemplate from '../../../mail-builder-page/builder-script/buil
 import './style.css';
 import * as userInfoAPI from '../../../../api/settings/user_info';
 import { getUserEmail } from '../../../../helpers/campaignsUtils';
+import { getToken } from '../../../../api/API';
 
 export const UploadHTML = () => {
   const [step, setStep] = useState(0);
@@ -80,7 +80,7 @@ export const UploadHTML = () => {
     setStep(1);
   };
 
-  const { mutate } = useMutation(async (data) => create_template(await getAccessToken(), ''), {
+  const { mutate } = useMutation(async (data) => create_template(getToken('accessToken'), ''), {
     onSuccess: (data) => {},
     onError: (error) => {},
   });

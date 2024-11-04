@@ -1,8 +1,8 @@
 import * as testApi from '../../../api/builder/builder_test';
-import { getAccessToken } from '../../../api/auth/auth';
+import { getToken } from '../../../api/API';
 
 export async function sendTestEmail(emails, content_id = '00000000-0000-0000-0000-000000000000') {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const templateId = localStorage.getItem('current_template_id');
   try {
     const res = await testApi.send_test_email(access_token, templateId, content_id, emails);
@@ -13,7 +13,7 @@ export async function sendTestEmail(emails, content_id = '00000000-0000-0000-000
 }
 
 export async function getEmailSpamScore(content_id = '00000000-0000-0000-0000-000000000000') {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const templateId = localStorage.getItem('current_template_id');
   try {
     const res = await testApi.get_spam_score(access_token, templateId, content_id);
@@ -24,7 +24,7 @@ export async function getEmailSpamScore(content_id = '00000000-0000-0000-0000-00
 }
 
 export async function getEmailSize(content_id = '00000000-0000-0000-0000-000000000000') {
-  const access_token = await getAccessToken();
+  const access_token = getToken('accessToken');
   const templateId = localStorage.getItem('current_template_id');
   try {
     const res = await testApi.get_email_size(access_token, templateId, content_id);

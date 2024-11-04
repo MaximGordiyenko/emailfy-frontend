@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { get_smtp } from '../api/settings/settings';
-import { getAccessToken } from '../api/auth/auth';
+import { getToken } from '../api/API';
 
 export const fetchSmtpSettings = createAsyncThunk(
   'email/fetchSmtpSettings',
   async (_, { rejectWithValue }) => {
     try {
-      const accessToken = await getAccessToken();
+      const accessToken = getToken('accessToken');
       return await get_smtp(accessToken);
     } catch (error) {
       return rejectWithValue(error.response.data);

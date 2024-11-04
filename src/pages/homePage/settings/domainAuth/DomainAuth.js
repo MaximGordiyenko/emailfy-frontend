@@ -3,10 +3,10 @@ import StepProgress from './authSteps/StepProgress';
 import { useNavigate } from 'react-router-dom';
 import './style.scss';
 import settings from '../../../../assets/images/settings.png';
-import { getAccessToken } from '../../../../api/auth/auth';
 import { check_smtp } from '../../../../api/settings/settings';
 import { initialStatusData } from '../../../../constants';
 import BrandHeader from '../../../../components/header/BrandHeader';
+import { getToken } from '../../../../api/API';
 
 export const CheckStatusContext = createContext({
   loading: false,
@@ -22,7 +22,7 @@ export const DomainAuth = () => {
   const checkStatus = async () => {
     setLoading(true);
     try {
-      const access_token = await getAccessToken();
+      const access_token = getToken('accessToken');
       const response = await check_smtp(access_token);
       setStatusData(response.data);
     } catch (e) {
