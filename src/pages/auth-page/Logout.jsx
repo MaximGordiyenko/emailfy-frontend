@@ -1,14 +1,16 @@
-import logout from '../../assets/images/Logout 2.svg';
+import { useState } from 'react';
+
+import { useNavigate } from 'react-router-dom';
+import { ROUTE } from '../../routes/routes.constants';
+
 import user from '../../assets/images/User Circle.svg';
 import menuDots from '../../assets/images/menuDots.svg';
-import './style.scss';
-import React, { useState } from 'react';
 import userAvatar from '../../assets/images/Ellipse 1853.svg';
-import { ROUTE } from '../../routes/routes.constants';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
 
-export const Logout = ({ onLogout }) => {
+import { useAuth } from '../../context/AuthContext';
+import './styles.css';
+
+export const Logout = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const { logout } = useAuth();

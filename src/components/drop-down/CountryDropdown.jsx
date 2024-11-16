@@ -4,7 +4,7 @@ import { CaretDownIcon } from './assets/caret-down';
 import search from '../../assets/images/Minimalistic Magnifer.svg';
 import { LoadingSpinner } from '../loader/LoadingSpinner';
 
-export const ReactCountryDropdown = (props) => {
+export const CountryDropdown = (props) => {
   const [countries, setCountries] = useState([]);
   const [countriesCopy, setCountriesCopy] = useState([]);
   const [open, setOpen] = useState(false);

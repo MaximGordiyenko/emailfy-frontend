@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { PreviewIcon } from './PreviewIcon';
 import { DeleteIcon } from './DeleteIcon';
 import { BrandUploader } from '../../../../components/drag-n-drop-uploader/BrandUploader';
-import { BrandLabel } from '../../../../components/inputComponent/BrandLabel';
+import { BrandLabel } from '../../../../components/inputs/BrandLabel';
 import { updateField } from '../../../../store/campaignSlice';
 import './style.css';
 

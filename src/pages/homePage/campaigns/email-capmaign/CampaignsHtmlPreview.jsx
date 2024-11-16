@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { DesktopIcon } from '../../../../components/interface/Buttons/DesktopIcon';
-import { MobileIcon } from '../../../../components/interface/Buttons/MobileIcon';
-import { TextIconButton } from '../../../../components/interface/Buttons/TextIconButton';
-import { PenEditIcon } from '../../../../components/interface/Buttons/PenEditIcon';
-import { EnvelopSendIcon } from '../../../../components/interface/Buttons/EnvelopSendIcon';
+import { DesktopIcon } from '../../../../components/interface/buttons/DesktopIcon';
+import { MobileIcon } from '../../../../components/interface/buttons/MobileIcon';
+import { TextIconButton } from '../../../../components/interface/buttons/TextIconButton';
+import { PenEditIcon } from '../../../../components/interface/buttons/PenEditIcon';
+import { EnvelopSendIcon } from '../../../../components/interface/buttons/EnvelopSendIcon';
 import { PreviewComponent } from './PreviewComponent';
 import { SendMailModal } from '../../../../components/modals/SendMailModal';
 import './style.css';

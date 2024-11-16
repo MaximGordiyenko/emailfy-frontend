@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { ReactSortable } from 'react-sortablejs';
-import { DeleteStickyIcon } from '../../../../components/interface/Buttons/DeleteStickyIcon';
+import { DeleteStickyIcon } from '../../../../components/interface/buttons/DeleteStickyIcon';
 import { findBlockById } from '../../builder-script/builderScript';
 import '../styles.css';
 import * as builderScript from '../../builder-script/builderScript';

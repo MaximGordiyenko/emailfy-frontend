@@ -1,7 +1,7 @@
-import { API, getToken } from '../API';
+import { API, getToken, setToken, removeToken } from '../API';
 import { refreshAccessToken } from '../auth/auth';
 
-export const dashboardData = async () => {
+export const getDashboardData = async () => {
   try {
     const accessToken = getToken('accessToken');
     const { data } = await API.get('/auth/dashboard', {
@@ -9,15 +9,22 @@ export const dashboardData = async () => {
     });
     return data;
   } catch (error) {
-    if (error.response && error.response.status === 401) {
+    console.error(error);
+    throw error;
+    /*if (error.response && error.response.status === 403) {
+      // Access token has expired, refresh it and retry the original request
       const newAccessToken = await refreshAccessToken();
+      setToken('accessToken', newAccessToken);
 
       // Retry the original request with the new access token
-      const retryResponse = await API.get('/auth/dashboard', {
+      const { data } = await API.get('/auth/dashboard', {
         headers: { Authorization: `Bearer ${newAccessToken}` },
       });
-      return retryResponse.data;
-    }
-    throw error; // Rethrow if it's a different error
+      return data;
+    } else {
+      // Handle other errors
+      console.error(error);
+      throw error;
+    }*/
   }
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss';
 
-const ProgressBar = ({ completed }) => {
+const ProgressBarX = ({ completed }) => {
   return (
     <div className="progress-bar">
       <div className="filler" style={{ width: `${completed}%` }} />
@@ -9,4 +9,4 @@ const ProgressBar = ({ completed }) => {
   );
 };
 
-export default ProgressBar;
+export default ProgressBarX;

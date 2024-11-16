@@ -1,10 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 
 import { useQuery } from 'react-query';
-import { dashboardData } from '../../../api/dashboard/dashboard';
+import { removeToken } from '../../../api/API';
+import { getDashboardData } from '../../../api/dashboard/dashboard';
 
 import BrandHeader from '../../../components/header/BrandHeader';
-import DashboardDropdown from '../../../components/dashboardDropdown/DashboardDropdown';
+import DashboardDropdown from '../../../components/drop-down/DashboardDropdown';
 import { LoadingSpinner } from '../../../components/loader/LoadingSpinner';
 
 import { OverallStatistics } from './overall/OverallStatistics';
@@ -17,9 +18,16 @@ import './style.scss';
 export const DashboardPage = () => {
   const navigate = useNavigate();
 
-  const { data, isLoading, refetch } = useQuery('dashboardData', dashboardData, {
+  const { data, isLoading, refetch } = useQuery('dashboardData', getDashboardData, {
     retry: 1,
     refetchOnWindowFocus: false,
+    onError: (error) => {
+      if (error.response?.status === 401) {
+        removeToken('accessToken');
+        removeToken('refreshToken');
+        window.location.href = '/login';
+      }
+    },
   });
 
   if (isLoading) return <LoadingSpinner />;

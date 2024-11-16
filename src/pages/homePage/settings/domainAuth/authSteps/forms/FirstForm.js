@@ -1,4 +1,4 @@
-import InputComponent from '../../../../../../components/inputComponent/InputComponent';
+import InputComponent from '../../../../../../components/inputs/InputComponent';
 import './style.scss';
 import { Button } from './nextButton';
 

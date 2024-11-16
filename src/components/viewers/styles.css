@@ -1,0 +1,66 @@
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.gradient-border {
+  border-radius: 50%;
+  padding: 8px;
+  background: linear-gradient(90deg, #A855F7, #EC4899, #F97316);
+}
+
+.image-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background-color: white;
+  overflow: hidden;
+}
+
+.state-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F3F4F6;
+  border-radius: 50%;
+}
+
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  color: #9CA3AF;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-text {
+  color: #EF4444;
+}
+
+.empty-text {
+  color: #9CA3AF;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Optional hover effect */
+.gradient-border:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}

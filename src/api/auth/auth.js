@@ -1,19 +1,27 @@
 import axios from 'axios';
-import { API, getToken, setToken } from '../API';
+import { API, getToken, setToken, removeToken } from '../API';
 
 export const signUp = async ({ email, password, confirmPassword }) => {
-  return await API.post(`/register`, {
-    email,
-    password,
-    confirmPassword,
-  });
+  try {
+    const {
+      data: { message, userId },
+    } = await API.post(`/register`, {
+      email,
+      password,
+      confirmPassword,
+    });
+    return { message, userId };
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const signIn = async ({ email, password }) => {
   try {
-    const response = await API.post('/login', { email, password });
-    const { accessToken } = response.data;
-    return { accessToken };
+    const {
+      data: { message, accessToken, refreshToken },
+    } = await API.post('/login', { email, password });
+    return { message, accessToken, refreshToken };
   } catch (error) {
     throw error;
   }
@@ -22,14 +30,19 @@ export const signIn = async ({ email, password }) => {
 export const refreshAccessToken = async () => {
   try {
     const refreshToken = getToken('refreshToken');
-    const { data } = await API.post('/refresh', { token: refreshToken });
-    const newAccessToken = data.accessToken;
 
-    setToken('accessToken', newAccessToken);
-    return newAccessToken;
+    const { data } = await API.post('/refresh', { token: refreshToken });
+    setToken('accessToken', data.accessToken);
+
+    if (data.refreshToken) setToken('refreshToken', data.refreshToken);
+
+    return data.accessToken;
   } catch (error) {
+    removeToken('accessToken');
+    removeToken('refreshToken');
+    window.location.href = '/login';
     console.error('Error refreshing token', error);
-    throw new Error('Failed to refresh access token');
+    throw error;
   }
 };
 

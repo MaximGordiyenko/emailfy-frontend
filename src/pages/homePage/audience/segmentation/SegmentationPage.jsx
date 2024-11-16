@@ -1,12 +1,12 @@
 import './style.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 import audience from '../../../../assets/images/audience/audienceicon.png';
-import ProgressBar from '../../../../components/progressBar/ProgressBar';
+import ProgressBar from '../../../../components/progress-bars/ProgressBar';
 import Dropdown from './dropdown/dropdown';
 import { useEffect, useState } from 'react';
 import './style.scss';
 import { TagsInput } from 'react-tag-input-component';
-import CustomDropdown from '../../../../components/dropdownComponent/CustomDropdown';
+import CustomDropdown from '../../../../components/drop-down/CustomDropdown';
 import checked from '../../../../assets/images/Check Circle.svg';
 import * as groupApi from '../../../../api/subscribes/groups';
 import { start_import_csv } from '../../../../api/subscribes/import_csv';

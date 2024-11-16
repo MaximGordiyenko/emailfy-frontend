@@ -2,7 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './style.scss';
 import audience from '../../../../assets/images/audience/audienceicon.png';
-import ProgressBar from '../../../../components/progressBar/ProgressBar';
+import ProgressBar from '../../../../components/progress-bars/ProgressBar';
 
 export const ManualUploadPage = () => {
   const [isText, setIsText] = useState();

@@ -7,8 +7,8 @@ import BrandHeader from '../../../../components/header/BrandHeader';
 import plane from '../../../../assets/images/plane.png';
 import campaign_name_tooltip from '../../../../assets/images/campaign_name_tooltip.svg';
 import { Button } from '../../../../components/button/Button';
-import { InputText } from '../../../../components/inputComponent/InputText';
-import { PenEditIcon } from '../../../../components/inputComponent/PenEditIcon';
+import { InputText } from '../../../../components/inputs/InputText';
+import { PenEditIcon } from '../../../../components/inputs/PenEditIcon';
 import { UploadCampaignForm } from './UploadCampaignForm';
 import { CampaignStepper } from './CampaignStepper';
 import { UploadTextForm } from './UploadTextForm';
@@ -18,7 +18,7 @@ import {
   loadContent,
 } from '../../../mail-builder-page/builder-script/builderTemplate';
 import { updateField } from '../../../../store/campaignSlice';
-import { LoadBalancing } from '../../../../components/loadBalancing/LoadBalancing';
+import { LoadBalancing } from '../../../../components/balancing/LoadBalancing';
 import { getUserEmail } from '../../../../helpers/campaignsUtils';
 import './style.css';
 

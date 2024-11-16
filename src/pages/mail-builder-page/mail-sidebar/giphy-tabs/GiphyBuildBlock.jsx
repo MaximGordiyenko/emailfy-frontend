@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { ReactSortable } from 'react-sortablejs';
 import { v4 as uuidv4 } from 'uuid';
-import { DeleteStickyIcon } from '../../../../components/interface/Buttons/DeleteStickyIcon';
+import { DeleteStickyIcon } from '../../../../components/interface/buttons/DeleteStickyIcon';
 import { MailBuilderContext } from '../../../../context/MailBuilderContext';
 import * as builderScript from '../../builder-script/builderScript';
 import '../styles.css';

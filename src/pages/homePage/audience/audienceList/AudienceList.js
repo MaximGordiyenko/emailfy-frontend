@@ -4,7 +4,7 @@ import usersGroupRounded from '../../../../assets/images/usersGroupRounded.svg';
 import pieChart from '../../../../assets/images/pieChart2.svg';
 import pen from '../../../../assets/images/pen.svg';
 import React, { useState, useEffect } from 'react';
-import { Modal } from '../../../../components/modal/Modal';
+import { Modal } from '../../../../components/modals/Modal';
 import { format } from 'date-fns';
 import { v4 as uuidv4 } from 'uuid';
 import * as groupApi from '../../../../api/subscribes/groups';

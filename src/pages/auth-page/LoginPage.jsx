@@ -1,10 +1,13 @@
 import { toast } from 'react-toastify';
 
+import { useAuth } from '../../context/AuthContext';
+
 import { useNavigate, Link } from 'react-router-dom';
 import { ROUTE } from '../../routes/routes.constants';
 
-import { useAuth } from '../../context/AuthContext';
 import { useMutation } from 'react-query';
+import { signIn } from '../../api/auth/auth';
+import { removeToken } from '../../api/API';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -12,9 +15,7 @@ import { signInValidation } from '../../validation/auth.js';
 
 import { Form, Button } from 'antd';
 import CheckboxForm from '../../components/forms/Checkbox.tsx';
-import AuthInput from '../../components/forms/AuthInput.tsx';
-
-import { signIn } from '../../api/auth/auth';
+import { AuthInput } from '../../components/forms/AuthInput.tsx';
 
 import brandLogo from '../../assets/images/logoRedesigned.png';
 import './styles.css';
@@ -37,11 +38,12 @@ export const LoginPage = () => {
   });
 
   const { mutate } = useMutation((data) => signIn(data), {
-    onSuccess({ accessToken }) {
-      login(accessToken, navigate);
-      toast.success('You successfully logged in');
+    onSuccess({ accessToken, refreshToken, message }) {
+      login(accessToken, refreshToken, navigate);
+      toast.success(message);
     },
     onError(error) {
+      removeToken('accessToken');
       if (error.response?.data?.message) {
         toast.error(error.response.data.message);
       } else {

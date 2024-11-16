@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ProgressBar from '../../../../components/dashboardProgressBar/ProgressBar';
+import ProgressBarX from '../../../../components/progress-bars/ProgressBarX';
 import './style.scss';
 
 const ParentComponent = () => {
@@ -18,7 +18,7 @@ const ParentComponent = () => {
               </div>
               <div className={'value'}>{val}%</div>
             </div>
-            <ProgressBar completed={val} />
+            <ProgressBarX completed={val} />
           </div>
         ))}
       </div>

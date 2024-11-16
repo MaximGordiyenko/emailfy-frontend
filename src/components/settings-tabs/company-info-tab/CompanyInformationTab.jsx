@@ -1,12 +1,12 @@
-import InputComponent from '../../inputComponent/InputComponent';
+import InputComponent from '../../inputs/InputComponent';
 import { useEffect, useRef, useState } from 'react';
-import { ReactCountryDropdown } from '../../countryDropdown';
+import { CountryDropdown } from '../../drop-down/CountryDropdown';
 import aiInfoImage from '../../../assets/images/aiInfo.svg';
 import closeCircle from '../../../assets/images/closeCircle.svg';
 import * as companyInfoAPI from '../../../api/settings/company_info';
 import { getToken } from '../../../api/API';
 
-export const CompanyInfo = ({ onSave, setOnSave }) => {
+export const CompanyInformationTab = ({ onSave, setOnSave }) => {
   const [showBanner, setShowBanner] = useState(true);
   const parentRef = useRef(null);
 
@@ -127,7 +127,7 @@ export const CompanyInfo = ({ onSave, setOnSave }) => {
           </p>
         </div>
         <div className={'dropdowns'}>
-          <ReactCountryDropdown />
+          <CountryDropdown />
           <InputComponent
             placeholder={'City'}
             value={city}

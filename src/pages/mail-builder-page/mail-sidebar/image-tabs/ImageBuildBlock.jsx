@@ -5,7 +5,7 @@ import { useDropzone } from 'react-dropzone';
 import { v4 as uuidv4 } from 'uuid';
 
 import { ImageUploaderIcon } from '../../../../components/mail-block-icons/ImageUploaderIcon';
-import { DeleteStickyIcon } from '../../../../components/interface/Buttons/DeleteStickyIcon';
+import { DeleteStickyIcon } from '../../../../components/interface/buttons/DeleteStickyIcon';
 
 import * as resourceManager from '../../builder-script/resourceManager';
 import * as builderScript from '../../builder-script/builderScript';

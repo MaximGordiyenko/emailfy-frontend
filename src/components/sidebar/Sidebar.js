@@ -17,7 +17,7 @@ import analyticsActiveIcon from '../../assets/images/analytics-filled.svg';
 import logo from '../../assets/images/logoRedesigned.png';
 import stars from '../../assets/images/compaigns/Stars.svg';
 
-import { Logout } from '../logoutPopup/Logout';
+import { Logout } from '../../pages/auth-page/Logout';
 import './styles.css';
 
 const sidebarItems = [

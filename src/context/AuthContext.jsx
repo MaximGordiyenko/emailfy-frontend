@@ -5,8 +5,9 @@ import { setToken, removeToken, getToken } from '../api/API';
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-  const login = (token, navigate) => {
-    setToken('accessToken', token);
+  const login = (accessToken, refreshToken, navigate) => {
+    setToken('accessToken', accessToken);
+    setToken('refreshToken', refreshToken);
     navigate(`/${ROUTE.dashboard}`);
   };
 

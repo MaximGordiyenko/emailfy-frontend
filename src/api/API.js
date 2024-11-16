@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { refreshAccessToken } from './auth/auth';
 
 const BASE_URL = 'http://localhost:4001/api';
 
@@ -6,6 +7,10 @@ export const API = axios.create({
   baseURL: BASE_URL,
   withCredentials: true,
 });
+
+export const getToken = (keyToken) => sessionStorage.getItem(keyToken);
+export const setToken = (keyToken, valueToken) => sessionStorage.setItem(keyToken, valueToken);
+export const removeToken = (keyToken) => sessionStorage.removeItem(keyToken);
 
 // https://stackoverflow.com/questions/45578844/how-to-set-header-and-options-in-axios
 API.defaults.headers.common['Content-Type'] = 'application/json';
@@ -26,12 +31,16 @@ API.interceptors.request.use(
 API.interceptors.response.use(
   (response) => response,
   async (error) => {
-    if (error.response.status === 401 && !error.config.__isRetryRequest) {
+    if (
+      error.response.status === 403 &&
+      error.response?.data?.error === 'Token expired' &&
+      !error.config.__isRetryRequest
+    ) {
       error.config.__isRetryRequest = true;
+
       try {
-        const { data } = await API.post('/refresh', null, { withCredentials: true });
-        setToken('accessToken', data.accessToken);
-        error.config.headers.Authorization = `Bearer ${data.accessToken}`;
+        const newAccessToken = await refreshAccessToken();
+        error.config.headers.Authorization = `Bearer ${newAccessToken}`;
         return axios(error.config);
       } catch (refreshError) {
         console.error('Token refresh failed');
@@ -41,7 +50,3 @@ API.interceptors.response.use(
     return Promise.reject(error);
   },
 );
-
-export const getToken = (keyToken) => sessionStorage.getItem(keyToken);
-export const setToken = (keyToken, valueToken) => sessionStorage.setItem(keyToken, valueToken);
-export const removeToken = (keyToken) => sessionStorage.removeItem(keyToken);

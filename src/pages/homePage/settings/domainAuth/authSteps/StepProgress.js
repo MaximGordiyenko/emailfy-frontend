@@ -11,7 +11,7 @@ import { FifthForm } from './forms/FifthForm';
 import { domainAuthSteps as steps, newSMTPInitialData } from '../../../../../constants';
 import { get_new_smtp, set_smtp } from '../../../../../api/settings/settings';
 import * as companyInfoAPI from '../../../../../api/settings/company_info';
-import * as userInfoAPI from '../../../../../api/settings/user_info';
+import * as userInfoAPI from '../../../../../api/settings/account';
 import { getToken } from '../../../../../api/API';
 
 export const NewSmtpContext = createContext(newSMTPInitialData);
@@ -64,7 +64,7 @@ const StepProgress = () => {
 
   const getUserName = async () => {
     const access_token = getToken('accessToken');
-    const userInfo = await userInfoAPI.get_user_info(access_token);
+    const userInfo = await userInfoAPI.getUser(access_token);
     if (userInfo.data.username) {
       setUserName(userInfo.data.username);
     }

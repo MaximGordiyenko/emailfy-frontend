@@ -11,19 +11,19 @@ import { Button } from '../../../../components/button/Button';
 import { UploadCampaignForm } from './UploadCampaignForm';
 import { UploadHtmlForm } from './UploadHTMLForm';
 import { create_template } from '../../../../api/builder/templates';
-import { InputText } from '../../../../components/inputComponent/InputText';
-import { PenEditIcon } from '../../../../components/inputComponent/PenEditIcon';
+import { InputText } from '../../../../components/inputs/InputText';
+import { PenEditIcon } from '../../../../components/inputs/PenEditIcon';
 import { CampaignStepper } from './CampaignStepper';
 import {
   saveContent,
   loadContent,
 } from '../../../mail-builder-page/builder-script/builderTemplate';
 import { initAnalytics } from '../../../mail-builder-page/builder-script/analyticsUtil';
-import { LoadBalancing } from '../../../../components/loadBalancing/LoadBalancing';
+import { LoadBalancing } from '../../../../components/balancing/LoadBalancing';
 import { updateField } from '../../../../store/campaignSlice';
 import * as builderTemplate from '../../../mail-builder-page/builder-script/builderTemplate';
 import './style.css';
-import * as userInfoAPI from '../../../../api/settings/user_info';
+import * as userInfoAPI from '../../../../api/settings/account';
 import { getUserEmail } from '../../../../helpers/campaignsUtils';
 import { getToken } from '../../../../api/API';
 
@@ -33,7 +33,7 @@ export const UploadHTML = () => {
 
   builderTemplate.setEditorType('html');
 
-  const { campaign_name, subject, html, from_email } = useSelector((state) => state.campaign.data);
+  // const { campaign_name, subject, html, from_email } = useSelector((state) => state?.campaign?.data);
 
   console.log({ campaign_name, subject, html });
   const methods = useForm({
@@ -62,15 +62,15 @@ export const UploadHTML = () => {
     })().then();
   }, []);
 
-  useEffect(() => {
-    (async () => {
-      await saveContent({
-        subject: subject,
-        sender_name: from_email,
-        content: html,
-      });
-    })().then();
-  }, [subject, from_email, html]);
+  // useEffect(() => {
+  //   (async () => {
+  //     await saveContent({
+  //       subject: subject,
+  //       sender_name: from_email,
+  //       content: html,
+  //     });
+  //   })().then();
+  // }, [subject, from_email, html]);
 
   const goBack = () => {
     setStep(0);
@@ -105,7 +105,7 @@ export const UploadHTML = () => {
           type="submit"
           onClick={async () => {
             await saveContent({
-              subject: subject,
+              // subject: subject,
               sender_name: getValues()?.from_email,
             });
           }}
@@ -131,7 +131,7 @@ export const UploadHTML = () => {
             <CampaignStepper />
             <div className="campaign-input-box">
               <InputText
-                value={campaign_name}
+                value={campaign_name || ''}
                 onInputChange={(value) => onInputChange('campaign_name', value)}
                 control={control}
                 name="campaign_name"

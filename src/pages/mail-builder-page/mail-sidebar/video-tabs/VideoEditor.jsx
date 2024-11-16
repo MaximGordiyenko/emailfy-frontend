@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Accordion } from '../../../../components/accordion/Accordion';
 import uploadIcon from '../../../../assets/images/uploadIcon.svg';
 import alternateTextIcon from '../../../../assets/images/alternateTextIcon.svg';
-import { BrandInput } from '../../../../components/inputComponent/BrandInput';
+import { BrandInput } from '../../../../components/inputs/BrandInput';
 import { CloseIcon } from '../../../../components/interface/icons/CloseIcon';
 import * as builderScript from '../../builder-script/builderScript';
 import '../styles.css';

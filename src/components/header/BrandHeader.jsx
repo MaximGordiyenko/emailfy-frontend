@@ -9,7 +9,7 @@ const BrandHeader = ({ icon, description, params, content }) => {
   };
 
   return (
-    <div className={'brand-header campaign-header'}>
+    <header className={'brand-header campaign-header'}>
       <div className="content-box">
         <div className="route-status">
           <img src={icon} alt="header" />
@@ -22,7 +22,7 @@ const BrandHeader = ({ icon, description, params, content }) => {
         </div>
         {content}
       </div>
-    </div>
+    </header>
   );
 };
 

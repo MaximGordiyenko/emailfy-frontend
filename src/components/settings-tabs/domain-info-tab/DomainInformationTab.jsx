@@ -8,7 +8,7 @@ import pendingIcon from '../../../assets/images/clockCircle.svg';
 import tubeSpinner from '../../../assets/images/tube-spinner.svg';
 import { getToken } from '../../../api/API';
 
-export const DomainInfo = () => {
+export const DomainInformationTab = () => {
   const navigate = useNavigate();
   const [smtp, setSmtp] = useState(initialSmtpData);
   const [statusData, setStatusData] = useState(initialStatusData);

@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import './style.scss';
 import audience from '../../../../assets/images/audience/audienceicon.png';
-import ProgressBar from '../../../../components/progressBar/ProgressBar';
+import ProgressBar from '../../../../components/progress-bars/ProgressBar';
 import DropFile from './Dropzone';
 
 import { useSelector } from 'react-redux';

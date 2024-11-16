@@ -65,6 +65,18 @@ export const routes = createBrowserRouter([
         element: <AudiencePage />,
       },
       {
+        path: `${ROUTE.campaigns}`,
+        element: <CampaignsPage />,
+      },
+      {
+        path: `${ROUTE.settings}`,
+        element: (
+          <PrivateRoute>
+            <SettingsPage />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: `${ROUTE.audience}/${ROUTE.manualUpload}`,
         element: <ManualUploadPage />,
       },
@@ -79,10 +91,6 @@ export const routes = createBrowserRouter([
       {
         path: `${ROUTE.audience}/${ROUTE.manualSegmentation}`,
         element: <SegmentManually />,
-      },
-      {
-        path: `${ROUTE.campaigns}`,
-        element: <CampaignsPage />,
       },
       {
         path: `${ROUTE.campaigns}/${ROUTE.createHtml}`,
@@ -119,10 +127,6 @@ export const routes = createBrowserRouter([
       {
         path: `${ROUTE.confirmation}/:token`,
         element: <ConfirmationPage />,
-      },
-      {
-        path: `${ROUTE.settings}`,
-        element: <SettingsPage />,
       },
       {
         path: `${ROUTE.settings}/${ROUTE.resetPassword}/:token`,

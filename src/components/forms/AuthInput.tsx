@@ -3,7 +3,7 @@ import { Form, Input } from 'antd';
 import { Controller } from 'react-hook-form';
 import { AuthFormProps } from './types';
 
-const AuthInput: FC<AuthFormProps> = ({
+export const AuthInput: FC<AuthFormProps> = ({
   control,
   validateStatus,
   help,
@@ -28,5 +28,3 @@ const AuthInput: FC<AuthFormProps> = ({
     </Form.Item>
   );
 };
-
-export default AuthInput;

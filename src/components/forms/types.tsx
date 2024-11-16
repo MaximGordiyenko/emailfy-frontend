@@ -7,4 +7,5 @@ export interface AuthFormProps extends UseControllerProps<any> {
   placeholder?: string;
   type?: 'text' | 'password';
   text?: string;
+  value?: string,
 }

@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { StickyIcon } from './Buttons/StickyIcon';
-import { DuplicateIcon } from './Buttons/DuplicateIcon';
-import { DeleteIcon } from './Buttons/DeleteIcon';
-import { DragIcon } from './Buttons/DragIcon';
+import { StickyIcon } from './buttons/StickyIcon';
+import { DuplicateIcon } from './buttons/DuplicateIcon';
+import { DeleteIcon } from './buttons/DeleteIcon';
+import { DragIcon } from './buttons/DragIcon';
 import { MailBuilderContext } from '../../context/MailBuilderContext';
 
 export const BorderOverChild = ({ editorBlock, handleDuplicate, handleDelete }) => {

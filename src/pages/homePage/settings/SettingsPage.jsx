@@ -1,6 +1,6 @@
 import './style.scss';
 import settings from '../../../assets/images/settings.png';
-import TabComponent from '../../../components/tabComponent/TabComponent';
+import SettingTabs from '../../../components/settings-tabs/SettingTabs';
 import BrandHeader from '../../../components/header/BrandHeader';
 import React, { useState } from 'react';
 
@@ -24,7 +24,7 @@ export const SettingsPage = () => {
       <BrandHeader icon={settings} description="Settings" content={renderHeaderContent()} />
       <div className="settings-content">
         <div className="tabs-wrapper">
-          <TabComponent onSave={onSave} setOnSave={setOnSave} />
+          <SettingTabs onSave={onSave} setOnSave={setOnSave} />
         </div>
       </div>
     </div>

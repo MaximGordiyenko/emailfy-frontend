@@ -1,7 +1,7 @@
 import './style.scss';
 import { useState } from 'react';
 import { Button } from '../../components/button/Button';
-import InputComponent from '../../components/inputComponent/InputComponent';
+import InputComponent from '../../components/inputs/InputComponent';
 import { reset_password } from '../../api/settings/settings';
 
 export const ForgotPassword = () => {

@@ -1,6 +1,6 @@
 import './style.scss';
 import circle from '../../../assets/images/CheckCircle.png';
-import ProgressBar from '../../../components/progressBar/ProgressBar';
+import ProgressBar from '../../../components/progress-bars/ProgressBar';
 import audience from '../../../assets/images/audience/audienceicon.png';
 
 export const GetStarted = () => {

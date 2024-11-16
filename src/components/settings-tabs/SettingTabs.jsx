@@ -1,10 +1,9 @@
-// TabComponent.js
-import React, { useState } from 'react';
-import { UserInfo } from './userInfo/UserInfo';
-import { CompanyInfo } from './companyInfo/CompanyInfo';
-import { DomainInfo } from './domain/DomainInfo';
+import { useState } from 'react';
+import { UserInformationTab } from './user-info-tab/UserInformationTab';
+import { CompanyInformationTab } from './company-info-tab/CompanyInformationTab';
+import { DomainInformationTab } from './domain-info-tab/DomainInformationTab';
 
-const TabComponent = ({ onSave, setOnSave }) => {
+const SettingTabs = ({ onSave, setOnSave }) => {
   const [activeTab, setActiveTab] = useState(1);
 
   const handleTabClick = (tabNumber) => {
@@ -15,7 +14,7 @@ const TabComponent = ({ onSave, setOnSave }) => {
     <div className="tab-container">
       <div className={'tabs'}>
         <div className={`tab ${activeTab === 1 ? 'active' : ''}`} onClick={() => handleTabClick(1)}>
-          User info
+          User information
         </div>
         <div className={`tab ${activeTab === 2 ? 'active' : ''}`} onClick={() => handleTabClick(2)}>
           Company information
@@ -25,12 +24,12 @@ const TabComponent = ({ onSave, setOnSave }) => {
         </div>
       </div>
       <div className="tab-content">
-        {activeTab === 1 && <UserInfo onSave={onSave} setOnSave={setOnSave} />}
-        {activeTab === 2 && <CompanyInfo onSave={onSave} setOnSave={setOnSave} />}
-        {activeTab === 3 && <DomainInfo onSave={onSave} setOnSave={setOnSave} />}
+        {activeTab === 1 && <UserInformationTab onSave={onSave} setOnSave={setOnSave} />}
+        {activeTab === 2 && <CompanyInformationTab onSave={onSave} setOnSave={setOnSave} />}
+        {activeTab === 3 && <DomainInformationTab onSave={onSave} setOnSave={setOnSave} />}
       </div>
     </div>
   );
 };
 
-export default TabComponent;
+export default SettingTabs;

@@ -1,6 +1,6 @@
 import './style.scss';
 import { useState, useEffect } from 'react';
-import ProgressBar from '../../../../components/dashboardProgressBar/ProgressBar';
+import ProgressBarX from '../../../../components/progress-bars/ProgressBarX';
 import { SUBSCRIBERS_GEOGRAPHIC } from '../../../../constants/statisticData';
 
 export const SubsGeoStat = () => {
@@ -18,7 +18,7 @@ export const SubsGeoStat = () => {
               <div className={'percentage'}>{item.percentage}%</div>
               <div className={'count'}>({item.z})</div>
             </div>
-            <ProgressBar completed={item.percentage} />
+            <ProgressBarX completed={item.percentage} />
           </div>
         );
       })}

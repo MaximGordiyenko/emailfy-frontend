@@ -2,7 +2,7 @@ import './style.scss';
 import arrow from '../../../../assets/images/leftArrGreen.png';
 import { useFetcher, useNavigate, useParams } from 'react-router-dom';
 import audience from '../../../../assets/images/audience/audienceicon.png';
-import ProgressBar from '../../../../components/progressBar/ProgressBar';
+import ProgressBar from '../../../../components/progress-bars/ProgressBar';
 import sub from '../../../../assets/images/subs.png';
 import chat from '../../../../assets/images/chat.png';
 import magnet from '../../../../assets/images/magnet.png';

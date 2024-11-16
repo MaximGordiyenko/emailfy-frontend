@@ -1,4 +1,4 @@
-import { DeleteStickyIcon } from '../../../../components/interface/Buttons/DeleteStickyIcon';
+import { DeleteStickyIcon } from '../../../../components/interface/buttons/DeleteStickyIcon';
 import '../styles.css';
 import { useContext, useEffect, useState } from 'react';
 import { MailBuilderContext } from '../../../../context/MailBuilderContext';

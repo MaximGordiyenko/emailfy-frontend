@@ -6,7 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { signUpValidation } from '../../validation/auth.js';
 
 import { Form, Button } from 'antd';
-import AuthInput from '../../components/forms/AuthInput.tsx';
+import { AuthInput } from '../../components/forms/AuthInput.tsx';
 
 import brandLogo from '../../assets/images/logoRedesigned.png';
 import alertIcon from '../../assets/images/alert_circle.png';
@@ -36,8 +36,8 @@ export const RegisterPage = () => {
   const navigate = useNavigate();
 
   const { mutate } = useMutation((data) => signUp(data), {
-    onSuccess() {
-      toast.success('You are register successfully');
+    onSuccess({ message, userId }) {
+      toast.success(`${message} with user id ${userId}`);
       navigate(`/${ROUTE.login}`);
     },
     onError(error) {

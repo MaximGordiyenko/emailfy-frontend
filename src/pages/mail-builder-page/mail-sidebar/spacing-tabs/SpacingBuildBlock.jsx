@@ -1,5 +1,5 @@
 import '../styles.css';
-import { DeleteStickyIcon } from '../../../../components/interface/Buttons/DeleteStickyIcon';
+import { DeleteStickyIcon } from '../../../../components/interface/buttons/DeleteStickyIcon';
 
 export const SpacingBuildBlock = ({
   id,

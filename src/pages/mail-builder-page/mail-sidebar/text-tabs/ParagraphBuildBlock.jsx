@@ -1,5 +1,5 @@
 import DOMPurify from 'dompurify';
-import { DeleteStickyIcon } from '../../../../components/interface/Buttons/DeleteStickyIcon';
+import { DeleteStickyIcon } from '../../../../components/interface/buttons/DeleteStickyIcon';
 import '../styles.css';
 
 export const ParagraphBuildBlock = ({

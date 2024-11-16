@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { BrandLabel } from '../../../../components/inputComponent/BrandLabel';
+import { BrandLabel } from '../../../../components/inputs/BrandLabel';
 import { TextEditor } from '../../../../components/editors/TextEditor';
 import { PreviewIcon } from './PreviewIcon';
 import { useSelector } from 'react-redux';
