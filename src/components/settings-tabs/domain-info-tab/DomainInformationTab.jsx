@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ROUTE } from '../../../routes/routes.constants';
+
+import { getToken } from '../../../api/API';
 import { check_smtp, delete_smtp, get_smtp } from '../../../api/settings/settings';
-import { initialSmtpData, initialStatusData } from '../../../constants';
+
+import { initialSmtpData, initialStatusData } from '../../../constants/common.constants';
+
 import validIcon from '../../../assets/images/validCheckCircle.svg';
-// import notValidIcon from '../../../assets/images/notValidCheckCircle.svg';
 import pendingIcon from '../../../assets/images/clockCircle.svg';
 import tubeSpinner from '../../../assets/images/tube-spinner.svg';
-import { getToken } from '../../../api/API';
 
 export const DomainInformationTab = () => {
   const navigate = useNavigate();
@@ -47,7 +50,6 @@ export const DomainInformationTab = () => {
     try {
       const access_token = getToken('accessToken');
       const response = await delete_smtp(access_token);
-      console.log('delete_smtp response: ', response);
       setSmtp(initialSmtpData);
       setStatusData(initialStatusData);
     } catch (e) {
@@ -56,7 +58,7 @@ export const DomainInformationTab = () => {
   };
 
   const handleClickVerify = () => {
-    navigate('/settings/domain_auth');
+    navigate(`/${ROUTE.settings}/${ROUTE.domain}`);
   };
 
   useEffect(() => {

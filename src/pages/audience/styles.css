@@ -1,0 +1,350 @@
+.audience {
+  
+  .test-header {
+    .content-box {
+      .route-status {
+        & img {
+          width: 18px;
+          height: 18px;
+          margin-right: 10px;
+        }
+        
+        & span {
+          padding-top: 2px;
+          font-size: 16px;
+          line-height: 18px;
+          font-family: MacpawFixelMedium;
+        }
+      }
+    }
+  }
+  
+  .upload-contacts {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .cards {
+      display: flex;
+      flex: 1 1 auto;
+      gap: 30px;
+      padding: 30px;
+      align-items: center;
+      justify-content: space-between;
+      
+      .card1,
+      .card2 {
+        border: 1px solid rgba(42, 43, 59, 0.3);
+        padding: 20px;
+        border-radius: 20px;
+        display: flex;
+        flex: 1;
+        align-items: center;
+        cursor: pointer;
+        
+        .upload-des {
+          margin-left: 10px;
+          max-width: 230px;
+          text-align: left;
+          
+          & h4 {
+            font-size: 16px;
+            font-family: MacPawFixelBold;
+            margin: 0;
+          }
+          
+          & p {
+            font-size: 14px;
+            font-family: MacPawFixelMedium;
+            margin: 0;
+          }
+        }
+        
+        & img {
+          width: 32px;
+          height: 32px;
+          align-self: start;
+        }
+      }
+      
+      .import {
+        border: 1px solid rgba(42, 43, 59, 0.3);
+        padding: 20px;
+        border-radius: 20px;
+        margin: 0;
+        cursor: pointer;
+        display: flex;
+        flex: 1;
+        align-items: flex-start;
+        position: relative;
+        
+        .cooming-soon {
+          position: absolute;
+          align-items: center;
+          width: 113px;
+          top: 0;
+          right: 0;
+          border-radius: 0px 20px;
+          background: #e4e4e6;
+          
+          & span {
+            padding-bottom: 3%;
+            color: #2a2b3b;
+            font-size: 12px;
+            font-family: MacPawFixelMedium;
+            opacity: 0.5;
+          }
+        }
+        
+        .upload-des {
+          text-align: left;
+          margin-left: 10px;
+          max-width: 230px;
+          opacity: 0.7;
+          
+          & h4 {
+            font-size: 16px;
+            font-family: MacPawFixelBold;
+            margin: 0;
+          }
+          
+          & p {
+            font-size: 14px;
+            font-family: MacPawFixelMedium;
+            margin: 0;
+          }
+        }
+        
+        & img {
+          width: 32px;
+          height: 32px;
+          align-self: start;
+        }
+      }
+    }
+  }
+  
+  .audience-content {
+    
+    .audience-bars {
+      display: flex;
+      flex-direction: column;
+      
+      .aud-title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+        & h1 {
+          font-size: 32px;
+          line-height: 42px;
+          align-self: start;
+          color: var(--default-grey-90);
+          font-family: MacPawFixelBold;
+          margin: 10px auto 20px 0;
+        }
+        
+        .drafts-hide {
+          display: none;
+        }
+      }
+      
+      .all-contacts {
+        margin: 20px 0px 0px 0px;
+        background-color: #ffffff;
+        border-radius: 20px;
+        align-items: center;
+        display: flex;
+        width: 95%;
+        justify-content: space-between;
+        padding: 20px 20px 20px 30px;
+        
+        .title {
+          display: flex;
+          align-items: center;
+          
+          & img {
+            width: 24px;
+            height: 24px;
+          }
+          
+          & span {
+            font-family: MacPawFixelMedium;
+            font-size: 16px;
+            margin-left: 20px;
+          }
+        }
+        
+        .main-stats {
+          display: flex;
+          align-items: center;
+          
+          .stat1,
+          .stat2,
+          .stat3 {
+            margin: 0px 30px 0px 0px;
+            
+            & span {
+              font-size: 10px;
+              font-family: MacPawFixelMedium;
+            }
+            
+            & h3 {
+              margin: 5px 0 0;
+              font-size: 18px;
+              font-family: MacPawFixelBold;
+            }
+          }
+          
+          .dots {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    
+    .bars-moved {
+      display: flex;
+      flex-direction: column;
+      margin: 20px 0 0 0;
+      
+      .aud-title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 98%;
+        min-width: 1015px;
+        
+        & h1 {
+          align-self: start;
+          font-family: MacPawFixelBold;
+          font-family: MacPawFixelMedium;
+        }
+        
+        .drafts {
+          cursor: pointer;
+          width: 130px;
+          height: 45px;
+          padding: 10px 20px;
+          border: 1px solid #7e9d00;
+          border-radius: 10px;
+          
+          & span {
+            color: #7e9d00;
+          }
+        }
+        
+        .drafts-hide {
+          display: none;
+        }
+      }
+      
+      .all-contacts {
+        margin: 20px 0px 0px 0px;
+        background-color: #ffffff;
+        border-radius: 20px;
+        align-items: center;
+        display: flex;
+        width: 95%;
+        justify-content: space-between;
+        padding: 20px 20px 20px 30px;
+        
+        .title {
+          display: flex;
+          align-items: center;
+          
+          & img {
+            width: 24px;
+            height: 24px;
+          }
+          
+          & span {
+            font-family: MacPawFixelMedium;
+            font-size: 16px;
+            margin-left: 20px;
+          }
+        }
+        
+        .main-stats {
+          display: flex;
+          align-items: center;
+          
+          .stat1,
+          .stat2,
+          .stat3 {
+            margin: 0px 30px 0px 0px;
+            
+            & span {
+              font-size: 10px;
+              font-family: MacPawFixelMedium;
+            }
+            
+            & h3 {
+              margin: 5px 0 0;
+              font-size: 18px;
+              font-family: MacPawFixelBold;
+            }
+          }
+          
+          .dots {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  
+  .audience-preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: calc(10vh + 80px) auto;
+    width: 400px;
+    height: 420px;
+    
+    & img {
+      width: 200px;
+      height: 200px;
+    }
+    
+    .audience-desc {
+      & h3 {
+        font-family: MacPawFixelBold;
+        font-size: 24px;
+        color: var(--default-grey-90);
+        margin: 40px auto 10px;
+      }
+      
+      & p {
+        margin: 0 auto 20px;
+        font-size: 14px;
+        line-height: 19px;
+        font-family: MacPawFixelMedium;
+        color: var(--default-grey-50);
+      }
+    }
+    
+    & button {
+      background-color: var(--default-green);
+      width: 205px;
+      height: 45px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      
+      & span {
+        color: var(--default-white);
+        font-family: MacPawFixelMedium;
+        font-size: 14px;
+        line-height: 19px;
+      }
+    }
+  }
+}

@@ -228,7 +228,7 @@ export const UserInformationTab = () => {
             help={errors.repeatNewPassword?.message}
           />
           <Form.Item>
-            <Button type="primary" htmlType="submit" block>
+            <Button type="default" htmlType="submit" variant="outlined" block>
               {isLoading ? 'Loading...' : 'Change password'}
             </Button>
           </Form.Item>

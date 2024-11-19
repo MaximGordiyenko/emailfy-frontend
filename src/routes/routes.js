@@ -2,34 +2,41 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { ROUTE } from './routes.constants';
 
 import { MainLayout } from '../components/layouts/MainLayout';
-import { DashboardPage } from '../pages/homePage/dashboard/DashboardPage';
-import { AnalyticsPage } from '../pages/homePage/analytics/AnalyticsPage';
+import { DashboardPage } from '../pages/dashboard-page/DashboardPage';
+import { AnalyticsPage } from '../pages/analytics-page/AnalyticsPage';
 import { AuthLayout } from '../components/layouts/AuthLayout';
 import { LoginPage } from '../pages/auth-page/LoginPage';
 import { RegisterPage } from '../pages/auth-page/RegisterPage';
-import { AudiencePage } from '../pages/homePage/audience/AudiencePage';
-import { UploadPage } from '../pages/homePage/audience/uploadFile/UploadPage';
-import { ManualUploadPage } from '../pages/homePage/audience/uploadManually/ManualUploadPage';
-import { SegmentationPage } from '../pages/homePage/audience/segmentation/SegmentationPage';
-import { UploadHTML } from '../pages/homePage/campaigns/email-capmaign/UploadHTML';
-import { CampaignsPage } from '../pages/homePage/campaigns/CampaignsPage';
-import { CampaignsHtmlPreview } from '../pages/homePage/campaigns/email-capmaign/CampaignsHtmlPreview';
-import { UploadManualText } from '../pages/homePage/campaigns/email-capmaign/UploadManualText';
-import { CampaignsTextPreview } from '../pages/homePage/campaigns/email-capmaign/CampaignsTextPreview';
-import { SegmentManually } from '../pages/homePage/audience/segmentManual/SegmentationManual';
-import { Tags } from '../pages/homePage/tags/tags';
-import { TagPage } from '../pages/homePage/tags/tagPage/tagPage';
-import { ForgotPassword } from '../pages/mainPage/ForgotPassword';
-import { VerifyPage } from '../pages/mainPage/VerifyPage';
-import { ConfirmationPage } from '../pages/mainPage/Confirmation';
-import { ResetPass } from '../pages/mainPage/ResetPass';
-import { DomainAuth } from '../pages/homePage/settings/domainAuth/DomainAuth';
-import { LoggedBy2FA } from '../pages/mainPage/LoggedBy2FA';
+import { AudiencePage } from '../pages/audience/AudiencePage';
+import { UploadPage } from '../pages/audience/uploadFile/UploadPage';
+import { ManualUploadPage } from '../pages/audience/uploadManually/ManualUploadPage';
+import { SegmentationPage } from '../pages/audience/segmentation/SegmentationPage';
+import { UploadHTML } from '../pages/campaigns/email-capmaign/UploadHTML';
+import { CampaignsPage } from '../pages/campaigns/CampaignsPage';
+import { CampaignsHtmlPreview } from '../pages/campaigns/email-capmaign/CampaignsHtmlPreview';
+import { UploadManualText } from '../pages/campaigns/email-capmaign/UploadManualText';
+import { CampaignsTextPreview } from '../pages/campaigns/email-capmaign/CampaignsTextPreview';
+import { SegmentManually } from '../pages/audience/segmentManual/SegmentationManual';
+import { Tags } from '../pages/tags/Tags';
+import { TagsPage } from '../pages/tags/tagPage/TagsPage';
+import { ForgotPassword } from '../pages/main-page/ForgotPassword';
+import { VerifyPage } from '../pages/main-page/VerifyPage';
+import { ConfirmationPage } from '../pages/main-page/Confirmation';
+import { ResetPass } from '../pages/main-page/ResetPass';
+import { DomainAuth } from '../pages/settings/domainAuth/DomainAuth';
+import { LoggedBy2FA } from '../pages/main-page/LoggedBy2FA';
 import { MailBuilderPage } from '../pages/mail-builder-page/MailBuilderPage';
 import { MailPreviewPage } from '../pages/mail-builder-page/mail-preview/MailPreviewPage';
 import { MailBuilderLayout } from '../components/layouts/MailBuilderLayout';
-import { SettingsPage } from '../pages/homePage/settings/SettingsPage';
+import { SettingsPage } from '../pages/settings/SettingsPage';
 import { PrivateRoute } from './PrivateRoute';
+import { UserInformationTab } from '../components/settings-tabs/user-info-tab/UserInformationTab';
+import { CompanyInformationTab } from '../components/settings-tabs/company-info-tab/CompanyInformationTab';
+import { DomainInformationTab } from '../components/settings-tabs/domain-info-tab/DomainInformationTab';
+import { HomePage } from '../pages/getStarted/HomePage';
+import { DefaultLayout } from '../components/layouts/DefaultLayout';
+import { SubscriptionPage } from '../pages/subscription/SubscriptionPage';
+import { AudienceList } from '../pages/audience/audienceList/AudienceList';
 
 export const routes = createBrowserRouter([
   {
@@ -58,31 +65,75 @@ export const routes = createBrowserRouter([
       },
       {
         path: `${ROUTE.analytics}`,
-        element: <AnalyticsPage />,
+        element: (
+          <PrivateRoute>
+            <AnalyticsPage />
+          </PrivateRoute>
+        ),
       },
       {
         path: `${ROUTE.audience}`,
-        element: <AudiencePage />,
+        element: (
+          <PrivateRoute>
+            <AudiencePage />
+          </PrivateRoute>
+        ),
+        children: [
+          {
+            path: `/${ROUTE.audience}`,
+            element: <AudienceList />,
+          },
+          {
+            path: `/${ROUTE.audience}/${ROUTE.uploadFile}`,
+            element: <UploadPage />,
+          },
+        ],
       },
       {
         path: `${ROUTE.campaigns}`,
-        element: <CampaignsPage />,
+        element: (
+          <PrivateRoute>
+            <CampaignsPage />
+          </PrivateRoute>
+        ),
       },
       {
-        path: `${ROUTE.settings}`,
+        path: `/${ROUTE.settings}`,
         element: (
           <PrivateRoute>
             <SettingsPage />
+          </PrivateRoute>
+        ),
+        children: [
+          {
+            index: true,
+            element: <Navigate to={`/${ROUTE.settings}/${ROUTE.userInfo}`} replace />,
+          },
+          {
+            path: `/${ROUTE.settings}/${ROUTE.userInfo}`,
+            element: <UserInformationTab />,
+          },
+          {
+            path: `/${ROUTE.settings}/${ROUTE.companyInfo}`,
+            element: <CompanyInformationTab />,
+          },
+          {
+            path: `/${ROUTE.settings}/${ROUTE.domainInfo}`,
+            element: <DomainInformationTab />,
+          },
+        ],
+      },
+      {
+        path: `${ROUTE.subscription}`,
+        element: (
+          <PrivateRoute>
+            <SubscriptionPage />
           </PrivateRoute>
         ),
       },
       {
         path: `${ROUTE.audience}/${ROUTE.manualUpload}`,
         element: <ManualUploadPage />,
-      },
-      {
-        path: `${ROUTE.audience}/:id`,
-        element: <UploadPage />,
       },
       {
         path: `${ROUTE.audience}/${ROUTE.segmentation}`,
@@ -114,7 +165,7 @@ export const routes = createBrowserRouter([
       },
       {
         path: `${ROUTE.tags}/:id`,
-        element: <TagPage />,
+        element: <TagsPage />,
       },
       {
         path: `${ROUTE.forgotPassword}`,
@@ -139,6 +190,15 @@ export const routes = createBrowserRouter([
       {
         path: `${ROUTE.auth2FA}`,
         element: <LoggedBy2FA />,
+      },
+    ],
+  },
+  {
+    element: <DefaultLayout />,
+    children: [
+      {
+        path: `${ROUTE.home}`,
+        element: <HomePage />,
       },
     ],
   },

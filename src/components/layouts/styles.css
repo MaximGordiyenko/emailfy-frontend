@@ -32,7 +32,7 @@
   }
 }
 
-.mail-builder-layout{
+.mail-builder-layout {
   width: 100vw;
   height: 100vh;
   background-color: #f2f2f2;
@@ -40,4 +40,26 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
+}
+
+.main-layout-container {
+  display: flex;
+  height: 100vh;
+  
+  .main-layout-header {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    
+    .main-layout-outlet-content {
+      flex-grow: 1;
+      overflow: auto;
+      padding: 30px 60px;
+    }
+  }
+}
+
+
+.default-layout-container {
+  display: flex;
 }

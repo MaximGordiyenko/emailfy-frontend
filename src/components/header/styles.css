@@ -1,17 +1,11 @@
-.brand-header {
-  width: 80%;
-  box-sizing: border-box;
-  right: 0;
-  top: 0;
-  height: 80px;
-  display: flex;
-  position: fixed;
+.header-wrapper {
+  padding: 15px 20px;
   background-color: var(--default-white);
   border-bottom: 1px solid var(--default-grey-10);
-
+  
   &.builder-header {
     padding: 0 10px;
-
+    
     .header-icon-btn-container {
       width: 100%;
       margin: 0 auto;
@@ -19,7 +13,7 @@
       align-items: center;
       justify-content: space-between;
       background-color: white;
-
+      
       .media-query-btn-wrapper {
         width: 60px;
         border: 1px solid var(--border-color);
@@ -31,7 +25,7 @@
         caret-color: transparent;
         margin: 0 23% 0 auto;
       }
-
+      
       .preview-btn-wrapper {
         display: flex;
         justify-content: space-around;
@@ -40,152 +34,34 @@
       }
     }
   }
-
-  .content-box {
-    align-self: center;
+  
+  .header-container {
     display: flex;
-    flex: 1;
-    align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
-
-    .route-status {
+    align-items: center;
+    background-color: #f8f9fa;
+    
+    .header-route {
       display: flex;
       align-items: center;
-
-      .manual-routes {
-        display: flex;
-        align-items: baseline;
-        font-size: 16px;
-        font-family: MacpawFixelMedium;
-
-        & span {
-          display: flex;
-          cursor: pointer;
-          margin: 0 0 0 10px;
-          color: var(--default-grey-90);
-        }
-
-        .actual-path {
-          color: var(--default-green);
-        }
-
-        & p {
-          margin: 0 10px;
-          color: var(--default-grey-90);
-        }
-      }
-
-      & img {
+      
+      .header-icon {
         width: 18px;
         height: 18px;
+        margin-right: 8px;
+      }
+      
+      .header-path {
+        font-size: 16px;
+        font-weight: bold;
       }
     }
-
-    .header-btns-group {
+    
+    .header-content {
       display: flex;
       align-items: center;
-      justify-content: space-around;
-      gap: 10px;
-
-      .file-size-btn-icon {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-      }
-    }
-
-    .header-buttons {
-      display: flex;
-      gap: 10px;
-
-      .border-btn {
-        text-align: center;
-        width: 105px;
-        box-sizing: border-box;
-        padding: 10px 10px;
-      }
-
-      .filled-btn {
-        width: 204px;
-
-        &:disabled {
-          background: var(--te-icon-bg-pressed);
-
-          & span {
-            color: var(--default-grey-40);
-          }
-        }
-      }
-    }
-
-    .btns {
-      display: flex;
-      justify-content: flex-start;
-      margin-left: 30px;
-
-      .group {
-        display: flex;
-      }
-
-      .outline {
-        display: flex;
-        height: 44px;
-        padding: 10px 20px;
-        background-color: transparent;
-        border: 1px solid #e8e8e8;
-        border-radius: 10px;
-        margin-left: 10px;
-        cursor: pointer;
-        align-items: center;
-        justify-content: space-evenly;
-
-        & span {
-          font-family: MacPawFixelMedium;
-          color: #2a2b3b;
-          font-size: 14px;
-          margin-left: 5px;
-        }
-
-        & img {
-          width: 24px;
-          height: 24px;
-        }
-
-        &.prev {
-          margin-left: 0;
-          border-right-width: 0;
-          padding-right: 10px;
-        }
-
-        &.next {
-          margin-left: 0;
-          border-left-width: 0;
-          padding-left: 10px;
-        }
-      }
-
-      .filled {
-        cursor: pointer;
-        width: 205px;
-        height: 44px;
-        background-color: #7e9d00;
-        border: none;
-        border-radius: 10px;
-        margin-left: 10px;
-
-        & span {
-          font-family: MacPawFixelMedium;
-          color: #ffffff;
-          font-size: 14px;
-        }
-      }
-
-      &:disabled {
-        opacity: 0.5;
-        cursor: default;
-      }
+      gap: 16px;
+      font-size: 14px;
     }
   }
 }

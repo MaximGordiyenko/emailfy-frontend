@@ -1,0 +1,75 @@
+.domain-auth {
+  .domain-auth-header-button {
+    background-color: var(--default-green);
+    color: var(--default-white);
+    font-family: MacPawFixelMedium;
+    font-size: 14px;
+    line-height: 19px;
+  }
+  
+  .steps-body {
+    .domain-auth-title {
+      font-family: MacPawFixelBold;
+      font-size: 24px;
+      line-height: 26.4px;
+      margin-bottom: 40px;
+    }
+    
+    .step-progress {
+      width: 100%;
+      display: flex;
+      
+      .steps-box {
+        width: 330px;
+        font-family: MacPawFixelBold;
+        font-size: 14px;
+        color: var(--default-grey-40);
+        
+        .step {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 14px;
+          height: 80px;
+          margin-bottom: 5px;
+          
+          .status-icons {
+            height: 100%;
+            position: relative;
+            margin-top: 55px;
+            width: 30px;
+            
+            .img-success {
+              width: 22px;
+              height: 22px;
+              margin-left: 3px;
+            }
+            
+            .line {
+              position: absolute;
+              width: 1px;
+              height: 55px;
+              left: 47%;
+              background: #AAAAB1;
+              
+              &.line-success {
+                background: var(--default-green);
+              }
+            }
+          }
+          
+          &.current {
+            color: var(--default-grey-90);
+          }
+        }
+      }
+      
+      .forms {
+        margin-left: 30px;
+        max-width: 675px;
+        width: 100%;
+      }
+    }
+  }
+}

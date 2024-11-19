@@ -1,0 +1,16 @@
+.breadcrumbs-path-container {
+  
+  &:hover {
+    opacity: .8;
+  }
+  
+  .breadcrumbs-path-description {
+    font-weight: bold;
+    color: #7e9d00;
+  }
+  
+  .breadcrumbs-path-link {
+    color: #666;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,555 @@
+.segment-wrapper {
+  
+  .test-header {
+    .content-box {
+      .route-status {
+        .manual-routes {
+          .route-params {
+            color: var(--default-green);
+          }
+        }
+        
+        & img {
+          width: 18px;
+          height: 18px;
+          margin-right: 10px;
+        }
+        
+        & span {
+          padding-top: 2px;
+          font-size: 16px;
+          line-height: 18px;
+          font-family: MacpawFixelMedium;
+        }
+      }
+      
+      .upload-group {
+        display: flex;
+        align-self: flex-end;
+        
+        .back {
+          width: 120px;
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          height: 44px;
+          background-color: transparent;
+          border: 1px solid #7e9d00;
+          border-radius: 10px;
+          cursor: pointer;
+          
+          & img {
+            width: 24px;
+            height: 24px;
+          }
+          
+          & span {
+            font-family: MacPawFixelMedium;
+            color: var(--default-grey-90);
+            font-size: 14px;
+          }
+        }
+        
+        .continue {
+          cursor: pointer;
+          width: 205px;
+          height: 44px;
+          background-color: #7e9d00;
+          border: none;
+          border-radius: 10px;
+          margin-left: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          
+          & span {
+            font-family: MacPawFixelMedium;
+            color: #ffffff;
+            font-size: 14px;
+          }
+        }
+        
+        :disabled {
+          opacity: 0.5;
+          background-color: var(--default-grey-10);
+          cursor: default;
+          
+          & span {
+            color: var(--default-grey-90);
+          }
+        }
+      }
+    }
+  }
+  
+  .pg-bars {
+    top: 82px;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    
+    .progress-bar-upload {
+      /*font-family: MacpawFixelBold;*/
+      /*text-align: left;*/
+      /*width: 85%;*/
+      /*margin: 0px 0px 0px 15.1vw;*/
+      /*display: flex;*/
+      /*flex-direction: column;*/
+      
+      & h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+      
+      .progress-wrapper {
+        .parent-prog-bar {
+          height: 2px !important;
+        }
+        
+        .child-prog-bar {
+          height: 2px !important;
+        }
+      }
+    }
+  }
+  
+  .inner-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+    .segm-title {
+      display: flex;
+      align-self: flex-start;
+      margin: 0;
+      display: flex;
+      font-family: MacpawFixelBold;
+      
+      & h1 {
+        margin: 0;
+        font-size: 32px;
+      }
+      
+      .count {
+        margin-right: 10px;
+        font-size: 32px;
+        color: rgba(42, 43, 59, 0.3);
+      }
+    }
+    
+    .segm-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      
+      .tips {
+        text-align: left;
+        font-size: 14px;
+        align-items: flex-start;
+        max-width: 440px;
+        
+        & ul {
+          padding: 0 0 0 5%;
+          
+          & li {
+            line-height: 19.32px;
+            opacity: 0.7;
+          }
+        }
+      }
+      
+      .upload-group {
+        align-self: center;
+        
+        & button {
+          cursor: pointer;
+        }
+        
+        :disabled {
+          opacity: 0.5;
+          cursor: default;
+        }
+      }
+    }
+    
+    .custom-dropdown {
+      max-width: 440px;
+      position: relative;
+      
+      .options {
+        position: absolute;
+        width: 100%;
+        z-index: 2;
+        background: var(--default-white);
+        border-radius: 10px;
+        top: 78px;
+        left: 0;
+        margin: 0;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px #EAEAEC solid;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        
+        & li {
+          display: flex;
+          padding: 5px 10px;
+          box-sizing: border-box;
+          align-items: center;
+          border-radius: 10px;
+          cursor: pointer;
+          height: 44px;
+          justify-content: space-between;
+        }
+        
+        .selected-option-li {
+          background: var(--default-grey-10);
+        }
+      }
+      
+      .dropdown-label {
+        margin: 0 0 0 20px;
+      }
+      
+      .selected-option {
+        border: 1px #EAEAEC solid;
+        height: 48px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--default-white);
+        border-radius: 10px;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        
+        & img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+    
+    .popup-wrapper {
+      background: var(--default-green);
+      border-radius: 20px;
+      padding: 20px;
+      box-sizing: border-box;
+      width: 440px;
+      height: 84px;
+      
+      .inner-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .segment-popup-text {
+          cursor: default;
+          margin: 0;
+          font-size: 14px;
+          color: var(--default-white);
+          font-family: MacPawFixelMedium, "sans-serif";
+          
+          & b {
+            cursor: pointer;
+          }
+        }
+        
+        .segment-btn {
+          width: 130px;
+          height: 44px;
+          border: none;
+          display: flex;
+          border-radius: 10px;
+          cursor: pointer;
+          align-items: center;
+          justify-content: center;
+          background: var(--default-white);
+          
+          & span {
+            color: var(--default-grey-90);
+            font-family: MacPawFixelMedium, "sans-serif";
+          }
+        }
+      }
+    }
+    
+    .placeholder {
+      max-width: 440px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      .hr1, .hr2 {
+        height: 1px;
+        width: 160px;
+        background: #C0C0C5;
+      }
+      
+      .placeholder-text {
+        font-family: MacPawFixelMedium, "sans-serif";
+        color: var(--default-grey-50);
+        width: 140px !important;
+        border: 1px #C0C0C5 solid;
+        padding: 5px 5px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        font-size: 10px;
+        text-align: center;
+      }
+    }
+    
+    .modal {
+      position: absolute;
+      top: 0;
+      width: 100vw;
+      z-index: 99;
+      height: 100vh;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(20px);
+      
+      .modal-window-segment {
+        width: 50vw;
+        position: relative;
+        padding: 30px 20px;
+        height: 57vh;
+        border-radius: 20px;
+        background-color: #ffffff;
+        text-align: left;
+        
+        .modal-title {
+          display: flex;
+          justify-content: space-between;
+          
+          & h1 {
+            margin: 0;
+            font-family: MacpawFixelBold;
+            font-size: 24px;
+          }
+          
+          & img {
+            width: 24px;
+            height: 24px;
+          }
+        }
+        
+        .data-table {
+          font-family: MacpawFixelMedium;
+          
+          .table-title {
+            display: flex;
+            justify-content: space-between;
+            color: #2a2b3b;
+            font-size: 12px;
+            opacity: 0.5;
+            
+            .fname {
+              margin-left: 15%;
+            }
+            
+            .lname {
+              margin-right: 10%;
+            }
+          }
+          
+          & hr {
+            color: rgba(42, 43, 59, 0.1);
+          }
+          
+          .table-content {
+            margin-top: 10px;
+            
+            .contact {
+              display: flex;
+              justify-content: space-between;
+              font-family: MacpawFixelMedium;
+              font-size: 12px;
+            }
+          }
+          
+          .btns-group {
+            bottom: 5%;
+            right: 5%;
+            position: absolute;
+            
+            & button {
+              padding: 10px 20px;
+              width: 146px;
+              font-size: 14px;
+              font-family: MacpawFixelMedium;
+              border: none;
+              border-radius: 10px;
+              cursor: pointer;
+            }
+            
+            .btn1 {
+              margin-right: 10px;
+              background: rgba(42, 43, 59, 0.05);
+            }
+            
+            .btn2 {
+              background: #7e9d00;
+              
+              & span {
+                color: #ffffff;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    .modal-hide {
+      display: none;
+    }
+    
+    .selection-segment {
+      display: flex;
+      flex-direction: column;
+      align-self: flex-start;
+      align-items: flex-start;
+      opacity: 0.2;
+      pointer-events: none;
+      
+      .dropdown {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        
+        & label {
+          font-family: MacpawFixelMedium;
+          margin: 0px 0px 10px 20px;
+          align-self: flex-start !important;
+        }
+      }
+      
+      .tags {
+        display: flex;
+        flex-direction: column;
+        max-width: 440px;
+        
+        .MuiStack-root {
+          .MuiFormControl-root {
+            .MuiInputBase-root {
+              padding: 20px;
+              background-color: #ffffff;
+              
+              & input {
+                padding: 0;
+              }
+              
+              .MuiAutocomplete-endAdornment {
+                display: none;
+              }
+              
+              .MuiButtonBase-root {
+                background-color: #2a2b3b;
+                
+                & span {
+                  color: #ffffff;
+                }
+                
+                & svg {
+                  color: #ffffff;
+                }
+              }
+            }
+            
+            ::after {
+              border-bottom: none;
+            }
+          }
+        }
+        
+        & label {
+          text-align: left;
+          font-size: 16px;
+          line-height: 22px;
+          margin: 0px 0 10px 20px;
+          font-family: MacpawFixelMedium;
+        }
+        
+        & p {
+          margin: 10px 0 10px 20px;
+          font-family: MacpawFixelMedium;
+          max-width: 440px;
+          font-size: 14px;
+          line-height: 22px;
+          text-align: left;
+          
+          & span {
+            cursor: pointer;
+            color: #7e9d00;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+    .container {
+                    display: flex;
+                    overflow-x: scroll;
+                    width: 100%;
+                    max-width: 100%;
+                    padding: 15px 20px;
+                    border: none;
+                    border-radius: 20px;
+                    align-items: center;
+                    background-color: #fff;
+                    input{
+                        padding: 5px 0!important;
+                        width: 100%;
+                        min-width: 50%;
+                        right: 0;
+                        align-self: flex-start!important;
+                        font-family: MacpawFixelMedium;
+                    }
+                    .container-input {
+                        border: none;
+                        border-radius: none;
+                        padding: 0;
+                        outline: none;
+                        font-size: 14px;
+                    }
+                    .tag {
+                        display: flex;
+                        align-items: center;
+                        margin: 0px 0;
+                        margin-right: 5px;
+                        padding: 5px 10px;
+                        max-width: 100%;
+                        border-radius: 10px;
+                        background-color: #2A2B3B;
+                        white-space: nowrap;
+                        color: white;
+                        img{
+                            display: flex;
+                            border: none;
+                            background-color: unset;
+                            cursor: pointer;
+                            color: white;
+                            width: 16px;
+                            height: 16px;
+                        }
+                        span{
+                            line-height: 19.2px;
+                            margin-bottom: 3%;
+                        }
+                    }
+                }*/

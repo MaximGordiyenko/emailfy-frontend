@@ -10,7 +10,6 @@ export const MailBuilderContext = createContext({
 
 export const MailBuilderProvider = ({ children }) => {
   const [activeTab, setActiveTab] = useState('build-blocks-tab');
-  const [viewMode, setViewMode] = useState('builder'); // builder, preview
   const [mailEditorState, setMailEditorState] = useState([]);
   const [isLoadedScript, setIsLoadedScript] = useState(false);
   const [selectedBlockID, setSelectedBlockID] = useState(null);

@@ -7,7 +7,7 @@ import { MobileIcon } from '../../../components/interface/buttons/MobileIcon';
 import { TextIconButton } from '../../../components/interface/buttons/TextIconButton';
 import { PenEditIcon } from '../../../components/interface/buttons/PenEditIcon';
 import { EnvelopSendIcon } from '../../../components/interface/buttons/EnvelopSendIcon';
-import { PreviewComponent } from '../../homePage/campaigns/email-capmaign/PreviewComponent';
+import { PreviewComponent } from '../../campaigns/email-capmaign/PreviewComponent';
 import { useNavigate } from 'react-router-dom';
 import { SendMailModal } from '../../../components/modals/SendMailModal';
 import { ROUTE } from '../../../routes/routes.constants';
