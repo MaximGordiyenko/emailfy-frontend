@@ -1,71 +1,42 @@
-import { useEffect } from 'react';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
-
-// import { useDispatch } from 'react-redux';
-// import { clearFields } from '../../store/campaignSlice';
-
-import logo from '../../assets/images/logoRedesigned.png';
-import stars from '../../assets/images/compaigns/Stars.svg';
-
-import { Logout } from '../../pages/auth-page/Logout';
+import { useLocation } from 'react-router-dom';
+import { Menu, Layout, theme } from 'antd';
 import { sidebarRoutes } from './sidebar.constants';
 import './styles.css';
 
-export const Sidebar = () => {
+const { Sider } = Layout;
+
+export const Sidebar = ({ onCollapse }) => {
   const location = useLocation();
-  // const dispatch = useDispatch();
 
-  const activePath = location.pathname ? { background: '#7E9D00', borderRadius: '10px' } : null;
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
 
-  useEffect(() => {
-    const isClearCampaignFrom = sidebarRoutes.some((el) => el.path.includes(location.pathname));
-
-    if (isClearCampaignFrom) {
-      // dispatch(
-      //   clearFields([
-      //     'campaign_name',
-      //     'subject',
-      //     'from_name',
-      //     'from_email',
-      //     'sendTo',
-      //     'html',
-      //     'campaign_text',
-      //   ]),
-      // );
-    }
-  }, [location]);
-
+  const activeKey = sidebarRoutes.find((route) => {
+    console.log('location', location.pathname.startsWith(route.path));
+    console.log('route', route.path);
+    return location.pathname.startsWith(route.path);
+  })?.key;
+  console.log(activeKey);
   return (
-    <aside className="sidebar-container">
-      <div className="side-logo">
-        <img src={logo} alt="side-logo" />
-      </div>
-      {sidebarRoutes.map((item, index) => {
-        const isCurrPath = location.pathname.includes(item.path);
-        return (
-          <Link to={item.path} key={index} style={isCurrPath ? activePath : null}>
-            <img
-              style={
-                isCurrPath
-                  ? { visibility: 'visible' }
-                  : { visibility: 'hidden', height: 0, width: 0 }
-              }
-              src={item.img2}
-              alt={''}
-            />
-            <img
-              style={
-                !isCurrPath
-                  ? { visibility: 'visible' }
-                  : { visibility: 'hidden', height: 0, width: 0 }
-              }
-              src={item.img}
-              alt={''}
-            />
-            <span style={isCurrPath ? { color: '#FFFFFF' } : null}>{item.title}</span>
-          </Link>
-        );
-      })}
-    </aside>
+    <Sider
+      style={{
+        overflow: 'auto',
+        height: '100vh',
+        position: 'fixed',
+        insetInlineStart: 0,
+        top: 0,
+        bottom: 0,
+        paddingTop: 80,
+        background: colorBgContainer,
+      }}
+      trigger={null}
+      collapsible
+      collapsedWidth={80}
+      width={200}
+      onCollapse={(collapsed) => onCollapse(collapsed)}
+      breakpoint="lg">
+      <Menu mode="inline" items={sidebarRoutes} selectedKeys={[activeKey]} />
+    </Sider>
   );
 };

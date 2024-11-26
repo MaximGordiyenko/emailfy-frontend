@@ -4,6 +4,8 @@ export const ROUTE = {
   home: 'home',
   dashboard: 'dashboard',
   analytics: 'analytics',
+  emailCampaign: 'emailCampaign',
+  aTobTests: 'aTobTests',
   audience: 'audience',
   uploadFile: 'uploadFile',
   manualUpload: 'uploadManually',

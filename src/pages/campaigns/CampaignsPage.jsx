@@ -155,7 +155,7 @@ export const CampaignsPage = () => {
   }, [filteredCards]);
 
   return (
-    <div className="campaigns-page-wrapper">
+    <div className="campaigns-page-container">
       {isOpenModal && <CampaignModal closeModal={() => setIsOpenModal((prev) => !prev)} />}
 
       {isOpenMenu && <CampaignMenu onOpenModal={() => setIsOpenModal((prev) => !prev)} />}
@@ -252,7 +252,6 @@ export const CampaignsPage = () => {
       ) : (
         placeholder
       )}
-      {/*<Outlet />*/}
     </div>
   );
 };

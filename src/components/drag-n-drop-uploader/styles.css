@@ -43,9 +43,6 @@
   }
 }
 
-.dropzone-input {
-}
-
 .drop-image-container {
   .drop-image-preview {
     display: flex;
@@ -100,4 +97,8 @@
       color: var(--default-grey-50);
     }
   }
+}
+
+.profile-image-container {
+
 }

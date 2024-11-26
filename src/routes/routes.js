@@ -1,10 +1,10 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { ROUTE } from './routes.constants';
 
-import { MainLayout } from '../components/layouts/MainLayout';
+import { MainLayout } from '../layouts/MainLayout';
 import { DashboardPage } from '../pages/dashboard-page/DashboardPage';
-import { AnalyticsPage } from '../pages/analytics-page/AnalyticsPage';
-import { AuthLayout } from '../components/layouts/AuthLayout';
+import { AnalyticsPage } from '../pages/analytics/AnalyticsPage';
+import { AuthLayout } from '../layouts/AuthLayout';
 import { LoginPage } from '../pages/auth-page/LoginPage';
 import { RegisterPage } from '../pages/auth-page/RegisterPage';
 import { AudiencePage } from '../pages/audience/AudiencePage';
@@ -27,16 +27,17 @@ import { DomainAuth } from '../pages/settings/domainAuth/DomainAuth';
 import { LoggedBy2FA } from '../pages/main-page/LoggedBy2FA';
 import { MailBuilderPage } from '../pages/mail-builder-page/MailBuilderPage';
 import { MailPreviewPage } from '../pages/mail-builder-page/mail-preview/MailPreviewPage';
-import { MailBuilderLayout } from '../components/layouts/MailBuilderLayout';
+import { MailBuilderLayout } from '../layouts/MailBuilderLayout';
 import { SettingsPage } from '../pages/settings/SettingsPage';
 import { PrivateRoute } from './PrivateRoute';
-import { UserInformationTab } from '../components/settings-tabs/user-info-tab/UserInformationTab';
-import { CompanyInformationTab } from '../components/settings-tabs/company-info-tab/CompanyInformationTab';
-import { DomainInformationTab } from '../components/settings-tabs/domain-info-tab/DomainInformationTab';
+import { UserInformationTab } from '../components/tabs/user-info-tab/UserInformationTab';
+import { CompanyInformationTab } from '../components/tabs/company-info-tab/CompanyInformationTab';
+import { DomainInformationTab } from '../components/tabs/domain-info-tab/DomainInformationTab';
 import { HomePage } from '../pages/getStarted/HomePage';
-import { DefaultLayout } from '../components/layouts/DefaultLayout';
 import { SubscriptionPage } from '../pages/subscription/SubscriptionPage';
 import { AudienceList } from '../pages/audience/audienceList/AudienceList';
+import { CampaignsTab } from '../components/analyticsTabs/campaigns/CampaignsTab';
+import { TestsTab } from '../components/analyticsTabs/tests/TestsTab';
 
 export const routes = createBrowserRouter([
   {
@@ -70,6 +71,20 @@ export const routes = createBrowserRouter([
             <AnalyticsPage />
           </PrivateRoute>
         ),
+        children: [
+          {
+            index: true,
+            element: <Navigate to={`/${ROUTE.analytics}/${ROUTE.emailCampaign}`} replace />,
+          },
+          {
+            path: `/${ROUTE.analytics}/${ROUTE.emailCampaign}`,
+            element: <CampaignsTab />,
+          },
+          {
+            path: `/${ROUTE.analytics}/${ROUTE.aTobTests}`,
+            element: <TestsTab />,
+          },
+        ],
       },
       {
         path: `${ROUTE.audience}`,
@@ -194,13 +209,8 @@ export const routes = createBrowserRouter([
     ],
   },
   {
-    element: <DefaultLayout />,
-    children: [
-      {
-        path: `${ROUTE.home}`,
-        element: <HomePage />,
-      },
-    ],
+    path: `/${ROUTE.home}`,
+    element: <HomePage />,
   },
   {
     element: <MailBuilderLayout />,

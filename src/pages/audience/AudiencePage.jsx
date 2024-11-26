@@ -36,7 +36,7 @@ export const AudiencePage = () => {
   }, []);
 
   return (
-    <div className="audience" id="audience">
+    <div className="audience-page-container" id="audience">
       {isOpenMenu && (
         <AudienceMenu
           handleNav={() => navigate(`/${ROUTE.audience}/${ROUTE.uploadFile}`, { replace: true })}

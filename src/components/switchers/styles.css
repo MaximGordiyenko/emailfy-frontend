@@ -1,0 +1,9 @@
+.ant-switch {
+  width: 90px;
+  
+  .ant-switch-inner {
+    .ant-switch-inner-unchecked {
+      /*font-weight: bold;*/
+    }
+  }
+}

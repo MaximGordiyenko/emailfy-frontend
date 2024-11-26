@@ -22,18 +22,19 @@ export const ProfileImageUploader = ({ profileImage, isLoadingProfileImage, uplo
   });
 
   return (
-    <div>
-      <div {...getRootProps()} className="dropzone">
+    <div className={'profile-image-container'}>
+      <div {...getRootProps()} className={'dropzone'}>
         <input {...getInputProps()} />
       </div>
       {profileImage?.AWSImageUrl ? (
-        <ProfileImageViewer profileImage={profileImage} isLoading={isLoadingProfileImage} />
+        <ProfileImageViewer
+          profileImage={profileImage}
+          isLoading={isLoadingProfileImage}
+          onClick={open}
+        />
       ) : (
         <img src={uploadIcon} alt="uploadIcon" />
       )}
-      <button type="button" onClick={open}>
-        Open File
-      </button>
     </div>
   );
 };

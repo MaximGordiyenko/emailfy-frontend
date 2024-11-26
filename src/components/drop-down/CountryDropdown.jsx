@@ -117,7 +117,7 @@ export const CountryDropdown = (props) => {
             <div className={styles.dropdown_items_wrapper}>
               <CaretDownIcon point="up_white" />
               <div className={styles.input_wrapper}>
-                <img src={search} className={styles.search_icon} />
+                <img src={search} className={styles.search_icon} alt="bla" />
                 <input
                   onChange={(e) => handleSearchInput(e)}
                   className={styles.country_search}

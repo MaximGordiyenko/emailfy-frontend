@@ -1,7 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './styles.css';
-import audience from '../../../assets/images/audience/audienceicon.png';
 import ProgressBar from '../../../components/progress-bars/ProgressBar';
 import { ROUTE } from '../../../routes/routes.constants';
 

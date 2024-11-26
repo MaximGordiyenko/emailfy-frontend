@@ -1,4 +1,4 @@
-import './style.scss';
+import './styles.css';
 import circle from '../../assets/images/CheckCircle.png';
 import ProgressBar from '../../components/progress-bars/ProgressBar';
 

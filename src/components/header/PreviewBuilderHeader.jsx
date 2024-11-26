@@ -15,7 +15,7 @@ import * as builderTemplate from '../../pages/mail-builder-page/builder-script/b
 import * as testEmail from '../../pages/mail-builder-page/builder-script/testEmail';
 import * as resourceManager from '../../pages/mail-builder-page/builder-script/resourceManager';
 
-import plane from '../../assets/images/plane.png';
+import plane from '../../assets/images/sheduled.png';
 import './styles.css';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { RootHtml, MailEditorToHTML } from '../../helpers/TypeResolverComponent';

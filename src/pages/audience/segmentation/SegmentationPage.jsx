@@ -1,8 +1,7 @@
 import './styles.css';
 import { useNavigate, useParams } from 'react-router-dom';
-import audience from '../../../assets/images/audience/audienceicon.png';
 import ProgressBar from '../../../components/progress-bars/ProgressBar';
-import Dropdown from './dropdown/dropdown';
+import Dropdown from './dropdown/Dropdown';
 import { useEffect, useState } from 'react';
 import { TagsInput } from 'react-tag-input-component';
 import CustomDropdown from '../../../components/drop-down/CustomDropdown';

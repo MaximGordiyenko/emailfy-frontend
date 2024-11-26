@@ -1,18 +1,22 @@
 import { ROUTE } from '../../routes/routes.constants';
 
-import dashboardIcon from '../../assets/images/dashboard/db-outline-dark-icon.png';
-import audienceIcon from '../../assets/images/audience/audienceicon.png';
-import analyticsIcon from '../../assets/images/analytic/analytics-outline.svg';
-import settingsIcon from '../../assets/images/settings.png';
-import campaignsIcon from '../../assets/images/plane.png';
-import arrow from '../../assets/images/leftArrGreen.png';
-
 import { saveContent } from '../../pages/mail-builder-page/builder-script/builderTemplate';
-
 import { DateDropdown } from '../drop-down/DateDropdown';
-import { Button } from '../button/Button';
-import arrowUp from '../../assets/images/whiteArrUp.png';
-import arrowDown from '../../assets/images/whiteArrDown.png';
+import { AppButton } from '../button/AppButton';
+import { ThemeSwitcher } from '../switchers/ThemeSwitcher';
+import {
+  HomeOutlined,
+  DesktopOutlined,
+  LineChartOutlined,
+  TeamOutlined,
+  SoundOutlined,
+  SettingOutlined,
+  ApiOutlined,
+  SignatureOutlined,
+  LoadingOutlined,
+  UpOutlined,
+  DownOutlined,
+} from '@ant-design/icons';
 
 export const getHeaderConfigs = (
   navigate,
@@ -33,8 +37,19 @@ export const getHeaderConfigs = (
   };
 
   return {
+    [`/${ROUTE.home}`]: {
+      icon: <HomeOutlined />,
+      description: 'Dashboard',
+      content: () => (
+        <DateDropdown
+          options={dashboardOptions}
+          onSelect={onSelectDashboardOptions}
+          placeholder={dashboardOptions}
+        />
+      ),
+    },
     [`/${ROUTE.dashboard}`]: {
-      icon: dashboardIcon,
+      icon: <DesktopOutlined />,
       description: 'Dashboard',
       content: () => (
         <DateDropdown
@@ -45,150 +60,139 @@ export const getHeaderConfigs = (
       ),
     },
     [`/${ROUTE.analytics}`]: {
-      icon: analyticsIcon,
+      icon: <LineChartOutlined />,
       description: 'Analytics',
-      content: () => (
-        <>
-          <button className="save-btn">
-            <span>Compare</span>
-          </button>
-        </>
-      ),
+      content: () => <AppButton label={'Compare'} role="submit" onClick={() => alert('bla')} />,
+    },
+    [`/${ROUTE.analytics}/${ROUTE.emailCampaign}`]: {
+      icon: <LineChartOutlined />,
+      description: 'Email campaigns',
+      content: () => <AppButton label={'Compare'} role="submit" onClick={() => alert('bla')} />,
+    },
+    [`/${ROUTE.analytics}/${ROUTE.aTobTests}`]: {
+      icon: <LineChartOutlined />,
+      description: 'A / B Tests',
+      content: () => <AppButton label={'Compare'} role="submit" onClick={() => alert('bla')} />,
     },
     [`/${ROUTE.audience}`]: {
-      icon: audienceIcon,
+      icon: <TeamOutlined />,
       description: 'Audience',
       content: () => (
-        <>
-          <button className={'button-icon'} onClick={() => setIsOpenMenu((prev) => !prev)}>
-            <span>Create Contact Menu</span>
-            <img src={isOpenMenu ? arrowUp : arrowDown} className={'image-arrow-icon'} alt="bla" />
-          </button>
-        </>
+        <AppButton
+          label={'Add Contact'}
+          role="submit"
+          onClick={() => setIsOpenMenu((prev) => !prev)}
+          icon={isOpenMenu ? <UpOutlined /> : <DownOutlined />}
+        />
       ),
     },
     [`/${ROUTE.audience}/${ROUTE.uploadFile}`]: {
-      icon: audienceIcon,
+      icon: <TeamOutlined />,
       description: 'Upload file',
       content: () => (
         <>
-          <button className="save-btn">
-            <span>Save as draft</span>
-          </button>
-          <button
-            className="save-btn"
-            onClick={() =>
-              navigate(`${ROUTE.audience}/${ROUTE.manualSegmentation}`, { replace: true })
-            }
-            disabled={false}>
-            <span>Next</span>
-          </button>
+          <AppButton label={'Save as draft'} role="submit" onClick={() => alert('bla')} />
+          <AppButton
+            label={'Next'}
+            role="submit"
+            onClick={navigate(`${ROUTE.audience}/${ROUTE.manualSegmentation}`, { replace: true })}
+          />
         </>
       ),
     },
     [`/${ROUTE.audience}/${ROUTE.manualUpload}`]: {
-      icon: audienceIcon,
+      icon: <TeamOutlined />,
       description: 'Add contacts manually',
       content: () => (
         <>
-          <button className="save-btn">
-            <span>Save as draft</span>
-          </button>
-          <button
-            className="save-btn"
-            onClick={() =>
-              navigate(`${ROUTE.audience}/${ROUTE.manualSegmentation}`, { replace: true })
-            }
-            disabled={false}>
-            <span>Next</span>
-          </button>
+          <AppButton label={'Save as draft'} role="submit" onClick={() => alert('Save as draft')} />
+          <AppButton
+            label={'Next'}
+            role="submit"
+            onClick={navigate(`${ROUTE.audience}/${ROUTE.manualSegmentation}`, { replace: true })}
+          />
         </>
       ),
     },
     [`/${ROUTE.audience}/:id`]: {
-      icon: audienceIcon,
+      icon: <TeamOutlined />,
       description: 'Add contacts via file',
       content: () => (
         <>
-          <button
-            className={'filled'}
+          <AppButton
+            label={'Next'}
+            role="submit"
+            onClick={() => navigate(`${ROUTE.audience}/${ROUTE.segmentation}`, { replace: true })}
             disabled={!'isFileUploaded'}
-            onClick={() => navigate(`${ROUTE.audience}/${ROUTE.segmentation}`, { replace: true })}>
-            <span>Next</span>
-          </button>
-          <button
-            className={'filled'}
+          />
+          <AppButton
+            label={'Back'}
+            role="submit"
+            onClick={() => navigate(`${ROUTE.audience}`, { replace: true })}
             disabled={!'isFileUploaded'}
-            onClick={() => navigate(`${ROUTE.audience}`, { replace: true })}>
-            <span>Back</span>
-          </button>
+          />
         </>
       ),
     },
     [`/${ROUTE.audience}/${ROUTE.manualSegmentation}`]: {
-      icon: audienceIcon,
+      icon: <TeamOutlined />,
       description: 'Add contacts via file',
       content: () => (
         <>
-          <button
-            className="back"
-            onClick={() => navigate(`/${ROUTE.audience}/${ROUTE.manualUpload}`, { replace: true })}>
-            <img src={arrow} alt="bla" height="18px" width="18px" />
-            <span>Back</span>
-          </button>
-          <button className="save-as-draft">
-            <span>Save as draft</span>
-          </button>
-          <button
-            className="continue"
+          <AppButton
+            label={'Back'}
+            role="submit"
+            onClick={() => navigate(`/${ROUTE.audience}/${ROUTE.manualUpload}`, { replace: true })}
+            icon={isOpenMenu ? <UpOutlined /> : <DownOutlined />}
+          />
+          <AppButton label={'Save as draft'} role="submit" onClick={() => alert('submit')} />
+          <AppButton
+            label={'Continue'}
+            role="submit"
             disabled={selected?.length < 1 || !isSelectedDropdown}
-            onClick={selected?.length >= 1 ? handleOpenModalSegmentation : null}>
-            <span>Continue</span>
-          </button>
+            onClick={selected?.length >= 1 ? handleOpenModalSegmentation : null}
+          />
         </>
       ),
     },
     [`/${ROUTE.audience}/${ROUTE.segmentation}`]: {
-      icon: audienceIcon,
+      icon: <TeamOutlined />,
       description: 'Segmentation',
       content: () => (
         <>
-          <button
-            className="back"
-            onClick={() => navigate(`/${ROUTE.audience}/${ROUTE.manualUpload}`, { replace: true })}>
-            <span>Back</span>
-          </button>
-          <button
-            disabled={!isSegmentationSelectedDropdown}
+          <AppButton
+            label={'Back'}
+            onClick={() => navigate(`/${ROUTE.audience}/${ROUTE.manualUpload}`, { replace: true })}
+          />
+          <AppButton
+            label={'Submit'}
             onClick={handleSubmit}
-            className="continue">
-            <span>Submit</span>
-          </button>
+            disabled={!isSegmentationSelectedDropdown}
+          />
         </>
       ),
     },
     [`/${ROUTE.campaigns}`]: {
-      icon: campaignsIcon,
+      icon: <SoundOutlined />,
       description: 'Campaigns',
       content: () => (
-        <>
-          <button onClick={() => setIsOpenMenu((prev) => !prev)}>
-            <span>Create campaign</span>
-            <img src={isOpenMenu ? arrowUp : arrowDown} className={'camp-arr'} alt="bla" />
-          </button>
-        </>
+        <AppButton
+          label={'Add campaign'}
+          onClick={() => setIsOpenMenu((prev) => !prev)}
+          icon={isOpenMenu ? <UpOutlined /> : <DownOutlined />}
+        />
       ),
     },
     [`/${ROUTE.campaigns}/${ROUTE.createText}`]: {
-      icon: analyticsIcon,
+      icon: <SoundOutlined />,
       description: 'Create Text Manually',
       content: () => (
         <>
-          <Button btnText={'Back'} onClick={setEmailCampaignStep(0)} />
-          <Button
-            isFilled={!emailCampaignStep}
-            btnText={emailCampaignStep ? 'Save draft' : 'Continue'}
-            type="submit"
+          <AppButton label={'Back'} onClick={setEmailCampaignStep(0)} />
+          <AppButton
+            disabled={!emailCampaignStep}
+            label={emailCampaignStep ? 'Save draft' : 'Continue'}
+            role="submit"
             onClick={async (newContent) => {
               await saveContent({
                 subject: newContent.subject,
@@ -196,24 +200,24 @@ export const getHeaderConfigs = (
               });
             }}
           />
-          <Button
-            isFilled={!emailCampaignStep}
-            btnText={emailCampaignStep ? 'Save draft' : 'Continue'}
-            type="submit"
+          <AppButton
+            disabled={!emailCampaignStep}
+            label={emailCampaignStep ? 'Save draft' : 'Continue'}
+            role="submit"
           />
         </>
       ),
     },
     [`/${ROUTE.campaigns}/${ROUTE.createHtml}`]: {
-      icon: analyticsIcon,
+      icon: <SoundOutlined />,
       description: 'Create new campaign',
       content: () => (
         <>
-          <Button btnText={'Back'} onClick={setEmailCampaignStep(0)} />
-          <Button
-            isFilled={!emailCampaignStep}
-            btnText={!emailCampaignStep ? 'Save draft' : 'Continue'}
-            type="submit"
+          <AppButton label={'Back'} onClick={setEmailCampaignStep(0)} />
+          <AppButton
+            disabled={!emailCampaignStep}
+            label={!emailCampaignStep ? 'Save draft' : 'Continue'}
+            role="submit"
             onClick={async (newContent) => {
               await saveContent({
                 subject: newContent.subject,
@@ -221,86 +225,79 @@ export const getHeaderConfigs = (
               });
             }}
           />
-          <Button
-            isFilled={!emailCampaignStep}
-            btnText={emailCampaignStep ? 'Save draft' : 'Continue'}
-            type="submit"
+          <AppButton
+            disabled={!emailCampaignStep}
+            label={emailCampaignStep ? 'Save draft' : 'Continue'}
+            role="submit"
           />
         </>
       ),
     },
     [`/${ROUTE.settings}`]: {
-      icon: settingsIcon,
+      icon: <SettingOutlined />,
       description: 'Settings',
-      content: () => (
-        <>
-          <button className="save-btn" type="submit" onClick={() => {}}>
-            <span>Save changes</span>
-          </button>
-        </>
-      ),
+      content: () => null,
     },
     [`/${ROUTE.settings}/${ROUTE.userInfo}`]: {
-      icon: settingsIcon,
+      icon: <SettingOutlined />,
       description: 'User Information',
       content: () => (
         <>
-          <button className="save-btn" type="submit" onClick={() => {}}>
-            <span>User Info</span>
-          </button>
+          <AppButton
+            label={'User Information'}
+            role="submit"
+            onClick={() => alert('User Information')}
+          />
+          <ThemeSwitcher />
         </>
       ),
     },
     [`/${ROUTE.settings}/${ROUTE.companyInfo}`]: {
-      icon: settingsIcon,
+      icon: <SettingOutlined />,
       description: 'Company Information',
       content: () => (
-        <>
-          <button className="save-btn" type="submit" onClick={() => {}}>
-            <span>User Info</span>
-          </button>
-        </>
+        <AppButton
+          label={'Company Information'}
+          role="submit"
+          onClick={() => alert('Company Information')}
+        />
       ),
     },
     [`/${ROUTE.settings}/${ROUTE.domainInfo}`]: {
-      icon: settingsIcon,
+      icon: <SettingOutlined />,
       description: 'Domain Information',
       content: () => (
-        <>
-          <button className="save-btn" type="submit" onClick={() => {}}>
-            <span>User Info</span>
-          </button>
-        </>
+        <AppButton
+          label={'Domain Information'}
+          role="submit"
+          onClick={() => alert('Domain Information')}
+        />
       ),
     },
     [`/${ROUTE.domain}`]: {
-      icon: analyticsIcon,
+      icon: <ApiOutlined />,
       description: 'Domain authentication',
       content: () => (
-        <>
-          <button
-            className="domain-auth-header-button"
-            onClick={() => navigate(`/${ROUTE.settings}`)}>
-            <span>Save & exit</span>
-          </button>
-        </>
+        <AppButton
+          label={'Save & exit'}
+          role="submit"
+          onClick={() => navigate(`/${ROUTE.settings}`)}
+        />
       ),
     },
     [`/${ROUTE.subscription}`]: {
-      icon: analyticsIcon,
+      icon: <SignatureOutlined />,
       description: 'Subscription',
       content: () => (
-        <>
-          <button
-            className="domain-auth-header-button"
-            onClick={() => navigate(`/${ROUTE.dashboard}`)}>
-            <span>Save & exit</span>
-          </button>
-        </>
+        <AppButton
+          label={'Submit Changes'}
+          role="submit"
+          onClick={() => navigate(`/${ROUTE.dashboard}`)}
+        />
       ),
     },
     default: {
-      icon: '/path/to/default-icon.svg',
+      icon: <LoadingOutlined />,
       description: 'Non Found',
       content: () => null,
     },

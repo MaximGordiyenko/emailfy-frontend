@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
   .loading-spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
     border-top: 4px solid #2A2B3B; /* Change the spinner color as needed */
@@ -17,7 +18,12 @@
     transform: translate(-50%, -50%);
   }
 }
+
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

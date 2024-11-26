@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.scss';
+import './styles.css';
 
 const ProgressBarX = ({ completed }) => {
   return (

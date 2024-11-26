@@ -1,4 +1,6 @@
-.dashboard-wrapper {
+.dashboard-page-container {
+  height: 100vh;
+  
   .circle-chart {
     width: 180px;
     height: 180px;

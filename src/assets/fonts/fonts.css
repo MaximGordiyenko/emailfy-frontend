@@ -60,3 +60,38 @@
   src: url('./gilroy-bold.ttf');
   src: local('GilroyBold'), url('./gilroy-bold.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'EduAUVICWANTArrowsBold';
+  font-style: normal;
+  src: url('./EduAUVICWANTArrows-Bold.ttf');
+  src: local('EduAUVICWANTArrowsBold'), url('./EduAUVICWANTArrows-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'EduAUVICWANTArrowsMedium';
+  font-style: normal;
+  src: url('./EduAUVICWANTArrows-Medium.ttf');
+  src: local('EduAUVICWANTArrowsMedium'), url('./EduAUVICWANTArrows-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'EduAUVICWANTArrowsRegular';
+  font-style: normal;
+  src: url('./EduAUVICWANTArrows-Regular.ttf');
+  src: local('EduAUVICWANTArrowsRegular'), url('./EduAUVICWANTArrows-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BokorRegular';
+  font-style: normal;
+  src: url('./Bokor-Regular.ttf');
+  src: local('BokorRegular'), url('./Bokor-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'RubikBurnedRegular';
+  font-style: normal;
+  src: url('./RubikBurned-Regular.ttf');
+  src: local('RubikBurnedRegular'), url('./RubikBurned-Regular.ttf') format('truetype');
+}

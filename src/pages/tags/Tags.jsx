@@ -1,11 +1,11 @@
 import './styles.css';
 import arrow from '../../assets/images/Alt Arrow Down.svg';
 import search from '../../assets/images/search.png';
-import EnhancedTable from './table/mainTable';
+import EnhancedTable from './table/MainTable';
 import { useState, useEffect, useRef } from 'react';
 import hashtagactive from '../../assets/images/inputHashActive.png';
 import hashtagicon from '../../assets/images/inputHash.png';
-import { rows } from './table/mainTable';
+import { rows } from './table/MainTable';
 
 export const Tags = () => {
   const [isOpen, setIsOpen] = useState(false);

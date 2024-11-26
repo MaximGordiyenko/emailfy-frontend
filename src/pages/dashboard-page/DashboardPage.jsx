@@ -27,14 +27,13 @@ export const DashboardPage = () => {
   });
 
   if (isLoading) return <LoadingSpinner />;
-  console.log(data);
 
   const onClickButton = () => {
     navigate('/campaigns');
   };
 
   return (
-    <div className="dashboard-wrapper">
+    <div className="dashboard-page-container">
       <div className="dashboard-content">
         {/*{myData?.length ? (*/}
         {/*<OverallStatistics />*/}
