@@ -1,6 +1,6 @@
 import { API } from '../API';
 
-export const getUser = async () => {
+export const getUserInfo = async () => {
   try {
     const { data } = await API.get('/auth/account-info');
     return data;

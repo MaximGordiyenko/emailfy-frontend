@@ -1,6 +1,6 @@
 import DOMPurify from 'dompurify';
 import '../styles.css';
-import { DeleteStickyIcon } from '../../../../components/interface/buttons/DeleteStickyIcon';
+import { DeleteStickyIcon } from '../../../../components/icons/DeleteStickyIcon';
 
 export const ListBuildBlock = ({
   id,

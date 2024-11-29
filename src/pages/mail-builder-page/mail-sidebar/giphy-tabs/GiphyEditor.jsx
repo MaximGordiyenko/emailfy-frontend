@@ -3,7 +3,7 @@ import { ReactSortable } from 'react-sortablejs';
 import { v4 as uuidv4 } from 'uuid';
 import { GiphyFetch } from '@giphy/js-fetch-api';
 import { BrandInput } from '../../../../components/inputs/BrandInput';
-import { SearchIcon } from '../../../../components/interface/icons/SearchIcon';
+import { SearchIcon } from '../../../../components/icons/SearchIcon';
 import '../styles.css';
 
 export const GiphyEditor = () => {

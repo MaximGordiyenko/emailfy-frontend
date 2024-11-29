@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+/*import { createSlice } from '@reduxjs/toolkit';
 
 const fileSlice = createSlice({
   name: 'file',
@@ -19,4 +19,4 @@ const fileSlice = createSlice({
 });
 
 export const { setUploadedFile, clearUploadedFile } = fileSlice.actions;
-export default fileSlice.reducer;
+export default fileSlice.reducer;*/

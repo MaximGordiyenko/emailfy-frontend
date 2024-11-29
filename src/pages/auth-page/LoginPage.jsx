@@ -1,11 +1,9 @@
-import { toast } from 'react-toastify';
-
 import { useAuth } from '../../context/AuthContext';
 
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ROUTE } from '../../routes/routes.constants';
 
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 import { signIn } from '../../api/auth/auth';
 import { removeToken } from '../../api/API';
 
@@ -13,14 +11,17 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signInValidation } from '../../validation/auth.js';
 
-import { Form, Button } from 'antd';
+import { Form, Button, Typography, Space, Flex, message } from 'antd';
 import CheckboxForm from '../../components/forms/Checkbox.tsx';
 import { AuthInput } from '../../components/forms/AuthInput.tsx';
 
-import brandLogo from '../../assets/images/logoRedesigned.png';
 import './styles.css';
+import { BrandLogo } from '../../components/logo/BrandLogo';
+
+const { Title, Text, Link } = Typography;
 
 export const LoginPage = () => {
+  const [messageApi, contextHolder] = message.useMessage();
   const navigate = useNavigate();
   const { login } = useAuth();
 
@@ -37,17 +38,27 @@ export const LoginPage = () => {
     },
   });
 
-  const { mutate } = useMutation((data) => signIn(data), {
-    onSuccess({ accessToken, refreshToken, message }) {
+  const { mutate } = useMutation({
+    mutationFn: (data) => signIn(data),
+    onSuccess: ({ accessToken, refreshToken, message }) => {
       login(accessToken, refreshToken, navigate);
-      toast.success(message);
+      messageApi.open({
+        type: 'success',
+        content: `${message}`,
+      });
     },
-    onError(error) {
+    onError: (error) => {
       removeToken('accessToken');
       if (error.response?.data?.message) {
-        toast.error(error.response.data.message);
+        messageApi.open({
+          type: 'error',
+          content: error.response.data.message,
+        });
       } else {
-        toast.error('An unexpected error occurred');
+        messageApi.open({
+          type: 'error',
+          content: 'An unexpected error occurred',
+        });
       }
     },
   });
@@ -57,51 +68,59 @@ export const LoginPage = () => {
   };
 
   return (
-    <div className={'login-wrapper'}>
-      <div className={'login'}>
-        <div className={'logo'}>
-          <img src={brandLogo} alt={'logo'} />
-        </div>
-        <h1 className={'form-title'}>Glad you’re back! Sign in to continue.</h1>
-        <Form layout="vertical" onFinish={handleSubmit(onSubmit)}>
-          <AuthInput
-            name={'email'}
-            label={'Email'}
-            placeholder={'Enter your email'}
-            type={'text'}
-            control={control}
-            validateStatus={errors.email ? 'error' : ''}
-            help={errors.email?.message}
-          />
+    <div className={'auth-form-container'}>
+      <BrandLogo />
+      <Title level={2}>Glad you’re back!</Title>
+      <Title level={3}>Sign in to continue.</Title>
+      {contextHolder}
+      <Form layout="vertical" onFinish={handleSubmit(onSubmit)}>
+        <AuthInput
+          name={'email'}
+          label={'Email'}
+          placeholder={'Enter your email'}
+          type={'text'}
+          control={control}
+          validateStatus={errors.email ? 'error' : ''}
+          help={errors.email?.message}
+        />
 
-          <AuthInput
-            name={'password'}
-            label={'Password'}
-            placeholder={'Enter your password'}
-            type={'password'}
-            control={control}
-            validateStatus={errors.password ? 'error' : ''}
-            help={errors.password?.message}
-          />
+        <AuthInput
+          name={'password'}
+          label={'Password'}
+          placeholder={'Enter your password'}
+          type={'password'}
+          control={control}
+          validateStatus={errors.password ? 'error' : ''}
+          help={errors.password?.message}
+        />
 
-          <CheckboxForm
-            name="remember"
-            text={'Remember me'}
-            control={control}
-            label="Remember me"
-          />
+        <CheckboxForm name="remember" text={'Remember me'} control={control} label="Remember me" />
 
-          <Form.Item>
-            <Button type="primary" htmlType="submit" block>
-              Log in
-            </Button>
-          </Form.Item>
-        </Form>
-      </div>
-      <span className={'redirect-link-container'}>
-        Not registered yet?
-        <Link to={`/${ROUTE.registration}`}>Sign Up</Link>
-      </span>
+        <Form.Item>
+          <Button type="primary" htmlType="submit" block>
+            Log in
+          </Button>
+        </Form.Item>
+      </Form>
+      <Space direction="vertical">
+        <Text>Must contain at least 8 characters</Text>
+        <Text>Must contain at least one uppercase character</Text>
+        <Text>Must contain at least one lowercase character</Text>
+        <Text>Must contain at least one number</Text>
+        <Text>Must contain at least one special character @, $, !, %, *, ?, &</Text>
+      </Space>
+      <Space>
+        <Text>
+          By clicking on the “Create an account” button you’re agreeing with our {``}
+          <Link href={`#`}>Privacy Policy {``}</Link>
+          and {``}
+          <Link href={`#`}>Terms and Conditions.</Link>
+        </Text>
+      </Space>
+      <Flex justify="center" align="center" gap={4}>
+        <Text>Not registered yet?</Text>
+        <Link href={`/${ROUTE.registration}`}>Sign Up</Link>
+      </Flex>
     </div>
   );
 };

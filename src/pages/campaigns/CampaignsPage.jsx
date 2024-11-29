@@ -23,6 +23,7 @@ import * as scriptAPI from '../../api/builder/script';
 import * as builderTemplate from '../mail-builder-page/builder-script/builderTemplate';
 import './styles.css';
 import { ROUTE } from '../../routes/routes.constants';
+import { EmptyPlaceholder } from '../../components/placeholders/EmptyPlaceholder';
 
 const STATUSES = {
   in_queue: 'Scheduled',
@@ -240,11 +241,7 @@ export const CampaignsPage = () => {
                     );
                   })
               ) : (
-                <div className="no-results-image">
-                  <img src={notFound} alt="No results" />
-                  <span>Nothing found</span>
-                  <p>We couldn’t find what you were looking for</p>
-                </div>
+                <EmptyPlaceholder />
               )}
             </div>
           </div>

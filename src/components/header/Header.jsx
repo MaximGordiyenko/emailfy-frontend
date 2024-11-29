@@ -6,21 +6,22 @@ import { Layout, Breadcrumb, Flex, theme } from 'antd';
 import { useBreadcrumbsContent } from '../../hooks/useBreadcrumbsContent';
 import { useBreadcrumbsPath } from '../../hooks/useBreadcrumbsPath';
 
-import { Logo } from '../logo/Logo';
+import { BrandLogo } from '../logo/BrandLogo';
 import { getHeaderConfigs } from './header.constants';
 
 import './styles.css';
+import { ROUTE } from '../../routes/routes.constants';
 
 const { Header } = Layout;
 
 export const Head = ({ isCollapsed }) => {
   const navigate = useNavigate();
 
+  const { isOpenMenu, setIsOpenMenu, emailCampaignStep, setEmailCampaignStep } = useMainContext();
+
   const {
     token: { colorBgContainer },
   } = theme.useToken();
-
-  const { isOpenMenu, setIsOpenMenu, emailCampaignStep, setEmailCampaignStep } = useMainContext();
 
   const headerConfigs = getHeaderConfigs(
     navigate,
@@ -44,7 +45,7 @@ export const Head = ({ isCollapsed }) => {
         alignItems: 'center',
         background: colorBgContainer,
       }}>
-      {!isCollapsed && <Logo />}
+      {!isCollapsed && <BrandLogo link={`/${ROUTE.home}`} />}
       <Flex justify="space-between" align="center">
         <Breadcrumb
           items={[

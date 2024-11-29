@@ -1,35 +1,21 @@
+/*
 import { createAsyncThunk, createSlice, createAction } from '@reduxjs/toolkit';
-// import {
-//   check,
-//   confirm_registration,
-//   delete_device,
-//   get_devices,
-//   refresh,
-//   refresh_token,
-//   removeAccessToken,
-//   saveAccessToken,
-//   send_code,
-//   signIn,
-//   signOut,
-//   signUp,
-//   sign_2fa,
-//   signup,
-// } from '../api/auth/auth';
-
-export const registerUser = createAsyncThunk('user/registerUser', async (userRegisterData) => {
-  try {
-    const req = await signup(userRegisterData.login, userRegisterData.password);
-    console.log(req, 'req');
-    if (req.status !== 200) {
-      setError('user with this credential already exists');
-      throw new Error(`Request failed with status code ${req.status}, ${await req.data}`);
-    }
-    return req.data;
-  } catch (error) {
-    console.error(`Register error: ${error}`);
-    return false;
-  }
-});
+import {
+  check,
+  confirm_registration,
+  delete_device,
+  get_devices,
+  refresh,
+  refresh_token,
+  removeAccessToken,
+  saveAccessToken,
+  send_code,
+  signIn,
+  signOut,
+  signUp,
+  sign_2fa,
+  signup,
+} from '../api/auth/auth';
 
 export const verifyUser = createAsyncThunk('user/verifyUser', async (token) => {
   try {
@@ -37,34 +23,11 @@ export const verifyUser = createAsyncThunk('user/verifyUser', async (token) => {
     if (req.status !== 200) {
       throw new Error(`Request failed with status code ${req.status}, ${await req.data}`);
     }
-    saveAccessToken(req.data);
+    // saveAccessToken(req.data);
     return req.data;
   } catch (error) {
     console.log(`Register verify error: ${error}`);
     return null;
-  }
-});
-
-export const loginUser = createAsyncThunk('user/loginUser', async (userCredentials) => {
-  try {
-    const req = await signin(
-      userCredentials.login,
-      userCredentials.password,
-      userCredentials.remember,
-    );
-    if (req.status !== 200) {
-      throw new Error(`Request failed with status code ${req.status}, ${await req.data}`);
-    }
-    if (req.data.token_2fa) {
-      localStorage.setItem('token_2fa', req.data.token_2fa);
-      console.log('token 2fa: ', req.data.token_2fa);
-    } else {
-      saveAccessToken(req.data);
-      console.log('access token: ', req.data.access_token);
-    }
-    return req.data;
-  } catch (error) {
-    throw error;
   }
 });
 
@@ -89,7 +52,7 @@ export const verifyCode2FA = createAsyncThunk('user/verifyCode2FA', async (code)
     if (req.status !== 200) {
       throw new Error(`Request failed with status code ${req.status}, ${await req.data}`);
     }
-    saveAccessToken(req.data);
+    // saveAccessToken(req.data);
     console.log('access token: ', req.data.access_token);
     return req.data;
   } catch (error) {
@@ -246,3 +209,4 @@ export const {
 } = userSlice.actions;
 
 export default userSlice.reducer;
+*/

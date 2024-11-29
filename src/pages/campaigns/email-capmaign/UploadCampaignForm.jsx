@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { useFormContext } from 'react-hook-form';

@@ -1,18 +1,22 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import { ROUTE } from '../routes/routes.constants';
+import { Card, Flex } from 'antd';
+import image from '../assets/images/mailMarketing.jpg';
 import './styles.css';
 
 export const AuthLayout = () => {
   const location = useLocation();
 
-  const reversLayout = location.pathname === `/${ROUTE.login}` ? ' revers-layout' : '';
+  const reversLayout = location.pathname === `/${ROUTE.login}` ? 'login-layout' : 'register-layout';
 
   return (
-    <div className={`auth-layout-container${reversLayout}`}>
-      <div className={'auth-layout-form'}>
+    <Card hoverable>
+      <Flex className={`${reversLayout}`}>
+        <div className="auth-layout-image-wrapper">
+          <img alt="avatar" src={image} className="auth-layout-image" />
+        </div>
         <Outlet />
-      </div>
-      <div className={'auth-layout-img'} />
-    </div>
+      </Flex>
+    </Card>
   );
 };

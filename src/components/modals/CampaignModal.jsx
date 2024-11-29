@@ -1,10 +1,10 @@
 import { createPortal } from 'react-dom';
 import { useForm } from 'react-hook-form';
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 import { TextIconWrapper } from '../wrappers/TextIconWrapper';
-import { RoundCloseIcon } from '../interface/buttons/RoundCloseIcon';
+import { RoundCloseIcon } from '../icons/RoundCloseIcon';
 import { InputText } from '../inputs/InputText';
-import { BrandButton } from '../interface/buttons/BrandButton';
+import { BrandButton } from '../icons/BrandButton';
 import { sendTestEmail } from '../../pages/mail-builder-page/builder-script/testEmail';
 import { initAnalytics } from '../../pages/mail-builder-page/builder-script/analyticsUtil';
 import { saveContent } from '../../pages/mail-builder-page/builder-script/builderTemplate';

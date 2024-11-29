@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 import { Accordion } from '../../../../components/accordion/Accordion';
 import uploadIcon from '../../../../assets/images/uploadIcon.svg';
 import alternateTextIcon from '../../../../assets/images/alternateTextIcon.svg';
-import { SearchIcon } from '../../../../components/interface/icons/SearchIcon';
+import { SearchIcon } from '../../../../components/icons/SearchIcon';
 import { BrandInput } from '../../../../components/inputs/BrandInput';
 import { ImageUploader } from '../../../../components/drag-n-drop-uploader/ImageUploader';
 import { MailBuilderContext } from '../../../../context/MailBuilderContext';

@@ -1,4 +1,4 @@
-import { QueryClient } from 'react-query';
+import { QueryClient } from '@tanstack/react-query';
 
 export const themeX = {
   components: {
@@ -24,7 +24,14 @@ export const themeX = {
       colorLinkHover: '#A5BB4D',
     },
     Menu: {
-      itemSelectedColor: '#7E9D00',
+      itemSelectedColor: '#FFF',
+      // itemColor: '#098aaa',
+      // itemHoverColor: '#098aaa',
+      itemSelectedBg: '#7E9D00',
+      itemHeight: 55,
+      iconSize: 16,
+      collapsedIconSize: 18,
+      // fontSize: 16,
     },
     Divider: {
       colorSplit: '#7E9D00',
@@ -34,6 +41,15 @@ export const themeX = {
       itemHoverColor: '#A5BB4D',
       itemSelectedColor: '#A5BB4D',
       lineWidthBold: 2,
+    },
+    Select: {
+      activeBorderColor: '#7E9D00',
+      hoverBorderColor: '#A5BB4D',
+      optionActiveBg: '#7E9D00',
+      optionSelectedBg: '#2A2B3B',
+    },
+    Statistic: {
+      titleFontSize: 15,
     },
   },
 };

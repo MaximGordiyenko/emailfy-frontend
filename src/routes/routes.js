@@ -2,7 +2,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { ROUTE } from './routes.constants';
 
 import { MainLayout } from '../layouts/MainLayout';
-import { DashboardPage } from '../pages/dashboard-page/DashboardPage';
+import { DashboardPage } from '../pages/dashboard/DashboardPage';
 import { AnalyticsPage } from '../pages/analytics/AnalyticsPage';
 import { AuthLayout } from '../layouts/AuthLayout';
 import { LoginPage } from '../pages/auth-page/LoginPage';
@@ -33,11 +33,11 @@ import { PrivateRoute } from './PrivateRoute';
 import { UserInformationTab } from '../components/tabs/user-info-tab/UserInformationTab';
 import { CompanyInformationTab } from '../components/tabs/company-info-tab/CompanyInformationTab';
 import { DomainInformationTab } from '../components/tabs/domain-info-tab/DomainInformationTab';
-import { HomePage } from '../pages/getStarted/HomePage';
+import { HomePage } from '../pages/home/HomePage';
 import { SubscriptionPage } from '../pages/subscription/SubscriptionPage';
 import { AudienceList } from '../pages/audience/audienceList/AudienceList';
-import { CampaignsTab } from '../components/analyticsTabs/campaigns/CampaignsTab';
-import { TestsTab } from '../components/analyticsTabs/tests/TestsTab';
+import { CampaignsTab } from '../components/tabs/analytics-tabs/campaigns/CampaignsTab';
+import { TestsTab } from '../components/tabs/analytics-tabs/aToBTest/TestsTab';
 
 export const routes = createBrowserRouter([
   {

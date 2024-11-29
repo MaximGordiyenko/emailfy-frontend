@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
-import { Form, Divider } from 'antd';
+import { Form, Button, Divider, Descriptions } from 'antd';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signUpValidation } from '../../../validation/auth';
 
-import { useQuery, useMutation } from 'react-query';
+import { useQuery, useMutation } from '@tanstack/react-query';
 import { getToken, removeToken } from '../../../api/API';
 import {
-  getUser,
+  getUserInfo,
   updateAccountData,
   getProfileImageById,
   uploadProfileImage,
@@ -20,6 +19,8 @@ import * as userInfoAPI from '../../../api/settings/account';
 import * as emailSettingsAPI from '../../../api/settings/email';
 import { ProfileImageUploader } from '../../drag-n-drop-uploader/ProfileImageUploader';
 import { AppButton } from '../../button/AppButton';
+import { GeneralUserInfoBlock } from './GeneralUserInfoBlock';
+import { formatUserInfoApiData } from '../../../helpers/formatUserInfoApiData';
 
 export const UserInformationTab = () => {
   const [isEnable2FA, setIsEnable2FA] = useState(true);
@@ -39,49 +40,57 @@ export const UserInformationTab = () => {
     },
   });
 
-  const { data, isLoading } = useQuery('getUser', getUser);
+  const { data: userInfoData, isLoading: isUserLoading } = useQuery({
+    queryKey: ['getUserInfo'],
+    queryFn: getUserInfo,
+  });
+
+  const userDescriptions = formatUserInfoApiData(userInfoData);
 
   const imageId = 5;
-  const { isLoading: isLoadingProfileImage, data: profileImage } = useQuery(
-    ['profile-image', imageId],
-    () => getProfileImageById(imageId),
-    {
-      enabled: !!imageId,
-      staleTime: 5 * 60 * 1000, // Consider data fresh for 5 minutes
-      cacheTime: 30 * 60 * 1000, // Keep data in cache for 30 minutes
-    },
-  );
 
-  const { mutate: uploadImage } = useMutation((formData) => uploadProfileImage(formData), {
+  const { data: profileImage, isLoading: isProfileImageLoading } = useQuery({
+    queryKey: ['profile-image', imageId],
+    queryFn: () => getProfileImageById(imageId),
+    enabled: !!imageId, // Query will only run if imageId is truthy
+    staleTime: 5 * 60 * 1000, // Data is fresh for 5 minutes
+    cacheTime: 30 * 60 * 1000, // Cached for 30 minutes before garbage collection
+  });
+
+  // Mutation for uploading profile image
+  const { mutate: uploadImage } = useMutation({
+    mutationFn: (formData) => uploadProfileImage(formData),
     onSuccess: ({ message }) => {
-      toast.success(message);
+      // toast.success(message);
     },
     onError: (error) => {
       if (error.response?.data?.message) {
-        toast.error(error.response.data.message);
+        // toast.error(error.response.data.message);
       } else {
-        toast.error('An unexpected error occurred');
+        // toast.error('An unexpected error occurred');
       }
     },
   });
 
-  const { mutate } = useMutation((data) => updateAccountData(data), {
-    onSuccess({ message }) {
-      toast.success(message);
+  // Mutation for updating account data
+  const { mutate } = useMutation({
+    mutationFn: (data) => updateAccountData(data),
+    onSuccess: ({ message }) => {
+      // toast.success(message);
     },
-    onError(error) {
+    onError: (error) => {
       removeToken('accessToken');
       if (error.response?.data?.message) {
-        toast.error(error.response.data.message);
+        // toast.error(error.response.data.message);
       } else {
-        toast.error('An unexpected error occurred');
+        // toast.error('An unexpected error occurred');
       }
     },
   });
 
   useEffect(() => {
-    if (data?.email) setValue('email', data.email);
-  }, [data, setValue]);
+    if (userInfoData?.email) setValue('email', userInfoData.email);
+  }, [userInfoData, setValue]);
 
   const onSubmit = async (data) => {
     console.log(data);
@@ -175,10 +184,11 @@ export const UserInformationTab = () => {
 
   return (
     <div className="user-info">
-      <ProfileImageUploader
+      <GeneralUserInfoBlock
         uploadImage={uploadImage}
         profileImage={profileImage}
-        isLoadingProfileImage={isLoadingProfileImage}
+        isProfileImageLoading={isProfileImageLoading}
+        itemsDescriptions={userDescriptions}
       />
       <Divider />
       <div className="email-info">
@@ -231,7 +241,7 @@ export const UserInformationTab = () => {
             help={errors.repeatNewPassword?.message}
           />
           <Form.Item>
-            <AppButton role="submit">{isLoading ? 'Loading...' : 'Change password'}</AppButton>
+            <AppButton role="submit">{isUserLoading ? 'Loading...' : 'Change password'}</AppButton>
           </Form.Item>
         </div>
       </Form>

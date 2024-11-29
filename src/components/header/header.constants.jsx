@@ -1,7 +1,6 @@
 import { ROUTE } from '../../routes/routes.constants';
 
 import { saveContent } from '../../pages/mail-builder-page/builder-script/builderTemplate';
-import { DateDropdown } from '../drop-down/DateDropdown';
 import { AppButton } from '../button/AppButton';
 import { ThemeSwitcher } from '../switchers/ThemeSwitcher';
 import {
@@ -17,6 +16,8 @@ import {
   UpOutlined,
   DownOutlined,
 } from '@ant-design/icons';
+import { Select } from 'antd';
+import { EmailClientSelector } from '../selects/EmailClientSelector';
 
 export const getHeaderConfigs = (
   navigate,
@@ -30,33 +31,32 @@ export const getHeaderConfigs = (
   selected,
   isSelectedDropdown,
 ) => {
-  const dashboardOptions = ['Year', 'Month', 'Week', 'Day'];
-
-  const onSelectDashboardOptions = (selectedOption) => {
-    // dispatch(setSelectedOption(selectedOption)); // dispatch action to update Redux state
-  };
+  const dashboardOptions = [
+    { value: '1', label: 'Year' },
+    { value: '2', label: 'Month' },
+    { value: '3', label: 'Week' },
+    { value: '4', label: 'Day' },
+  ];
 
   return {
     [`/${ROUTE.home}`]: {
       icon: <HomeOutlined />,
       description: 'Dashboard',
-      content: () => (
-        <DateDropdown
-          options={dashboardOptions}
-          onSelect={onSelectDashboardOptions}
-          placeholder={dashboardOptions}
-        />
-      ),
+      content: () => <AppButton label={'Compare'} role="submit" onClick={() => alert('bla')} />,
     },
     [`/${ROUTE.dashboard}`]: {
       icon: <DesktopOutlined />,
       description: 'Dashboard',
       content: () => (
-        <DateDropdown
-          options={dashboardOptions}
-          onSelect={onSelectDashboardOptions}
-          placeholder={dashboardOptions}
-        />
+        <>
+          <Select
+            size="large"
+            placeholder="Select a period"
+            style={{ width: 200 }}
+            options={dashboardOptions}
+          />
+          <EmailClientSelector placeholder={'Select Email Campaign'} />
+        </>
       ),
     },
     [`/${ROUTE.analytics}`]: {

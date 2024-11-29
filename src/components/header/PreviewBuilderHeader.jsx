@@ -4,11 +4,11 @@ import { MailBuilderContext } from '../../context/MailBuilderContext';
 import { useNavigate } from 'react-router-dom';
 import { ROUTE } from '../../routes/routes.constants';
 
-import { TextIconButton } from '../interface/buttons/TextIconButton';
-import { UnDoIcon } from '../interface/buttons/UnDoIcon';
-import { ReDoIcon } from '../interface/buttons/ReDoIcon';
-import { PreviewIcon } from '../interface/buttons/PreviewIcon';
-import { FileIcon } from '../interface/buttons/FileIcon';
+import { TextIconButton } from '../icons/TextIconButton';
+import { UnDoIcon } from '../icons/UnDoIcon';
+import { ReDoIcon } from '../icons/ReDoIcon';
+import { PreviewIcon } from '../icons/PreviewIcon';
+import { FileIcon } from '../icons/FileIcon';
 
 import * as builderScript from '../../pages/mail-builder-page/builder-script/builderScript';
 import * as builderTemplate from '../../pages/mail-builder-page/builder-script/builderTemplate';

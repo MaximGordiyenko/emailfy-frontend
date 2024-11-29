@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useForm } from 'react-hook-form';
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 import { TextIconWrapper } from '../wrappers/TextIconWrapper';
 import { InputText } from '../inputs/InputText';
-import { RoundCloseIcon } from '../interface/buttons/RoundCloseIcon';
-import { BrandButton } from '../interface/buttons/BrandButton';
+import { RoundCloseIcon } from '../icons/RoundCloseIcon';
+import { BrandButton } from '../icons/BrandButton';
 import * as builderTemplate from '../../pages/mail-builder-page/builder-script/builderTemplate';
 import * as testEmail from '../../pages/mail-builder-page/builder-script/testEmail';
 import './styles.css';

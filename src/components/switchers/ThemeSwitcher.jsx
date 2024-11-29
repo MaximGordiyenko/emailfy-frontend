@@ -5,5 +5,5 @@ import './styles.css';
 export const ThemeSwitcher = () => {
   const { toggleTheme } = useTheme();
 
-  return <Switch onChange={toggleTheme} checkedChildren="Dark" unCheckedChildren="Light" />;
+  return <Switch onChange={toggleTheme} checkedChildren="Light" unCheckedChildren="Dark" />;
 };

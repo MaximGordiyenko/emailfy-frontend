@@ -2,10 +2,10 @@ import { Layout, Typography, Flex, Divider } from 'antd';
 import logo from '../../assets/images/dinoLogo.png';
 import './styles.css';
 
-export const AppFooter = ({ sidebarWidth }) => {
-  const { Footer } = Layout;
-  const { Link, Title } = Typography;
+const { Footer } = Layout;
+const { Link, Title } = Typography;
 
+export const AppFooter = ({ sidebarWidth }) => {
   return (
     <Footer
       style={{

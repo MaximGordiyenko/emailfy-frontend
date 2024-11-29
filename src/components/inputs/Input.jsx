@@ -1,5 +1,5 @@
 import { Controller } from 'react-hook-form';
-import { CloseIcon } from '../interface/icons/CloseIcon';
+import { CloseIcon } from '../icons/CloseIcon';
 import { BrandInput } from './BrandInput';
 
 export const Input = ({ name, value, control }) => {

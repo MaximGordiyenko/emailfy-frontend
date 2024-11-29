@@ -2,7 +2,7 @@ import { InstagramIcon } from '../../../../components/mail-block-icons/Instagram
 import { TwitterIcon } from '../../../../components/mail-block-icons/TwitterIcon';
 import { FacebookIcon } from '../../../../components/mail-block-icons/FacebookIcon';
 import { LinkedIn } from '../../../../components/mail-block-icons/LinkedIn';
-import { DeleteStickyIcon } from '../../../../components/interface/buttons/DeleteStickyIcon';
+import { DeleteStickyIcon } from '../../../../components/icons/DeleteStickyIcon';
 
 export const SocialBuildBlock = ({
   id,

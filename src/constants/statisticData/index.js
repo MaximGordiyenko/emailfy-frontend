@@ -23,45 +23,6 @@ import usa from '../../assets/images/dashboard/united states.svg';
 import germany from '../../assets/images/dashboard/germany.svg';
 import australia from '../../assets/images/dashboard/australia.svg';
 
-export const STAT_CARDS_DATA = [
-  {
-    title: 'Total Contacts Amount',
-    value: '10460481',
-    width: '278px',
-  },
-  {
-    title: 'Campaigns',
-    value: '28',
-    description: '(500024) Emails',
-    width: '278px',
-  },
-  {
-    title: 'Average Delivery Rate',
-    value: '81.12%',
-    description: '(408621)',
-    width: '278px',
-  },
-  {
-    title: 'Average Open Rate',
-    value: '41.12%',
-    description: '(200621)',
-    width: '278px',
-  },
-  {
-    title: 'Hard Bounced',
-    value: '2.12%',
-    description: '(98547)',
-  },
-  {
-    title: 'Unsubscribed',
-    value: '128',
-  },
-  {
-    title: 'Average CTR',
-    value: '24.5%',
-    description: '(98547)',
-  },
-];
 export const DEVICES_DATA = {
   mobile_devices: {
     overall_stat: { title: 'Mobile', value: '67%' },

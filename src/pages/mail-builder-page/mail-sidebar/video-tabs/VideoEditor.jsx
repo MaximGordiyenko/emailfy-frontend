@@ -4,7 +4,7 @@ import { Accordion } from '../../../../components/accordion/Accordion';
 import uploadIcon from '../../../../assets/images/uploadIcon.svg';
 import alternateTextIcon from '../../../../assets/images/alternateTextIcon.svg';
 import { BrandInput } from '../../../../components/inputs/BrandInput';
-import { CloseIcon } from '../../../../components/interface/icons/CloseIcon';
+import { CloseIcon } from '../../../../components/icons/CloseIcon';
 import * as builderScript from '../../builder-script/builderScript';
 import '../styles.css';
 import { get_video_preview_image } from '../../../../api/builder/builder_test';

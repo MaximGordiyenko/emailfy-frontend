@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useMainContext } from '../../../context/MainContext';
 
-import { useMutation } from 'react-query';
-import { getToken } from '../../../api/API';
+import { useMutation } from '@tanstack/react-query';
+import { getToken, removeToken } from '../../../api/API';
 import { create_template } from '../../../api/builder/templates';
 
 import { useForm, FormProvider } from 'react-hook-form';
@@ -15,6 +15,7 @@ import { getUserEmail } from '../../../helpers/campaignsUtils';
 
 import { InputText } from '../../../components/inputs/InputText';
 import './style.css';
+import { signIn } from '../../../api/auth/auth';
 
 export const UploadHTML = () => {
   const { emailCampaignStep, setEmailCampaignStep } = useMainContext();
@@ -67,8 +68,9 @@ export const UploadHTML = () => {
     setEmailCampaignStep(1);
   };
 
-  const { mutate } = useMutation(async (data) => create_template(getToken('accessToken'), ''), {
-    onSuccess: (data) => {},
+  const { mutate } = useMutation({
+    mutationFn: (data) => create_template(data),
+    onSuccess: ({ message }) => {},
     onError: (error) => {},
   });
 

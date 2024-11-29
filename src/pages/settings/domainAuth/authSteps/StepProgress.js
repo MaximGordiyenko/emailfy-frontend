@@ -67,7 +67,7 @@ const StepProgress = () => {
 
   const getUserName = async () => {
     const access_token = getToken('accessToken');
-    const userInfo = await userInfoAPI.getUser(access_token);
+    const userInfo = await userInfoAPI.getUserInfo(access_token);
     if (userInfo.data.username) {
       setUserName(userInfo.data.username);
     }

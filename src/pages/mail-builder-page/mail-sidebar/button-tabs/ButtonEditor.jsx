@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
-import { SearchIcon } from '../../../../components/interface/icons/SearchIcon';
+import { SearchIcon } from '../../../../components/icons/SearchIcon';
 import { BrandInput } from '../../../../components/inputs/BrandInput';
 import { ColorPicker } from '../../../../components/color-picker/ColorPicker';
 import { setBuildBlockPropsByKey } from '../../../../helpers/setBuildBlockPropsByKey';

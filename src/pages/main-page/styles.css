@@ -52,7 +52,6 @@
   
   .img-wrapper {
     width: 50%;
-    background: url('../../assets/images/login-page/LoginPageBrandLogo.jpg') center no-repeat;
     background-size: cover;
     height: 100%;
     border-radius: 30px;
@@ -111,7 +110,6 @@
   
   .img-wrapper {
     width: 50%;
-    background: url('../../assets/images/login-page/LoginPageBrandLogo.jpg') center no-repeat;
     background-size: cover;
     height: 100%;
     border-radius: 30px;
@@ -245,7 +243,6 @@
   
   .img-wrapper {
     width: 50%;
-    background: url('../../assets/images/login-page/LoginPageBrandLogo.jpg') center no-repeat;
     background-size: cover;
     height: 100%;
     border-radius: 30px;
@@ -489,7 +486,6 @@
     border-radius: 30px;
     height: 100%;
     align-self: flex-start;
-    background: url('../../assets/images/login-page/LoginPageBrandLogo.jpg') center no-repeat;
     background-size: cover;
   }
 }

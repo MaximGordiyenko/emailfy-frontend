@@ -1,3 +1,4 @@
+/*
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { signIn, signUp, getRefreshToken } from '../api/auth/auth.js';
 
@@ -85,3 +86,4 @@ const accountSlice = createSlice({
 
 export const { logout } = accountSlice.actions;
 export default accountSlice.reducer;
+*/

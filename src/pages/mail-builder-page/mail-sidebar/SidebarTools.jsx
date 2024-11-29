@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { initialTabs } from './tabs.constants';
 import { TextIconWrapper } from '../../../components/wrappers/TextIconWrapper';
 import { Title } from '../../../components/interface/Title/Title';
-import { RoundCloseIcon } from '../../../components/interface/buttons/RoundCloseIcon';
+import { RoundCloseIcon } from '../../../components/icons/RoundCloseIcon';
 import './styles.css';
 import * as builderTemplate from '../builder-script/builderTemplate';
 import { MailBuilderContext } from '../../../context/MailBuilderContext';
