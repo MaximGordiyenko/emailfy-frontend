@@ -6,10 +6,20 @@ export const themeX = {
       colorPrimary: '#7E9D00',
       colorPrimaryHover: '#A5BB4D',
     },
+    Form: {
+      labelColor: '#7E9D00',
+    },
     Input: {
       colorPrimary: '#7E9D00',
       activeShadow: '#7E9D00',
       hoverBorderColor: '#A5BB4D',
+    },
+    Checkbox: {
+      colorPrimary: '#7E9D00',
+      colorPrimaryHover: '#A5BB4D',
+    },
+    Table: {
+      // filterDropdownBg: '#7E9D00',
     },
     Switch: {
       colorPrimary: '#7E9D00',
@@ -22,6 +32,7 @@ export const themeX = {
     Typography: {
       colorLink: '#7E9D00',
       colorLinkHover: '#A5BB4D',
+      // colorText: '#7E9D00',
     },
     Menu: {
       itemSelectedColor: '#FFF',

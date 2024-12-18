@@ -40,6 +40,18 @@
   }
 }
 
+.main-layout::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #aaa; /* or add it to the track */
+}
+
+.home-layout {
+  .ant-layout-content {
+    height: 100vh;
+  }
+}
+
 .mail-builder-layout {
   width: 100vw;
   height: 100vh;
@@ -48,24 +60,6 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
-}
-
-.main-layout-container {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-  
-  .main-layout-header {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    
-    .main-layout-outlet-content {
-      flex-grow: 1;
-      overflow: auto;
-      padding: 30px 60px;
-    }
-  }
 }
 
 

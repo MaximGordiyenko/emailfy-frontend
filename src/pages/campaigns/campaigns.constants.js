@@ -1,7 +1,6 @@
 import html from '../../assets/images/compaigns/Frame 980935.svg';
 import text from '../../assets/images/compaigns/Frame 980936.svg';
 import custom from '../../assets/images/compaigns/Frame 980938.svg';
-import blackHole from '../../assets/images/blackHole.svg';
 import emails from '../../assets/images/emails.png';
 import all from '../../assets/images/all.png';
 import ongoing from '../../assets/images/ongoing.png';
@@ -9,16 +8,17 @@ import scheduled from '../../assets/images/calendarMark.svg';
 import completed from '../../assets/images/completed.png';
 import drafts from '../../assets/images/drafts.png';
 import { ROUTE } from '../../routes/routes.constants';
+import { FolderOutlined } from '@ant-design/icons';
 
 export const MODAL_CARDS = [
   {
     id: 1,
     img: html,
-    img2: blackHole,
     title: 'Upload HTML',
     background: 'rgba(126, 157, 0, 0.10)',
     hover: '#7E9D00',
-    path: `/${ROUTE.campaigns}/${ROUTE.createHtml}`,
+    borderHover: 'red',
+    path: `${ROUTE.createHtml}`,
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ export const MODAL_CARDS = [
     title: 'Manual text input',
     background: 'rgba(102, 109, 165, 0.10)',
     hover: '#666DA5',
-    path: `/${ROUTE.campaigns}/${ROUTE.createText}`,
+    path: `${ROUTE.createText}`,
   },
   {
     id: 3,
@@ -34,12 +34,12 @@ export const MODAL_CARDS = [
     title: 'Custom design',
     background: 'rgba(211, 103, 0, 0.10)',
     hover: '#D36700',
-    path: `/${ROUTE.mailBuilderPage}`,
+    path: `${ROUTE.mailBuilderPage}`,
   },
 ];
 
 export const TAB_ITEMS = [
-  { img: all, text: 'All' },
+  { img: <FolderOutlined />, text: 'All' },
   { img: ongoing, text: 'Ongoing' },
   { img: scheduled, text: 'Scheduled' },
   { img: completed, text: 'Completed' },

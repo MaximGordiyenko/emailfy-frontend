@@ -3,7 +3,8 @@ import StepProgress from './authSteps/StepProgress';
 import { check_smtp } from '../../../api/settings/settings';
 import { initialStatusData } from '../../../constants/common.constants';
 import { getToken } from '../../../api/API';
-import './styles.css';
+import { Typography } from 'antd';
+const { Title, Text, Link } = Typography;
 
 export const CheckStatusContext = createContext({
   loading: false,
@@ -40,12 +41,8 @@ export const DomainAuth = () => {
 
   return (
     <CheckStatusContext.Provider value={value}>
-      <div className="domain-auth">
-        <div className="steps-body">
-          <div className="domain-auth-title">Domain authentication</div>
-          <StepProgress />
-        </div>
-      </div>
+      <Title level={3}>Domain authentication</Title>
+      <StepProgress />
     </CheckStatusContext.Provider>
   );
 };

@@ -8,11 +8,15 @@ import { BrandButton } from '../icons/BrandButton';
 import { sendTestEmail } from '../../pages/mail-builder-page/builder-script/testEmail';
 import { initAnalytics } from '../../pages/mail-builder-page/builder-script/analyticsUtil';
 import { saveContent } from '../../pages/mail-builder-page/builder-script/builderTemplate';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import draftToHtml from 'draftjs-to-html';
 
 export const CampaignModal = ({ isOpenModal, onClose }) => {
-  const { subject, campaign_text, html } = useSelector((state) => state.campaign.data);
+  // const { subject, campaign_text, html } = useSelector((state) => state.campaign.data);
+  const subject = 'cool campaign';
+  const campaign_text = 'cool campaign';
+  const html = 'cool campaign';
+
   const editorStateOfHtml = draftToHtml(html);
   console.log(editorStateOfHtml);
 

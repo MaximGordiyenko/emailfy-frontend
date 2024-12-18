@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import draftToHtml from 'draftjs-to-html';
 import { TextIconButton } from '../../../components/icons/TextIconButton';
-import { EnvelopSendIcon } from '../../../components/icons/EnvelopSendIcon';
+import { EnvelopRoundIcon } from '../../../components/icons/EnvelopRoundIcon';
 import { DesktopIcon } from '../../../components/icons/DesktopIcon';
 import { MobileIcon } from '../../../components/icons/MobileIcon';
 import { PenEditIcon } from '../../../components/icons/PenEditIcon';
@@ -18,7 +18,8 @@ export const CampaignsTextPreview = () => {
 
   const navigate = useNavigate();
 
-  const { campaign_text } = useSelector((state) => state.campaign.data);
+  // const { campaign_text } = useSelector((state) => state.campaign.data);
+  const campaign_text = 'bla';
   const editorStateOfHtml = draftToHtml(campaign_text);
 
   const isDesktopMode = mediaQuery === '70%' ? ' is-desktop' : '';
@@ -35,13 +36,13 @@ export const CampaignsTextPreview = () => {
           <TextIconButton
             className="btn-preview-wrapper"
             text="Back"
-            onClick={() => navigate(`/${ROUTE.campaigns}/${ROUTE.createText}`)}
+            onClick={() => navigate(`/${ROUTE.campaignsPage}/${ROUTE.createText}`)}
             icon={<PenEditIcon />}
           />
           <TextIconButton
             text="Send test email"
             className="btn-preview-wrapper campaign-modal"
-            icon={<EnvelopSendIcon />}
+            icon={<EnvelopRoundIcon />}
             onClick={() => setIsOpenModalPreview(true)}
           />
         </div>

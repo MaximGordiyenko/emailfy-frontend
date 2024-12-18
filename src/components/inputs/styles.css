@@ -61,67 +61,6 @@
   }
 }
 
-.input-box {
-  max-width: 560px;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: flex-start;
-
-  label {
-    font-family: MacPawFixelMedium;
-    color: #2A2B3B;
-    font-size: 14px;
-    margin: 5px 0 5px 20px;
-  }
-
-  input {
-    width: 100%;
-    padding: 10px 20px;
-    height: 48px;
-    box-sizing: border-box;
-    font-size: 14px;
-    border: 1px solid #D4D5D8;
-    border-radius: 10px;
-    font-family: MacPawFixelMedium;
-    line-height: 25px;
-    outline: #7E9D00;
-  }
-  :focus {
-    border: 1px solid #7E9D00;
-  }
-
-  input::placeholder {
-    font-family: MacPawFixelRegular;
-    font-size: 14px;
-    opacity: 0.3;
-  }
-}
-
-.wrong-input {
-  max-width: 560px;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: flex-start;
-  label {
-    font-family: MacPawFixelMedium;
-    color: #2A2B3B;
-    font-size: 14px;
-    margin: 5px 0 5px 20px;
-  }
-  input{
-    width: 100%;
-    padding: 10px 20px;
-    height: 48px;
-    box-sizing: border-box;
-    font-size: 14px;
-    border: 1.5px solid var(--default-red);
-    border-radius: 10px;
-    font-family: MacPawFixelMedium;
-    line-height: 25px;
-  }
-}
 
 .react-select-container {
   margin: 10px 0;

@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { Controller } from 'react-hook-form';
 import { EditorState, convertToRaw, convertFromHTML, ContentState } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
 import { toolbar } from '../../pages/mail-builder-page/mail-sidebar/text-tabs/markup-editor/options';
-import { updateField } from '../../store/campaignSlice';
+// import { updateField } from '../../store/campaignSlice';
 import './styles.css';
 
 export const TextEditor = ({ name, control, placeholder }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const { campaign_text } = useSelector((state) => state.campaign.data);
+  // const { campaign_text } = useSelector((state) => state.campaign.data);
+  const campaign_text = 'cool campaign';
 
   const [editor, setEditor] = useState(EditorState.createEmpty());
 
@@ -40,7 +41,7 @@ export const TextEditor = ({ name, control, placeholder }) => {
             onEditorStateChange={(newEditorState) => {
               const convertedToState = convertToRaw(newEditorState?.getCurrentContent());
               const convertedToHtml = draftToHtml(convertedToState);
-              dispatch(updateField({ field: 'campaign_text', value: convertedToHtml }));
+              // dispatch(updateField({ field: 'campaign_text', value: convertedToHtml }));
               setEditor(newEditorState);
             }}
             placeholder={placeholder}

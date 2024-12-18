@@ -1,4 +1,17 @@
 import axios from 'axios';
+import { getToken, API } from '../API';
+
+export const getCountries = async () => {
+  try {
+    const accessToken = getToken('accessToken');
+    const { data } = await API.get(`/auth/settings/company/countries`, {
+      headers: { Authorization: `Bearer ${accessToken}` },
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export async function get_company_info(access_token) {
   return await axios.get(`/api/settings/company-info`, {

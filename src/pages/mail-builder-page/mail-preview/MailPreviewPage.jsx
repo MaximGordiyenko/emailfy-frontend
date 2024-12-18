@@ -6,7 +6,7 @@ import { DesktopIcon } from '../../../components/icons/DesktopIcon';
 import { MobileIcon } from '../../../components/icons/MobileIcon';
 import { TextIconButton } from '../../../components/icons/TextIconButton';
 import { PenEditIcon } from '../../../components/icons/PenEditIcon';
-import { EnvelopSendIcon } from '../../../components/icons/EnvelopSendIcon';
+import { EnvelopRoundIcon } from '../../../components/icons/EnvelopRoundIcon';
 import { PreviewComponent } from '../../campaigns/email-capmaign/PreviewComponent';
 import { useNavigate } from 'react-router-dom';
 import { SendMailModal } from '../../../components/modals/SendMailModal';
@@ -43,7 +43,7 @@ export const MailPreviewPage = () => {
           <TextIconButton
             text="Send test email"
             className="btn-preview-wrapper campaign-modal"
-            icon={<EnvelopSendIcon />}
+            icon={<EnvelopRoundIcon />}
             onClick={() => {
               setIsOpenSendMailModal(!isOpenSendMailModal);
             }}

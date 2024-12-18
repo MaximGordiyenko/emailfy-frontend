@@ -17,14 +17,11 @@ import { CampaignsHtmlPreview } from '../pages/campaigns/email-capmaign/Campaign
 import { UploadManualText } from '../pages/campaigns/email-capmaign/UploadManualText';
 import { CampaignsTextPreview } from '../pages/campaigns/email-capmaign/CampaignsTextPreview';
 import { SegmentManually } from '../pages/audience/segmentManual/SegmentationManual';
-import { Tags } from '../pages/tags/Tags';
-import { TagsPage } from '../pages/tags/tagPage/TagsPage';
-import { ForgotPassword } from '../pages/main-page/ForgotPassword';
-import { VerifyPage } from '../pages/main-page/VerifyPage';
-import { ConfirmationPage } from '../pages/main-page/Confirmation';
-import { ResetPass } from '../pages/main-page/ResetPass';
+import { TagsPage } from '../pages/tags/TagsPage';
+import { ForgotPasswordPage } from '../pages/auth-page/ForgotPasswordPage';
+import { EmailConfirmationPage } from '../pages/auth-page/EmailConfirmationPage';
 import { DomainAuth } from '../pages/settings/domainAuth/DomainAuth';
-import { LoggedBy2FA } from '../pages/main-page/LoggedBy2FA';
+import { LoggedBy2FA } from '../pages/auth-page/LoggedBy2FA';
 import { MailBuilderPage } from '../pages/mail-builder-page/MailBuilderPage';
 import { MailPreviewPage } from '../pages/mail-builder-page/mail-preview/MailPreviewPage';
 import { MailBuilderLayout } from '../layouts/MailBuilderLayout';
@@ -38,18 +35,38 @@ import { SubscriptionPage } from '../pages/subscription/SubscriptionPage';
 import { AudienceList } from '../pages/audience/audienceList/AudienceList';
 import { CampaignsTab } from '../components/tabs/analytics-tabs/campaigns/CampaignsTab';
 import { TestsTab } from '../components/tabs/analytics-tabs/aToBTest/TestsTab';
+import { HomeLayout } from '../layouts/HomeLayout';
+import { DisableAuthPage } from '../pages/auth-page/DisableAuthPage';
+import { CampaignsList } from '../pages/campaigns/CampaignsList';
+import { MailBuilderProvider } from '../context/MailBuilderContext';
 
 export const routes = createBrowserRouter([
   {
     element: <AuthLayout />,
     children: [
       {
+        path: `${ROUTE.registration}`,
+        element: <RegisterPage />,
+      },
+      {
         path: `${ROUTE.login}`,
         element: <LoginPage />,
       },
       {
-        path: `${ROUTE.registration}`,
-        element: <RegisterPage />,
+        path: `${ROUTE.forgotPassword}`,
+        element: <ForgotPasswordPage />,
+      },
+      {
+        path: `${ROUTE.confirmation}`,
+        element: <EmailConfirmationPage />,
+      },
+      {
+        path: `${ROUTE.disableAuth}`,
+        element: <DisableAuthPage />,
+      },
+      {
+        path: `${ROUTE.auth2FA}`,
+        element: <LoggedBy2FA />,
       },
     ],
   },
@@ -105,10 +122,48 @@ export const routes = createBrowserRouter([
         ],
       },
       {
-        path: `${ROUTE.campaigns}`,
+        path: `${ROUTE.campaignsPage}`,
         element: (
           <PrivateRoute>
             <CampaignsPage />
+          </PrivateRoute>
+        ),
+        children: [
+          {
+            path: `/${ROUTE.campaignsPage}`,
+            element: <CampaignsList />,
+          },
+          {
+            path: `${ROUTE.createHtml}`,
+            element: <UploadHTML />,
+          },
+          {
+            path: `${ROUTE.createHtml}/${ROUTE.htmlPreview}`,
+            element: <CampaignsHtmlPreview />,
+          },
+          {
+            path: `${ROUTE.createText}`,
+            element: <UploadManualText />,
+          },
+          {
+            path: `${ROUTE.createText}/${ROUTE.textPreview}`,
+            element: <CampaignsTextPreview />,
+          },
+          {
+            path: `${ROUTE.mailBuilderPage}`,
+            element: (
+              <MailBuilderProvider>
+                <MailBuilderPage />
+              </MailBuilderProvider>
+            ),
+          },
+        ],
+      },
+      {
+        path: `${ROUTE.tags}`,
+        element: (
+          <PrivateRoute>
+            <TagsPage />
           </PrivateRoute>
         ),
       },
@@ -136,6 +191,10 @@ export const routes = createBrowserRouter([
             path: `/${ROUTE.settings}/${ROUTE.domainInfo}`,
             element: <DomainInformationTab />,
           },
+          {
+            path: `/${ROUTE.settings}/${ROUTE.domainInfo}/${ROUTE.domainAuth}`,
+            element: <DomainAuth />,
+          },
         ],
       },
       {
@@ -158,73 +217,30 @@ export const routes = createBrowserRouter([
         path: `${ROUTE.audience}/${ROUTE.manualSegmentation}`,
         element: <SegmentManually />,
       },
-      {
-        path: `${ROUTE.campaigns}/${ROUTE.createHtml}`,
-        element: <UploadHTML />,
-      },
-      {
-        path: `${ROUTE.campaigns}/${ROUTE.htmlPreview}`,
-        element: <CampaignsHtmlPreview />,
-      },
-      {
-        path: `${ROUTE.campaigns}/${ROUTE.createText}`,
-        element: <UploadManualText />,
-      },
-      {
-        path: `${ROUTE.campaigns}/${ROUTE.textPreview}`,
-        element: <CampaignsTextPreview />,
-      },
-      {
-        path: `${ROUTE.tags}`,
-        element: <Tags />,
-      },
-      {
-        path: `${ROUTE.tags}/:id`,
-        element: <TagsPage />,
-      },
-      {
-        path: `${ROUTE.forgotPassword}`,
-        element: <ForgotPassword />,
-      },
-      {
-        path: `${ROUTE.verifyPage}`,
-        element: <VerifyPage />,
-      },
-      {
-        path: `${ROUTE.confirmation}/:token`,
-        element: <ConfirmationPage />,
-      },
-      {
-        path: `${ROUTE.settings}/${ROUTE.resetPassword}/:token`,
-        element: <ResetPass />,
-      },
-      {
-        path: `${ROUTE.settings}/${ROUTE.domain}`,
-        element: <DomainAuth />,
-      },
-      {
-        path: `${ROUTE.auth2FA}`,
-        element: <LoggedBy2FA />,
-      },
     ],
   },
   {
-    path: `/${ROUTE.home}`,
-    element: <HomePage />,
-  },
-  {
-    element: <MailBuilderLayout />,
+    element: <HomeLayout />,
     children: [
       {
-        path: `${ROUTE.mailBuilderPage}`,
-        element: <MailBuilderPage />,
-      },
-      {
-        path: `${ROUTE.mailBuilderPage}/${ROUTE.mailBuilderPreview}`,
-        element: <MailPreviewPage />,
+        path: `/${ROUTE.home}`,
+        element: <HomePage />,
       },
     ],
   },
+  // {
+  //   element: <MailBuilderLayout />,
+  //   children: [
+  //     {
+  //       path: `${ROUTE.mailBuilderPage}`,
+  //       element: <MailBuilderPage />,
+  //     },
+  //     {
+  //       path: `${ROUTE.mailBuilderPage}/${ROUTE.mailBuilderPreview}`,
+  //       element: <MailPreviewPage />,
+  //     },
+  //   ],
+  // },
   {
     path: '/',
     element: <Navigate to={`${ROUTE.login}`} replace />,

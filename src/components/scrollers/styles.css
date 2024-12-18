@@ -1,0 +1,15 @@
+.text-scroller-container {
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-right: 1px solid #7e9d00;
+  border-left: 1px solid #7e9d00;
+  
+  &:hover {
+    cursor: pointer;
+    color: #7e9d00;
+  }
+}

@@ -1,17 +1,18 @@
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { PreviewIcon } from './PreviewIcon';
 import { DeleteIcon } from './DeleteIcon';
 import { BrandUploader } from '../../../components/drag-n-drop-uploader/BrandUploader';
 import { BrandLabel } from '../../../components/inputs/BrandLabel';
-import { updateField } from '../../../store/campaignSlice';
+// import { updateField } from '../../../store/campaignSlice';
 import './style.css';
 
 export const UploadHtmlForm = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const { html } = useSelector((state) => state.campaign.data);
+  // const { html } = useSelector((state) => state.campaign.data);
+  const html = 'html';
 
   const uploadOptionIcon = () => {
     return (
@@ -24,7 +25,7 @@ export const UploadHtmlForm = () => {
             />
             <DeleteIcon
               className={`campaign-delete-icon`}
-              onClick={() => dispatch(updateField({ field: 'html', value: '' }))}
+              // onClick={() => dispatch(updateField({ field: 'html', value: '' }))}
             />
           </span>
         )}

@@ -12,13 +12,13 @@ export const BorderOverChild = ({ editorBlock, handleDuplicate, handleDelete }) 
     editorBlock.id === selectedBlockID || activeTab === 'layout-blocks-tab'
       ? ' is-active-border'
       : '';
-
+  console.log(workspaceWidth);
   return (
     <div
       className={`border-over-child${activeBorderOverBlock}`}
       style={{
         left: `calc((100% + 10px - ${workspaceWidth}px) / 2)`,
-        width: `calc(100% - 20px + (${workspaceWidth}px - 100%))`,
+        width: `calc(100% - 5px + (${workspaceWidth}px - 100%))`,
       }}>
       <StickyIcon
         id={editorBlock.id}

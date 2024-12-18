@@ -1,5 +1,5 @@
 import React from 'react';
-import arrow from '../../../assets/images/Alt Arrow Down.svg';
+import arrow from '../../../assets/images/arrowDown.svg';
 
 export const CaretDownIcon = (props) => {
   const setStyle = () => {

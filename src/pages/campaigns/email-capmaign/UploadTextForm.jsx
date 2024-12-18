@@ -2,13 +2,14 @@ import { useNavigate } from 'react-router-dom';
 import { BrandLabel } from '../../../components/inputs/BrandLabel';
 import { TextEditor } from '../../../components/editors/TextEditor';
 import { PreviewIcon } from './PreviewIcon';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { ROUTE } from '../../../routes/routes.constants';
 
 export const UploadTextForm = ({ control, name, placeholder }) => {
   const navigate = useNavigate();
 
-  const { campaign_text } = useSelector((state) => state.campaign.data);
+  // const { campaign_text } = useSelector((state) => state.campaign.data);
+  const campaign_text = 'subject of upload';
 
   const uploadOptionIcon = () => {
     return (
@@ -18,7 +19,7 @@ export const UploadTextForm = ({ control, name, placeholder }) => {
             <PreviewIcon
               className={'campaign-preview-icon'}
               onClick={async () => {
-                navigate(`/${ROUTE.campaigns}/${ROUTE.textPreview}`);
+                navigate(`/${ROUTE.campaignsPage}/${ROUTE.textPreview}`);
               }}
             />
           </span>

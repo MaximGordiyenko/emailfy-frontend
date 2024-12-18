@@ -1,5 +1,5 @@
 .campaigns-page-container {
-  height: 100vh;
+  height: fit-content;
   
   .toggle-camp-tabs {
     display: flex;

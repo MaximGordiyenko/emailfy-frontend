@@ -1,131 +1,17 @@
-.upload-campaign {
-  margin: 0 0 50px 0;
+.campaign-dropdown-menu-container {
+  .ant-ribbon {
+    margin: 0 12px;
+  }
   
-  .cards {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0;
-    gap: 20px;
-    width: 100%;
-    
-    .email,
-    .journey,
-    .abTesting {
-      background-color: var(--default-white);
-    }
-    
-    .email {
-      border: 1px solid var(--default-grey-30);
-      padding: 20px;
-      gap: 15px;
-      height: 111px;
-      border-radius: 20px;
-      box-sizing: border-box;
-      display: flex;
-      flex: 1;
-      align-items: flex-start;
+  .ant-card {
+    &:hover {
+      scale: 1.02;
       cursor: pointer;
-      
-      .upload-des {
-        text-align: left;
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 5px;
-        
-        .upload-des-label {
-          font-size: 16px;
-          font-family: MacPawFixelBold;
-          line-height: 21px;
-          color: var(--default-grey-90);
-          height: 24px;
-          display: flex;
-          align-items: center;
-        }
-        
-        .upload-des-text {
-          font-size: 14px;
-          line-height: 21px;
-          font-family: MacPawFixelMedium;
-          text-overflow: ellipsis;
-          color: var(--default-grey-70);
-        }
-      }
-      
-      & img {
-        width: 24px;
-        height: 24px;
-      }
+      border-color: #7e9d00;
     }
     
-    .journey, .abTesting {
-      border: 1px solid var(--default-grey-10);
-      padding: 20px;
-      gap: 15px;
-      height: 111px;
-      border-radius: 20px;
-      box-sizing: border-box;
-      display: flex;
-      flex: 1;
-      align-items: flex-start;
-      position: relative;
-      
-      .coming-soon {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        top: -12px;
-        right: 23px;
-        height: 24px;
-        padding: 0 10px;
-        box-sizing: border-box;
-        border-radius: 20px;
-        background: var(--default-grey-10);
-        
-        & span {
-          font-family: MacPawFixelMedium;
-          color: var(--default-grey-70);
-          font-size: 10px;
-          line-height: 14px;
-          letter-spacing: 0.05em;
-          text-transform: uppercase;
-        }
-      }
-      
-      .upload-des {
-        text-align: left;
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 5px;
-        
-        .upload-des-label {
-          font-size: 16px;
-          font-family: MacPawFixelBold;
-          line-height: 21px;
-          color: var(--default-grey-50);
-          height: 24px;
-          display: flex;
-          align-items: center;
-        }
-        
-        .upload-des-text {
-          font-size: 14px;
-          line-height: 21px;
-          font-family: MacPawFixelMedium;
-          text-overflow: ellipsis;
-          color: var(--default-grey-50);
-        }
-      }
-      
-      & img {
-        width: 24px;
-        height: 24px;
-      }
+    .ant-card-body {
+      padding: 10px;
     }
   }
 }

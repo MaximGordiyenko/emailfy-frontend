@@ -1,49 +1,53 @@
 import { useNavigate } from 'react-router-dom';
 
 import { MODAL_CARDS } from '../campaigns.constants';
-import closeButton from '../../../assets/images/close-button.svg';
+import { Flex, Card, Modal, Typography } from 'antd';
 import './styles.css';
+const { Meta } = Card;
+const { Title } = Typography;
 
-export const CampaignModal = ({ closeModal }) => {
+export const CampaignModal = ({ hoveredCard, setHoveredCard, open, onCancel, setIsOpenMenu }) => {
   const navigate = useNavigate();
 
   return (
-    <div className={'cam-modal-wrapper'}>
-      <div className={'cam-modal'}>
-        <div className={'cam-title'}>
-          <span className={'modal-title'}>Create Email Campaign</span>
-          <span className={'modal-title-text'}>Choose how you want to create the Email</span>
-          <div className={'close-btn'} onClick={closeModal}>
-            <img src={closeButton} alt={'close-modal'} className={'close-btn-icon'} />
-          </div>
-        </div>
-        <div className={'cam-modal-cards'}>
-          {MODAL_CARDS.map((card) => {
-            return (
-              <div
-                key={card.id}
-                // to={`${card.path}`}
-                onClick={() => {
-                  // localStorage.removeItem('current_template_id');
-                  console.log(card.path);
-                  card.path && navigate(card.path);
-                }}
-                className="modal-card"
-                style={{ background: card.background }}
-                data-hover={card.hover}>
-                <img src={card.img} alt="" className="modal-main-img" />
-                {card.img2 && (
-                  <div className="modal-card-upgrade">
-                    <img src={card.img2} alt="" className="modal-card-upgrade-icon" />
-                    <span className="modal-card-upgrade-text">UPGRADE</span>
-                  </div>
-                )}
-                <span className="modal-card-title">{card.title}</span>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
+    <Modal
+      title={<Title level={4}>Create Email Campaign</Title>}
+      footer={null}
+      mask={true}
+      maskClosable={true}
+      centered
+      open={open}
+      onCancel={onCancel}
+      width={800}>
+      <Flex justify="center" align="center" gap={40}>
+        {MODAL_CARDS.map((card) => (
+          <Card
+            key={card.id}
+            hoverable
+            style={{
+              background: hoveredCard === card.id ? card.hover : card.background,
+              border: hoveredCard === card.id ? `1px solid ${card.borderHover}` : 'none',
+              transition: 'background 0.3s ease',
+            }}
+            onMouseEnter={() => setHoveredCard(card.id)}
+            onMouseLeave={() => setHoveredCard(null)}
+            onClick={() => {
+              // localStorage.removeItem('current_template_id');
+              card.path && navigate(card.path);
+              onCancel();
+              setIsOpenMenu();
+            }}
+            cover={
+              <img
+                alt="example"
+                src={card.img}
+                style={{ padding: '30px 8px 0px 8px', width: '70%', margin: '0 auto' }}
+              />
+            }>
+            <Meta title={card.title} style={{ textAlign: 'center' }} />
+          </Card>
+        ))}
+      </Flex>
+    </Modal>
   );
 };

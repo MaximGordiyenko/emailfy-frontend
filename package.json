@@ -71,6 +71,7 @@
     "react-scripts": "5.0.1",
     "react-select": "^5.8.0",
     "react-sortablejs": "^6.1.4",
+    "react-spring": "^9.7.5",
     "react-tag-input-component": "^2.0.2",
     "react-textarea-counter": "^1.0.3",
     "recharts": "^2.14.1",

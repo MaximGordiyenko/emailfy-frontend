@@ -12,11 +12,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { signInValidation } from '../../validation/auth.js';
 
 import { Form, Button, Typography, Space, Flex, message } from 'antd';
-import CheckboxForm from '../../components/forms/Checkbox.tsx';
 import { AuthInput } from '../../components/forms/AuthInput.tsx';
+import { BrandLogo } from '../../components/logo/BrandLogo';
 
 import './styles.css';
-import { BrandLogo } from '../../components/logo/BrandLogo';
 
 const { Title, Text, Link } = Typography;
 
@@ -94,7 +93,9 @@ export const LoginPage = () => {
           help={errors.password?.message}
         />
 
-        <CheckboxForm name="remember" text={'Remember me'} control={control} label="Remember me" />
+        <Flex justify="end" style={{ margin: '0 0 20px 0' }}>
+          <Link href={`/${ROUTE.forgotPassword}`}>Forgot Password?</Link>
+        </Flex>
 
         <Form.Item>
           <Button type="primary" htmlType="submit" block>
@@ -102,6 +103,7 @@ export const LoginPage = () => {
           </Button>
         </Form.Item>
       </Form>
+
       <Space direction="vertical">
         <Text>Must contain at least 8 characters</Text>
         <Text>Must contain at least one uppercase character</Text>
@@ -109,14 +111,14 @@ export const LoginPage = () => {
         <Text>Must contain at least one number</Text>
         <Text>Must contain at least one special character @, $, !, %, *, ?, &</Text>
       </Space>
-      <Space>
-        <Text>
-          By clicking on the “Create an account” button you’re agreeing with our {``}
-          <Link href={`#`}>Privacy Policy {``}</Link>
-          and {``}
-          <Link href={`#`}>Terms and Conditions.</Link>
-        </Text>
-      </Space>
+
+      <Text>
+        By clicking on the “Create an account” button you’re agreeing with our {``}
+        <Link href={`#`}>Privacy Policy {``}</Link>
+        and {``}
+        <Link href={`#`}>Terms and Conditions.</Link>
+      </Text>
+
       <Flex justify="center" align="center" gap={4}>
         <Text>Not registered yet?</Text>
         <Link href={`/${ROUTE.registration}`}>Sign Up</Link>

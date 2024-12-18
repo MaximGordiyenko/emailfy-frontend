@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { useFormContext } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
@@ -19,7 +19,11 @@ export const UploadCampaignForm = ({ onInputChange }) => {
 
   const { pathname } = useLocation();
 
-  const { subject, from_name, from_email, sendTo } = useSelector((state) => state.campaign.data);
+  // const { subject, from_name, from_email, sendTo } = useSelector((state) => state.campaign.data);
+  const subject = 'subject of upload';
+  const from_name = 'max@gmail.com';
+  const sendTo = 'max@gmail.com';
+  const from_email = 'max@gmail.com';
 
   const {
     control,
@@ -41,8 +45,8 @@ export const UploadCampaignForm = ({ onInputChange }) => {
             name: 'Core list',
             contacts: core_users_count,
             segments: groups.length,
-            created: format(new Date(rootGroup.created_at), 'MMM d, yyyy'),
-            modified: format(new Date(rootGroup.updated_at), 'MMM d, yyyy'),
+            created: format(new Date(rootGroup?.created_at), 'MMM d, yyyy'),
+            modified: format(new Date(rootGroup?.updated_at), 'MMM d, yyyy'),
           },
         ];
 
@@ -89,8 +93,8 @@ export const UploadCampaignForm = ({ onInputChange }) => {
           name="subject"
           placeholder="Mail subject"
           bg={
-            pathname === `/${ROUTE.campaigns}/${ROUTE.createHtml}` ||
-            pathname === `/${ROUTE.campaigns}/${ROUTE.createText}`
+            pathname === `/${ROUTE.campaignsPage}/${ROUTE.createHtml}` ||
+            pathname === `/${ROUTE.campaignsPage}/${ROUTE.createText}`
           }
         />
       </div>

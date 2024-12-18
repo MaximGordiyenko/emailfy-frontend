@@ -7,6 +7,11 @@ import { campaignTextSchema } from '../../../validation/textCampaign';
 
 import { InputText } from '../../../components/inputs/InputText';
 import './style.css';
+import { LoadBalancing } from '../../../components/balancing/LoadBalancing';
+import { CampaignStepper } from './CampaignStepper';
+import { UploadCampaignForm } from './UploadCampaignForm';
+import { PenEditIcon } from '../../../components/icons/PenEditIcon';
+import { UploadTextForm } from './UploadTextForm';
 
 export const UploadManualText = () => {
   const { emailCampaignStep, setEmailCampaignStep } = useMainContext();
@@ -16,6 +21,8 @@ export const UploadManualText = () => {
   // );
 
   // setEditorType('text');
+
+  const campaign_name = 'cool campaign';
 
   const methods = useForm({
     mode: 'onChange',
@@ -69,14 +76,10 @@ export const UploadManualText = () => {
     <FormProvider {...methods}>
       <form onSubmit={handleSubmit(onSubmitHandler)} className="create-campaign-form">
         {emailCampaignStep ? (
-          // <LoadBalancing />
-          <></>
+          <LoadBalancing />
         ) : (
           <>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque debitis eaque illo
-            officiis pariatur quae quis sit? Animi delectus, dolor error facere illo numquam, optio
-            possimus quod sint vero voluptatem!
-            {/*<CampaignStepper />*/}
+            <CampaignStepper />
             <div className="campaign-input-box">
               <InputText
                 value={/*campaign_name*/ ''}
@@ -87,18 +90,16 @@ export const UploadManualText = () => {
                 className="campaign-input_name"
                 style={{ outline: 'none', padding: 0 }}
               />
-              {/*{!campaign_name && (*/}
-              {/*  <img src={campaign_name_tooltip} alt="tooltip" className="campaign_tooltip" />*/}
-              {/*)}*/}
-              {/*{!campaign_name || <PenEditIcon className="campaign-edit-icon" />}*/}
+              {!campaign_name && <img src={'#'} alt="tooltip" className="campaign_tooltip" />}
+              {!campaign_name || <PenEditIcon className="campaign-edit-icon" />}
             </div>
             <div className="campaign-upload-content">
-              {/*<UploadCampaignForm onInputChange={onInputChange} />*/}
-              {/*<UploadTextForm*/}
-              {/*  control={control}*/}
-              {/*  name="campaign_text"*/}
-              {/*  placeholder="Enter email text"*/}
-              {/*/>*/}
+              <UploadCampaignForm onInputChange={onInputChange} />
+              <UploadTextForm
+                control={control}
+                name="campaign_text"
+                placeholder="Enter email text"
+              />
             </div>
           </>
         )}

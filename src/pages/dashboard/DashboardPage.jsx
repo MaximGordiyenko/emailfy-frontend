@@ -47,8 +47,6 @@ export const DashboardPage = () => {
     onError: (error) => {},
   });
 
-  console.log(totalUnsubscribedEmailStatisticData);
-
   const unsubscribedReasons = totalUnsubscribedEmailStatisticData?.unsubscribedReasons || {};
   const totalSubscribeAmount = totalUnsubscribedEmailStatisticData?.totalSubscriptions || {};
 

@@ -1,8 +1,12 @@
 import { ROUTE } from '../../routes/routes.constants';
 
 import { saveContent } from '../../pages/mail-builder-page/builder-script/builderTemplate';
+
 import { AppButton } from '../button/AppButton';
 import { ThemeSwitcher } from '../switchers/ThemeSwitcher';
+import { EmailClientSelect } from '../selects/EmailClientSelect';
+
+import { Select } from 'antd';
 import {
   HomeOutlined,
   DesktopOutlined,
@@ -15,9 +19,9 @@ import {
   LoadingOutlined,
   UpOutlined,
   DownOutlined,
+  TagsOutlined,
+  BuildOutlined,
 } from '@ant-design/icons';
-import { Select } from 'antd';
-import { EmailClientSelector } from '../selects/EmailClientSelector';
 
 export const getHeaderConfigs = (
   navigate,
@@ -55,7 +59,7 @@ export const getHeaderConfigs = (
             style={{ width: 200 }}
             options={dashboardOptions}
           />
-          <EmailClientSelector placeholder={'Select Email Campaign'} />
+          <EmailClientSelect placeholder={'Select Email Campaign'} />
         </>
       ),
     },
@@ -172,7 +176,7 @@ export const getHeaderConfigs = (
         </>
       ),
     },
-    [`/${ROUTE.campaigns}`]: {
+    [`/${ROUTE.campaignsPage}`]: {
       icon: <SoundOutlined />,
       description: 'Campaigns',
       content: () => (
@@ -183,12 +187,47 @@ export const getHeaderConfigs = (
         />
       ),
     },
-    [`/${ROUTE.campaigns}/${ROUTE.createText}`]: {
+    [`/${ROUTE.campaignsPage}/${ROUTE.createHtml}`]: {
+      icon: <SoundOutlined />,
+      description: 'Create new campaign',
+      content: () => (
+        <>
+          <AppButton label={'Back'} onClick={() => navigate(`/${ROUTE.campaignsPage}`)} />
+          <AppButton
+            disabled={emailCampaignStep}
+            label={emailCampaignStep ? 'Save draft' : 'Continue'}
+            role="submit"
+            onClick={async (newContent) => {
+              await saveContent({
+                subject: newContent.subject,
+                sender_name: newContent.from_email,
+              });
+            }}
+          />
+          <AppButton
+            disabled={emailCampaignStep}
+            label={emailCampaignStep ? 'Save draft' : 'Continue'}
+            role="submit"
+          />
+        </>
+      ),
+    },
+    [`/${ROUTE.campaignsPage}/${ROUTE.createHtml}/${ROUTE.htmlPreview}`]: {
+      icon: <SoundOutlined />,
+      description: 'HTML Preview',
+      content: () => (
+        <AppButton
+          label={'Back'}
+          onClick={() => navigate(`/${ROUTE.campaignsPage}/${ROUTE.createHtml}`)}
+        />
+      ),
+    },
+    [`/${ROUTE.campaignsPage}/${ROUTE.createText}`]: {
       icon: <SoundOutlined />,
       description: 'Create Text Manually',
       content: () => (
         <>
-          <AppButton label={'Back'} onClick={setEmailCampaignStep(0)} />
+          <AppButton label={'Back'} onClick={() => navigate(`/${ROUTE.campaignsPage}`)} />
           <AppButton
             disabled={!emailCampaignStep}
             label={emailCampaignStep ? 'Save draft' : 'Continue'}
@@ -208,28 +247,38 @@ export const getHeaderConfigs = (
         </>
       ),
     },
-    [`/${ROUTE.campaigns}/${ROUTE.createHtml}`]: {
+    [`/${ROUTE.campaignsPage}/${ROUTE.createText}/${ROUTE.textPreview}`]: {
       icon: <SoundOutlined />,
-      description: 'Create new campaign',
+      description: 'Text Preview',
+      content: () => (
+        <AppButton
+          label={'Back'}
+          onClick={() => navigate(`/${ROUTE.campaignsPage}/${ROUTE.createText}`)}
+        />
+      ),
+    },
+    [`/${ROUTE.campaignsPage}/${ROUTE.mailBuilderPage}`]: {
+      icon: <BuildOutlined />,
+      description: 'Mail Builder',
+      content: () => (
+        <AppButton
+          label={'Back'}
+          onClick={() => navigate(`/${ROUTE.campaignsPage}/${ROUTE.createText}`)}
+        />
+      ),
+    },
+    [`/${ROUTE.tags}`]: {
+      icon: <TagsOutlined />,
+      description: 'Tags',
       content: () => (
         <>
-          <AppButton label={'Back'} onClick={setEmailCampaignStep(0)} />
           <AppButton
-            disabled={!emailCampaignStep}
-            label={!emailCampaignStep ? 'Save draft' : 'Continue'}
+            label={'Add Tags'}
             role="submit"
-            onClick={async (newContent) => {
-              await saveContent({
-                subject: newContent.subject,
-                sender_name: newContent.from_email,
-              });
-            }}
+            onClick={() => setIsOpenMenu((prev) => !prev)}
+            icon={isOpenMenu ? <UpOutlined /> : <DownOutlined />}
           />
-          <AppButton
-            disabled={!emailCampaignStep}
-            label={emailCampaignStep ? 'Save draft' : 'Continue'}
-            role="submit"
-          />
+          <AppButton disabled={false} label={'Save and close'} role="submit" />
         </>
       ),
     },
@@ -274,7 +323,7 @@ export const getHeaderConfigs = (
         />
       ),
     },
-    [`/${ROUTE.domain}`]: {
+    [`/${ROUTE.settings}/${ROUTE.domainInfo}/${ROUTE.domainAuth}`]: {
       icon: <ApiOutlined />,
       description: 'Domain authentication',
       content: () => (

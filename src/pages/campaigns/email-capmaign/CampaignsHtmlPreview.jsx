@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { DesktopIcon } from '../../../components/icons/DesktopIcon';
 import { MobileIcon } from '../../../components/icons/MobileIcon';
 import { TextIconButton } from '../../../components/icons/TextIconButton';
 import { PenEditIcon } from '../../../components/icons/PenEditIcon';
-import { EnvelopSendIcon } from '../../../components/icons/EnvelopSendIcon';
+import { EnvelopRoundIcon } from '../../../components/icons/EnvelopRoundIcon';
 import { PreviewComponent } from './PreviewComponent';
 import { SendMailModal } from '../../../components/modals/SendMailModal';
 import './style.css';
@@ -16,7 +16,8 @@ export const CampaignsHtmlPreview = () => {
 
   const navigate = useNavigate();
 
-  const { html } = useSelector((state) => state.campaign.data);
+  // const { html } = useSelector((state) => state.campaign.data);
+  const html = 'blabla';
 
   const isDesktopMode = mediaQuery === '70%' ? ' is-desktop' : '';
   const isMobileMode = mediaQuery === '33%' ? ' is-mobile' : '';
@@ -38,7 +39,7 @@ export const CampaignsHtmlPreview = () => {
           <TextIconButton
             text="Send test email"
             className="btn-preview-wrapper campaign-modal"
-            icon={<EnvelopSendIcon />}
+            icon={<EnvelopRoundIcon />}
             onClick={() => setIsOpenModalPreview(true)}
           />
         </div>

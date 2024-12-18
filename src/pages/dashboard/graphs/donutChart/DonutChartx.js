@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Highcharts from 'highcharts';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 const DonutChartx = () => {
   // const selectedOption = useSelector((state) => state).user.selectedOption;

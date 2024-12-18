@@ -1,0 +1,62 @@
+.phrase-container {
+  padding: 15px;
+  
+  .phrase {
+    transition: transform 0.5s ease, opacity 0.5s ease, background-color 0.5s ease;
+    opacity: 1;
+    transform: translateY(0);
+    padding: 10px; /* Add padding for better visibility of background color */
+    border-radius: 5px; /* Optional: Adds rounded corners */
+    font-weight: bold;
+  }
+  
+  .phrase.fade-out-top {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  
+  .phrase.fade-in-bottom {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .default-phrase {
+    font-size: 18px; /* Adjust font size as needed */
+    padding: 10px; /* Optional: Add padding for spacing */
+  }
+}
+
+.gradient-border {
+  --borderWidth: 2px;
+  background: #1D1F20;
+  position: relative;
+  border-radius: calc(var(--borderWidth) * 2);
+  width: 150px;
+  margin: 40px auto;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 300% 300%;
+  }
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

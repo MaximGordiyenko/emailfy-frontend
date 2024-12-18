@@ -1,11 +1,13 @@
 import { useContext } from 'react';
+import { MailBuilderContext } from '../../context/MailBuilderContext';
+import { initMobileMediaQuery } from './initial.constants';
+
 import { PreviewBuilderHeader } from '../../components/header/PreviewBuilderHeader';
 import { SidebarTools } from './mail-sidebar/SidebarTools';
 import { MailEditor } from './mail-editor/MailEditor';
-import { initMobileMediaQuery } from './initial.constants';
+
 import { useResizeObserver } from '../../hooks/useResizeObserver';
 import * as builderTemplate from './builder-script/builderTemplate';
-import { MailBuilderContext } from '../../context/MailBuilderContext';
 import './styles.css';
 
 export const MailBuilderPage = () => {
@@ -14,7 +16,7 @@ export const MailBuilderPage = () => {
 
   builderTemplate.setEditorType('builder');
 
-  useResizeObserver(workspaceWidthRef.current, (width) => {
+  useResizeObserver(workspaceWidthRef?.current, (width) => {
     setWorkspaceWidth(width);
   });
 

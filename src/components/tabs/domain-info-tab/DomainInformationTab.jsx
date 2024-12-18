@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import { ROUTE } from '../../../routes/routes.constants';
 
@@ -7,9 +8,9 @@ import { check_smtp, delete_smtp, get_smtp } from '../../../api/settings/setting
 
 import { initialSmtpData, initialStatusData } from '../../../constants/common.constants';
 
-import validIcon from '../../../assets/images/validCheckCircle.svg';
-import pendingIcon from '../../../assets/images/clockCircle.svg';
-import tubeSpinner from '../../../assets/images/tube-spinner.svg';
+import { Form, Button, Typography, Space, Flex, message, Divider } from 'antd';
+import { DomainAuth } from '../../../pages/settings/domainAuth/DomainAuth';
+const { Title, Text, Link } = Typography;
 
 export const DomainInformationTab = () => {
   const navigate = useNavigate();
@@ -18,8 +19,6 @@ export const DomainInformationTab = () => {
   const [statusLoading, setStatusLoading] = useState(false);
 
   const { domain } = smtp;
-
-  const statusIcon = statusData.status ? validIcon : pendingIcon;
 
   const getSmtp = async () => {
     try {
@@ -58,7 +57,7 @@ export const DomainInformationTab = () => {
   };
 
   const handleClickVerify = () => {
-    navigate(`/${ROUTE.settings}/${ROUTE.domain}`);
+    navigate(`/${ROUTE.settings}/${ROUTE.domainInfo}/${ROUTE.domainAuth}`);
   };
 
   useEffect(() => {
@@ -66,47 +65,25 @@ export const DomainInformationTab = () => {
   }, []);
 
   return (
-    <div className="domain-wrapper">
-      <div className="domain-content">
-        <div className="domain-left-content">
-          <span className="domain-title">Email domains</span>
-          <span className="domain-description">
-            Your email domains control how your emails are sent through Mailchimp. Verifying and
-            authenticating your domain helps your hard work get to your customers&apos; inboxes.
-          </span>
-        </div>
-        <div className="domain-right-content">
-          {domain ? (
-            <div className="domain-info-wrapper">
-              <div className="domain-info">
-                <span>{domain}</span>
-                <div className="status-icon">
-                  {!statusLoading && <img src={statusIcon} className="status-icon" alt="" />}
-                </div>
-              </div>
-              <button onClick={handleCheckStatus} className="domain-info-button">
-                {statusLoading ? (
-                  <img src={tubeSpinner} className="status-loader" alt="" />
-                ) : (
-                  <span>Check status</span>
-                )}
-              </button>
-              <button onClick={handleRemove} className="domain-info-button">
-                <span>Remove</span>
-              </button>
-            </div>
-          ) : (
-            <button className="domain-verify-button" onClick={handleClickVerify}>
-              <span>Add & Verify Domain</span>
-            </button>
-          )}
-        </div>
-      </div>
-      {domain && (
-        <button className="domain-verify-button" onClick={handleClickVerify}>
-          <span>Add & Verify Domain</span>
-        </button>
-      )}
-    </div>
+    <Space direction="vertical" size="large" rootClassName="domain-info-tab-container">
+      <Space direction="vertical" size="small">
+        <Title level={3}>Email domains</Title>
+        <Text>
+          Your email domains control how your emails are sent through Mailchimp. Verifying and
+          authenticating your domain helps your hard work get to your customers&apos; inboxes.
+        </Text>
+        <Space direction="vertical" size="small">
+          <span>{domain}</span>
+          <Button onClick={handleCheckStatus}>Check status</Button>
+          <Button onClick={handleRemove}>Remove</Button>
+          <Button onClick={handleClickVerify}>Add & Verify Domain</Button>
+          {domain && <Button onClick={handleClickVerify}>Add & Verify Domain</Button>}
+        </Space>
+      </Space>
+
+      <Divider />
+
+      <DomainAuth />
+    </Space>
   );
 };

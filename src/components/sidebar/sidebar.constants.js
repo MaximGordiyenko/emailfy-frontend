@@ -1,13 +1,16 @@
 import { Link } from 'react-router-dom';
-import { Typography } from 'antd';
 import { ROUTE } from '../../routes/routes.constants';
+
+import { Typography } from 'antd';
 import {
   DesktopOutlined,
   LineChartOutlined,
   TeamOutlined,
   SoundOutlined,
+  TagsOutlined,
   SettingOutlined,
   SignatureOutlined,
+  LogoutOutlined,
 } from '@ant-design/icons';
 
 const { Text } = Typography;
@@ -46,11 +49,21 @@ export const sidebarRoutes = [
   {
     icon: <SoundOutlined />,
     label: (
-      <Link to={`/${ROUTE.campaigns}`}>
+      <Link to={`/${ROUTE.campaignsPage}`}>
         <Text>Campaigns</Text>
       </Link>
     ),
-    path: `/${ROUTE.campaigns}`,
+    path: `/${ROUTE.campaignsPage}`,
+    key: '4',
+  },
+  {
+    icon: <TagsOutlined />,
+    label: (
+      <Link to={`/${ROUTE.tags}`}>
+        <Text>Tags</Text>
+      </Link>
+    ),
+    path: `/${ROUTE.tags}`,
     key: '5',
   },
   {
@@ -72,5 +85,14 @@ export const sidebarRoutes = [
     ),
     path: `/${ROUTE.subscription}`,
     key: '7',
+  },
+];
+
+export const logoutRoute = [
+  {
+    icon: <LogoutOutlined />,
+    label: <Text>Logout</Text>,
+    path: `/${ROUTE.login}`,
+    key: '0',
   },
 ];

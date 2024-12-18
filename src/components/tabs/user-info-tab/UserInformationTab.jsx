@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Form, Button, Divider, Descriptions } from 'antd';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -14,13 +13,25 @@ import {
   uploadProfileImage,
 } from '../../../api/settings/account';
 
-import { AuthInput } from '../../forms/AuthInput.tsx';
 import * as userInfoAPI from '../../../api/settings/account';
 import * as emailSettingsAPI from '../../../api/settings/email';
 import { ProfileImageUploader } from '../../drag-n-drop-uploader/ProfileImageUploader';
+
 import { AppButton } from '../../button/AppButton';
-import { GeneralUserInfoBlock } from './GeneralUserInfoBlock';
+import { UserInfoBlock } from './UserInfoBlock';
+import { EmailInfoBlock } from './EmailInfoBlock';
+import { ChangePasswordBlock } from './ChangePasswordBlock';
+
 import { formatUserInfoApiData } from '../../../helpers/formatUserInfoApiData';
+
+import { Space, Divider, Splitter, Typography } from 'antd';
+import { InfoCircleOutlined } from '@ant-design/icons';
+const { Title, Text, Link } = Typography;
+
+const passwordTooltips = {
+  title: 'Tooltip with customize icon',
+  icon: <InfoCircleOutlined />,
+};
 
 export const UserInformationTab = () => {
   const [isEnable2FA, setIsEnable2FA] = useState(true);
@@ -183,78 +194,46 @@ export const UserInformationTab = () => {
   };
 
   return (
-    <div className="user-info">
-      <GeneralUserInfoBlock
+    <Space direction="vertical" size="small">
+      <UserInfoBlock
         uploadImage={uploadImage}
         profileImage={profileImage}
         isProfileImageLoading={isProfileImageLoading}
         itemsDescriptions={userDescriptions}
       />
+
       <Divider />
-      <div className="email-info">
-        <div className={'info-title'}>
-          <h1>Email information</h1>
-          <p>Primary email address to be used for audience outreach</p>
-        </div>
-        <AuthInput
-          name={'email'}
-          label={'Email Address'}
-          placeholder={'youremail@mail.com'}
-          type={'text'}
-          control={control}
-          validateStatus={errors.email ? 'error' : ''}
-          help={errors.email?.message}
-        />
-      </div>
+
+      <Splitter>
+        <Splitter.Panel defaultSize="40%" min="20%" max="70%" resizable={false}>
+          <EmailInfoBlock
+            control={control}
+            errors={errors}
+            isLoading={isUserLoading}
+            handleSubmit={handleSubmit}
+            onSubmit={handleSubmit}
+          />
+        </Splitter.Panel>
+        <Splitter.Panel>
+          <ChangePasswordBlock
+            control={control}
+            errors={errors}
+            handleSubmit={handleSubmit}
+            onSubmit={onSubmit}
+            isUserLoading={isUserLoading}
+            passwordTooltips={passwordTooltips}
+          />
+        </Splitter.Panel>
+      </Splitter>
+
       <Divider />
-      <Form layout="vertical" onFinish={handleSubmit(onSubmit)} className="change-pass">
-        <div className="change-pass-title">
-          <h1>Change password</h1>
-          <p>You can change your password at any time</p>
-        </div>
-        <div className="inputs-container">
-          <AuthInput
-            name={'currentPassword'}
-            label={'Current password'}
-            placeholder={'Enter your current password'}
-            type={'password'}
-            control={control}
-            validateStatus={errors.currentPassword ? 'error' : ''}
-            help={errors.currentPassword?.message}
-          />
-          <AuthInput
-            name={'newPassword'}
-            label={'New password'}
-            placeholder={'Enter your new password'}
-            type={'password'}
-            control={control}
-            validateStatus={errors.newPassword ? 'error' : ''}
-            help={errors.newPassword?.message}
-          />
-          <AuthInput
-            name={'repeatNewPassword'}
-            label={'Repeat new password'}
-            placeholder={'Enter your new password again'}
-            type={'password'}
-            control={control}
-            validateStatus={errors.repeatNewPassword ? 'error' : ''}
-            help={errors.repeatNewPassword?.message}
-          />
-          <Form.Item>
-            <AppButton role="submit">{isUserLoading ? 'Loading...' : 'Change password'}</AppButton>
-          </Form.Item>
-        </div>
-      </Form>
-      <Divider />
-      <div className="email-auth">
-        <div className={'auth-title'}>
-          <h1>Email authentication</h1>
-          <p>Allows you to increase the security of your account</p>
-        </div>
-        <AppButton role="submit" onClick={handleDisableEnableAuth}>
-          {isEnable2FA ? 'Disable' : 'Enable'}
-        </AppButton>
-        {/*{getStoredEmail ? (
+
+      <h1>Email authentication</h1>
+      <p>Allows you to increase the security of your account</p>
+      <AppButton role="submit" onClick={handleDisableEnableAuth}>
+        {isEnable2FA ? 'Disable' : 'Enable'}
+      </AppButton>
+      {/*{getStoredEmail ? (
           <div className={'disable2FA'}>
             <span>
               <img src={checkCircle} alt={'checkCircle'} />
@@ -281,7 +260,6 @@ export const UserInformationTab = () => {
             )}
           </>
         )}*/}
-      </div>
-    </div>
+    </Space>
   );
 };

@@ -14,7 +14,7 @@ export const MailBuilderProvider = ({ children }) => {
   const [isLoadedScript, setIsLoadedScript] = useState(false);
   const [selectedBlockID, setSelectedBlockID] = useState(null);
   const [workspaceWidth, setWorkspaceWidth] = useState();
-  const workspaceWidthRef = useRef();
+  const workspaceWidthRef = useRef(null);
   const [showMailPreview, setShowMailPreview] = useState(false);
   const [mediaQuery, setMediaQuery] = useState(initEditorMediaQuery);
   const [backgroundColor, setBackgroundColor] = useState('#7E9D00');

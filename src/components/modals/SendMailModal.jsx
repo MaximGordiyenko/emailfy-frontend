@@ -13,25 +13,25 @@ import './styles.css';
 export const SendMailModal = ({ isOpenModal, onClose, mailEditorState }) => {
   const { control, handleSubmit } = useForm();
 
-  useEffect(() => {
-    (async () => {
-      (await builderTemplate.saveContent({
-        subject: 'Test email',
-      })) || onClose();
-      await builderTemplate.saveScript(mailEditorState);
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     (await builderTemplate.saveContent({
+  //       subject: 'Test email',
+  //     })) || onClose();
+  //     await builderTemplate.saveScript(mailEditorState);
+  //   })();
+  // }, []);
 
-  const { mutate } = useMutation(
-    (data) => testEmail.sendTestEmail(data?.email.split(',').map((email) => email.trim())),
-    {
-      onSuccess: (data) => {},
-      onError: (error) => {},
-    },
-  );
+  // const { mutate } = useMutation(
+  //   (data) => testEmail.sendTestEmail(data?.email.split(',').map((email) => email.trim())),
+  //   {
+  //     onSuccess: (data) => {},
+  //     onError: (error) => {},
+  //   },
+  // );
 
   const onSubmitHandler = (values) => {
-    mutate(values);
+    // mutate(values);
     onClose();
   };
 

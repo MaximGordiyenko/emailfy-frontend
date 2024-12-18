@@ -1,52 +1,38 @@
-import emails from '../../../assets/images/letter-green.svg';
-import abTesting from '../../../assets/images/switchers-grey.svg';
-import journey from '../../../assets/images/shareCircle-grey.svg';
+import { EnvelopOutlineIcon } from '../../../components/icons/EnvelopOutlineIcon';
+import { SwitcherOutlineIcon } from '../../../components/icons/SwitcherOutlineIcon';
+import { ShareCircleOutlineIcon } from '../../../components/icons/ShareCircleOutlineIcon';
 import './styles.css';
+import { Badge, Card, Space, Avatar } from 'antd';
+const { Meta } = Card;
 
 export const CampaignMenu = ({ onOpenModal }) => {
   return (
-    <div className={'upload-campaign'}>
-      <div className="cards">
-        <div className="email" onClick={onOpenModal}>
-          <img src={emails} alt="upload" />
-          <div className="upload-des">
-            <div className="upload-des-label">
-              <span>Email</span>
-            </div>
-            <span className="upload-des-text">
-              Upload, write, or design: create your most impactful email campaign right away
-            </span>
-          </div>
-        </div>
-        <div className="abTesting">
-          <div className="coming-soon">
-            <span>Coming soon</span>
-          </div>
-          <img src={abTesting} alt="upload" />
-          <div className="upload-des">
-            <div className="upload-des-label">
-              <span>A/B Testing</span>
-            </div>
-            <span className="upload-des-text">
-              Test various emails within a campaign to determine the most effective
-            </span>
-          </div>
-        </div>
-        <div className="journey">
-          <div className="coming-soon">
-            <span>Coming soon</span>
-          </div>
-          <img src={journey} alt="upload" />
-          <div className="upload-des">
-            <div className="upload-des-label">
-              <span>Automations</span>
-            </div>
-            <span className="upload-des-text">
-              Create visual customers&apos; journeys and automate your outreach
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Space size="small" rootClassName="campaign-dropdown-menu-container">
+      <Card size="small" onClick={onOpenModal}>
+        <Meta
+          avatar={<Avatar src={<EnvelopOutlineIcon />} />}
+          title="Email"
+          description="Upload, write, or design: create your most impactful email campaign right away."
+        />
+      </Card>
+      <Badge.Ribbon text="Coming soon" color="red">
+        <Card size="small">
+          <Meta
+            avatar={<Avatar src={<SwitcherOutlineIcon />} />}
+            title="A/B Testing"
+            description="Test various emails within a campaign to determine the most effective."
+          />
+        </Card>
+      </Badge.Ribbon>
+      <Badge.Ribbon text="Coming soon" color="red">
+        <Card size="small">
+          <Meta
+            avatar={<Avatar src={<ShareCircleOutlineIcon />} />}
+            title="Automations"
+            description="Create visual customers' journeys and automate your outreach."
+          />
+        </Card>
+      </Badge.Ribbon>
+    </Space>
   );
 };

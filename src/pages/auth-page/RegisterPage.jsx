@@ -118,7 +118,7 @@ export const RegisterPage = () => {
           <Link href={`#`}>Terms and Conditions.</Link>
         </Text>
       </Space>
-      <Flex justify="center" gap={4}>
+      <Flex justify="center" align="center" gap={4}>
         <Text>Already have an account?</Text>
         <Link href={`/${ROUTE.login}`}>Sign In</Link>
       </Flex>

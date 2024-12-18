@@ -1,7 +1,7 @@
 .workspace-container {
-  margin: 80px 0 0 0;
   display: flex;
   flex: 1;
+  
   
   .workspace-tools {
     box-sizing: border-box;
@@ -11,12 +11,27 @@
   
   .workspace-editor {
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     margin: 0 auto;
-    overflow: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
     
     &.is-mobile-mode {
       overflow: hidden;
+    }
+    
+    &::-webkit-scrollbar {
+      width: 4px; /* Adjust the width for a thinner scrollbar */
+      background: #f0f0f0; /* Light gray background */
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: #b0b0b0; /* Medium gray thumb */
+      border-radius: 10px; /* Rounded corners for the thumb */
+    }
+    
+    &::-webkit-scrollbar-thumb:hover {
+      background: #909090; /* Darker gray on hover */
     }
   }
 }

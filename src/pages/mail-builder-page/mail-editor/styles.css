@@ -1,8 +1,9 @@
 .mail-editor {
   background: var(--default-white);
-  margin: 10px auto;
-  padding: 20px;
+  margin: 0 auto;
+  padding: 20px 0;
   border-radius: 5px;
+  /*overflow-x: hidden;*/
 
   &.is-preview-mode {
     min-height: 0;
@@ -24,8 +25,8 @@
   }
 
   &.is-editor-mode {
-    max-width: 700px;
-    min-height: 80vh;
+    max-width: 650px;
+    min-height: 100vh;
   }
 
   .initial-editor-placeholder {
@@ -162,7 +163,7 @@
       border-radius: 5px;
 
       &:hover {
-        border: 1px solid var(--default-green-bg-hover);
+        border: 1px solid red;
       }
     }
 

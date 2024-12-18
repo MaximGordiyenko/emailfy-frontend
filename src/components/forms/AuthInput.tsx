@@ -9,11 +9,12 @@ export const AuthInput: FC<AuthFormProps> = ({
   help,
   name,
   label,
+  tooltip,
   placeholder,
   type = 'text',
 }) => {
   return (
-    <Form.Item label={label} validateStatus={validateStatus} help={help}>
+    <Form.Item label={label} validateStatus={validateStatus} help={help} tooltip={tooltip}>
       <Controller
         name={name}
         control={control}

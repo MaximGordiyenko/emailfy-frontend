@@ -7,8 +7,8 @@
 .icon-button {
   visibility: hidden;
   position: relative;
-  top: 3px;
-  right: 0;
+  bottom: 2px;
+  left: 750px;
   z-index: 2;
   background-color: initial;
   border: none;
@@ -22,13 +22,13 @@
   }
 
   &:nth-of-type(2) {
-    right: -30px;
-    top: -22px;
+    left: 740px;
+    bottom: 2px;
   }
 
   &:nth-of-type(3) {
-    right: -60px;
-    top: -47px;
+    left: 730px;
+    bottom: 2px;
   }
 
   &.is-active {

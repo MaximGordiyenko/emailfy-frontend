@@ -1,0 +1,10 @@
+.ant-steps-vertical {
+  width: 60%;
+}
+
+.smtp-auth-block {
+  .ant-card-bordered {
+    width: 100%;
+    margin: 40px auto;
+  }
+}

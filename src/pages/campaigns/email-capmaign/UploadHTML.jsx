@@ -15,7 +15,12 @@ import { getUserEmail } from '../../../helpers/campaignsUtils';
 
 import { InputText } from '../../../components/inputs/InputText';
 import './style.css';
-import { signIn } from '../../../api/auth/auth';
+import { LoadBalancing } from '../../../components/balancing/LoadBalancing';
+import { CampaignStepper } from './CampaignStepper';
+import bla from '../../../assets/images/alert_circle.png';
+import { PenEditIcon } from '../../../components/icons/PenEditIcon';
+import { UploadCampaignForm } from './UploadCampaignForm';
+import { UploadHtmlForm } from './UploadHTMLForm';
 
 export const UploadHTML = () => {
   const { emailCampaignStep, setEmailCampaignStep } = useMainContext();
@@ -23,6 +28,7 @@ export const UploadHTML = () => {
   builderTemplate?.setEditorType('html');
 
   // const { campaign_name, subject, html, from_email } = useSelector((state) => state?.campaign?.data);
+  const campaign_name = 'cool campaign';
 
   const methods = useForm({
     mode: 'onChange',
@@ -87,15 +93,10 @@ export const UploadHTML = () => {
     <FormProvider {...methods}>
       <form onSubmit={handleSubmit(onSubmitHandler)} className="create-campaign-form">
         {emailCampaignStep ? (
-          // <LoadBalancing />
-          <>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci autem culpa
-            distinctio ducimus enim esse, et eum in nesciunt quos sit tempora voluptatibus?
-            Exercitationem quia quidem repellendus vitae voluptas.
-          </>
+          <LoadBalancing />
         ) : (
           <>
-            {/*<CampaignStepper />*/}
+            <CampaignStepper />
             <div className="campaign-input-box">
               <InputText
                 value={/*campaign_name */ ''}
@@ -106,15 +107,13 @@ export const UploadHTML = () => {
                 className="campaign-input_name"
                 style={{ outline: 'none', padding: 0 }}
               />
-              {/*{!campaign_name && (*/}
-              {/*  <img src={campaign_name_tooltip} alt="tooltip" className="campaign_tooltip" />*/}
-              {/*)}*/}
-              {/*{!campaign_name || <PenEditIcon className="campaign-icon_edit" />}*/}
+              {!campaign_name && <img src={bla} alt="tooltip" className="campaign_tooltip" />}
+              {!campaign_name || <PenEditIcon className="campaign-icon_edit" />}
             </div>
 
             <div className="campaign-upload-content">
-              {/*<UploadCampaignForm onInputChange={onInputChange} />*/}
-              {/*<UploadHtmlForm />*/}
+              <UploadCampaignForm onInputChange={onInputChange} />
+              <UploadHtmlForm />
             </div>
           </>
         )}
