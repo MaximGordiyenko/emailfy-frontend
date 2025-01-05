@@ -30,72 +30,72 @@ export const AudienceList = ({ isUpload = true }) => {
   ]);
   const [name, setName] = useState('');
 
-  useEffect(() => {
-    (async () => {
-      const access_token = getToken('accessToken');
-      const rootGroup = (await groupApi?.get_root(access_token))?.data;
-      const groups = (await groupApi?.get_subgroups(access_token, rootGroup.id)).data;
-      const core_users_count = (await groupApi?.get_subscribers_count(access_token, rootGroup.id))
-        .data.count;
+  // useEffect(() => {
+  //   (async () => {
+  //     const access_token = getToken('accessToken');
+  //     const rootGroup = (await groupApi?.get_root(access_token))?.data;
+  //     const groups = (await groupApi?.get_subgroups(access_token, rootGroup.id)).data;
+  //     const core_users_count = (await groupApi?.get_subscribers_count(access_token, rootGroup.id))
+  //       .data.count;
+  //
+  //     groupsList = [
+  //       {
+  //         id: uuidv4(),
+  //         name: 'Core list',
+  //         contacts: core_users_count,
+  //         segments: groups.length,
+  //         created: format(new Date(rootGroup.created_at), 'MMM d, yyyy'),
+  //         modified: format(new Date(rootGroup.updated_at), 'MMM d, yyyy'),
+  //       },
+  //     ];
+  //
+  //     for (let group of groups) {
+  //       groupsList.push({
+  //         id: group.id,
+  //         name: group.name,
+  //         contacts: '...',
+  //         segments: '...',
+  //         created: format(new Date(group.created_at), 'MMM d, yyyy'),
+  //         modified: format(new Date(group.updated_at), 'MMM d, yyyy'),
+  //       });
+  //     }
+  //     setList([...groupsList]);
+  //
+  //     for (let group of groups) {
+  //       const subscribers_count = (await groupApi.get_subscribers_count(access_token, group.id))
+  //         .data.count;
+  //       const subgroups = (await groupApi.get_subgroups(access_token, group.id)).data;
+  //       groupsList = groupsList.map((item) => {
+  //         if (item.id === group.id) {
+  //           return {
+  //             ...item,
+  //             contacts: subscribers_count,
+  //             segments: subgroups.length,
+  //           };
+  //         }
+  //         return item;
+  //       });
+  //       setList([...groupsList]);
+  //     }
+  //   })().then();
+  // }, []);
 
-      groupsList = [
-        {
-          id: uuidv4(),
-          name: 'Core list',
-          contacts: core_users_count,
-          segments: groups.length,
-          created: format(new Date(rootGroup.created_at), 'MMM d, yyyy'),
-          modified: format(new Date(rootGroup.updated_at), 'MMM d, yyyy'),
-        },
-      ];
-
-      for (let group of groups) {
-        groupsList.push({
-          id: group.id,
-          name: group.name,
-          contacts: '...',
-          segments: '...',
-          created: format(new Date(group.created_at), 'MMM d, yyyy'),
-          modified: format(new Date(group.updated_at), 'MMM d, yyyy'),
-        });
-      }
-      setList([...groupsList]);
-
-      for (let group of groups) {
-        const subscribers_count = (await groupApi.get_subscribers_count(access_token, group.id))
-          .data.count;
-        const subgroups = (await groupApi.get_subgroups(access_token, group.id)).data;
-        groupsList = groupsList.map((item) => {
-          if (item.id === group.id) {
-            return {
-              ...item,
-              contacts: subscribers_count,
-              segments: subgroups.length,
-            };
-          }
-          return item;
-        });
-        setList([...groupsList]);
-      }
-    })().then();
-  }, []);
-
-  const onCreateNewGroup = async () => {
-    toggleCreateModal();
-    const access_token = getToken('accessToken');
-    const rootGroup = (await groupApi?.get_root(access_token))?.data;
-    const groups = (await groupApi?.create(access_token, rootGroup.id, 'icon', name)).data;
-    console.log('created a new group', groups);
-    groupsList.push({
-      id: groups.id,
-      name: groups.name,
-      contacts: 0,
-      segments: 0,
-      created: format(new Date(groups.created_at), 'MMM d, yyyy'),
-      modified: format(new Date(groups.updated_at), 'MMM d, yyyy'),
-    });
-    setList([...groupsList]);
-  };
+  // const onCreateNewGroup = async () => {
+  //   toggleCreateModal();
+  //   const access_token = getToken('accessToken');
+  //   const rootGroup = (await groupApi?.get_root(access_token))?.data;
+  //   const groups = (await groupApi?.create(access_token, rootGroup.id, 'icon', name)).data;
+  //   console.log('created a new group', groups);
+  //   groupsList.push({
+  //     id: groups.id,
+  //     name: groups.name,
+  //     contacts: 0,
+  //     segments: 0,
+  //     created: format(new Date(groups.created_at), 'MMM d, yyyy'),
+  //     modified: format(new Date(groups.updated_at), 'MMM d, yyyy'),
+  //   });
+  //   setList([...groupsList]);
+  // };
 
   const toggleCreateModal = async () => {
     setName('');
@@ -130,7 +130,7 @@ export const AudienceList = ({ isUpload = true }) => {
       ];
     });
     setName('');
-    toggleCreateModal();
+    // toggleCreateModal();
   };
   const onEdit = (id, name) => {
     setList((prevState) => {
@@ -171,31 +171,31 @@ export const AudienceList = ({ isUpload = true }) => {
           <span>Add new list</span>
         </div>
       </div>
-      <Modal isOpen={createModal}>
-        <div className="audience-list-modal-content">
-          <div className="audience-list-modal-header">
-            <span>Create new list</span>
-          </div>
-          <div className="audience-list-modal-body">
-            <span>List name</span>
-            <input
-              type="text"
-              name="name"
-              placeholder="Enter list name"
-              value={name}
-              onChange={onChange}
-            />
-          </div>
-          <div className="audience-list-modal-buttons">
-            <button onClick={toggleCreateModal} className="cancel-btn">
-              <span>Cancel</span>
-            </button>
-            <button className="save-btn" onClick={onCreateNewGroup}>
-              <span>Create</span>
-            </button>
-          </div>
-        </div>
-      </Modal>
+      {/*<Modal isOpen={createModal}>*/}
+      {/*  <div className="audience-list-modal-content">*/}
+      {/*    <div className="audience-list-modal-header">*/}
+      {/*      <span>Create new list</span>*/}
+      {/*    </div>*/}
+      {/*    <div className="audience-list-modal-body">*/}
+      {/*      <span>List name</span>*/}
+      {/*      <input*/}
+      {/*        type="text"*/}
+      {/*        name="name"*/}
+      {/*        placeholder="Enter list name"*/}
+      {/*        value={name}*/}
+      {/*        onChange={onChange}*/}
+      {/*      />*/}
+      {/*    </div>*/}
+      {/*    <div className="audience-list-modal-buttons">*/}
+      {/*      <button onClick={toggleCreateModal} className="cancel-btn">*/}
+      {/*        <span>Cancel</span>*/}
+      {/*      </button>*/}
+      {/*      /!*<button className="save-btn" onClick={onCreateNewGroup}>*!/*/}
+      {/*      /!*  <span>Create</span>*!/*/}
+      {/*      /!*</button>*!/*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</Modal>*/}
     </div>
   );
 };
@@ -254,25 +254,25 @@ const AudienceListItem = ({ item, modal, openModal, closeModal, onEdit }) => {
           </span>
         </div>
       </div>
-      <Modal isOpen={modal}>
-        <div className="audience-list-modal-content">
-          <div className="audience-list-modal-header">
-            <span>Edit list name</span>
-          </div>
-          <div className="audience-list-modal-body">
-            <span>List name</span>
-            <input type="text" name="name" value={newName} onChange={onChange} />
-          </div>
-          <div className="audience-list-modal-buttons">
-            <button onClick={onClose} className="cancel-btn">
-              <span>Cancel</span>
-            </button>
-            <button className="save-btn" onClick={onSave}>
-              <span>Save</span>
-            </button>
-          </div>
-        </div>
-      </Modal>
+      {/*<Modal isOpen={modal}>*/}
+      {/*  <div className="audience-list-modal-content">*/}
+      {/*    <div className="audience-list-modal-header">*/}
+      {/*      <span>Edit list name</span>*/}
+      {/*    </div>*/}
+      {/*    <div className="audience-list-modal-body">*/}
+      {/*      <span>List name</span>*/}
+      {/*      <input type="text" name="name" value={newName} onChange={onChange} />*/}
+      {/*    </div>*/}
+      {/*    <div className="audience-list-modal-buttons">*/}
+      {/*      <button onClick={onClose} className="cancel-btn">*/}
+      {/*        <span>Cancel</span>*/}
+      {/*      </button>*/}
+      {/*      <button className="save-btn" onClick={onSave}>*/}
+      {/*        <span>Save</span>*/}
+      {/*      </button>*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</Modal>*/}
     </>
   );
 };

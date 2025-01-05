@@ -39,9 +39,11 @@ export const AudiencePage = () => {
     <div className="audience-page-container" id="audience">
       {isOpenMenu && (
         <AudienceMenu
-          handleNav={() => navigate(`/${ROUTE.audience}/${ROUTE.uploadFile}`, { replace: true })}
+          handleNav={() =>
+            navigate(`/${ROUTE.audiencePage}/${ROUTE.uploadFile}`, { replace: true })
+          }
           handleNavManualAdd={() =>
-            navigate(`/${ROUTE.audience}/${ROUTE.manualUpload}`, { replace: true })
+            navigate(`/${ROUTE.audiencePage}/${ROUTE.manualUpload}`, { replace: true })
           }
         />
       )}

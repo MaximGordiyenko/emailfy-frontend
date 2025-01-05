@@ -78,7 +78,6 @@ export const SegmentManually = () => {
   const [selected, setSelected] = useState([]);
   const [isOpenModal, setIsOpenModal] = useState(true);
   const [isSelectedDropdown, setIsSelectedDropdown] = useState(false);
-  console.log(selected);
 
   const onAddSuggestionTags = (item) => {
     setSelected((prevState) => [...prevState, item.target.outerText.slice(0, -2)]);
@@ -92,9 +91,8 @@ export const SegmentManually = () => {
     setTags((prevState) => prevState.filter((tag, i) => i !== index));
   };
 
-  let { id } = useParams();
+  // let { id } = useParams();
   const navigate = useNavigate();
-  console.log(isSelectedDropdown, 'dropdown');
 
   const options = [
     { img: sub, label: 'Subscribers', value: 1 },
@@ -107,14 +105,10 @@ export const SegmentManually = () => {
   getHeaderConfigs(navigate, handleOpenModalSegmentation, selected, isSelectedDropdown);
 
   return (
-    <div className="segment-wrapper" id={id}>
-      <div className="pg-bars">
-        <ProgressBar bgcolor="#7E9D00" completed={100} className="progress-bar" />
-      </div>
+    <div className="segment-wrapper">
       <div className="inner-box">
         <div className="segm-title-manual">
-          <h1 className="count">2/2</h1>
-          <h1>Segmentation</h1>
+          <h1>Manual Segmentation</h1>
         </div>
         <div className="segm-group">
           <div className="tips">
@@ -128,41 +122,41 @@ export const SegmentManually = () => {
           </div>
           <div className="upload-group"></div>
         </div>
-        <SegmentationModal
-          setIsOpenModal={setIsOpenModal}
-          isOpenModal={isOpenModal}
-          navigate={navigate}
-        />
+        {/*<SegmentationModal*/}
+        {/*  setIsOpenModal={setIsOpenModal}*/}
+        {/*  isOpenModal={isOpenModal}*/}
+        {/*  navigate={navigate}*/}
+        {/*/>*/}
         <div className="selection">
           <div className="tags">
             <label>Search for or create tags</label>
-            <TagsInput
-              value={selected}
-              onChange={setSelected}
-              onRemoved={deleteTag}
-              name="fruits"
-              placeHolder={selected.length >= 1 ? '' : 'Start typing to add a custom tag'}
-            />
+            {/*<TagsInput*/}
+            {/*  value={selected}*/}
+            {/*  onChange={setSelected}*/}
+            {/*  onRemoved={deleteTag}*/}
+            {/*  name="fruits"*/}
+            {/*  placeHolder={selected.length >= 1 ? '' : 'Start typing to add a custom tag'}*/}
+            {/*/>*/}
             <p>
               Suggested tags:
-              {suggestTags.map((item, index) => {
-                return (
-                  <span key={index} onClick={onAddSuggestionTags}>
-                    {item.text}
-                  </span>
-                );
-              })}
+              {/*{suggestTags.map((item, index) => {*/}
+              {/*  return (*/}
+              {/*    <span key={index} onClick={onAddSuggestionTags}>*/}
+              {/*      {item.text}*/}
+              {/*    </span>*/}
+              {/*  );*/}
+              {/*})}*/}
             </p>
           </div>
           <div className="dropdown">
             <label>Select group</label>
-            <Dropdown
-              options={options}
-              onChange={() => {
-                setIsSelectedDropdown(true);
-              }}
-              placeHolder={'Not selected yet'}
-            />
+            {/*<Dropdown*/}
+            {/*  options={options}*/}
+            {/*  onChange={() => {*/}
+            {/*    setIsSelectedDropdown(true);*/}
+            {/*  }}*/}
+            {/*  placeHolder={'Not selected yet'}*/}
+            {/*/>*/}
           </div>
         </div>
       </div>

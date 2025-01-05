@@ -5,10 +5,10 @@ import ProgressBar from '../../../components/progress-bars/ProgressBar';
 import { ROUTE } from '../../../routes/routes.constants';
 
 export const ManualUploadPage = () => {
-  const [isRow, setIsRow] = useState(1);
-  let { id } = useParams();
+  // const [isRow, setIsRow] = useState(1);
+  // let { id } = useParams();
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   /*useEffect(() => {
         const addAutoResize = () => {
@@ -24,12 +24,12 @@ export const ManualUploadPage = () => {
         }
         addAutoResize()
     }, []) */
-  useEffect(() => {
-    var scroll = document.getElementById('vl');
-    var offset = scroll.offsetHeight - scroll.clientHeight;
-    scroll.scrollTop = scroll.scrollHeight;
-    scroll.animate({ scrollTop: scroll.scrollHeight + offset + 'px' });
-  }, [isRow]);
+  // useEffect(() => {
+  //   var scroll = document.getElementById('vl');
+  //   var offset = scroll.offsetHeight - scroll.clientHeight;
+  //   scroll.scrollTop = scroll.scrollHeight;
+  //   scroll.animate({ scrollTop: scroll.scrollHeight + offset + 'px' });
+  // }, [isRow]);
   /*
         fetch("/signin?email=stopup.mail@gmail.com&password=123456", { method: "post" })
             .then(response => response.text())
@@ -38,36 +38,30 @@ export const ManualUploadPage = () => {
     */
 
   const handleChangeText = (e) => {
-    setIsRow(e.target.value?.split('\n')?.length);
-    console.log(e.target.value?.split('\n')?.length, 'valeu');
+    // setIsRow(e.target.value?.split('\n')?.length);
   };
 
   return (
-    <div className="upload-manually" id={id}>
-      <div className="pg-bars">
-        <ProgressBar bgcolor="#7E9D00" completed={50} className="progress-bar" />
-      </div>
+    <div>
       <div className="inner-content">
         <div className="count-upload">
           <div className="title-count">
-            <p className="main-text">
-              <span>1/2</span> Adding contacts
-            </p>
+            <p className="main-text">Adding contacts</p>
             <p>Just copy your contact list as text and paste it into text field</p>
             <span>4 contacts added</span>
           </div>
         </div>
         <div className="area-wrapper" id="area">
-          <div className="vl" id="vl" data-autoresize>
-            {Array.from(Array(isRow).keys()).map((item, index) => {
-              return (
-                <span key={item} id="sp">
-                  {item + 1}
-                </span>
-              );
-            })}
+          <div className="vl" id="vl">
+            {/*{Array.from(Array(isRow).keys()).map((item, index) => {*/}
+            {/*  return (*/}
+            {/*    <span key={item} id="sp">*/}
+            {/*      {item + 1}*/}
+            {/*    </span>*/}
+            {/*  );*/}
+            {/*})}*/}
           </div>
-          <textarea className="textarea" onChange={handleChangeText} />
+          {/*<textarea className="textarea" onChange={handleChangeText} />*/}
         </div>
       </div>
     </div>

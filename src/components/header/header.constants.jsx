@@ -78,7 +78,7 @@ export const getHeaderConfigs = (
       description: 'A / B Tests',
       content: () => <AppButton label={'Compare'} role="submit" onClick={() => alert('bla')} />,
     },
-    [`/${ROUTE.audience}`]: {
+    [`/${ROUTE.audiencePage}`]: {
       icon: <TeamOutlined />,
       description: 'Audience',
       content: () => (
@@ -90,7 +90,7 @@ export const getHeaderConfigs = (
         />
       ),
     },
-    [`/${ROUTE.audience}/${ROUTE.uploadFile}`]: {
+    [`/${ROUTE.audiencePage}/${ROUTE.uploadFile}`]: {
       icon: <TeamOutlined />,
       description: 'Upload file',
       content: () => (
@@ -98,47 +98,48 @@ export const getHeaderConfigs = (
           <AppButton label={'Save as draft'} role="submit" onClick={() => alert('bla')} />
           <AppButton
             label={'Next'}
-            role="submit"
-            onClick={navigate(`${ROUTE.audience}/${ROUTE.manualSegmentation}`, { replace: true })}
+            onClick={() => navigate(`/${ROUTE.audiencePage}/${ROUTE.segmentationPage}`)}
           />
         </>
       ),
     },
-    [`/${ROUTE.audience}/${ROUTE.manualUpload}`]: {
+    [`/${ROUTE.audiencePage}/${ROUTE.manualUpload}`]: {
       icon: <TeamOutlined />,
       description: 'Add contacts manually',
       content: () => (
         <>
+          <AppButton label={'Back'} onClick={() => navigate(`/${ROUTE.audiencePage}`)} />
+          <AppButton
+            label={'Next'}
+            onClick={() => navigate(`/${ROUTE.audiencePage}/${ROUTE.manualSegmentation}`)}
+          />
           <AppButton label={'Save as draft'} role="submit" onClick={() => alert('Save as draft')} />
-          <AppButton
-            label={'Next'}
-            role="submit"
-            onClick={navigate(`${ROUTE.audience}/${ROUTE.manualSegmentation}`, { replace: true })}
-          />
         </>
       ),
     },
-    [`/${ROUTE.audience}/:id`]: {
-      icon: <TeamOutlined />,
-      description: 'Add contacts via file',
-      content: () => (
-        <>
-          <AppButton
-            label={'Next'}
-            role="submit"
-            onClick={() => navigate(`${ROUTE.audience}/${ROUTE.segmentation}`, { replace: true })}
-            disabled={!'isFileUploaded'}
-          />
-          <AppButton
-            label={'Back'}
-            role="submit"
-            onClick={() => navigate(`${ROUTE.audience}`, { replace: true })}
-            disabled={!'isFileUploaded'}
-          />
-        </>
-      ),
-    },
-    [`/${ROUTE.audience}/${ROUTE.manualSegmentation}`]: {
+    // [`/${ROUTE.audiencePage}/:id`]: {
+    //   icon: <TeamOutlined />,
+    //   description: 'Add contacts via file',
+    //   content: () => (
+    //     <>
+    //       <AppButton
+    //         label={'Next'}
+    //         role="submit"
+    //         onClick={() =>
+    //           navigate(`${ROUTE.audiencePage}/${ROUTE.segmentationPage}`, { replace: true })
+    //         }
+    //         disabled={!'isFileUploaded'}
+    //       />
+    //       <AppButton
+    //         label={'Back'}
+    //         role="submit"
+    //         onClick={() => navigate(`${ROUTE.audiencePage}`, { replace: true })}
+    //         disabled={!'isFileUploaded'}
+    //       />
+    //     </>
+    //   ),
+    // },
+    [`/${ROUTE.audiencePage}/${ROUTE.manualSegmentation}`]: {
       icon: <TeamOutlined />,
       description: 'Add contacts via file',
       content: () => (
@@ -146,8 +147,10 @@ export const getHeaderConfigs = (
           <AppButton
             label={'Back'}
             role="submit"
-            onClick={() => navigate(`/${ROUTE.audience}/${ROUTE.manualUpload}`, { replace: true })}
             icon={isOpenMenu ? <UpOutlined /> : <DownOutlined />}
+            // onClick={() =>
+            //   navigate(`/${ROUTE.audiencePage}/${ROUTE.manualUpload}`, { replace: true })
+            // }
           />
           <AppButton label={'Save as draft'} role="submit" onClick={() => alert('submit')} />
           <AppButton
@@ -159,14 +162,16 @@ export const getHeaderConfigs = (
         </>
       ),
     },
-    [`/${ROUTE.audience}/${ROUTE.segmentation}`]: {
+    [`/${ROUTE.audiencePage}/${ROUTE.segmentationPage}`]: {
       icon: <TeamOutlined />,
       description: 'Segmentation',
       content: () => (
         <>
           <AppButton
             label={'Back'}
-            onClick={() => navigate(`/${ROUTE.audience}/${ROUTE.manualUpload}`, { replace: true })}
+            // onClick={() =>
+            //   navigate(`/${ROUTE.audiencePage}/${ROUTE.manualUpload}`, { replace: true })
+            // }
           />
           <AppButton
             label={'Submit'}

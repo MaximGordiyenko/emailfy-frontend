@@ -11,20 +11,14 @@ export const UploadPage = () => {
 
   return (
     <div className="upload-wrapper">
-      <div className="pg-bars">
-        <ProgressBar bgcolor="#7E9D00" completed={50} />
-      </div>
       <div className="inner-content">
         <div className="count-upload">
           <div className="title-count">
-            <span>{'isFileUploaded' ? 1 : 0}/2</span>
             <p>Upload file</p>
           </div>
         </div>
         <div className="uploader-box">
-          <div className="uploader">
-            <DropFile />
-          </div>
+          <div className="uploader">{<DropFile />}</div>
         </div>
       </div>
     </div>

@@ -23,24 +23,24 @@ export const SegmentationPage = () => {
 
   // const uploadedFile = useSelector((state) => state.file.uploadedFile);
 
-  useEffect(() => {
-    const fetchGroups = async () => {
-      try {
-        const access_token = getToken('accessToken');
-        // const rootGroup = (await groupApi?.get_root(access_token))?.data;
-        // const subgroups = (await groupApi.get_subgroups(access_token, rootGroup.id)).data;
-        const options = [
-          // { value: rootGroup.id, label: rootGroup.name },
-          // ...subgroups.map((group) => ({ value: group.id, label: group.name })),
-        ];
-        setDropdownOptions(options);
-      } catch (error) {
-        console.error('Error fetching groups:', error);
-      }
-    };
-    console.log(selectedGroupId, 'selected group_id');
-    fetchGroups();
-  }, []);
+  // useEffect(() => {
+  //   const fetchGroups = async () => {
+  //     try {
+  //       const access_token = getToken('accessToken');
+  //       // const rootGroup = (await groupApi?.get_root(access_token))?.data;
+  //       // const subgroups = (await groupApi.get_subgroups(access_token, rootGroup.id)).data;
+  //       const options = [
+  //         // { value: rootGroup.id, label: rootGroup.name },
+  //         // ...subgroups.map((group) => ({ value: group.id, label: group.name })),
+  //       ];
+  //       setDropdownOptions(options);
+  //     } catch (error) {
+  //       console.error('Error fetching groups:', error);
+  //     }
+  //   };
+  //   console.log(selectedGroupId, 'selected group_id');
+  //   fetchGroups();
+  // }, []);
 
   const handleAddSuggestion = (item) => {
     setSelected((prevState) => [...prevState, item.target.outerText.slice(0, -2)]);
@@ -78,7 +78,7 @@ export const SegmentationPage = () => {
 
   const handleSelect = (selectedOption) => {
     setSelectedList(selectedOption);
-    setIsSegmentationSelectedDropdown(true);
+    // setIsSegmentationSelectedDropdown(true);
     setSelectedGroupId(selectedOption.props.value);
   };
 
@@ -86,15 +86,9 @@ export const SegmentationPage = () => {
 
   return (
     <div className="segment-wrapper" id={id}>
-      <div className="pg-bars">
-        <div className="progress-bar-upload">
-          <ProgressBar bgcolor="#7E9D00" completed={100} className="progress-bar" />
-        </div>
-      </div>
       <div className="inner-box">
         <div className="segm-title">
-          <h1 className="count">2/2</h1>
-          <h1>Segmentation</h1>
+          <h1>Segmentation Page</h1>
         </div>
         <div className="segm-group">
           <div className="tips">
@@ -158,7 +152,7 @@ export const SegmentationPage = () => {
             <label>Select group</label>
             <Dropdown
               onChange={() => {
-                setIsSegmentationSelectedDropdown(true);
+                // setIsSegmentationSelectedDropdown(true);
               }}
               placeHolder={'Not selected yet'}
             />

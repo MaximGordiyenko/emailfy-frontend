@@ -39,11 +39,11 @@ export const sidebarRoutes = [
   {
     icon: <TeamOutlined />,
     label: (
-      <Link to={`/${ROUTE.audience}`}>
+      <Link to={`/${ROUTE.audiencePage}`}>
         <Text>Audience</Text>
       </Link>
     ),
-    path: `/${ROUTE.audience}`,
+    path: `/${ROUTE.audiencePage}`,
     key: '3',
   },
   {

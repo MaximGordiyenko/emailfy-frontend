@@ -104,7 +104,7 @@ export const routes = createBrowserRouter([
         ],
       },
       {
-        path: `${ROUTE.audience}`,
+        path: `${ROUTE.audiencePage}`,
         element: (
           <PrivateRoute>
             <AudiencePage />
@@ -112,11 +112,23 @@ export const routes = createBrowserRouter([
         ),
         children: [
           {
-            path: `/${ROUTE.audience}`,
+            path: '', // Matches the parent path "/audience"
             element: <AudienceList />,
           },
           {
-            path: `/${ROUTE.audience}/${ROUTE.uploadFile}`,
+            path: `${ROUTE.segmentationPage}`,
+            element: <SegmentationPage />,
+          },
+          {
+            path: `${ROUTE.manualSegmentation}`,
+            element: <SegmentManually />,
+          },
+          {
+            path: `${ROUTE.manualUpload}`,
+            element: <ManualUploadPage />,
+          },
+          {
+            path: `${ROUTE.uploadFile}`,
             element: <UploadPage />,
           },
         ],
@@ -130,7 +142,7 @@ export const routes = createBrowserRouter([
         ),
         children: [
           {
-            path: `/${ROUTE.campaignsPage}`,
+            path: ``,
             element: <CampaignsList />,
           },
           {
@@ -204,18 +216,6 @@ export const routes = createBrowserRouter([
             <SubscriptionPage />
           </PrivateRoute>
         ),
-      },
-      {
-        path: `${ROUTE.audience}/${ROUTE.manualUpload}`,
-        element: <ManualUploadPage />,
-      },
-      {
-        path: `${ROUTE.audience}/${ROUTE.segmentation}`,
-        element: <SegmentationPage />,
-      },
-      {
-        path: `${ROUTE.audience}/${ROUTE.manualSegmentation}`,
-        element: <SegmentManually />,
       },
     ],
   },
