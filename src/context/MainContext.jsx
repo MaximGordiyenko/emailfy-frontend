@@ -9,6 +9,7 @@ export const MainProvider = ({ children }) => {
   const [selectedEmailClientID, setSelectedEmailClientID] = useState(null);
   const [emailCampaignStep, setEmailCampaignStep] = useState(0);
   const [isSegmentationSelectedDropdown, setIsSegmentationSelectedDropdown] = useState(false);
+  const [mediaQuery, setMediaQuery] = useState('33%');
 
   const { data: clientEmailsData } = useQuery({
     queryKey: ['getClientEmails'],
@@ -37,6 +38,8 @@ export const MainProvider = ({ children }) => {
         setEmailCampaignStep,
         isSegmentationSelectedDropdown,
         setIsSegmentationSelectedDropdown,
+        mediaQuery,
+        setMediaQuery,
       }}>
       {children}
     </MainContext.Provider>

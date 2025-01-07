@@ -27,7 +27,6 @@ export const SidebarTools = () => {
   }, [selectedMailEditorBlock.tabs, setActiveTab]);
 
   const renderTabWithContent = (selectedTab, initData) => {
-    console.log(initData);
     if (initData.hasOwnProperty(selectedMailEditorBlock.tabs)) {
       const selectedTabs = initData[selectedMailEditorBlock.tabs].map((tab) => (
         <li

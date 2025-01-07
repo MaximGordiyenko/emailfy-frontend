@@ -24,7 +24,6 @@ import { DomainAuth } from '../pages/settings/domainAuth/DomainAuth';
 import { LoggedBy2FA } from '../pages/auth-page/LoggedBy2FA';
 import { MailBuilderPage } from '../pages/mail-builder-page/MailBuilderPage';
 import { MailPreviewPage } from '../pages/mail-builder-page/mail-preview/MailPreviewPage';
-import { MailBuilderLayout } from '../layouts/MailBuilderLayout';
 import { SettingsPage } from '../pages/settings/SettingsPage';
 import { PrivateRoute } from './PrivateRoute';
 import { UserInformationTab } from '../components/tabs/user-info-tab/UserInformationTab';
@@ -38,7 +37,7 @@ import { TestsTab } from '../components/tabs/analytics-tabs/aToBTest/TestsTab';
 import { HomeLayout } from '../layouts/HomeLayout';
 import { DisableAuthPage } from '../pages/auth-page/DisableAuthPage';
 import { CampaignsList } from '../pages/campaigns/CampaignsList';
-import { MailBuilderProvider } from '../context/MailBuilderContext';
+import { MailBuilder } from '../pages/mail-builder-page/MailBuilder';
 
 export const routes = createBrowserRouter([
   {
@@ -163,11 +162,17 @@ export const routes = createBrowserRouter([
           },
           {
             path: `${ROUTE.mailBuilderPage}`,
-            element: (
-              <MailBuilderProvider>
-                <MailBuilderPage />
-              </MailBuilderProvider>
-            ),
+            element: <MailBuilderPage />,
+            children: [
+              {
+                path: ``,
+                element: <MailBuilder />,
+              },
+              {
+                path: `${ROUTE.mailBuilderPreview}`,
+                element: <MailPreviewPage />,
+              },
+            ],
           },
         ],
       },
@@ -228,19 +233,10 @@ export const routes = createBrowserRouter([
       },
     ],
   },
-  // {
-  //   element: <MailBuilderLayout />,
-  //   children: [
-  //     {
-  //       path: `${ROUTE.mailBuilderPage}`,
-  //       element: <MailBuilderPage />,
-  //     },
-  //     {
-  //       path: `${ROUTE.mailBuilderPage}/${ROUTE.mailBuilderPreview}`,
-  //       element: <MailPreviewPage />,
-  //     },
-  //   ],
-  // },
+  {
+    path: `${ROUTE.mailBuilderPage}/${ROUTE.mailBuilderPreview}`,
+    element: <MailPreviewPage />,
+  },
   {
     path: '/',
     element: <Navigate to={`${ROUTE.login}`} replace />,

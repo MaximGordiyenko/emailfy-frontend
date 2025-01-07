@@ -10,12 +10,9 @@ body {
   
   &::-webkit-scrollbar {
     display: none;
-    /*  background: aquamarine;*/
   }
   
-  /*&::-webkit-scrollbar-thumb {*/
-  /*  background: cornflowerblue;*/
-  /*}*/
+  /*&::-webkit-scrollbar-thumb {}*/
 }
 
 code {

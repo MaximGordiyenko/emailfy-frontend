@@ -12,7 +12,7 @@ export const BorderOverChild = ({ editorBlock, handleDuplicate, handleDelete }) 
     editorBlock.id === selectedBlockID || activeTab === 'layout-blocks-tab'
       ? ' is-active-border'
       : '';
-  console.log(workspaceWidth);
+
   return (
     <div
       className={`border-over-child${activeBorderOverBlock}`}

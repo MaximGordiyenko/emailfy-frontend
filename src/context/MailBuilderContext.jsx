@@ -1,5 +1,4 @@
 import { createContext, useState, useRef, useEffect } from 'react';
-import { initEditorMediaQuery } from '../pages/mail-builder-page/initial.constants';
 import * as builderScript from '../pages/mail-builder-page/builder-script/builderScript';
 import * as builderTemplate from '../pages/mail-builder-page/builder-script/builderTemplate';
 
@@ -16,7 +15,7 @@ export const MailBuilderProvider = ({ children }) => {
   const [workspaceWidth, setWorkspaceWidth] = useState();
   const workspaceWidthRef = useRef(null);
   const [showMailPreview, setShowMailPreview] = useState(false);
-  const [mediaQuery, setMediaQuery] = useState(initEditorMediaQuery);
+  const [mediaQuery, setMediaQuery] = useState('33%');
   const [backgroundColor, setBackgroundColor] = useState('#7E9D00');
 
   useEffect(() => {

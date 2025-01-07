@@ -12,7 +12,7 @@ export const AppFooter = ({ sidebarWidth }) => {
         margin: `0 20px 20px ${sidebarWidth}px`,
       }}>
       <Divider>
-        <img src={logo} alt="avanat-logo" />
+        <img src={logo} alt="brand-logo" />
       </Divider>
       <Flex justify="space-around">
         <Flex vertical align="start" gap="small">

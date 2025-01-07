@@ -1,5 +1,6 @@
 import { useLocation, Link } from 'react-router-dom';
 import './styles.css';
+import { ROUTE } from '../routes/routes.constants';
 
 export const useBreadcrumbsPath = (headerConfigs) => {
   const { pathname } = useLocation();
@@ -10,7 +11,8 @@ export const useBreadcrumbsPath = (headerConfigs) => {
 
     return pathNames?.map((name, idx) => {
       localPath += `/${name}`;
-      const config = headerConfigs[localPath] || headerConfigs.default;
+
+      const config = headerConfigs[localPath] || headerConfigs.default || { description: name };
       const isLast = idx === pathNames.length - 1;
 
       return (

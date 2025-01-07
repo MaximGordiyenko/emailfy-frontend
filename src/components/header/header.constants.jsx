@@ -5,6 +5,7 @@ import { saveContent } from '../../pages/mail-builder-page/builder-script/builde
 import { AppButton } from '../button/AppButton';
 import { ThemeSwitcher } from '../switchers/ThemeSwitcher';
 import { EmailClientSelect } from '../selects/EmailClientSelect';
+import { DesktopMobileIcon } from '../icons/group-icons/DesktopMobileIcon';
 
 import { Select } from 'antd';
 import {
@@ -21,6 +22,8 @@ import {
   DownOutlined,
   TagsOutlined,
   BuildOutlined,
+  EyeOutlined,
+  RetweetOutlined,
 } from '@ant-design/icons';
 
 export const getHeaderConfigs = (
@@ -45,7 +48,7 @@ export const getHeaderConfigs = (
   return {
     [`/${ROUTE.home}`]: {
       icon: <HomeOutlined />,
-      description: 'Dashboard',
+      description: 'Home',
       content: () => <AppButton label={'Compare'} role="submit" onClick={() => alert('bla')} />,
     },
     [`/${ROUTE.dashboard}`]: {
@@ -82,12 +85,22 @@ export const getHeaderConfigs = (
       icon: <TeamOutlined />,
       description: 'Audience',
       content: () => (
-        <AppButton
-          label={'Add Contact'}
-          role="submit"
-          onClick={() => setIsOpenMenu((prev) => !prev)}
-          icon={isOpenMenu ? <UpOutlined /> : <DownOutlined />}
-        />
+        <>
+          <AppButton
+            label={'Draft'}
+            role="submit"
+            kind={'outlined'}
+            variant="default"
+            onClick={() => alert('bla')}
+            icon={<RetweetOutlined />}
+          />
+          <AppButton
+            label={'Add Contact'}
+            role="submit"
+            onClick={() => setIsOpenMenu((prev) => !prev)}
+            icon={isOpenMenu ? <UpOutlined /> : <DownOutlined />}
+          />
+        </>
       ),
     },
     [`/${ROUTE.audiencePage}/${ROUTE.uploadFile}`]: {
@@ -267,9 +280,24 @@ export const getHeaderConfigs = (
       description: 'Mail Builder',
       content: () => (
         <AppButton
-          label={'Back'}
-          onClick={() => navigate(`/${ROUTE.campaignsPage}/${ROUTE.createText}`)}
+          label={'Preview'}
+          onClick={() =>
+            navigate(`/${ROUTE.campaignsPage}/${ROUTE.mailBuilderPage}/${ROUTE.mailBuilderPreview}`)
+          }
         />
+      ),
+    },
+    [`/${ROUTE.campaignsPage}/${ROUTE.mailBuilderPage}/${ROUTE.mailBuilderPreview}`]: {
+      icon: <EyeOutlined />,
+      description: 'Mail Preview',
+      content: () => (
+        <>
+          <DesktopMobileIcon />
+          <AppButton
+            label={'Back'}
+            onClick={() => navigate(`/${ROUTE.campaignsPage}/${ROUTE.mailBuilderPage}`)}
+          />
+        </>
       ),
     },
     [`/${ROUTE.tags}`]: {

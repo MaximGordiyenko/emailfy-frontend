@@ -35,32 +35,32 @@ export const PreviewBuilderHeader = () => {
   };
   // console.log(JSON.stringify(mailEditorState, null, 2));
 
-  useEffect(() => {
-    if (!isLoadedScript) {
-      return;
-    }
-    const html = builderScript.buildFinalHTML(mailEditorState);
-    const newResources = resourceManager.isUpdatedResources(mailEditorState, resources);
-    const template_id = localStorage.getItem('current_template_id');
-    if ((resources !== null && newResources === null) || !template_id) {
-      setMailSize({
-        resources_size: mailSize.resources_size,
-        html_size: html?.length,
-      });
-    } else {
-      setResources(newResources);
-      (async () => {
-        await builderTemplate.saveContent({
-          content: html,
-        });
-        const size = await testEmail.getEmailSize();
-        setMailSize({
-          resources_size: size - html?.length,
-          html_size: html?.length,
-        });
-      })();
-    }
-  }, [mailEditorState]);
+  // useEffect(() => {
+  //   if (!isLoadedScript) {
+  //     return;
+  //   }
+  //   const html = builderScript.buildFinalHTML(mailEditorState);
+  //   const newResources = resourceManager.isUpdatedResources(mailEditorState, resources);
+  //   const template_id = localStorage.getItem('current_template_id');
+  //   if ((resources !== null && newResources === null) || !template_id) {
+  //     setMailSize({
+  //       resources_size: mailSize.resources_size,
+  //       html_size: html?.length,
+  //     });
+  //   } else {
+  //     setResources(newResources);
+  //     (async () => {
+  //       await builderTemplate.saveContent({
+  //         content: html,
+  //       });
+  //       const size = await testEmail.getEmailSize();
+  //       setMailSize({
+  //         resources_size: size - html?.length,
+  //         html_size: html?.length,
+  //       });
+  //     })();
+  //   }
+  // }, [mailEditorState]);
 
   return (
     <div className="brand-header builder-header preview-header">

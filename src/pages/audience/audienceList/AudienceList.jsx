@@ -1,16 +1,23 @@
-import './styles.css';
-import addSquare from '../../../assets/images/addSquare.svg';
+import React, { useState, useEffect } from 'react';
+import { format } from 'date-fns';
+import { v4 as uuidv4 } from 'uuid';
+
+import { useQuery } from '@tanstack/react-query';
+import { getGroupAudienceList } from '../../../api/audience';
+
+import { AudienceListCard } from './AudienceListCard';
+
 import usersGroupRounded from '../../../assets/images/usersGroupRounded.svg';
 import pieChart from '../../../assets/images/pieChart2.svg';
 import pen from '../../../assets/images/pen.svg';
-import React, { useState, useEffect } from 'react';
-import { Modal } from '../../../components/modals/Modal';
-import { format } from 'date-fns';
-import { v4 as uuidv4 } from 'uuid';
-import * as groupApi from '../../../api/subscribes/groups';
-import { getToken } from '../../../api/API';
 
-const mockDate = format(new Date(2024, 0, 26), 'MMM d, yyyy');
+import { Space, Typography, Tooltip, Divider } from 'antd';
+import { DeleteOutlined } from '@ant-design/icons';
+import './styles.css';
+import { tooltipMessages } from '../../dashboard/dashboard.constants';
+
+const { Title } = Typography;
+
 const generateNewDate = () => format(new Date(Date.now()), 'MMM d, yyyy');
 
 let groupsList = [];
@@ -29,6 +36,16 @@ export const AudienceList = ({ isUpload = true }) => {
     },
   ]);
   const [name, setName] = useState('');
+
+  const { data: groupAudienceList, isLoading: groupAudienceListLoading } = useQuery({
+    queryKey: ['getGroupAudienceList'],
+    queryFn: getGroupAudienceList,
+    retry: 1,
+    refetchOnWindowFocus: false,
+    onError: (error) => {},
+  });
+
+  console.log(groupAudienceList);
 
   // useEffect(() => {
   //   (async () => {
@@ -144,33 +161,33 @@ export const AudienceList = ({ isUpload = true }) => {
   };
 
   return (
-    <div className="audience-content">
-      <div className={isUpload ? 'bars-moved' : 'audience-bars'}>
-        <div className="aud-title">
-          <h1>Audience</h1>
-          <button className={isUpload ? 'drafts' : 'drafts-hide'}>
-            <span>Drafts</span>
-          </button>
-        </div>
-      </div>
-      <div className="audience-list">
-        {list.map((item) => {
-          return (
-            <AudienceListItem
-              key={item.id}
-              item={item}
-              modal={editModal}
-              openModal={openEditModal(item.name)}
-              closeModal={closeEditModal}
-              onEdit={onEdit}
-            />
-          );
-        })}
-        <div className="audience-add-new-list" onClick={toggleCreateModal}>
-          <img src={addSquare} alt="" />
-          <span>Add new list</span>
-        </div>
-      </div>
+    <Space direction="vertical" className="audience-list-container">
+      <Divider orientation="left">
+        <Tooltip placement="topLeft">
+          <Title level={3} type="secondary">
+            Audience List
+          </Title>
+        </Tooltip>
+      </Divider>
+      <AudienceListCard data={groupAudienceList} loading={groupAudienceListLoading} />
+      {/*<div className="audience-list">*/}
+      {/*{groupAudienceList?.map((item) => {*/}
+      {/*  return (*/}
+      {/*    <AudienceListItem*/}
+      {/*      key={item.id}*/}
+      {/*      item={item}*/}
+      {/*      modal={editModal}*/}
+      {/*      openModal={openEditModal(item.name)}*/}
+      {/*      closeModal={closeEditModal}*/}
+      {/*      onEdit={onEdit}*/}
+      {/*    />*/}
+      {/*  );*/}
+      {/*})}*/}
+      {/*<div className="audience-add-new-list" onClick={toggleCreateModal}>*/}
+      {/*  <img src={addSquare} alt="" />*/}
+      {/*  <span>Add new list</span>*/}
+      {/*</div>*/}
+      {/*</div>*/}
       {/*<Modal isOpen={createModal}>*/}
       {/*  <div className="audience-list-modal-content">*/}
       {/*    <div className="audience-list-modal-header">*/}
@@ -196,7 +213,7 @@ export const AudienceList = ({ isUpload = true }) => {
       {/*    </div>*/}
       {/*  </div>*/}
       {/*</Modal>*/}
-    </div>
+    </Space>
   );
 };
 
@@ -245,12 +262,12 @@ const AudienceListItem = ({ item, modal, openModal, closeModal, onEdit }) => {
         </div>
         <div className="audience-list-item_date">
           <span>
-            Created: <strong>{created}</strong>
+            Created: <strong>{format(new Date(created), 'MMM d, yyyy')}</strong>
           </span>
         </div>
         <div className="audience-list-item_date">
           <span>
-            Edited: <strong>{modified}</strong>
+            Edited: <strong>{format(new Date(modified), 'MMM d, yyyy')}</strong>
           </span>
         </div>
       </div>

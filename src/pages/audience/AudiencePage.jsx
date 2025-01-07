@@ -26,14 +26,14 @@ export const AudiencePage = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    (async () => {
-      const access_token = getToken('accessToken');
-      const rootGroup = (await get_root(access_token))?.data;
-      const groups = (await get_subgroups(access_token, rootGroup.id)).data;
-      // setisShowContacts(groups.length > 0);
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const access_token = getToken('accessToken');
+  //     const rootGroup = (await get_root(access_token))?.data;
+  //     const groups = (await get_subgroups(access_token, rootGroup.id)).data;
+  //     // setisShowContacts(groups.length > 0);
+  //   })();
+  // }, []);
 
   return (
     <div className="audience-page-container" id="audience">

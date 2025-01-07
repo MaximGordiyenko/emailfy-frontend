@@ -52,17 +52,6 @@
   }
 }
 
-.mail-builder-layout {
-  width: 100vw;
-  height: 100vh;
-  background-color: #f2f2f2;
-  justify-content: space-between;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
-}
-
-
 .default-layout-container {
   display: flex;
 }

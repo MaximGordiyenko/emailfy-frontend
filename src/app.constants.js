@@ -5,7 +5,9 @@ export const themeX = {
     Button: {
       colorPrimary: '#7E9D00',
       colorPrimaryHover: '#A5BB4D',
+      defaultHoverBorderColor: '#7E9D00',
     },
+    Rate: {},
     Form: {
       labelColor: '#7E9D00',
     },
@@ -38,7 +40,9 @@ export const themeX = {
       itemSelectedColor: '#FFF',
       // itemColor: '#098aaa',
       // itemHoverColor: '#098aaa',
+      itemMarginInline: 12,
       itemSelectedBg: '#7E9D00',
+      // popupBg: '#FFF',
       itemHeight: 55,
       iconSize: 16,
       collapsedIconSize: 18,

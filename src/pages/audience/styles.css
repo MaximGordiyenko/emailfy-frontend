@@ -1,5 +1,5 @@
 .audience-page-container {
-  height: 100vh;
+  height: fit-content;
   
   .test-header {
     .content-box {

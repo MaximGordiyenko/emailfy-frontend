@@ -3,11 +3,13 @@ import './styles.css';
 
 export const AppButton = ({
   variant = 'primary',
+  kind,
   onClick,
   disabled,
   role,
   label,
   icon,
+  color,
   children,
 }) => {
   const buttonRoles = {
@@ -18,9 +20,11 @@ export const AppButton = ({
   return (
     <Button
       type={variant}
+      variant={kind}
       disabled={disabled}
       onClick={onClick}
       icon={icon}
+      color={color}
       iconPosition="end"
       size="large"
       {...buttonRoles}>

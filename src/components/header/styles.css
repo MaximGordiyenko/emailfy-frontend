@@ -1,12 +1,16 @@
 .ant-layout-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0;
   
   .ant-flex {
-    width: 100%;
-    max-width: 1200px;
+    display: flex;
+    flex: 1 1;
+    padding: 0 20px 0 15px;
   }
   
   .ant-breadcrumb {

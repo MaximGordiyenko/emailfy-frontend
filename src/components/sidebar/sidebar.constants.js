@@ -1,7 +1,5 @@
-import { Link } from 'react-router-dom';
 import { ROUTE } from '../../routes/routes.constants';
 
-import { Typography } from 'antd';
 import {
   DesktopOutlined,
   LineChartOutlined,
@@ -13,76 +11,46 @@ import {
   LogoutOutlined,
 } from '@ant-design/icons';
 
-const { Text } = Typography;
-
 export const sidebarRoutes = [
   {
     icon: <DesktopOutlined />,
-    label: (
-      <Link to={`/${ROUTE.dashboard}`}>
-        <Text>Dashboard</Text>
-      </Link>
-    ),
+    label: 'Dashboard',
     path: `/${ROUTE.dashboard}`,
     key: '1',
   },
   {
     icon: <LineChartOutlined />,
-    label: (
-      <Link to={`/${ROUTE.analytics}/${ROUTE.emailCampaign}`}>
-        <Text>Analytics</Text>
-      </Link>
-    ),
-    path: `/${ROUTE.analytics}`,
+    label: 'Analytics',
+    path: `/${ROUTE.analytics}/${ROUTE.emailCampaign}`,
     key: '2',
   },
   {
     icon: <TeamOutlined />,
-    label: (
-      <Link to={`/${ROUTE.audiencePage}`}>
-        <Text>Audience</Text>
-      </Link>
-    ),
+    label: 'Audience',
     path: `/${ROUTE.audiencePage}`,
     key: '3',
   },
   {
     icon: <SoundOutlined />,
-    label: (
-      <Link to={`/${ROUTE.campaignsPage}`}>
-        <Text>Campaigns</Text>
-      </Link>
-    ),
+    label: 'Campaigns',
     path: `/${ROUTE.campaignsPage}`,
     key: '4',
   },
   {
     icon: <TagsOutlined />,
-    label: (
-      <Link to={`/${ROUTE.tags}`}>
-        <Text>Tags</Text>
-      </Link>
-    ),
+    label: 'Tags',
     path: `/${ROUTE.tags}`,
     key: '5',
   },
   {
     icon: <SettingOutlined />,
-    label: (
-      <Link to={`/${ROUTE.settings}/${ROUTE.userInfo}`}>
-        <Text>Settings</Text>
-      </Link>
-    ),
-    path: `/${ROUTE.settings}`,
+    label: 'Settings',
+    path: `/${ROUTE.settings}/${ROUTE.userInfo}`,
     key: '6',
   },
   {
     icon: <SignatureOutlined />,
-    label: (
-      <Link to={`/${ROUTE.subscription}`}>
-        <Text>Subscription</Text>
-      </Link>
-    ),
+    label: 'Subscription',
     path: `/${ROUTE.subscription}`,
     key: '7',
   },
@@ -91,8 +59,8 @@ export const sidebarRoutes = [
 export const logoutRoute = [
   {
     icon: <LogoutOutlined />,
-    label: <Text>Logout</Text>,
+    label: 'Logout',
     path: `/${ROUTE.login}`,
-    key: '0',
+    key: '1',
   },
 ];

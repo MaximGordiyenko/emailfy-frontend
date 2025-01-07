@@ -2,8 +2,6 @@ import { useContext, useState } from 'react';
 import { MailBuilderContext } from '../../../context/MailBuilderContext';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { RootHtml, MailEditorToHTML } from '../../../helpers/TypeResolverComponent';
-import { DesktopIcon } from '../../../components/icons/DesktopIcon';
-import { MobileIcon } from '../../../components/icons/MobileIcon';
 import { TextIconButton } from '../../../components/icons/TextIconButton';
 import { PenEditIcon } from '../../../components/icons/PenEditIcon';
 import { EnvelopRoundIcon } from '../../../components/icons/EnvelopRoundIcon';
@@ -11,11 +9,13 @@ import { PreviewComponent } from '../../campaigns/email-capmaign/PreviewComponen
 import { useNavigate } from 'react-router-dom';
 import { SendMailModal } from '../../../components/modals/SendMailModal';
 import { ROUTE } from '../../../routes/routes.constants';
+import { useMainContext } from '../../../context/MainContext';
 
 export const MailPreviewPage = () => {
   const [isOpenSendMailModal, setIsOpenSendMailModal] = useState(false);
-  const [mediaQuery, setMediaQuery] = useState('33%');
+  // const [mediaQuery, setMediaQuery] = useState('33%');
   const { mailEditorState } = useContext(MailBuilderContext);
+  const { mediaQuery } = useMainContext();
 
   const navigate = useNavigate();
 
@@ -29,10 +29,7 @@ export const MailPreviewPage = () => {
   return (
     <div className="campaign-preview">
       <div className="header-icon-btn-container">
-        <div className="media-query-btn-wrapper">
-          <DesktopIcon className={`${isDesktopMode}`} onClick={() => setMediaQuery('70%')} />
-          <MobileIcon className={`${isMobileMode}`} onClick={() => setMediaQuery('33%')} />
-        </div>
+        <div className="media-query-btn-wrapper"></div>
         <div className="preview-btn-wrapper">
           <TextIconButton
             className="btn-preview-wrapper campaign-modal"

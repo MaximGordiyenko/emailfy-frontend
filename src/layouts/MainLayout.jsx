@@ -21,8 +21,8 @@ export const MainLayout = () => {
 
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  const sidebarWidth = isCollapsed ? 100 : 220;
-  console.log(isCollapsed);
+  const sidebarWidth = isCollapsed ? 100 : 200;
+
   useEffect(() => {
     // Automatically collapse sidebar for "mail-builder-page"
     if (pathname.includes('mail-builder-page')) {

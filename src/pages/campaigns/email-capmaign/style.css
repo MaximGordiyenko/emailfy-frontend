@@ -201,8 +201,8 @@
 /* Preview component for Manual Text & HTML */
 .editor-preview-container {
   background: var(--default-white);
-  margin: 80px 0 0 10%;
   padding: 20px;
+  border: 1px solid #EAEAEC;
   border-radius: 5px;
 
   &.is-desktop {

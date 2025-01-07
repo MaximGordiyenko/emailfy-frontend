@@ -1,8 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import { ROUTE } from '../../routes/routes.constants';
 
 import { Menu, Layout, theme } from 'antd';
-import { sidebarRoutes, logoutRoute } from './sidebar.constants';
+import { logoutRoute, sidebarRoutes } from './sidebar.constants';
 
 import PhraseLooper from '../animations/PhraseLooper';
 import { removeToken } from '../../api/API';
@@ -10,7 +9,7 @@ import './styles.css';
 
 const { Sider } = Layout;
 
-export const Sidebar = ({ sidebarWidth, onCollapse, isCollapse, themeBgColor }) => {
+export const Sidebar = ({ onCollapse, isCollapse, themeBgColor }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -19,42 +18,47 @@ export const Sidebar = ({ sidebarWidth, onCollapse, isCollapse, themeBgColor }) 
   } = theme.useToken();
 
   const activeKey = sidebarRoutes.find((route) => {
-    return location.pathname.startsWith(route.path);
+    return location.pathname.startsWith(route.path.split('/').slice(0, 2).join('/'));
   })?.key;
 
-  const onLogout = () => {
+  const onLogout = ({ item }) => {
     removeToken('accessToken');
     removeToken('refreshToken');
-    navigate(`/${ROUTE.login}`);
+    navigate(item);
   };
 
   return (
     <Sider
-      style={{
-        overflow: 'auto',
-        height: '100vh',
-        position: 'fixed',
-        insetInlineStart: 0,
-        top: 0,
-        bottom: 0,
-        paddingTop: 80,
-        background: colorBgContainer,
-      }}
+      style={{ background: colorBgContainer }}
       trigger={null}
       collapsible
       collapsedWidth={80}
-      width={200}
-      collapsed={isCollapse} // Explicitly pass isCollapse
+      width={180}
+      collapsed={isCollapse}
       onCollapse={(collapsed) => onCollapse(collapsed)} // Keep this for manual toggling
       breakpoint="lg">
-      <Menu mode="inline" items={sidebarRoutes} selectedKeys={[activeKey]} />
+      <Menu
+        mode="inline"
+        inlineIndent={20}
+        selectedKeys={[activeKey]}
+        items={sidebarRoutes.map((route) => ({
+          key: route.key,
+          icon: route.icon,
+          label: route.label,
+          onClick: () => navigate(route.path),
+        }))}
+      />
       {!isCollapse && <PhraseLooper themeBgColor={themeBgColor} />}
       <Menu
-        mode="vertical"
         rootClassName="logout-container"
-        items={logoutRoute}
+        inlineIndent={20}
         selectedKeys={[null]}
-        onClick={onLogout}
+        items={logoutRoute.map((route) => ({
+          key: route.key,
+          icon: route.icon,
+          label: route.label,
+          onClick: () => onLogout(route.path),
+        }))}
       />
     </Sider>
   );
