@@ -1,10 +1,10 @@
-import { buildingBlocksInitialState, layoutBlocksInitialState } from '../initial.constants';
-import * as scriptApi from '../../../api/builder/script';
-import * as contentApi from '../../../api/builder/email_contents';
-import * as resourceManager from './resourceManager';
-import * as templateApi from '../../../api/builder/templates';
+import { buildingBlocksInitialState, layoutBlocksInitialState } from '../initial.constants.js';
+import * as scriptApi from '../../../api/builder/script.js';
+import * as contentApi from '../../../api/builder/email_contents.js';
+import * as resourceManager from './resourceManager.js';
+import * as templateApi from '../../../api/builder/templates.js';
 import { v4 as uuidv4 } from 'uuid';
-import { RootHtml, MailEditorToHTML } from '../../../helpers/TypeResolverComponent';
+import { RootHtml, MailEditorToHTML } from '../../../helpers/TypeResolverComponent.jsx';
 import { renderToStaticMarkup } from 'react-dom/server';
 
 export function initBlock(block) {

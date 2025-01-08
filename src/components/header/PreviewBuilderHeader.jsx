@@ -1,24 +1,24 @@
 import { useContext, useEffect, useState } from 'react';
-import { MailBuilderContext } from '../../context/MailBuilderContext';
+import { MailBuilderContext } from '../../context/MailBuilderContext.jsx';
 
 import { useNavigate } from 'react-router-dom';
-import { ROUTE } from '../../routes/routes.constants';
+import { ROUTE } from '../../routes/routes.constants.js';
 
-import { TextIconButton } from '../icons/TextIconButton';
-import { UnDoIcon } from '../icons/UnDoIcon';
-import { ReDoIcon } from '../icons/ReDoIcon';
-import { PreviewIcon } from '../icons/PreviewIcon';
-import { FileIcon } from '../icons/FileIcon';
+import { TextIconButton } from '../icons/TextIconButton.jsx';
+import { UnDoIcon } from '../icons/UnDoIcon.jsx';
+import { ReDoIcon } from '../icons/ReDoIcon.jsx';
+import { PreviewIcon } from '../icons/PreviewIcon.jsx';
+import { FileIcon } from '../icons/FileIcon.jsx';
 
-import * as builderScript from '../../pages/mail-builder-page/builder-script/builderScript';
-import * as builderTemplate from '../../pages/mail-builder-page/builder-script/builderTemplate';
-import * as testEmail from '../../pages/mail-builder-page/builder-script/testEmail';
+import * as builderScript from '../../pages/mail-builder-page/builder-script/builderScript.js';
+import * as builderTemplate from '../../pages/mail-builder-page/builder-script/builderTemplate.js';
+import * as testEmail from '../../pages/mail-builder-page/builder-script/testEmail.js';
 import * as resourceManager from '../../pages/mail-builder-page/builder-script/resourceManager';
 
 import plane from '../../assets/images/sheduled.png';
 import './styles.css';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { RootHtml, MailEditorToHTML } from '../../helpers/TypeResolverComponent';
+import { RootHtml, MailEditorToHTML } from '../../helpers/TypeResolverComponent.jsx';
 
 export const PreviewBuilderHeader = () => {
   const navigate = useNavigate();

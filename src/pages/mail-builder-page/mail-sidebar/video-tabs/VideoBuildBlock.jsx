@@ -2,11 +2,11 @@ import { useContext, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { ReactSortable } from 'react-sortablejs';
-import { DeleteStickyIcon } from '../../../../components/icons/DeleteStickyIcon';
-import { findBlockById } from '../../builder-script/builderScript';
+import { DeleteStickyIcon } from '../../../../components/icons/DeleteStickyIcon.jsx';
+import { findBlockById } from '../../builder-script/builderScript.js';
 import '../styles.css';
-import * as builderScript from '../../builder-script/builderScript';
-import { MailBuilderContext } from '../../../../context/MailBuilderContext';
+import * as builderScript from '../../builder-script/builderScript.js';
+import { MailBuilderContext } from '../../../../context/MailBuilderContext.jsx';
 
 export const VideoBuildBlock = ({
   id,

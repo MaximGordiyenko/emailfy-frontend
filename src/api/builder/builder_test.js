@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { extractIDFromVimeoUrl } from '../../helpers/extractIdFromVimeoUrl';
+import { extractIDFromVimeoUrl } from '../../helpers/extractIdFromVimeoUrl.js';
 
 export async function get_spam_score(access_token, template_id, content_id) {
   return await axios.get(`/api/builder/${template_id}/test/${content_id}/spam-score`, {

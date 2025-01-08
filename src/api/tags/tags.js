@@ -1,4 +1,4 @@
-import { getToken, API } from '../API';
+import { getToken, API } from '../API.js';
 
 export const getEmailClientsData = async () => {
   try {

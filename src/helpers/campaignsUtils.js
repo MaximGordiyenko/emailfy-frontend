@@ -1,5 +1,5 @@
-import * as userInfoAPI from '../api/settings/account';
-import { getToken } from '../api/API';
+import * as userInfoAPI from '../api/settings/account.js';
+import { getToken } from '../api/API.js';
 
 export const getUserEmail = async (setter) => {
   try {

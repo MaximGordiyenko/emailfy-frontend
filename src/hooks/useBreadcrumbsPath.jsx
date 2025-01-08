@@ -1,6 +1,6 @@
 import { useLocation, Link } from 'react-router-dom';
 import './styles.css';
-import { ROUTE } from '../routes/routes.constants';
+import { ROUTE } from '../routes/routes.constants.js';
 
 export const useBreadcrumbsPath = (headerConfigs) => {
   const { pathname } = useLocation();

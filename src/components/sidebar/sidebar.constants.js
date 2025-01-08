@@ -1,4 +1,4 @@
-import { ROUTE } from '../../routes/routes.constants';
+import { ROUTE } from '../../routes/routes.constants.js';
 
 import {
   DesktopOutlined,

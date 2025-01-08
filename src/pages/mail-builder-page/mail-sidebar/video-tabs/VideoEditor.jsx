@@ -1,14 +1,14 @@
 import { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Accordion } from '../../../../components/accordion/Accordion';
+import { Accordion } from '../../../../components/accordion/Accordion.jsx';
 import uploadIcon from '../../../../assets/images/uploadIcon.svg';
 import alternateTextIcon from '../../../../assets/images/alternateTextIcon.svg';
-import { BrandInput } from '../../../../components/inputs/BrandInput';
-import { CloseIcon } from '../../../../components/icons/CloseIcon';
-import * as builderScript from '../../builder-script/builderScript';
+import { BrandInput } from '../../../../components/inputs/BrandInput.jsx';
+import { CloseIcon } from '../../../../components/icons/CloseIcon.jsx';
+import * as builderScript from '../../builder-script/builderScript.js';
 import '../styles.css';
-import { get_video_preview_image } from '../../../../api/builder/builder_test';
-import { MailBuilderContext } from '../../../../context/MailBuilderContext';
+import { get_video_preview_image } from '../../../../api/builder/builder_test.js';
+import { MailBuilderContext } from '../../../../context/MailBuilderContext.jsx';
 
 export const VideoEditor = () => {
   const { selectedMailEditorBlock, setMailEditorState, mailEditorState } =

@@ -1,14 +1,14 @@
 import { useNavigate } from 'react-router-dom';
-import { ROUTE } from '../../routes/routes.constants';
-import { useMainContext } from '../../context/MainContext';
+import { ROUTE } from '../../routes/routes.constants.js';
+import { useMainContext } from '../../context/MainContext.jsx';
 
 import { Layout, Breadcrumb, Flex, theme } from 'antd';
 
-import { useBreadcrumbsContent } from '../../hooks/useBreadcrumbsContent';
-import { useBreadcrumbsPath } from '../../hooks/useBreadcrumbsPath';
+import { useBreadcrumbsContent } from '../../hooks/useBreadcrumbsContent.jsx';
+import { useBreadcrumbsPath } from '../../hooks/useBreadcrumbsPath.jsx';
 
-import { BrandLogo } from '../logo/BrandLogo';
-import { getHeaderConfigs } from './header.constants';
+import { BrandLogo } from '../logo/BrandLogo.jsx';
+import { getHeaderConfigs } from './header.constants.jsx';
 
 import './styles.css';
 

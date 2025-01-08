@@ -1,0 +1,382 @@
+.campaigns-page-container {
+  height: fit-content;
+  
+  .ant-tabs-left {
+    .ant-tabs-nav {
+      height: 200px;
+      .ant-tabs-nav-wrap {
+        .ant-tabs-nav-list {
+          .ant-tabs-tab {
+            padding: 0 20px 0 0;
+            width: 100%;
+            justify-content: start;
+          }
+        }
+      }
+    }
+    
+    .ant-tabs-content-holder {
+      height: 100vh;
+      overflow: scroll;
+      overflow-x: hidden;
+      
+      .ant-card {
+        margin: 10px auto;
+        
+        .ant-card-head {
+          .ant-card-head-title {
+            .title-mail-icon {
+              font-size: 25px;
+              color: #2a2b3b;
+              margin: 0 10px;
+            }
+          }
+        }
+      }
+      
+      &::-webkit-scrollbar {
+        width: 3px;
+      }
+      
+      &::-webkit-scrollbar-track {
+        background: #575252;
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        border-radius: 6px;
+        background-color: #c9c9c9;
+      }
+    }
+  }
+  
+  .toggle-camp-tabs {
+    display: flex;
+    
+    & button {
+      width: 50%;
+    }
+  }
+  
+  .hide-upload {
+    display: none;
+  }
+  
+  .placeholder-wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    top: 30vh;
+    left: 40vw;
+    width: 520px;
+    height: 420px;
+    padding: 20px;
+    border-radius: 20px;
+    
+    .campaign-desc {
+      & h3 {
+        font-family: MacPawFixelBold, 'sans-serif';
+        font-size: 24px;
+        margin: 0 0 10px auto;
+      }
+      
+      & p {
+        margin: 0 0 auto;
+        font-size: 16px;
+        line-height: 22px;
+        font-family: MacPawFixelMedium, 'sans-serif';
+      }
+    }
+    
+    .create-btn-holder {
+      background-color: var(--default-green);
+      height: 45px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 205px;
+      
+      & span {
+        color: var(--default-white);
+        font-family: MacPawFixelMedium, 'sans-serif';
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+  }
+  
+  .campaigns-box {
+    .inner-box {
+      display: flex;
+      gap: 30px;
+      
+      .tabs {
+        width: 181px;
+        
+        .tabs-title {
+          font-family: MacPawFixelBold;
+          font-size: 14px;
+          line-height: 19px;
+          text-align: left;
+          height: 36px;
+          display: flex;
+          align-items: center;
+          color: var(--default-grey-90);
+        }
+        
+        .upper-container {
+          padding-bottom: 10px;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+        
+        .link,
+        .emails {
+          display: flex;
+          align-items: center;
+          margin: 10px 0;
+          
+          .link-img {
+            width: 24px;
+            height: 24px;
+            opacity: 0.5;
+          }
+          
+          /*.link-text {*/
+          /*  margin-left: 10px;*/
+          /*  font-family: MacPawFixelMedium;*/
+          /*  font-size: 14px;*/
+          /*  line-height: 19px;*/
+          /*  color: var(--default-grey-50);*/
+          /*}*/
+          
+          .status {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 24px;
+            width: 54px;
+            background: #e4e4e6;
+            border-radius: 10px;
+            font-size: 10px;
+            margin-left: 20px;
+          }
+        }
+        
+        .link {
+          cursor: pointer;
+          
+          &.active {
+            .link-img {
+              opacity: 1;
+            }
+            
+            /*.link-text {*/
+            /*  color: var(--default-grey-90);*/
+            /*}*/
+          }
+        }
+        
+        .link:hover {
+          .link-img {
+            opacity: 1;
+          }
+          
+          /*.link-text {*/
+          /*  color: var(--default-grey-90);*/
+          /*}*/
+        }
+      }
+      
+      .cards {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        
+        .no-results-image {
+          margin-top: 150px;
+          display: flex;
+          margin-left: 17vw;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          
+          & span {
+            color: var(--default-grey-90, #2A2B3B);
+            text-align: center;
+            font-family: MacPawFixelBold, "sans-serif";
+            font-size: 24px;
+            margin: 20px 0 10px;
+          }
+          
+          & p {
+            color: #95959D;
+            text-align: center;
+            font-family: MacPawFixelMedium, 'sans-serif';
+            font-size: 14px;
+            margin: 0;
+          }
+        }
+        
+        .search-input {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+          box-sizing: border-box;
+          width: 350px;
+          height: 36px;
+          padding: 0 20px;
+          gap: 10px;
+          background-color: var(--default-grey-10);
+          border: 1px solid var(--default-grey-10);
+          border-radius: 10px;
+          
+          &.active {
+            border-color: var(--default-green);
+          }
+          
+          & input {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            background: var(--default-grey-10);
+            border-radius: 10px;
+            border: none;
+            font-family: MacPawFixelMedium;
+            font-size: 14px;
+            color: var(--default-grey-90);
+            flex: 1;
+            outline: none;
+          }
+          
+          &::placeholder {
+            display: flex;
+            margin: 10px 0 0 0;
+          }
+          
+          & img {
+            width: 16px;
+            height: 16px;
+          }
+        }
+        
+        .fade-out {
+          transition: opacity 0.5s ease-out; /* Adjust the duration and easing as needed */
+          opacity: 0;
+        }
+        
+        .card {
+          box-sizing: border-box;
+          border-radius: 20px;
+          padding: 20px;
+          display: flex;
+          gap: 10px;
+          width: 100%;
+          transition: border-color 0.2s;
+          border: 1px solid var(--default-grey-10); /* Add a transparent border by default */
+          background-color: var(--default-white);
+          align-items: center;
+          position: relative;
+          margin-bottom: 10px;
+          cursor: pointer;
+          
+          &.fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+          }
+          
+          .button-wrapper {
+            right: 20px;
+            
+            .card-image-button {
+              width: 32px;
+              height: 32px;
+              margin-right: 10px;
+              cursor: pointer;
+              opacity: 0.6;
+              
+              &:hover {
+                opacity: 1;
+              }
+            }
+          }
+          
+          .card-image {
+            align-self: flex-start;
+            width: 24px;
+            height: 24px;
+          }
+          
+          .card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            
+            .card-title {
+              align-items: center;
+              display: flex;
+              gap: 10px;
+              
+              .tab-select {
+                padding: 0 5px;
+                height: 21px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                font-size: 10px;
+                border-radius: 5px;
+                
+                .tab-select-text {
+                  font-size: 10px;
+                  line-height: 10px;
+                  color: var(--default-white);
+                  font-family: MacPawFixelMedium, 'sans-serif';
+                  text-transform: uppercase;
+                }
+              }
+            }
+            
+            .des {
+              font-size: 14px;
+              font-family: MacPawFixelMedium;
+              line-height: 19px;
+              color: var(--default-grey-50);
+            }
+          }
+        }
+        
+        .card:hover {
+          border: 1px solid var(--default-grey-20);
+        }
+      }
+    }
+  }
+}
+
+.btn-wrapper {
+  .create-camp-btn {
+    cursor: pointer;
+    width: 205px;
+    height: 44px;
+    box-sizing: border-box;
+    background: var(--default-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    
+    & span {
+      color: var(--default-white);
+      font-family: MacPawFixelMedium, 'sans-serif';
+      font-size: 14px;
+    }
+    
+    .camp-arr {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

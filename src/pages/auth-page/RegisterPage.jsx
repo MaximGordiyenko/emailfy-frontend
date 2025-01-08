@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { ROUTE } from '../../routes/routes.constants';
+import { ROUTE } from '../../routes/routes.constants.js';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -7,10 +7,10 @@ import { signUpValidation } from '../../validation/auth.js';
 
 import { Form, Button, Typography, Space, Flex, message } from 'antd';
 import { AuthInput } from '../../components/forms/AuthInput.tsx';
-import { BrandLogo } from '../../components/logo/BrandLogo';
+import { BrandLogo } from '../../components/logo/BrandLogo.jsx';
 
 import { useMutation } from '@tanstack/react-query';
-import { signUp } from '../../api/auth/auth';
+import { signUp } from '../../api/auth/auth.js';
 import './styles.css';
 
 const { Title, Text, Link } = Typography;

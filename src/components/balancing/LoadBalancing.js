@@ -1,7 +1,7 @@
 import { forwardRef, useEffect, useMemo, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { add, format } from 'date-fns';
-import LoadBarChart from './loadBarChart/LoadBarChart';
+import LoadBarChart from './loadBarChart/LoadBarChart.js';
 import './style.scss';
 import 'react-datepicker/dist/react-datepicker.css';
 import usersGroupRounded from '../../assets/images/usersGroupRounded.svg';
@@ -9,15 +9,14 @@ import fileTextSmall from '../../assets/images/fileTextSmall.svg';
 import plain from '../../assets/images/plain.svg';
 import plainGreen from '../../assets/images/plainGreen.svg';
 import calendar from '../../assets/images/calendar.svg';
-import calendarOrange from '../../assets/images/calendarOrange.svg';
 import magicStick from '../../assets/images/magicStick.svg';
 import magicStickPurple from '../../assets/images/magicStickPurple.svg';
 import altArrowDownGrey from '../../assets/images/altArrowDownGrey.svg';
-import { chartHeaderTitle, loadValues, tabs, timeInterval } from './constants';
-import { timeload } from '../../api/task/tasks';
-import { sendTestEmail } from '../../pages/mail-builder-page/builder-script/testEmail';
+import { chartHeaderTitle, loadValues, tabs, timeInterval } from './constants.js';
+import { timeload } from '../../api/task/tasks.js';
+import { sendTestEmail } from '../../pages/mail-builder-page/builder-script/testEmail.js';
 import { useFormContext } from 'react-hook-form';
-import { getToken } from '../../api/API';
+import { getToken } from '../../api/API.js';
 
 const getTimeInterval = (date = new Date(), length = 24) => {
   const minutes = length === 96 ? 15 : length === 48 ? 30 : 60;
@@ -52,7 +51,7 @@ export const LoadBalancing = () => {
   const { watch } = useFormContext();
 
   const nowIcon = activeTab === tabs.now ? plainGreen : plain;
-  const scheduleIcon = activeTab === tabs.schedule ? calendarOrange : calendar;
+  const scheduleIcon = activeTab === tabs.schedule ? magicStick : calendar;
   const autoIcon = activeTab === tabs.auto ? magicStickPurple : magicStick;
 
   const chartCategories = useMemo(

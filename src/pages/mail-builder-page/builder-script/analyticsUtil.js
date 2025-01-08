@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
-import * as analyticsApi from '../../../api/builder/analytics';
-import { getToken } from '../../../api/API';
+import * as analyticsApi from '../../../api/builder/analytics.js';
+import { getToken } from '../../../api/API.js';
 
 async function initOpenTag(html, access_token, template_id) {
   const id = uuidv4();

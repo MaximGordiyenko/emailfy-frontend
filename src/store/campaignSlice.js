@@ -1,7 +1,8 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { get_smtp } from '../api/settings/settings';
-import { getToken } from '../api/API';
+// import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+// import { get_smtp } from '../api/settings/settings.js';
+// import { getToken } from '../api/API.js';
 
+/*
 export const fetchSmtpSettings = createAsyncThunk(
   'email/fetchSmtpSettings',
   async (_, { rejectWithValue }) => {
@@ -60,3 +61,4 @@ const campaignSlice = createSlice({
 
 export const { updateField, clearFields } = campaignSlice.actions;
 export default campaignSlice.reducer;
+*/

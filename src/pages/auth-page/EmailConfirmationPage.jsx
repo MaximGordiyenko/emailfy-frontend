@@ -2,9 +2,9 @@ import { useNavigate } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
 // import { verifyUser } from '../../store/userSlice';
 import { useEffect } from 'react';
-import { BrandLogo } from '../../components/logo/BrandLogo';
+import { BrandLogo } from '../../components/logo/BrandLogo.jsx';
 import { Button, Typography, Space, Flex, message } from 'antd';
-import { ROUTE } from '../../routes/routes.constants';
+import { ROUTE } from '../../routes/routes.constants.js';
 
 const { Title, Text, Link } = Typography;
 

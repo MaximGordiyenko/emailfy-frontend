@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import AuthCode from 'react-auth-code-input';
 
-import { ROUTE } from '../../routes/routes.constants';
-import { BrandLogo } from '../../components/logo/BrandLogo';
+import { ROUTE } from '../../routes/routes.constants.js';
+import { BrandLogo } from '../../components/logo/BrandLogo.jsx';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { signInValidation } from '../../validation/auth';
+import { signInValidation } from '../../validation/auth.js';
 
 import { Form, Button, Typography, Space, Flex, message } from 'antd';
 const { Title, Text, Link } = Typography;

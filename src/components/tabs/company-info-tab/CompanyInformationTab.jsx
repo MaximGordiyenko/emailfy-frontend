@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
-import * as companyInfoAPI from '../../../api/settings/company_info';
-import { getToken } from '../../../api/API';
+import * as companyInfoAPI from '../../../api/settings/company_info.js';
+import { getToken } from '../../../api/API.js';
 import { AuthInput } from '../../forms/AuthInput.tsx';
 import { useForm } from 'react-hook-form';
 import { AuthTextArea } from '../../forms/AuthTextArea.tsx';
-import CountrySelect from '../../selects/CountriySelect';
+import CountrySelect from '../../selects/CountriySelect.jsx';
 import { useQuery } from '@tanstack/react-query';
-import { getCountries } from '../../../api/settings/company_info';
+import { getCountries } from '../../../api/settings/company_info.js';
 import { Space, Flex, Form, Typography, Divider, Tooltip, Image, Modal } from 'antd';
-import TextScroller from '../../scrollers/TextScroller';
+import TextScroller from '../../scrollers/TextScroller.jsx';
 import './styles.css';
 const { Title, Text, Link } = Typography;
 

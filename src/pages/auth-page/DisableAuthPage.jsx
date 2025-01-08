@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import AuthCode from 'react-auth-code-input';
 import { useEffect, useState } from 'react';
-import { ROUTE } from '../../routes/routes.constants';
-import { BrandLogo } from '../../components/logo/BrandLogo';
+import { ROUTE } from '../../routes/routes.constants.js';
+import { BrandLogo } from '../../components/logo/BrandLogo.jsx';
 import { Flex, Space, Button, message, Typography } from 'antd';
 import './styles.css';
 

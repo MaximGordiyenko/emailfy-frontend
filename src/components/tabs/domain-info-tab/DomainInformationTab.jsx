@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
-import { ROUTE } from '../../../routes/routes.constants';
+import { ROUTE } from '../../../routes/routes.constants.js';
 
-import { getToken } from '../../../api/API';
-import { check_smtp, delete_smtp, get_smtp } from '../../../api/settings/settings';
+import { getToken } from '../../../api/API.js';
+import { check_smtp, delete_smtp, get_smtp } from '../../../api/settings/settings.js';
 
-import { initialSmtpData, initialStatusData } from '../../../constants/common.constants';
+import { initialSmtpData, initialStatusData } from '../../../constants/common.constants.js';
 
 import { Form, Button, Typography, Space, Flex, message, Divider } from 'antd';
-import { DomainAuth } from '../../../pages/settings/domainAuth/DomainAuth';
+import { DomainAuth } from '../../../pages/settings-page/domainAuth/DomainAuth.jsx';
 const { Title, Text, Link } = Typography;
 
 export const DomainInformationTab = () => {

@@ -2,20 +2,20 @@ import { useEffect, useState } from 'react';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { signUpValidation } from '../../../validation/auth';
+import { signUpValidation } from '../../../validation/auth.js';
 
 import { useQuery, useMutation } from '@tanstack/react-query';
-import { getToken, removeToken } from '../../../api/API';
+import { getToken, removeToken } from '../../../api/API.js';
 import {
   getUserInfo,
   updateAccountData,
   getProfileImageById,
   uploadProfileImage,
-} from '../../../api/settings/account';
+} from '../../../api/settings/account.js';
 
-import * as userInfoAPI from '../../../api/settings/account';
-import * as emailSettingsAPI from '../../../api/settings/email';
-import { ProfileImageUploader } from '../../drag-n-drop-uploader/ProfileImageUploader';
+import * as userInfoAPI from '../../../api/settings/account.js';
+import * as emailSettingsAPI from '../../../api/settings/email.js';
+import { ProfileImageUploader } from '../../drag-n-drop-uploader/ProfileImageUploader.jsx';
 
 import { AppButton } from '../../button/AppButton';
 import { UserInfoBlock } from './UserInfoBlock';

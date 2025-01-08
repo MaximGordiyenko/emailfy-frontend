@@ -1,25 +1,24 @@
-import { BuildingBlocksList } from './blocks-tabs/BuildingBlocksList';
-import { LayoutBlocksList } from './blocks-tabs/LayoutBlocksList';
-import { SettingBlocks } from './blocks-tabs/SettingBlocks';
-import { MarkupEditor } from './text-tabs/markup-editor/MarkupEditor';
-import { MarkupSettings } from './text-tabs/MarkupSettings';
-import { ButtonEditor } from './button-tabs/ButtonEditor';
-import { ImageEditor } from './image-tabs/ImageEditor';
-import { ButtonSettings } from './button-tabs/ButtonSettings';
-import { ImageSettings } from './image-tabs/ImageSettings';
-import { HtmlEditor } from './html-tabs/HtmlEditor';
-import { VideoEditor } from './video-tabs/VideoEditor';
-import { VideoSettings } from '@mui/icons-material';
-import { GiphyEditor } from './giphy-tabs/GiphyEditor';
-import { GiphySettings } from './giphy-tabs/GiphySettings';
-import { FooterEditor } from './footer-tabs/FooterEditor';
-import { FooterSettings } from './footer-tabs/FooterSettings';
-import { SpacingContent } from './spacing-tabs/SpacingContent';
-import { SpacingSettings } from './spacing-tabs/SpacingSettings';
-import { DividerEditor } from './divider-tabs/DividerEditor';
-import { DividerSettings } from './divider-tabs/DividerSettings';
-import { SocialEditor } from './social-tabs/SocialEditor';
-import { SocialSettings } from './social-tabs/SocialSettings';
+import { BuildingBlocksList } from './blocks-tabs/BuildingBlocksList.jsx';
+import { LayoutBlocksList } from './blocks-tabs/LayoutBlocksList.jsx';
+import { SettingBlocks } from './blocks-tabs/SettingBlocks.jsx';
+import { MarkupEditor } from './text-tabs/markup-editor/MarkupEditor.jsx';
+import { MarkupSettings } from './text-tabs/MarkupSettings.jsx';
+import { ButtonEditor } from './button-tabs/ButtonEditor.jsx';
+import { ImageEditor } from './image-tabs/ImageEditor.jsx';
+import { ButtonSettings } from './button-tabs/ButtonSettings.jsx';
+import { ImageSettings } from './image-tabs/ImageSettings.jsx';
+import { HtmlEditor } from './html-tabs/HtmlEditor.jsx';
+import { VideoEditor } from './video-tabs/VideoEditor.jsx';
+import { GiphyEditor } from './giphy-tabs/GiphyEditor.jsx';
+import { GiphySettings } from './giphy-tabs/GiphySettings.jsx';
+import { FooterEditor } from './footer-tabs/FooterEditor.jsx';
+import { FooterSettings } from './footer-tabs/FooterSettings.jsx';
+import { SpacingContent } from './spacing-tabs/SpacingContent.jsx';
+import { SpacingSettings } from './spacing-tabs/SpacingSettings.jsx';
+import { DividerEditor } from './divider-tabs/DividerEditor.jsx';
+import { DividerSettings } from './divider-tabs/DividerSettings.jsx';
+import { SocialEditor } from './social-tabs/SocialEditor.jsx';
+import { SocialSettings } from './social-tabs/SocialSettings.jsx';
 
 export const initialTabs = {
   blocksTabs: [
@@ -165,7 +164,7 @@ export const initialTabs = {
       id: 1,
       label: 'Settings',
       name: 'video-settings-tab',
-      content: <VideoSettings />,
+      content: <VideoEditor />,
     },
   ],
   giphyTabs: [

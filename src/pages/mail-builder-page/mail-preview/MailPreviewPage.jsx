@@ -1,15 +1,15 @@
 import { useContext, useState } from 'react';
-import { MailBuilderContext } from '../../../context/MailBuilderContext';
+import { MailBuilderContext } from '../../../context/MailBuilderContext.jsx';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { RootHtml, MailEditorToHTML } from '../../../helpers/TypeResolverComponent';
-import { TextIconButton } from '../../../components/icons/TextIconButton';
-import { PenEditIcon } from '../../../components/icons/PenEditIcon';
-import { EnvelopRoundIcon } from '../../../components/icons/EnvelopRoundIcon';
-import { PreviewComponent } from '../../campaigns/email-capmaign/PreviewComponent';
+import { RootHtml, MailEditorToHTML } from '../../../helpers/TypeResolverComponent.jsx';
+import { TextIconButton } from '../../../components/icons/TextIconButton.jsx';
+import { PenEditIcon } from '../../../components/icons/PenEditIcon.jsx';
+import { EnvelopRoundIcon } from '../../../components/icons/EnvelopRoundIcon.jsx';
+import { PreviewComponent } from '../../campaign-page/email-capmaign/PreviewComponent.jsx';
 import { useNavigate } from 'react-router-dom';
-import { SendMailModal } from '../../../components/modals/SendMailModal';
-import { ROUTE } from '../../../routes/routes.constants';
-import { useMainContext } from '../../../context/MainContext';
+import { SendMailModal } from '../../../components/modals/SendMailModal.jsx';
+import { ROUTE } from '../../../routes/routes.constants.js';
+import { useMainContext } from '../../../context/MainContext.jsx';
 
 export const MailPreviewPage = () => {
   const [isOpenSendMailModal, setIsOpenSendMailModal] = useState(false);

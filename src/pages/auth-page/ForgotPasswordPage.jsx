@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { AppButton } from '../../components/button/AppButton';
-import { reset_password } from '../../api/settings/settings';
-import { BrandLogo } from '../../components/logo/BrandLogo';
+import { AppButton } from '../../components/button/AppButton.jsx';
+import { reset_password } from '../../api/settings/settings.js';
+import { BrandLogo } from '../../components/logo/BrandLogo.jsx';
 import { AuthInput } from '../../components/forms/AuthInput.tsx';
-import { ROUTE } from '../../routes/routes.constants';
+import { ROUTE } from '../../routes/routes.constants.js';
 import { Form, Button, Typography, Space, Flex, message } from 'antd';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { signInValidation } from '../../validation/auth';
+import { signInValidation } from '../../validation/auth.js';
 
 const { Title, Text, Link } = Typography;
 

@@ -1,11 +1,11 @@
-import { ROUTE } from '../../routes/routes.constants';
+import { ROUTE } from '../../routes/routes.constants.js';
 
-import { saveContent } from '../../pages/mail-builder-page/builder-script/builderTemplate';
+import { saveContent } from '../../pages/mail-builder-page/builder-script/builderTemplate.js';
 
-import { AppButton } from '../button/AppButton';
-import { ThemeSwitcher } from '../switchers/ThemeSwitcher';
-import { EmailClientSelect } from '../selects/EmailClientSelect';
-import { DesktopMobileIcon } from '../icons/group-icons/DesktopMobileIcon';
+import { AppButton } from '../button/AppButton.jsx';
+import { ThemeSwitcher } from '../switchers/ThemeSwitcher.jsx';
+import { EmailClientSelect } from '../selects/EmailClientSelect.jsx';
+import { DesktopMobileIcon } from '../icons/group-icons/DesktopMobileIcon.jsx';
 
 import { Select } from 'antd';
 import {

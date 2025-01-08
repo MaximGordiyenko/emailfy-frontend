@@ -1,4 +1,4 @@
-import { API, getToken } from '../API';
+import { API, getToken } from '../API.js';
 
 export const getTotalEmailAnalytics = async () => {
   try {

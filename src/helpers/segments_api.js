@@ -1,4 +1,4 @@
-import * as groupsApi from '../api/subscribes/groups';
+import * as groupsApi from '../api/subscribes/groups.js';
 
 export async function get_core_lists(access_token) {
   const root_group = (await groupsApi?.get_root(access_token))?.data;

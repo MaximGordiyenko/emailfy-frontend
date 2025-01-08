@@ -1,5 +1,5 @@
 import { Layout, Typography, Flex, Divider } from 'antd';
-import logo from '../../assets/images/dinoLogo.png';
+import logo from '../../assets/images/logo_calibri.png';
 import './styles.css';
 
 const { Footer } = Layout;
@@ -11,7 +11,7 @@ export const AppFooter = ({ sidebarWidth }) => {
       style={{
         margin: `0 20px 20px ${sidebarWidth}px`,
       }}>
-      <Divider>
+      <Divider plain>
         <img src={logo} alt="brand-logo" />
       </Divider>
       <Flex justify="space-around">

@@ -1,11 +1,11 @@
 import { useContext, useState } from 'react';
 import { ReactSortable } from 'react-sortablejs';
-import { initMobileMediaQuery } from '../initial.constants';
+import { initMobileMediaQuery } from '../initial.constants.js';
 import './styles.css';
-import * as builderScript from '../builder-script/builderScript';
-import * as builderTemplate from '../builder-script/builderTemplate';
-import * as resourceManager from '../builder-script/resourceManager';
-import { MailBuilderContext } from '../../../context/MailBuilderContext';
+import * as builderScript from '../builder-script/builderScript.js';
+import * as builderTemplate from '../builder-script/builderTemplate.js';
+import * as resourceManager from '../builder-script/resourceManager.js';
+import { MailBuilderContext } from '../../../context/MailBuilderContext.jsx';
 
 const LayoutChildBlock = ({ editorBlock, childBlock, childIdx }) => {
   const [grandChildID, setGrandChildID] = useState('');

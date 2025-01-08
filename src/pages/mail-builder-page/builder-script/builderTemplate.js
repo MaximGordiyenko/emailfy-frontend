@@ -1,8 +1,8 @@
-import * as scriptApi from '../../../api/builder/script';
-import * as contentApi from '../../../api/builder/email_contents';
-import * as templateApi from '../../../api/builder/templates';
-import { initBlock, filterBlockProperties } from './builderScript';
-import { getToken } from '../../../api/API';
+import * as scriptApi from '../../../api/builder/script.js';
+import * as contentApi from '../../../api/builder/email_contents.js';
+import * as templateApi from '../../../api/builder/templates.js';
+import { initBlock, filterBlockProperties } from './builderScript.js';
+import { getToken } from '../../../api/API.js';
 
 export function setCurrentTemplateId(template_id) {
   localStorage.setItem('current_template_id', template_id);

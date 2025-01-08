@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
-import { ROUTE } from '../routes/routes.constants';
-import { setToken, removeToken, getToken } from '../api/API';
+import { ROUTE } from '../routes/routes.constants.js';
+import { setToken, removeToken, getToken } from '../api/API.js';
 
 const AuthContext = createContext(null);
 

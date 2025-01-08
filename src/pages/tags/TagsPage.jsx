@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import { useMainContext } from '../../context/MainContext';
+import { useMainContext } from '../../context/MainContext.jsx';
 
 import { useQuery } from '@tanstack/react-query';
-import { getEmailClientsData, getTagsStatistic } from '../../api/tags/tags';
+import { getEmailClientsData, getTagsStatistic } from '../../api/tags/tags.js';
 
 import { useForm } from 'react-hook-form';
 
-import { tableColumns, tooltipMessages, tagTableColumns } from './tags.constants';
-import { TagMultiSelect } from '../../components/selects/TagMultiSelect';
+import { tableColumns, tooltipMessages, tagTableColumns } from './tags.constants.js';
+import { TagMultiSelect } from '../../components/selects/TagMultiSelect.jsx';
 
 import { Table, Checkbox, Divider, Tooltip, Typography, Tag } from 'antd';
-import { TagMenu } from './TagsMenu';
+import { TagMenu } from './TagsMenu.jsx';
 const { Title } = Typography;
 
 export const TagsPage = () => {

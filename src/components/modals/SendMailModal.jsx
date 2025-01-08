@@ -2,12 +2,12 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
-import { TextIconWrapper } from '../wrappers/TextIconWrapper';
-import { InputText } from '../inputs/InputText';
-import { RoundCloseIcon } from '../icons/RoundCloseIcon';
-import { BrandButton } from '../icons/BrandButton';
-import * as builderTemplate from '../../pages/mail-builder-page/builder-script/builderTemplate';
-import * as testEmail from '../../pages/mail-builder-page/builder-script/testEmail';
+import { TextIconWrapper } from '../wrappers/TextIconWrapper.jsx';
+import { InputText } from '../inputs/InputText.jsx';
+import { RoundCloseIcon } from '../icons/RoundCloseIcon.jsx';
+import { BrandButton } from '../icons/BrandButton.jsx';
+import * as builderTemplate from '../../pages/mail-builder-page/builder-script/builderTemplate.js';
+import * as testEmail from '../../pages/mail-builder-page/builder-script/testEmail.js';
 import './styles.css';
 
 export const SendMailModal = ({ isOpenModal, onClose, mailEditorState }) => {

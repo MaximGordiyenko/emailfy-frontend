@@ -1,4 +1,12 @@
 .ant-layout-footer {
   padding: 0;
   text-align: center;
+  
+  .ant-divider {
+    .ant-divider-inner-text {
+      & > img {
+        width: 100px;
+      }
+    }
+  }
 }

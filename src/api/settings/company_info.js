@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getToken, API } from '../API';
+import { getToken, API } from '../API.js';
 
 export const getCountries = async () => {
   try {

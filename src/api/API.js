@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { refreshAccessToken } from './auth/auth';
+import { refreshAccessToken } from './auth/auth.js';
 
 const BASE_URL = 'http://localhost:4001/api';
 

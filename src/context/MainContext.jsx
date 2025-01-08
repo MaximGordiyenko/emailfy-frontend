@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { getClientEmails } from '../api/dashboard/dashboard';
+import { getClientEmails } from '../api/dashboard/dashboard.js';
 
 const MainContext = createContext(null);
 

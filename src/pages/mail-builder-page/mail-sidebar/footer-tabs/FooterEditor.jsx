@@ -1,9 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { ReactSortable } from 'react-sortablejs';
-
-import Typography from '@mui/material/Typography';
-
 import { Accordion } from '../../../../components/accordion/Accordion';
 
 import TextSquare from '../../../../assets/images/footer/TextSquare.svg';

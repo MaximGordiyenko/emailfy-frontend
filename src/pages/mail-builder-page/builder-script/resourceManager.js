@@ -1,5 +1,5 @@
-import * as resourcesApi from '../../../api/builder/resources';
-import { getToken } from '../../../api/API';
+import * as resourcesApi from '../../../api/builder/resources.js';
+import { getToken } from '../../../api/API.js';
 
 export function findActiveResources(block, resources = []) {
   if (block instanceof Array) {

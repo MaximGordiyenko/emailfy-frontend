@@ -1,11 +1,11 @@
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/AuthContext.jsx';
 
 import { useNavigate } from 'react-router-dom';
-import { ROUTE } from '../../routes/routes.constants';
+import { ROUTE } from '../../routes/routes.constants.js';
 
 import { useMutation } from '@tanstack/react-query';
-import { signIn } from '../../api/auth/auth';
-import { removeToken } from '../../api/API';
+import { signIn } from '../../api/auth/auth.js';
+import { removeToken } from '../../api/API.js';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -13,7 +13,7 @@ import { signInValidation } from '../../validation/auth.js';
 
 import { Form, Button, Typography, Space, Flex, message } from 'antd';
 import { AuthInput } from '../../components/forms/AuthInput.tsx';
-import { BrandLogo } from '../../components/logo/BrandLogo';
+import { BrandLogo } from '../../components/logo/BrandLogo.jsx';
 
 import './styles.css';
 
@@ -112,12 +112,14 @@ export const LoginPage = () => {
         <Text>Must contain at least one special character @, $, !, %, *, ?, &</Text>
       </Space>
 
-      <Text>
-        By clicking on the “Create an account” button you’re agreeing with our {``}
-        <Link href={`#`}>Privacy Policy {``}</Link>
-        and {``}
-        <Link href={`#`}>Terms and Conditions.</Link>
-      </Text>
+      <Space direction="vertical">
+        <Text>
+          By clicking on the “Create an account” button you’re agreeing with our {``}
+          <Link href={`#`}>Privacy Policy {``}</Link>
+          and {``}
+          <Link href={`#`}>Terms and Conditions.</Link>
+        </Text>
+      </Space>
 
       <Flex justify="center" align="center" gap={4}>
         <Text>Not registered yet?</Text>

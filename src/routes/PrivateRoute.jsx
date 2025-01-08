@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext.jsx';
 
 import { Navigate, useNavigate } from 'react-router-dom';
-import { ROUTE } from './routes.constants';
+import { ROUTE } from './routes.constants.js';
 
 export const PrivateRoute = ({ children }) => {
   const navigate = useNavigate();

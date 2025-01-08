@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API, getToken, setToken, removeToken } from '../API';
+import { API, getToken, setToken, removeToken } from '../API.js';
 
 export const signUp = async ({ email, password, confirmPassword }) => {
   try {

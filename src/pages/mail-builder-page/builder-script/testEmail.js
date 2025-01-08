@@ -1,5 +1,5 @@
-import * as testApi from '../../../api/builder/builder_test';
-import { getToken } from '../../../api/API';
+import * as testApi from '../../../api/builder/builder_test.js';
+import { getToken } from '../../../api/API.js';
 
 export async function sendTestEmail(emails, content_id = '00000000-0000-0000-0000-000000000000') {
   const access_token = getToken('accessToken');
