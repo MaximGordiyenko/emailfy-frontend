@@ -5,11 +5,17 @@ import { getClientEmails } from '../api/dashboard/dashboard.js';
 const MainContext = createContext(null);
 
 export const MainProvider = ({ children }) => {
-  const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [isOpenMenuAudience, setIsOpenMenuAudience] = useState(false);
+  
+  const [isOpenMenuCampaign, setIsOpenMenuCampaign] = useState(false);
+  const [isOpenSendMailModal, setIsOpenSendMailModal] = useState(false);
+  const [mediaQuery, setMediaQuery] = useState(70);
+  
+  const [isOpenMenuTag, setIsOpenMenuTag] = useState(false);
+  
   const [selectedEmailClientID, setSelectedEmailClientID] = useState(null);
   const [emailCampaignStep, setEmailCampaignStep] = useState(0);
   const [isSegmentationSelectedDropdown, setIsSegmentationSelectedDropdown] = useState(false);
-  const [mediaQuery, setMediaQuery] = useState('33%');
 
   const { data: clientEmailsData } = useQuery({
     queryKey: ['getClientEmails'],
@@ -29,8 +35,11 @@ export const MainProvider = ({ children }) => {
   return (
     <MainContext.Provider
       value={{
-        isOpenMenu,
-        setIsOpenMenu,
+        isOpenMenuAudience, setIsOpenMenuAudience,
+        isOpenMenuCampaign, setIsOpenMenuCampaign,
+        isOpenSendMailModal, setIsOpenSendMailModal,
+        mediaQuery, setMediaQuery,
+        isOpenMenuTag, setIsOpenMenuTag,
         emailClientOptions,
         selectedEmailClientID,
         setSelectedEmailClientID,
@@ -38,8 +47,6 @@ export const MainProvider = ({ children }) => {
         setEmailCampaignStep,
         isSegmentationSelectedDropdown,
         setIsSegmentationSelectedDropdown,
-        mediaQuery,
-        setMediaQuery,
       }}>
       {children}
     </MainContext.Provider>

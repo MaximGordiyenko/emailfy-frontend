@@ -165,37 +165,6 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-
-  .header-icon-btn-container {
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    top: 0;
-    background-color: white;
-    padding: 10px 0;
-
-    .media-query-btn-wrapper {
-      width: 60px;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 8px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      caret-color: transparent;
-      margin: 0 23% 0 auto;
-    }
-
-    .preview-btn-wrapper {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      caret-color: transparent;
-    }
-  }
 }
 
 /* Preview component for Manual Text & HTML */

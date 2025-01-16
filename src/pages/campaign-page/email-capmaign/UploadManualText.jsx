@@ -8,7 +8,6 @@ import { campaignTextSchema } from '../../../validation/textCampaign';
 import { InputText } from '../../../components/inputs/InputText';
 import './style.css';
 import { LoadBalancing } from '../../../components/balancing/LoadBalancing';
-import { CampaignStepper } from './CampaignStepper';
 import { UploadCampaignForm } from './UploadCampaignForm';
 import { PenEditIcon } from '../../../components/icons/PenEditIcon';
 import { UploadTextForm } from './UploadTextForm';
@@ -79,7 +78,6 @@ export const UploadManualText = () => {
           <LoadBalancing />
         ) : (
           <>
-            <CampaignStepper />
             <div className="campaign-input-box">
               <InputText
                 value={/*campaign_name*/ ''}

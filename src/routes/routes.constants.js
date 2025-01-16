@@ -12,7 +12,7 @@ export const ROUTE = {
   manualSegmentation: 'manualSegmentation',
   segmentationPage: 'segmentation-page',
   campaignsPage: 'campaigns-page',
-  createHtml: 'createHtml',
+  uploadHtml: 'uploadHtml',
   htmlPreview: 'htmlPreview',
   createText: 'createText',
   textPreview: 'textPreview',

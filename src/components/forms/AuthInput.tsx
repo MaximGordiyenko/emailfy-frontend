@@ -2,30 +2,52 @@ import { FC } from 'react';
 import { Form, Input } from 'antd';
 import { Controller } from 'react-hook-form';
 import { AuthFormProps } from './types';
+// @ts-ignore
+import { showRequiredLabel } from '../../helpers/ShowRequiredLabel.tsx';
+
+const {Item} = Form;
+const {Password} = Input;
 
 export const AuthInput: FC<AuthFormProps> = ({
-  control,
-  validateStatus,
-  help,
-  name,
-  label,
-  tooltip,
-  placeholder,
-  type = 'text',
-}) => {
+                                               control,
+                                               validateStatus,
+                                               help,
+                                               name,
+                                               label,
+                                               required = false,
+                                               tooltip,
+                                               placeholder,
+                                               size,
+                                               prefix,
+                                               allowClear,
+                                               addonAfter,
+                                               type = 'text'
+                                             }) => {
   return (
-    <Form.Item label={label} validateStatus={validateStatus} help={help} tooltip={tooltip}>
+    <Item
+      label={label && showRequiredLabel(label, required)}
+      validateStatus={validateStatus}
+      help={help}
+      tooltip={tooltip}
+      layout="vertical">
       <Controller
         name={name}
         control={control}
-        render={({ field }) =>
+        render={({field}) =>
           type === 'password' ? (
-            <Input.Password {...field} placeholder={placeholder} />
+            <Password {...field} placeholder={placeholder}/>
           ) : (
-            <Input {...field} placeholder={placeholder} />
+            <Input
+              {...field}
+              placeholder={placeholder}
+              size={size}
+              prefix={prefix}
+              allowClear={allowClear}
+              addonAfter={addonAfter}
+            />
           )
         }
       />
-    </Form.Item>
+    </Item>
   );
 };

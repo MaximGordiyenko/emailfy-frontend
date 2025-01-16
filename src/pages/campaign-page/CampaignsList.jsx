@@ -1,4 +1,4 @@
-import { FILTERED_CARDS } from './campaigns.constants.js';
+import { FILTERED_CARDS, STATUSES, COLORS  } from './campaign.constants.js';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getToken } from '../../api/API.js';
@@ -8,20 +8,20 @@ import { format } from 'date-fns';
 import emails from '../../assets/images/emails.png';
 import * as builderTemplate from '../mail-builder-page/builder-script/builderTemplate.js';
 import { ROUTE } from '../../routes/routes.constants.js';
-import { STATUSES, COLORS } from './campaign.constants.js';
 import { Typography, Tabs, Card, Flex, Rate, Input } from 'antd';
 import {
   FolderOpenOutlined, ClockCircleOutlined, ScheduleOutlined, FileDoneOutlined,
   UnorderedListOutlined, EditOutlined, DeleteOutlined, HeartOutlined, MailOutlined
 } from '@ant-design/icons';
 import './styles.css';
+import { useMainContext } from '../../context/MainContext.jsx';
 
 const { Text, Title } = Typography;
 const { Search } = Input;
 
 const CardTitle = ({ title }) => {
   return (
-    <Flex align="baseline">
+    <Flex align="center">
       <MailOutlined className="title-mail-icon"/>
       <Title level={4}>{title}</Title>
     </Flex>
@@ -82,10 +82,10 @@ export const CampaignsList = () => {
     const type = await builderTemplate.getEditorType();
     switch (type) {
       case 'builder':
-        navigate(`${ROUTE.campaignsPage}/${ROUTE.createHtml}`);
+        navigate(`${ROUTE.campaignsPage}/${ROUTE.uploadHtml}`);
         break;
       case 'html':
-        navigate(`${ROUTE.createHtml}`);
+        navigate(`${ROUTE.uploadHtml}`);
         break;
       case 'text':
         navigate(`/${ROUTE.campaignsPage}/${ROUTE.createText}`);
@@ -98,12 +98,12 @@ export const CampaignsList = () => {
   
   const renderCardContent = (card) => (
     <Card
-      title={<CardTitle title={card.title}/>}
+      key={card?.id}
+      title={<CardTitle title={card?.title}/>}
       size="small"
-      bordered={false}
       extra={[
         <DeleteOutlined key="delete" className="delete-icon" onClick={() => handleDeleteCard(card.id)}/>,
-        <EditOutlined key="edit"/>,
+        <EditOutlined key="edit" className="edit-icon"/>,
         <Rate
           allowClear
           value={true}
@@ -113,7 +113,7 @@ export const CampaignsList = () => {
           key="Favorite"
         />
       ]}
-      style={{ backgroundColor: card.color }}>
+      style={{ border: `3px solid ${card.color}` }}>
       <Text>{card.des}</Text>
     </Card>
   );

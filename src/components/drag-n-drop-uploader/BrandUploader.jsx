@@ -14,7 +14,7 @@ export const BrandUploader = () => {
   // const dispatch = useDispatch();
 
   // const { html } = useSelector((state) => state.campaign.data);
-  const html = 'html';
+  const html = '';
 
   const onDrop = async (acceptedFiles) => {
     const file = acceptedFiles[0];
