@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { ROUTE } from '../../routes/routes.constants.js';
-import { useMainContext } from '../../context/MainContext.jsx';
 
 import { Layout, Breadcrumb, Flex, theme } from 'antd';
 
@@ -16,30 +15,22 @@ const { Header } = Layout;
 
 export const Head = ({ isCollapsed }) => {
   const navigate = useNavigate();
-
-  const { isOpenMenu, setIsOpenMenu, emailCampaignStep, setEmailCampaignStep } = useMainContext();
-
+  
   const {
-    token: { colorBgContainer },
+    token: { colorBgContainer }
   } = theme.useToken();
-
-  const headerConfigs = getHeaderConfigs(
-    navigate,
-    isOpenMenu,
-    setIsOpenMenu,
-    emailCampaignStep,
-    setEmailCampaignStep,
-  );
-
+  
+  const headerConfigs = getHeaderConfigs(navigate);
+  
   const { icon, content } = useBreadcrumbsContent(headerConfigs);
   const { path } = useBreadcrumbsPath(headerConfigs);
-
+  
   return (
     <Header style={{ background: colorBgContainer }}>
       {isCollapsed ? (
-        <BrandLogo link={`/${ROUTE.home}`} isCollapsed={isCollapsed} />
+        <BrandLogo link={`/${ROUTE.home}`} isCollapsed={isCollapsed}/>
       ) : (
-        <BrandLogo link={`/${ROUTE.home}`} />
+        <BrandLogo link={`/${ROUTE.home}`}/>
       )}
       <Flex justify="space-between" align="center">
         <Breadcrumb
@@ -50,8 +41,8 @@ export const Head = ({ isCollapsed }) => {
                   <div className={'header-icon'}>{icon}</div>
                   <div className={'header-path'}>{path}</div>
                 </Flex>
-              ),
-            },
+              )
+            }
           ]}
         />
         <div className={'header-content'}>{content()}</div>

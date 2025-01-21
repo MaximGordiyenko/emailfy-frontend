@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CheckStatusContext } from '../../DomainAuth';
-import tubeSpinner from '../../../../../assets/images/alert_circle.png';
 import { Divider, Space, Card, Button, Typography, message } from 'antd';
 const { Title, Text, Link } = Typography;
 

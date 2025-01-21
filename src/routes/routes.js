@@ -13,9 +13,9 @@ import { ManualUploadPage } from '../pages/audience-page/uploadManually/ManualUp
 import { SegmentationPage } from '../pages/audience-page/segmentation/SegmentationPage.jsx';
 import { UploadHTML } from '../pages/campaign-page/email-capmaign/UploadHTML.jsx';
 import { CampaignsPage } from '../pages/campaign-page/CampaignsPage.jsx';
-import { CampaignsHtmlPreview } from '../pages/campaign-page/email-capmaign/CampaignsHtmlPreview.jsx';
+import { HtmlPreview } from '../pages/campaign-page/email-capmaign/HtmlPreview.jsx';
 import { UploadManualText } from '../pages/campaign-page/email-capmaign/UploadManualText.jsx';
-import { CampaignsTextPreview } from '../pages/campaign-page/email-capmaign/CampaignsTextPreview.jsx';
+import { TextPreview } from '../pages/campaign-page/email-capmaign/TextPreview.jsx';
 import { SegmentManually } from '../pages/audience-page/segmentManual/SegmentationManual.jsx';
 import { TagsPage } from '../pages/tags/TagsPage.jsx';
 import { ForgotPasswordPage } from '../pages/auth-page/ForgotPasswordPage.jsx';
@@ -38,6 +38,7 @@ import { HomeLayout } from '../layouts/HomeLayout.jsx';
 import { DisableAuthPage } from '../pages/auth-page/DisableAuthPage.jsx';
 import { CampaignsList } from '../pages/campaign-page/CampaignsList.jsx';
 import { MailBuilder } from '../pages/mail-builder-page/MailBuilder.jsx';
+import { UploadHtmlPage } from '../pages/campaign-page/email-capmaign/UploadHTMLPage.jsx';
 
 export const routes = createBrowserRouter([
   {
@@ -145,12 +146,17 @@ export const routes = createBrowserRouter([
             element: <CampaignsList />,
           },
           {
-            path: `${ROUTE.createHtml}`,
-            element: <UploadHTML />,
-          },
-          {
-            path: `${ROUTE.createHtml}/${ROUTE.htmlPreview}`,
-            element: <CampaignsHtmlPreview />,
+            element: <UploadHtmlPage />,
+            children: [
+              {
+                path: `${ROUTE.uploadHtml}`,
+                element: <UploadHTML />,
+              },
+              {
+                path: `${ROUTE.uploadHtml}/${ROUTE.htmlPreview}`,
+                element: <HtmlPreview />,
+              },
+            ],
           },
           {
             path: `${ROUTE.createText}`,
@@ -158,7 +164,7 @@ export const routes = createBrowserRouter([
           },
           {
             path: `${ROUTE.createText}/${ROUTE.textPreview}`,
-            element: <CampaignsTextPreview />,
+            element: <TextPreview />,
           },
           {
             path: `${ROUTE.mailBuilderPage}`,

@@ -8,23 +8,24 @@ import { CampaignModal } from './createCampaignModal/CampaignModal';
 import './styles.css';
 
 export const CampaignsPage = () => {
-  const { isOpenMenu, setIsOpenMenu } = useMainContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hoveredCard, setHoveredCard] = useState(null);
-
+  
+  const { isOpenMenuCampaign, setIsOpenMenuCampaign } = useMainContext();
+  
   return (
     <div className="campaigns-page-container">
-      {isOpenMenu && <CampaignMenu onOpenModal={() => setIsModalOpen((prev) => !prev)} />}
-
+      {isOpenMenuCampaign && <CampaignMenu onOpenModal={() => setIsModalOpen((prev) => !prev)}/>}
+      
       <CampaignModal
         hoveredCard={hoveredCard}
         setHoveredCard={setHoveredCard}
         open={isModalOpen}
         onCancel={() => setIsModalOpen((prev) => !prev)}
-        setIsOpenMenu={() => setIsOpenMenu((prev) => !prev)}
+        setIsOpenMenu={() => setIsOpenMenuCampaign((prev) => !prev)}
       />
-
-      <Outlet />
+      
+      <Outlet/>
     </div>
   );
 };

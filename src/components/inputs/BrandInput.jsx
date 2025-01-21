@@ -1,4 +1,3 @@
-import { Asterisk } from '../asterisk/Asterisk';
 import './styles.css';
 import { BrandLabel } from './BrandLabel';
 

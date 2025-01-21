@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import { MODAL_CARDS } from '../campaigns.constants';
+import { MODAL_CARDS } from '../campaign.constants.js';
 import { Flex, Card, Modal, Typography } from 'antd';
 import './styles.css';
 const { Meta } = Card;

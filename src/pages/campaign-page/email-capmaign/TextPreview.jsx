@@ -1,23 +1,25 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
-import { DesktopIcon } from '../../../components/icons/DesktopIcon';
-import { MobileIcon } from '../../../components/icons/MobileIcon';
-import { TextIconButton } from '../../../components/icons/TextIconButton';
+import draftToHtml from 'draftjs-to-html';
+import { TextIconButton } from '../../../components/icons/TextIconButton.jsx';
+import { EnvelopRoundIcon } from '../../../components/icons/EnvelopRoundIcon.jsx';
+import { DesktopIcon } from '../../../components/icons/DesktopIcon.jsx';
+import { MobileIcon } from '../../../components/icons/MobileIcon.jsx';
 import { PenEditIcon } from '../../../components/icons/PenEditIcon';
-import { EnvelopRoundIcon } from '../../../components/icons/EnvelopRoundIcon';
-import { PreviewComponent } from './PreviewComponent';
-import { SendMailModal } from '../../../components/modals/SendMailModal';
+import { PreviewComponent } from './PreviewComponent.jsx';
+import { SendMailModal } from '../../../components/modals/SendMailModal.jsx';
 import './style.css';
+import { ROUTE } from '../../../routes/routes.constants.js';
 
-export const CampaignsHtmlPreview = () => {
+export const TextPreview = () => {
   const [isOpenModalPreview, setIsOpenModalPreview] = useState(false);
   const [mediaQuery, setMediaQuery] = useState('33%');
 
   const navigate = useNavigate();
 
-  // const { html } = useSelector((state) => state.campaign.data);
-  const html = 'blabla';
+  // const { campaign_text } = useSelector((state) => state.campaign.data);
+  const campaign_text = 'bla';
+  const editorStateOfHtml = draftToHtml(campaign_text);
 
   const isDesktopMode = mediaQuery === '70%' ? ' is-desktop' : '';
   const isMobileMode = mediaQuery === '33%' ? ' is-mobile' : '';
@@ -33,7 +35,7 @@ export const CampaignsHtmlPreview = () => {
           <TextIconButton
             className="btn-preview-wrapper"
             text="Back"
-            onClick={() => navigate('/campaigns/create/html')}
+            onClick={() => navigate(`/${ROUTE.campaignsPage}/${ROUTE.createText}`)}
             icon={<PenEditIcon />}
           />
           <TextIconButton
@@ -44,7 +46,11 @@ export const CampaignsHtmlPreview = () => {
           />
         </div>
       </div>
-      <PreviewComponent renderedData={html} desktopMode={isDesktopMode} mobileMode={isMobileMode} />
+      <PreviewComponent
+        renderedData={editorStateOfHtml}
+        desktopMode={isDesktopMode}
+        mobileMode={isMobileMode}
+      />
       <SendMailModal
         isOpenModal={isOpenModalPreview}
         onClose={() => setIsOpenModalPreview(false)}

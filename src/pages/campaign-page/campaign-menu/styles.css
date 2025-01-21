@@ -4,6 +4,8 @@
   }
   
   .ant-card {
+    margin: 0 auto 30px auto;
+    
     &:hover {
       scale: 1.02;
       cursor: pointer;

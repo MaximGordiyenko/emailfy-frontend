@@ -22,7 +22,7 @@ export const AudiencePage = () => {
   const [isShowContacts, setisShowContacts] = useState(false);
   const [isUpload, setIsUpload] = useState(true);
 
-  const { isOpenMenu } = useMainContext();
+  const { isOpenMenuAudience, setIsOpenMenuAudience } = useMainContext();
 
   const navigate = useNavigate();
 
@@ -37,7 +37,7 @@ export const AudiencePage = () => {
 
   return (
     <div className="audience-page-container" id="audience">
-      {isOpenMenu && (
+      {isOpenMenuAudience && (
         <AudienceMenu
           handleNav={() =>
             navigate(`/${ROUTE.audiencePage}/${ROUTE.uploadFile}`, { replace: true })
