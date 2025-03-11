@@ -34,6 +34,7 @@ export const themeX = {
     Typography: {
       colorLink: '#7E9D00',
       colorLinkHover: '#A5BB4D',
+      // titleMarginTop: 0,
       // colorText: '#7E9D00',
     },
     Menu: {

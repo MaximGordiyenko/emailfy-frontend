@@ -159,12 +159,17 @@ export const routes = createBrowserRouter([
             ],
           },
           {
-            path: `${ROUTE.createText}`,
-            element: <UploadManualText />,
-          },
-          {
-            path: `${ROUTE.createText}/${ROUTE.textPreview}`,
-            element: <TextPreview />,
+            element: <UploadHtmlPage />,
+            children: [
+              {
+                path: `${ROUTE.createText}`,
+                element: <UploadManualText />,
+              },
+              {
+                path: `${ROUTE.createText}/${ROUTE.textPreview}`,
+                element: <TextPreview />,
+              },
+            ],
           },
           {
             path: `${ROUTE.mailBuilderPage}`,

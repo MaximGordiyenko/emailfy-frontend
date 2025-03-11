@@ -1,10 +1,10 @@
 import './styles.css';
 
-export const WriteIconButton = () => {
+export const WriteIconButton = ({ className, onClick }) => {
   return (
-    <div className="toolbar-btn-wrapper write-btn">
+    <div className="toolbar-btn-wrapper write-btn" onClick={onClick}>
       <svg
-        className="write-icon"
+        className={`write-icon ${className}`}
         xmlns="http://www.w3.org/2000/svg"
         width="20"
         height="20"

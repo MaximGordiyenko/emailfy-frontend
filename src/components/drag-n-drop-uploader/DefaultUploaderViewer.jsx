@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import { Upload, Form, Flex } from 'antd';
 import { InboxOutlined, DeleteOutlined } from '@ant-design/icons';

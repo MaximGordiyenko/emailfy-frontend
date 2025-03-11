@@ -5,14 +5,14 @@
 /*  overflow: auto;*/
 /*}*/
 
-.mail-editor {
-  background: var(--default-white);
-  margin: 10px auto;
-  padding: 20px;
-  border-radius: 5px;
-  max-width: 600px;
-  min-height: 80vh;
-}
+/*.mail-editor {*/
+/*  background: var(--default-white);*/
+/*  margin: 10px auto;*/
+/*  padding: 20px;*/
+/*  border-radius: 5px;*/
+/*  max-width: 600px;*/
+/*  min-height: 80vh;*/
+/*}*/
 
 .editor-block {
   position: relative;

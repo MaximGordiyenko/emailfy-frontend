@@ -1,6 +1,6 @@
 import './styles.css';
 
-export const Title = ({ children, type, padding, margin, color, alignItems }) => {
+export const AppTitle = ({ children, type, padding, margin, color, alignItems }) => {
   const Tag = type || 'p';
 
   const defaultColor = '--default-grey-90';
