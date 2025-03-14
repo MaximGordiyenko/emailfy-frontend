@@ -33,6 +33,9 @@ export const UploadHTML = () => {
     watch,
     formState: { errors, isValid, isDirty }
   } = useFormContext();
+  
+  const isCampaignName = !!watch('campaign');
+  
   console.log(isValid, isDirty);
   
   builderTemplate?.setEditorType('html');
@@ -103,8 +106,6 @@ export const UploadHTML = () => {
     onSuccess();
     // onClose();
   };
-  
-  const isCampaignName = !!watch('campaign');
   
   return (
     <>

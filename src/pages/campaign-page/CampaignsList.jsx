@@ -14,7 +14,6 @@ import {
   UnorderedListOutlined, EditOutlined, DeleteOutlined, HeartOutlined, MailOutlined
 } from '@ant-design/icons';
 import './styles.css';
-import { useMainContext } from '../../context/MainContext.jsx';
 
 const { Text, Title } = Typography;
 const { Search } = Input;
@@ -42,29 +41,29 @@ export const CampaignsList = () => {
   
   const navigate = useNavigate();
   
-  useEffect(() => {
-    (async () => {
-      const access_token = getToken('accessToken');
-      const templates = (await templatesAPI?.get_templates(access_token))?.data;
-      const tasks = (await tasksAPI.list(access_token)).data;
-      const cards = templates?.map((template) => {
-        const task = tasks.find((task) => task.template_id === template.id);
-        const status = task ? STATUSES[task.status] : 'Draft';
-        const color = task ? COLORS[task.status] : '#a5a5a5';
-        const date = format(new Date(template.created_at), 'MMM d, hh:mm a');
-        return {
-          id: template.id,
-          img: emails,
-          title: template.name,
-          status,
-          des: `Created ${date}`,
-          color,
-          isDeleted: false
-        };
-      });
-      setFilteredCards(cards);
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const access_token = getToken('accessToken');
+  //     const templates = (await templatesAPI?.get_templates(access_token))?.data;
+  //     const tasks = (await tasksAPI.list(access_token)).data;
+  //     const cards = templates?.map((template) => {
+  //       const task = tasks.find((task) => task.template_id === template.id);
+  //       const status = task ? STATUSES[task.status] : 'Draft';
+  //       const color = task ? COLORS[task.status] : '#a5a5a5';
+  //       const date = format(new Date(template.created_at), 'MMM d, hh:mm a');
+  //       return {
+  //         id: template.id,
+  //         img: emails,
+  //         title: template.name,
+  //         status,
+  //         des: `Created ${date}`,
+  //         color,
+  //         isDeleted: false
+  //       };
+  //     });
+  //     setFilteredCards(cards);
+  //   })();
+  // }, []);
   
   const handleDeleteCard = (index) => {
     const updatedFilteredCards = [...filterCards];

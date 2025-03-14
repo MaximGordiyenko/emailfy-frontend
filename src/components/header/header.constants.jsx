@@ -266,7 +266,17 @@ export const getHeaderConfigs = (
       description: 'Create Text Manually',
       content: () => (
         <>
-          <AppButton label={'Back'} onClick={() => navigate(`/${ROUTE.campaignsPage}`)}/>
+          <AppButton
+            kind={'outlined'}
+            variant="default"
+            label={'Back'}
+            onClick={() => navigate(`/${ROUTE.campaignsPage}`)}
+          />
+          <AppButton
+            label={'Show Preview'}
+            disabled={false}
+            onClick={() => navigate(`/${ROUTE.campaignsPage}/${ROUTE.createText}/${ROUTE.textPreview}`)}
+          />
           <AppButton
             disabled={!emailCampaignStep}
             label={emailCampaignStep ? 'Save draft' : 'Continue'}
@@ -278,11 +288,6 @@ export const getHeaderConfigs = (
               });
             }}
           />
-          <AppButton
-            disabled={!emailCampaignStep}
-            label={emailCampaignStep ? 'Save draft' : 'Continue'}
-            role="submit"
-          />
         </>
       )
     },
@@ -290,10 +295,29 @@ export const getHeaderConfigs = (
       icon: <SoundOutlined/>,
       description: 'Text Preview',
       content: () => (
-        <AppButton
-          label={'Back'}
-          onClick={() => navigate(`/${ROUTE.campaignsPage}/${ROUTE.createText}`)}
-        />
+        <>
+          <DesktopIcon className={`${isDesktopMode}`} onClick={() => setMediaQuery(70)}/>
+          <MobileIcon className={`${isMobileMode}`} onClick={() => setMediaQuery(33)}/>
+          <AppButton
+            label={'Back'}
+            kind={'outlined'}
+            variant="default"
+            icon={<PenEditIcon/>}
+            onClick={() => navigate(`/${ROUTE.campaignsPage}/${ROUTE.createText}`)}
+          />
+          <AppButton
+            disabled={true}
+            label={emailCampaignStep ? 'Save Draft' : 'Upload to Cloud'}
+            role="submit"
+            icon={<EnvelopRoundIcon/>}
+            // onClick={async (newContent) => {
+            //   await saveContent({
+            //     subject: newContent.subject,
+            //     sender_name: newContent.from_email
+            //   });
+            // }}
+          />
+        </>
       )
     },
     [`/${ROUTE.campaignsPage}/${ROUTE.mailBuilderPage}`]: {

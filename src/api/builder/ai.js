@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { getToken, API } from '../API.js';
 
 export async function ai_write(access_token, template_id, description) {
   return await axios.post(
@@ -29,6 +30,27 @@ export async function ai_insert(access_token, template_id, description, top_text
     },
   );
 }
+
+export const createAIQuestion = async ({ message, model }) => {
+  console.log(message, model);
+  try {
+    const accessToken = getToken('accessToken');
+    const { data } = await API.post(
+      `/auth/campaigns/builder/chat`,
+      {
+        message: message,
+        modelType: model
+      },
+      {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      }
+    );
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
 
 export async function ai_transform(
   access_token,

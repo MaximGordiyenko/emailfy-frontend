@@ -34,6 +34,7 @@ export const themeX = {
     Typography: {
       colorLink: '#7E9D00',
       colorLinkHover: '#A5BB4D',
+      // titleMarginTop: 0,
       // colorText: '#7E9D00',
     },
     Menu: {
@@ -61,13 +62,21 @@ export const themeX = {
       activeBorderColor: '#7E9D00',
       hoverBorderColor: '#A5BB4D',
       optionActiveBg: '#7E9D00',
-      optionSelectedBg: '#2A2B3B',
+      optionSelectedBg: '#AAAAB1',
     },
     Statistic: {
       titleFontSize: 15,
     },
   },
 };
+
+export const modelAIOptions = [
+  { value: 'gemini-pro', label: '2.0 Pro' },
+  { value: 'gemini-2.0-flash', label: '2.0 Flash' },
+  { value: 'gemini-2.0-flash-lite', label: '2.0 Flash Light' },
+  { value: 'gemini-1.5-pro', label: '1.5 Pro' },
+  { value: 'gemini-1.5-flash', label: '1.5 Flash' },
+]
 
 export const queryClient = new QueryClient({
   defaultOptions: {

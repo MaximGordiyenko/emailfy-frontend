@@ -13,9 +13,11 @@
   justify-content: center;
   opacity: 1;
   animation: fadeIn .25s ease-in-out;
+  
   &.open {
     display: flex;
   }
+  
   & .modal-window {
     width: 440px;
     height: auto;

@@ -9,6 +9,8 @@ import { BrandButton } from '../icons/BrandButton.jsx';
 import * as builderTemplate from '../../pages/mail-builder-page/builder-script/builderTemplate.js';
 import * as testEmail from '../../pages/mail-builder-page/builder-script/testEmail.js';
 import './styles.css';
+import { PenEditIcon } from '../icons/PenEditIcon.jsx';
+import { AppButton } from '../button/AppButton.jsx';
 
 export const SendMailModal = ({ isOpenModal, onClose, mailEditorState }) => {
   const { control, handleSubmit } = useForm();
@@ -40,22 +42,25 @@ export const SendMailModal = ({ isOpenModal, onClose, mailEditorState }) => {
     <div className="modal-wrapper">
       <div className="modal-overlay" onClick={onClose} />
       <div className={`modal-container mail-container`}>
-        <TextIconWrapper className="modal-header">
+        <div className="modal-header">
           <h3>Send email</h3>
           <RoundCloseIcon onClick={onClose} />
-        </TextIconWrapper>
+        </div>
         <form onSubmit={handleSubmit(onSubmitHandler)} className="modal-content mail-content">
           <div className="modal-input">
             <InputText name="email" control={control} />
           </div>
           <div className="modal-footer">
-            <BrandButton
-              className="modal-button"
-              text="Cancel"
-              variant="passive"
+            <AppButton
+              label={'Cancel'}
+              kind={'outlined'}
+              variant="default"
               onClick={onClose}
             />
-            <BrandButton className="modal-button" text="Send" variant="active" type="submit" />
+            <AppButton
+              label={'Send'}
+              role="submit"
+            />
           </div>
         </form>
       </div>
