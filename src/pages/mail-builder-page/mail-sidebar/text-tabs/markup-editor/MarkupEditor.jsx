@@ -6,7 +6,7 @@ import { useMutation } from '@tanstack/react-query';
 import { createAIQuestion } from '../../../../../api/builder/ai.js';
 
 import { v4 as uuidv4 } from 'uuid';
-import { Input, Modal, Typography } from 'antd';
+import { Input, Modal, Typography, Select, Flex } from 'antd';
 
 import { EditorState, convertFromHTML, ContentState } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
@@ -26,6 +26,7 @@ import { AppButton } from '../../../../../components/button/AppButton.jsx';
 import { LoadingOutlined } from '@ant-design/icons';
 
 import * as builderScript from '../../../builder-script/builderScript';
+import { modelAIOptions } from '../../../../../app.constants.js';
 
 import './styles.css';
 
@@ -35,21 +36,22 @@ const { TextArea } = Input;
 export const MarkupEditor = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [massageAI, setMassageAI] = useState("");
+  const [model, setModel] = useState("");
   
   const { mailEditorState, setMailEditorState, selectedMailEditorBlock, selectedBlockID } =
     useContext(MailBuilderContext);
   
   const { mutate, data, isPending } = useMutation({
-    mutationFn: (message) => createAIQuestion(message),
+    mutationFn: (message, model) => createAIQuestion({ message, model }),
     onSuccess: () => {
-      setIsOpenModal((prev) => !prev)
+      setIsOpenModal((prev) => !prev);
     },
     onError: () => {
     }
   });
   
   const handleSend = () => {
-    if (massageAI.trim()) mutate(massageAI);
+    if (massageAI.trim()) mutate({ message: massageAI, model });
     setMassageAI("");
   };
   
@@ -78,13 +80,22 @@ export const MarkupEditor = () => {
       <Modal
         title={<Title level={4}>Ask AI</Title>}
         footer={[
+          <Flex key={uuidv4()} justify="space-between">
+            <Select
+              defaultValue=""
+              prefix="model:"
+              size='large'
+              style={{ width: 170 }}
+              onChange={(value) => setModel(value)}
+              options={modelAIOptions}
+            />
             <AppButton
-              key={uuidv4()}
               label={'Send'}
-              icon={isPending && <LoadingOutlined />}
+              icon={isPending && <LoadingOutlined/>}
               onClick={handleSend}
               disabled={massageAI.length <= 4}
             />
+          </Flex>
         ]}
         mask={true}
         maskClosable={true}

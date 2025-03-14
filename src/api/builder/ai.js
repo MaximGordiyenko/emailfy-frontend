@@ -31,13 +31,15 @@ export async function ai_insert(access_token, template_id, description, top_text
   );
 }
 
-export const createAIQuestion = async (message = 'What is ITER') => {
+export const createAIQuestion = async ({ message, model }) => {
+  console.log(message, model);
   try {
     const accessToken = getToken('accessToken');
     const { data } = await API.post(
       `/auth/campaigns/builder/chat`,
       {
         message: message,
+        modelType: model
       },
       {
         headers: { Authorization: `Bearer ${accessToken}` },
