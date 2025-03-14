@@ -82,7 +82,7 @@ export const MarkupEditor = () => {
         footer={[
           <Flex key={uuidv4()} justify="space-between">
             <Select
-              defaultValue=""
+              defaultValue="gemini-pro"
               prefix="model:"
               size='large'
               style={{ width: 170 }}
