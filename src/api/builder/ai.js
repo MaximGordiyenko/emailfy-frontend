@@ -31,7 +31,7 @@ export async function ai_insert(access_token, template_id, description, top_text
   );
 }
 
-export const askAI = async (message = 'What is ITER') => {
+export const createAIQuestion = async (message = 'What is ITER') => {
   try {
     const accessToken = getToken('accessToken');
     const { data } = await API.post(

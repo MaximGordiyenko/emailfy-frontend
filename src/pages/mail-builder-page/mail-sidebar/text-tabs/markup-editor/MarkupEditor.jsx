@@ -3,7 +3,7 @@ import { MailBuilderContext } from '../../../../../context/MailBuilderContext';
 import { renderToStaticMarkup } from 'react-dom/server';
 
 import { useMutation } from '@tanstack/react-query';
-import { askAI } from '../../../../../api/builder/ai.js';
+import { createAIQuestion } from '../../../../../api/builder/ai.js';
 
 import { v4 as uuidv4 } from 'uuid';
 import { Input, Modal, Typography } from 'antd';
@@ -40,7 +40,7 @@ export const MarkupEditor = () => {
     useContext(MailBuilderContext);
   
   const { mutate, data, isPending } = useMutation({
-    mutationFn: (message) => askAI(message),
+    mutationFn: (message) => createAIQuestion(message),
     onSuccess: () => {
       setIsOpenModal((prev) => !prev)
     },
