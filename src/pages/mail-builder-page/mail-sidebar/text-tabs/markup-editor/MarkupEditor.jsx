@@ -36,13 +36,13 @@ const { TextArea } = Input;
 export const MarkupEditor = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [massageAI, setMassageAI] = useState("");
-  const [model, setModel] = useState("");
+  const [model, setModel] = useState("gemini-pro");
   
   const { mailEditorState, setMailEditorState, selectedMailEditorBlock, selectedBlockID } =
     useContext(MailBuilderContext);
   
   const { mutate, data, isPending } = useMutation({
-    mutationFn: (message, model) => createAIQuestion({ message, model }),
+    mutationFn: ({ message, model }) => createAIQuestion({ message, model }),
     onSuccess: () => {
       setIsOpenModal((prev) => !prev);
     },

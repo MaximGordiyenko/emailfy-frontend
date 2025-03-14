@@ -32,7 +32,6 @@ export async function ai_insert(access_token, template_id, description, top_text
 }
 
 export const createAIQuestion = async ({ message, model }) => {
-  console.log(message, model);
   try {
     const accessToken = getToken('accessToken');
     const { data } = await API.post(
@@ -47,7 +46,6 @@ export const createAIQuestion = async ({ message, model }) => {
     );
     return data;
   } catch (error) {
-    console.error(error);
     throw error;
   }
 };
