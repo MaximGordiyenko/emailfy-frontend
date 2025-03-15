@@ -75,7 +75,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "react-devtools": "react-devtools",
-    "format": "prettier --write \"src/**/*.{js,jsx,json,css,scss,md}\""
+    "format": "prettier --write \"src/**/*.{js,jsx,json,css,scss,md}\"",
+    "postinstall": "npm install --legacy-peer-deps"
   },
   "browserslist": {
     "production": [
