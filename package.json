@@ -34,7 +34,7 @@
     "file-loader": "^6.2.0",
     "highcharts": "^11.3.0",
     "highcharts-react-official": "^3.2.1",
-    "immutable": "^5.0.3",
+    "immutable": "^3.8.2",
     "jwt-decode": "^4.0.0",
     "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",
@@ -76,7 +76,7 @@
     "eject": "react-scripts eject",
     "react-devtools": "react-devtools",
     "format": "prettier --write \"src/**/*.{js,jsx,json,css,scss,md}\"",
-    "postinstall": "npm install --legacy-peer-deps"
+    "install": "npm install --legacy-peer-deps"
   },
   "browserslist": {
     "production": [
