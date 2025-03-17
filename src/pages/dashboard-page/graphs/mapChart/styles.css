@@ -1,0 +1,27 @@
+.highcharts-point {
+  stroke: none !important;
+  opacity: 1 !important;
+  font-family: MacPawFixelMedium, 'sans-serif';
+  fill: none;
+}
+
+.highcharts-subtitle {
+  display: none;
+}
+
+.highcharts-data-labels.highcharts-series-1.highcharts-mapbubble-series.highcharts-tracker.highcharts-series-hover {
+  display: none !important;
+  opacity: 1;
+}
+
+.highcharts-title {
+  display: none !important;
+}
+
+.highcharts-background {
+  fill: none;
+}
+
+text {
+  display: none;
+}

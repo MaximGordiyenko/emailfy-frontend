@@ -1,23 +1,28 @@
 .rti--container {
-  padding: 20px;
-  border-radius: 20px;
+  padding: 18px 20px !important;
+  border-radius: 10px !important;
   border: none;
   outline: none;
-  input {
+  
+  & input {
     width: 59%;
     min-width: 30%;
     outline: none;
   }
-  ::placeholder {
+  
+  &::placeholder {
     font-size: 14px;
     font-family: MacPawFixelMedium;
   }
+  
   .rti--tag {
     background-color: #2a2b3b;
-    span {
+    
+    & span {
       color: #ffffff;
     }
-    button {
+    
+    & button {
       color: #ffffff;
     }
   }

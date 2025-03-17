@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import deleteFile from '../../../../assets/images/deleteFile.png';
 import dropdown from '../../../../assets/images/dropdownActive.png';
 import dropdownclose from '../../../../assets/images/blackdropdown.png';
-import './dropdown.scss';
+import './styles.css';
 
 const Dropdown = ({ placeHolder, options, isMulti, onChange }) => {
   const [showMenu, setShowMenu] = useState(false);

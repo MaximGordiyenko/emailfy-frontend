@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
-// import { useDispatch, useSelector } from 'react-redux';
 import { Controller, useFormContext } from 'react-hook-form';
 import uploadIcon from '../../assets/images/uploadHtmlIcon.png';
-// import { updateField } from '../../store/campaignSlice';
 import { initAnalytics } from '../../pages/mail-builder-page/builder-script/analyticsUtil';
 import { saveContent } from '../../pages/mail-builder-page/builder-script/builderTemplate';
 import './styles.css';
@@ -11,9 +9,6 @@ import './styles.css';
 export const BrandUploader = () => {
   const [progress, setProgress] = useState(0);
   const { control } = useFormContext();
-  // const dispatch = useDispatch();
-
-  // const { html } = useSelector((state) => state.campaign.data);
   const html = '';
 
   const onDrop = async (acceptedFiles) => {

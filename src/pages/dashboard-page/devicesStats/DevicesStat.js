@@ -1,5 +1,5 @@
 import DeviceList from './DeviceList';
-import './style.scss';
+import './styles.css';
 export const DevicesStat = () => {
   return (
     <div className={'dev-stat-wrapper'}>

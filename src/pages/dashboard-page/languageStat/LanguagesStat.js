@@ -1,5 +1,5 @@
 import { LANGUAGES_STAT } from '../../../constants/statisticData';
-import './style.scss';
+import './styles.css';
 
 export const LanguagesStat = () => {
   return (

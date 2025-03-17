@@ -1,38 +1,45 @@
-.load-balancing-wrapper{
+.load-balancing-wrapper {
   align-self: start;
   position: relative;
   width: 100%;
-  .load-balancing-content{
+  
+  .load-balancing-content {
     display: flex;
     flex-direction: column;
     padding-top: 16px;
     box-sizing: border-box;
     gap: 30px;
-    .load-balancing-title{
+    
+    .load-balancing-title {
       display: flex;
       flex-direction: column;
       gap: 15px;
-      .label-wrapper{
+      
+      .label-wrapper {
         font-family: MacPawFixelSemiBold;
         font-size: 16px;
         line-height: 21px;
         color: var(--default-grey-30);
-        .label{
+        
+        .label {
           font-family: MacPawFixelBold;
           color: var(--default-grey-90);
         }
       }
-      .title-wrapper{
+      
+      .title-wrapper {
         display: flex;
         gap: 10px;
         align-items: center;
-        .title{
+        
+        .title {
           font-family: MacPawFixelBold;
           font-size: 32px;
           line-height: 42px;
           padding-right: 5px;
         }
-        .label{
+        
+        .label {
           display: flex;
           justify-content: center;
           align-items: center;
@@ -42,18 +49,23 @@
           background-color: var(--default-grey-10);
           font-family: MacPawFixelMedium;
           font-size: 12px;
+          
           img {
             width: 16px;
             height: 16px;
           }
         }
-        .file-label{}
+        
+        .file-label {
+        }
       }
     }
-    .load-balancing-tabs{
+    
+    .load-balancing-tabs {
       display: flex;
       height: 66px;
-      .load-balancing-tab{
+      
+      .load-balancing-tab {
         display: flex;
         flex: 1;
         padding: 15px 10px 15px 20px;
@@ -61,62 +73,76 @@
         align-items: center;
         gap: 20px;
         transition: .3s;
-        &:hover{
+        
+        &:hover {
           background-color: var(--default-grey-10);
           cursor: pointer;
           transition: .3s;
         }
-        .tab-icon{
+        
+        .tab-icon {
           width: 24px;
           height: 24px;
         }
-        .tab-title-wrapper{
+        
+        .tab-title-wrapper {
           display: flex;
           flex-direction: column;
-          .tab-title{
+          
+          .tab-title {
             font-family: MacPawFixelMedium;
             font-size: 14px;
             line-height: 19px;
             color: var(--default-grey-70);
           }
-          .tab-description{
+          
+          .tab-description {
             font-family: MacPawFixelMedium;
             font-size: 12px;
             line-height: 17px;
             color: var(--default-grey-50);
           }
         }
-        &.now{
+        
+        &.now {
           border-bottom-color: var(--default-green);
-          .tab-title-wrapper{
-            .tab-title{
+          
+          .tab-title-wrapper {
+            .tab-title {
               color: var(--default-green);
             }
-            .tab-description{
+            
+            .tab-description {
               color: var(--default-green);
               opacity: 0.7;
             }
           }
         }
-        &.schedule{
+        
+        &.schedule {
           border-bottom-color: var(--default-orange);
-          .tab-title-wrapper{
-            .tab-title{
+          
+          .tab-title-wrapper {
+            .tab-title {
               color: var(--default-orange);
             }
-            .tab-description{
+            
+            .tab-description {
               color: var(--default-orange);
               opacity: 0.7;
             }
           }
         }
-        &.auto{
+        
+        &.auto {
           border-bottom-color: var(--default-purple);
-          .tab-title-wrapper{
-            .tab-title{
+          
+          .tab-title-wrapper {
+            .tab-title {
               color: var(--default-purple);
             }
-            .tab-description{
+            
+            .tab-description {
               color: var(--default-purple);
               opacity: 0.7;
             }
@@ -124,30 +150,35 @@
         }
       }
     }
-    .load-balancing-chart{
+    
+    .load-balancing-chart {
       background-color: var(--default-white);
       padding: 30px;
       border-radius: 20px;
-      .chart-wrapper{
-        .chart-header{
+      
+      .chart-wrapper {
+        .chart-header {
           display: flex;
           justify-content: space-between;
           align-items: center;
           flex-wrap: wrap;
           height: 40px;
-          .chart-header-panel{
+          
+          .chart-header-panel {
             display: flex;
             align-items: center;
             gap: 30px;
             flex-wrap: wrap;
-            .chart-header-title{
+            
+            .chart-header-title {
               font-family: MacPawFixelSemiBold;
               font-size: 24px;
               line-height: 24px;
               color: var(--default-grey-90);
             }
-            .chart-header-calendar{
-              .calendar-button{
+            
+            .chart-header-calendar {
+              .calendar-button {
                 display: flex;
                 align-items: center;
                 padding: 10px;
@@ -156,28 +187,33 @@
                 border: 1.5px solid var(--default-green);
                 font-family: MacPawFixelMedium;
                 font-size: 12px;
-                .calendar-button-date{
+                
+                .calendar-button-date {
                   min-width: 73px;
                 }
-                .calendar-button-icon-left{
+                
+                .calendar-button-icon-left {
                   width: 16px;
                   height: 16px;
                 }
-                .calendar-button-icon-right{
+                
+                .calendar-button-icon-right {
                   margin-left: 20px;
                   width: 16px;
                   height: 16px;
                 }
               }
             }
-            .chart-header-time-step{
+            
+            .chart-header-time-step {
               display: flex;
               gap: 10px;
               align-items: center;
               font-family: MacPawFixelMedium;
               font-size: 12px;
               color: var(--default-grey-50);
-              .chart-header-stepper{
+              
+              .chart-header-stepper {
                 display: flex;
                 gap: 10px;
                 justify-content: center;
@@ -185,7 +221,8 @@
                 border: 1px solid var(--default-grey);
                 padding: 6px;
                 border-radius: 10px;
-                .stepper-item{
+                
+                .stepper-item {
                   width: 54px;
                   height: 24px;
                   border-radius: 6px;
@@ -196,22 +233,26 @@
                   justify-content: center;
                   align-items: center;
                   transition: .5s;
-                  &.active{
+                  
+                  &.active {
                     background-color: var(--default-green);
                     color: var(--default-white);
                     transition: .5s;
                   }
-                  &:hover{
+                  
+                  &:hover {
                     cursor: pointer;
                   }
-                  &:not(.active):hover{
+                  
+                  &:not(.active):hover {
                     background-color: var(--default-grey);
                   }
                 }
               }
             }
           }
-          .chart-header-info{
+          
+          .chart-header-info {
             display: flex;
             align-items: center;
             gap: 10px;
@@ -219,53 +260,69 @@
             font-size: 12px;
             line-height: 13px;
             color: var(--default-grey-50);
-            .info-title{}
-            .info-item{
+            
+            .info-title {
+            }
+            
+            .info-item {
               display: flex;
               align-items: center;
               gap: 5px;
-              .info-item-indicator{
+              
+              .info-item-indicator {
                 width: 12px;
                 height: 12px;
                 border-radius: 12px;
-                &.indicator-low{
+                
+                &.indicator-low {
                   background-color: var(--default-green);
                 }
-                &.indicator-medium{
+                
+                &.indicator-medium {
                   background-color: var(--default-yellow);
                 }
-                &.indicator-high{
+                
+                &.indicator-high {
                   background-color: var(--default-orange);
                 }
               }
             }
           }
         }
-        .chart-content{
-          .highcharts-crosshair{
-            &.highcharts-crosshair-category{
+        
+        .chart-content {
+          .highcharts-crosshair {
+            &.highcharts-crosshair-category {
               stroke: var(--default-grey-10);
             }
           }
-          .highcharts-plot-band{}
-          .highcharts-series{
-            .highcharts-point{
-              &.highcharts-point-hover{}
-              &.highcharts-point-selected{
+          
+          .highcharts-plot-band {
+          }
+          
+          .highcharts-series {
+            .highcharts-point {
+              &.highcharts-point-hover {
+              }
+              
+              &.highcharts-point-selected {
                 stroke: var(--default-grey-10);
               }
             }
           }
         }
-        .chart-footer{
+        
+        .chart-footer {
           display: flex;
           padding-top: 30px;
           border-top: 1px solid var(--default-grey-10);
           justify-content: space-between;
           align-items: center;
-          .chart-footer-info{
+          
+          .chart-footer-info {
             display: flex;
-            .chart-footer-info-item{
+            
+            .chart-footer-info-item {
               display: flex;
               flex-direction: column;
               gap: 10px;
@@ -275,35 +332,43 @@
               font-size: 12px;
               line-height: 17px;
               color: var(--default-grey-60);
-              &:first-child{
+              
+              &:first-child {
                 border-left: none;
                 padding-left: 0;
               }
-              .chart-footer-info-item-value{
+              
+              .chart-footer-info-item-value {
                 font-family: MacPawFixelBold;
                 font-size: 20px;
                 color: var(--default-grey-90);
-                .item-value-utc{
+                
+                .item-value-utc {
                   color: var(--default-grey-30);
                 }
-                .item-value-load{
+                
+                .item-value-load {
                   text-transform: capitalize;
                   display: inline-block;
                   min-width: 77px;
-                  &.low{
+                  
+                  &.low {
                     color: var(--default-green);
                   }
-                  &.medium{
+                  
+                  &.medium {
                     color: var(--default-yellow);
                   }
-                  &.high{
+                  
+                  &.high {
                     color: var(--default-orange);
                   }
                 }
               }
             }
           }
-          .schedule-button{
+          
+          .schedule-button {
             width: 200px;
             height: 44px;
             border-radius: 10px;
@@ -314,10 +379,12 @@
             font-family: MacPawFixelMedium;
             font-size: 14px;
             color: var(--default-white);
-            &:hover{
+            
+            &:hover {
               cursor: pointer;
             }
-            &:active{
+            
+            &:active {
               opacity: 0.7;
             }
           }

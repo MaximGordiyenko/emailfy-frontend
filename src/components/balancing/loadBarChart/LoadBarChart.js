@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import './style.scss';
+import './styles.css';
 
 const LoadBarChart = ({ activeTab, step, data, categories, onPointClick, selectedPoint }) => {
   const chartComponent = useRef(null);

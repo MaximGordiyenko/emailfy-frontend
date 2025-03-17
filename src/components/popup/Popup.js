@@ -1,4 +1,4 @@
-import './style.scss';
+import './styles.css';
 export const Popup = ({ content, isShow, close }) => {
   return (
     <>

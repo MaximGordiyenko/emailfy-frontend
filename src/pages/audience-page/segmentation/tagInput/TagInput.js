@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TagsInput } from 'react-tag-input-component';
-import './style.scss';
+import './styles.css';
 
 export const Tags = () => {
   const [selected, setSelected] = useState([]);

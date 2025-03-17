@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
-import dropzoneBg from '../../../assets/images/upload_html_bg.svg';
+// import dropzoneBg from '../../../assets/images/upload_html_bg.svg';
 import cloud from '../../../assets/images/Upload icon 2.svg';
 import cloudUpload from '../../../assets/images/Upload icon.svg';
 import deleteFile from '../../../assets/images/xblack.png';
 import './styles.css';
-import { useDispatch } from 'react-redux';
-import { clearUploadedFile, setUploadedFile } from '../../../store/fileSlice';
 
 function DropFile() {
   const [myFile, setMyFile] = useState(null);
   const [isOpenModal, setIsOpenModal] = useState(false);
-  // const dispatch = useDispatch();
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => {
@@ -19,9 +16,6 @@ function DropFile() {
         const file = acceptedFiles[0];
         const content = await file.text();
         setMyFile({ name: file.name, type: file.type, size: file.size });
-        // dispatch(
-        //   setUploadedFile({ name: file.name, type: file.type, size: file.size, data: content }),
-        // );
       })();
     },
   });
@@ -36,7 +30,6 @@ function DropFile() {
   const handleRemove = () => {
     setIsOpenModal(false);
     setMyFile(null);
-    // dispatch(clearUploadedFile());
   };
 
   return (

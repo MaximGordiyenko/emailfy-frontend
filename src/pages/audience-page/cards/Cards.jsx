@@ -1,4 +1,4 @@
-import './style.scss';
+import './styles.css';
 import sub from '../../../assets/images/subs.png';
 import chat from '../../../assets/images/chat.png';
 import magnet from '../../../assets/images/magnet.png';

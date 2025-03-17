@@ -1,9 +1,10 @@
-.lang-stat-wrapper{
+.lang-stat-wrapper {
   width: 100%;
   padding: 30px;
   border-radius: 20px;
   background: #FAFAFA;
-  .lang-title{
+  
+  .lang-title {
     color: var(--default-grey-90, #2A2B3B);
     font-feature-settings: 'clig' off, 'liga' off;
     font-family: MacPawFixelSemiBold, 'sans-serif';
@@ -14,15 +15,18 @@
     text-align: left;
     margin-bottom: 35px;
   }
-  .lang-name{
+  
+  .lang-name {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
     align-items: center;
-    .name-box{
+    
+    .name-box {
       display: flex;
       align-items: center;
-      .title-text{
+      
+      .title-text {
         margin-left: 10px;
         color: var(--default-grey-90, #2A2B3B);
         font-family: MacPawFixelMedium, 'sans-serif';
@@ -31,7 +35,8 @@
         line-height: 110%; /* 13.2px */
       }
     }
-    .lang-value{
+    
+    .lang-value {
       color: var(--default-grey-90, #2A2B3B);
       font-family: MacPawFixelBold, "sans-serif";
       font-size: 12px;
