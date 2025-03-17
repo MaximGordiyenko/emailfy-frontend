@@ -1,6 +1,7 @@
 {
   "name": "emailfy-frontend",
-  "version": "0.1.0",
+  "homepage": "https://MaximGordiyenko.github.io/emailfy-frontend",
+  "version": "1.0.0",
   "type": "module",
   "private": true,
   "dependencies": {
@@ -72,9 +73,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "react-devtools": "react-devtools",
     "format": "prettier --write \"src/**/*.{js,jsx,json,css,scss,md}\"",
-    "install": "npm install --legacy-peer-deps"
+    "install": "npm install --legacy-peer-deps",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -96,6 +98,7 @@
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@types/sortablejs": "^1.15.8",
+    "gh-pages": "^6.3.0",
     "prettier": "^3.5.3",
     "util": "^0.12.5"
   }
