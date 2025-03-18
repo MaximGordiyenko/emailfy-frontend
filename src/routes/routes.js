@@ -255,6 +255,6 @@ export const routes = createBrowserRouter([
   
   ],
   {
-    basename: process.env.PUBLIC_URL || '/emailfy-frontend'
+    basename: '/emailfy-frontend'
   }
 );
