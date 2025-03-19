@@ -26,6 +26,7 @@ import { formatUserInfoApiData } from '../../../helpers/formatUserInfoApiData';
 
 import { Space, Divider, Splitter, Typography } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
+import { GenerateRandomDbData } from './GenerateRandomDBData.jsx';
 const { Title, Text, Link } = Typography;
 
 const passwordTooltips = {
@@ -233,6 +234,8 @@ export const UserInformationTab = () => {
       <AppButton role="submit" onClick={handleDisableEnableAuth}>
         {isEnable2FA ? 'Disable' : 'Enable'}
       </AppButton>
+      
+      <GenerateRandomDbData />
       {/*{getStoredEmail ? (
           <div className={'disable2FA'}>
             <span>

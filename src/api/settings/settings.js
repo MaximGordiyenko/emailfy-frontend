@@ -1,4 +1,29 @@
 import axios from 'axios';
+import { API } from '../API.js';
+
+export const generateClientEmails = async () => {
+  try {
+    return await API.post(`/settings/user-info/client-emails`);
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const generateEmailCampaigns = async () => {
+  try {
+    return await API.post(`/settings/user-info/client-campaigns`);
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const generateEmailsStatistic = async () => {
+  try {
+    return await API.post(`/settings/user-info/client-statistic`);
+  } catch (error) {
+    throw error;
+  }
+};
 
 export async function change_email(access_token, email) {
   return await axios.post(

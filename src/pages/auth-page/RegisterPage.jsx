@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { ROUTE } from '../../routes/routes.constants.js';
 
 import { useForm } from 'react-hook-form';
@@ -13,7 +13,7 @@ import { useMutation } from '@tanstack/react-query';
 import { signUp } from '../../api/auth/auth.js';
 import './styles.css';
 
-const { Title, Text, Link } = Typography;
+const { Title, Text } = Typography;
 
 export const RegisterPage = () => {
   const [messageApi] = message.useMessage();
@@ -113,14 +113,14 @@ export const RegisterPage = () => {
       <Space>
         <Text>
           By clicking on the “Create an account” button you’re agreeing with our {``}
-          <Link href={`#`}>Privacy Policy {``}</Link>
+          <Link to={`#`}>Privacy Policy {``}</Link>
           and {``}
-          <Link href={`#`}>Terms and Conditions.</Link>
+          <Link to={`#`}>Terms and Conditions.</Link>
         </Text>
       </Space>
       <Flex justify="center" align="center" gap={4}>
         <Text>Already have an account?</Text>
-        <Link href={`/${ROUTE.login}`}>Sign In</Link>
+        <Link to={`/${ROUTE.login}`}>Sign In</Link>
       </Flex>
     </div>
   );

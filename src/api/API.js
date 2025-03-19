@@ -1,10 +1,8 @@
 import axios from 'axios';
 import { refreshAccessToken } from './auth/auth.js';
 
-const BASE_URL = 'http://localhost:4001/api';
-
 export const API = axios.create({
-  baseURL: BASE_URL,
+  baseURL: process.env.REACT_APP_API_URL,
   withCredentials: true,
 });
 
