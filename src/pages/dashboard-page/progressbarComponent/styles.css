@@ -1,13 +1,14 @@
-.pg-component-wrapper{
+.pg-component-wrapper {
   display: flex;
   padding: 30px;
   flex-direction: column;
   align-items: flex-start;
   gap: 30px;
   border-radius: 20px;
-  background: var(--Main-palette-White, #FAFAFA);
+  background: var(--default-white, #FAFAFA);
   width: 50%;
-  .pg-title{
+  
+  .pg-title {
     color: var(--default-grey-90, #2A2B3B);
     text-align: right;
     font-family: MacPawFixelBold, 'sans-serif';
@@ -16,26 +17,33 @@
     font-weight: 700;
     line-height: 110%; /* 17.6px */
   }
-  .bar-box{
+  
+  .bar-box {
     width: 100%;
-    .bar-element{
+    
+    .bar-element {
       margin: 30px 0;
-      .pg-desc{
+      
+      .pg-desc {
         display: flex;
         justify-content: space-between;
-        .pg-decs-title{
+        
+        .pg-decs-title {
           text-align: left;
           font-family: MacPawFixelMedium, 'sans-serif';
           color: var(--default-grey-90, #2A2B3B);
-          .type-message{
+          
+          .type-message {
             font-size: 14px;
           }
-          .date{
+          
+          .date {
             font-size: 12px;
             opacity: 0.5;
           }
         }
-        .value{
+        
+        .value {
           align-self: flex-end;
         }
       }

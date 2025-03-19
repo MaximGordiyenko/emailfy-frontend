@@ -1,7 +1,7 @@
 import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import './style.scss';
+import './styles.css';
 import { useEffect, useRef } from 'react';
 
 export const ImportStatsChart = () => {

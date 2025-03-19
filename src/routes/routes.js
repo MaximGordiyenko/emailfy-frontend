@@ -40,216 +40,224 @@ import { CampaignsList } from '../pages/campaign-page/CampaignsList.jsx';
 import { MailBuilder } from '../pages/mail-builder-page/MailBuilder.jsx';
 import { UploadHtmlPage } from '../pages/campaign-page/email-capmaign/UploadHTMLPage.jsx';
 
+export const BASE_URL = process.env.NODE_ENV === 'production'
+  ? '/emailfy-frontend'
+  : '';
+
 export const routes = createBrowserRouter([
   {
-    element: <AuthLayout />,
+    element: <AuthLayout/>,
     children: [
       {
         path: `${ROUTE.registration}`,
-        element: <RegisterPage />,
+        element: <RegisterPage/>
       },
       {
         path: `${ROUTE.login}`,
-        element: <LoginPage />,
+        element: <LoginPage/>
       },
       {
         path: `${ROUTE.forgotPassword}`,
-        element: <ForgotPasswordPage />,
+        element: <ForgotPasswordPage/>
       },
       {
         path: `${ROUTE.confirmation}`,
-        element: <EmailConfirmationPage />,
+        element: <EmailConfirmationPage/>
       },
       {
         path: `${ROUTE.disableAuth}`,
-        element: <DisableAuthPage />,
+        element: <DisableAuthPage/>
       },
       {
         path: `${ROUTE.auth2FA}`,
-        element: <LoggedBy2FA />,
-      },
-    ],
+        element: <LoggedBy2FA/>
+      }
+    ]
   },
   {
-    element: <MainLayout />,
+    element: <MainLayout/>,
     children: [
       {
         path: `${ROUTE.dashboard}`,
         element: (
           <PrivateRoute>
-            <DashboardPage />
+            <DashboardPage/>
           </PrivateRoute>
-        ),
+        )
       },
       {
         path: `${ROUTE.analytics}`,
         element: (
           <PrivateRoute>
-            <AnalyticsPage />
+            <AnalyticsPage/>
           </PrivateRoute>
         ),
         children: [
           {
             index: true,
-            element: <Navigate to={`/${ROUTE.analytics}/${ROUTE.emailCampaign}`} replace />,
+            element: <Navigate to={`/${ROUTE.analytics}/${ROUTE.emailCampaign}`} replace/>
           },
           {
             path: `/${ROUTE.analytics}/${ROUTE.emailCampaign}`,
-            element: <CampaignsTab />,
+            element: <CampaignsTab/>
           },
           {
             path: `/${ROUTE.analytics}/${ROUTE.aTobTests}`,
-            element: <TestsTab />,
-          },
-        ],
+            element: <TestsTab/>
+          }
+        ]
       },
       {
         path: `${ROUTE.audiencePage}`,
         element: (
           <PrivateRoute>
-            <AudiencePage />
+            <AudiencePage/>
           </PrivateRoute>
         ),
         children: [
           {
             path: '', // Matches the parent path "/audience"
-            element: <AudienceList />,
+            element: <AudienceList/>
           },
           {
             path: `${ROUTE.segmentationPage}`,
-            element: <SegmentationPage />,
+            element: <SegmentationPage/>
           },
           {
             path: `${ROUTE.manualSegmentation}`,
-            element: <SegmentManually />,
+            element: <SegmentManually/>
           },
           {
             path: `${ROUTE.manualUpload}`,
-            element: <ManualUploadPage />,
+            element: <ManualUploadPage/>
           },
           {
             path: `${ROUTE.uploadFile}`,
-            element: <UploadPage />,
-          },
-        ],
+            element: <UploadPage/>
+          }
+        ]
       },
       {
         path: `${ROUTE.campaignsPage}`,
         element: (
           <PrivateRoute>
-            <CampaignsPage />
+            <CampaignsPage/>
           </PrivateRoute>
         ),
         children: [
           {
             path: ``,
-            element: <CampaignsList />,
+            element: <CampaignsList/>
           },
           {
-            element: <UploadHtmlPage />,
+            element: <UploadHtmlPage/>,
             children: [
               {
                 path: `${ROUTE.uploadHtml}`,
-                element: <UploadHTML />,
+                element: <UploadHTML/>
               },
               {
                 path: `${ROUTE.uploadHtml}/${ROUTE.htmlPreview}`,
-                element: <HtmlPreview />,
-              },
-            ],
+                element: <HtmlPreview/>
+              }
+            ]
           },
           {
-            element: <UploadHtmlPage />,
+            element: <UploadHtmlPage/>,
             children: [
               {
                 path: `${ROUTE.createText}`,
-                element: <UploadManualText />,
+                element: <UploadManualText/>
               },
               {
                 path: `${ROUTE.createText}/${ROUTE.textPreview}`,
-                element: <TextPreview />,
-              },
-            ],
+                element: <TextPreview/>
+              }
+            ]
           },
           {
             path: `${ROUTE.mailBuilderPage}`,
-            element: <MailBuilderPage />,
+            element: <MailBuilderPage/>,
             children: [
               {
                 path: ``,
-                element: <MailBuilder />,
+                element: <MailBuilder/>
               },
               {
                 path: `${ROUTE.mailBuilderPreview}`,
-                element: <MailPreviewPage />,
-              },
-            ],
-          },
-        ],
+                element: <MailPreviewPage/>
+              }
+            ]
+          }
+        ]
       },
       {
         path: `${ROUTE.tags}`,
         element: (
           <PrivateRoute>
-            <TagsPage />
+            <TagsPage/>
           </PrivateRoute>
-        ),
+        )
       },
       {
         path: `/${ROUTE.settings}`,
         element: (
           <PrivateRoute>
-            <SettingsPage />
+            <SettingsPage/>
           </PrivateRoute>
         ),
         children: [
           {
             index: true,
-            element: <Navigate to={`/${ROUTE.settings}/${ROUTE.userInfo}`} replace />,
+            element: <Navigate to={`/${ROUTE.settings}/${ROUTE.userInfo}`} replace/>
           },
           {
             path: `/${ROUTE.settings}/${ROUTE.userInfo}`,
-            element: <UserInformationTab />,
+            element: <UserInformationTab/>
           },
           {
             path: `/${ROUTE.settings}/${ROUTE.companyInfo}`,
-            element: <CompanyInformationTab />,
+            element: <CompanyInformationTab/>
           },
           {
             path: `/${ROUTE.settings}/${ROUTE.domainInfo}`,
-            element: <DomainInformationTab />,
+            element: <DomainInformationTab/>
           },
           {
             path: `/${ROUTE.settings}/${ROUTE.domainInfo}/${ROUTE.domainAuth}`,
-            element: <DomainAuth />,
-          },
-        ],
+            element: <DomainAuth/>
+          }
+        ]
       },
       {
         path: `${ROUTE.subscription}`,
         element: (
           <PrivateRoute>
-            <SubscriptionPage />
+            <SubscriptionPage/>
           </PrivateRoute>
-        ),
-      },
-    ],
+        )
+      }
+    ]
   },
   {
-    element: <HomeLayout />,
+    element: <HomeLayout/>,
     children: [
       {
         path: `/${ROUTE.home}`,
-        element: <HomePage />,
-      },
-    ],
+        element: <HomePage/>
+      }
+    ]
   },
   {
     path: `${ROUTE.mailBuilderPage}/${ROUTE.mailBuilderPreview}`,
-    element: <MailPreviewPage />,
+    element: <MailPreviewPage/>
   },
   {
     path: '/',
-    element: <Navigate to={`${ROUTE.login}`} replace />,
-  },
-]);
+    element: <Navigate to={`${ROUTE.login}`} replace/>
+  }
+],
+  {
+    basename: BASE_URL
+  }
+  );

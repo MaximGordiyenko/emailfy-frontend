@@ -90,7 +90,7 @@
           .strikethrough.rdw-option-active,
           .underline.rdw-option-active,
           .bold.rdw-option-active {
-            background-color: var(--te-icon-bg-pressed);
+            background-color: var(--default-grey-10);
             box-shadow: none;
           }
         }
@@ -109,7 +109,7 @@
           }
 
           .link-item.rdw-option-active {
-            background-color: var(--te-icon-bg-pressed);
+            background-color: var(--default-grey-10);
             box-shadow: none;
           }
 

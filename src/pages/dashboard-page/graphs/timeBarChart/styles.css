@@ -1,7 +1,9 @@
-.load-bar-chart {
+.time-bar-chart {
   text-align: center;
+  margin-top: 30px;
   position: relative;
-  .time-chart-title{
+  
+  .time-chart-title {
     position: absolute;
     top: 25px;
     left: 30px;
@@ -11,7 +13,8 @@
     font-weight: 700;
     line-height: 110%; /* 17.6px */
   }
-  .custom-dropdown{
+  
+  .custom-dropdown {
     position: absolute;
     top: 20px;
     left: 140px;
@@ -24,21 +27,25 @@
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    .selected-option{
+    
+    .selected-option {
       display: flex;
       width: 100%;
       align-items: center;
       justify-content: space-between;
-      .placeholder{
+      
+      .placeholder {
         color: var(--default-grey-90, #2A2B3B);
         font-family: MacPawFixelMedium, 'sans-serif';
         font-size: 14px;
       }
-      img{
+      
+      img {
         width: 24px;
         height: 24px;
       }
     }
+    
     .options {
       overflow-y: auto;
       list-style: none;
@@ -53,18 +60,21 @@
       background: #FFF;
       display: flex;
       flex-direction: column;
+      
       li {
         align-items: flex-start;
         text-align: left;
         padding: 10px 20px;
         cursor: pointer;
         color: #95959D;
+        
         &:hover {
           background-color: #f0f0f0;
         }
       }
     }
   }
+  
   .buttons {
     position: absolute;
     top: 0;
@@ -73,6 +83,7 @@
     justify-content: center;
     margin-top: 20px;
     gap: 20px;
+    
     .day-btn {
       display: flex;
       width: 54px;
@@ -84,19 +95,22 @@
       border-radius: 6px;
       background: var(--Main-palette-Green, #F4F4F5);
       border: none;
-      div{
+      
+      div {
         color: #2a2b3b;
       }
     }
-    .current-day{
+    
+    .current-day {
       background: #7e9d00;
-      div{
+      
+      div {
         color: #FFFFFF;
       }
     }
   }
-  .highcharts-axis-labels.highcharts-yaxis-labels{
-    //y-axis
-    display: none;
+  
+  .highcharts-axis-labels.highcharts-yaxis-labels {
+  / / y-axis display: none;
   }
 }

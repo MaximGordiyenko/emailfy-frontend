@@ -1,16 +1,19 @@
-.dev-stat-wrapper{
+.dev-stat-wrapper {
   width: 100%;
   border-radius: 20px;
-  background: var(--Main-palette-White, #FAFAFA);
+  background: #FAFAFA;
   padding: 30px;
   box-sizing: border-box;
-  .table-device-data{
+  
+  .table-device-data {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    .device-list{
-      width: 262.5px;
-      .list-title{
+    
+    .device-list {
+      width: 262px;
+      
+      .list-title {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -22,19 +25,23 @@
         padding: 20px 0;
         box-sizing: border-box;
         border-bottom: 1px solid rgba(42, 43, 59, 0.1);
-        p{
+        
+        & p {
           margin: 0;
         }
       }
-      .device-item{
+      
+      .device-item {
         display: flex;
         justify-content: space-between;
         margin-top: 20px;
-        .item-name{
+        
+        .item-name {
           display: flex;
           align-items: center;
           color: var(--default-grey-90, #2A2B3B);
-          .device-title{
+          
+          .device-title {
             width: 100%;
             max-width: 100px;
             display: flex;
@@ -45,7 +52,8 @@
             line-height: 110%; /* 13.2px */
           }
         }
-        .device-value{
+        
+        .device-value {
           font-family: MacPawFixelBold, 'sans-serif';
           font-size: 12px;
           font-weight: 700;
@@ -54,7 +62,8 @@
       }
     }
   }
-  .device-box-title{
+  
+  .device-box-title {
     color: var(--default-grey-90, #2A2B3B);
     font-family: MacPawFixelSemiBold, 'sans-serif';
     font-size: 24px;

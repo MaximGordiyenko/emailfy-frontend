@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ProgressBarX from '../../../components/progress-bars/ProgressBarX';
-import './style.scss';
+import './styles.css';
 
 const ParentComponent = () => {
   const [completed, setCompleted] = useState([87, 81, 63, 49, 45]);

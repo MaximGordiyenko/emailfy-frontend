@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.scss';
+import './styles.css';
 
 import Item from './Item.js';
 import DonutChartx from '../donutChart/DonutChartx.js';

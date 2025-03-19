@@ -1,6 +1,6 @@
 import { useAuth } from '../../context/AuthContext.jsx';
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { ROUTE } from '../../routes/routes.constants.js';
 
 import { useMutation } from '@tanstack/react-query';
@@ -17,7 +17,7 @@ import { BrandLogo } from '../../components/logo/BrandLogo.jsx';
 
 import './styles.css';
 
-const { Title, Text, Link } = Typography;
+const { Title, Text } = Typography;
 
 export const LoginPage = () => {
   const [messageApi, contextHolder] = message.useMessage();
@@ -94,7 +94,7 @@ export const LoginPage = () => {
         />
 
         <Flex justify="end" style={{ margin: '0 0 20px 0' }}>
-          <Link href={`/${ROUTE.forgotPassword}`}>Forgot Password?</Link>
+          <Link to={`/${ROUTE.forgotPassword}`}>Forgot Password?</Link>
         </Flex>
 
         <Form.Item>
@@ -115,15 +115,15 @@ export const LoginPage = () => {
       <Space direction="vertical">
         <Text>
           By clicking on the “Create an account” button you’re agreeing with our {``}
-          <Link href={`#`}>Privacy Policy {``}</Link>
+          <Link to={`#`}>Privacy Policy {``}</Link>
           and {``}
-          <Link href={`#`}>Terms and Conditions.</Link>
+          <Link to={`#`}>Terms and Conditions.</Link>
         </Text>
       </Space>
 
       <Flex justify="center" align="center" gap={4}>
         <Text>Not registered yet?</Text>
-        <Link href={`/${ROUTE.registration}`}>Sign Up</Link>
+        <Link to={`/${ROUTE.registration}`}>Sign Up</Link>
       </Flex>
     </div>
   );

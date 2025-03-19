@@ -293,7 +293,7 @@
     overflow: auto;
     position: relative;
     z-index: 1;
-    background: var(--te-bg-color);
+    background: var(--default-white);
 
     &:focus {
       outline: none;

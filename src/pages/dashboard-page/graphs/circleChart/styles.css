@@ -1,49 +1,58 @@
-.circle-chart-component{
+.circle-chart-component {
   display: flex;
   align-items: center;
   margin-top: 40px;
   background: #fafafa;
   justify-content: space-between;
   border-radius: 30px;
-  .circle-stats{
+  
+  .circle-stats {
     width: 100%;
     justify-content: space-between;
     padding: 30px 10px;
     display: flex;
     align-items: center;
-    #container{
+    
+    #container {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      .highcharts-point.highcharts-color-0{
+      
+      .highcharts-point.highcharts-color-0 {
         fill: #ff5656;
       }
     }
-    .circle-statistic{
+    
+    .circle-statistic {
       height: 100%;
       margin-left: 60px;
-      .outer-circle-des{
+      
+      .outer-circle-des {
         display: flex;
         align-items: center;
-        .line1{
+        
+        .line1 {
           width: 22px;
           height: 4px;
           border-radius: 3px;
-          background: var(--Main-palette-Green, #7E9D00);
+          background: var(--default-green, #7E9D00);
         }
-        .outer-text{
+        
+        .outer-text {
           margin-left: 11px;
-          h5{
-            margin:0;
-            color: var(--Grey-50, #95959D);
+          
+          & h5 {
+            margin: 0;
+            color: var(--default-grey-20, #95959D);
             font-family: MacPawFixelBold;
             font-size: 14px;
             font-style: normal;
             font-weight: 500;
             line-height: 110%; /* 15.4px */
           }
-          p{
+          
+          & p {
             color: var(--default-grey-90, #2A2B3B);
             font-feature-settings: 'clig' off, 'liga' off;
             font-family: MacPawFixelBold;
@@ -55,28 +64,33 @@
           }
         }
       }
-      .inner-circle-des{
+      
+      .inner-circle-des {
         display: flex;
         align-items: center;
         margin-top: 30px;
-        .line2{
+        
+        .line2 {
           width: 22px;
           height: 4px;
           border-radius: 3px;
-          background: var(--Main-palette-Green, #FF5656);
+          background: #FF5656;
         }
-        .inner-text{
+        
+        .inner-text {
           margin-left: 11px;
-          h5{
-            margin:0;
-            color: var(--Grey-50, #95959D);
+          
+          & h5 {
+            margin: 0;
+            color: #95959D;
             font-family: MacPawFixelBold;
             font-size: 14px;
             font-style: normal;
             font-weight: 500;
             line-height: 110%; /* 15.4px */
           }
-          p{
+          
+          & p {
             color: var(--default-grey-90, #2A2B3B);
             font-feature-settings: 'clig' off, 'liga' off;
             font-family: MacPawFixelBold;
@@ -89,40 +103,46 @@
         }
       }
     }
-    .hr{
-      background: var(--Main-palette-White, #FAFAFA);
+    
+    .hr {
+      background: #FAFAFA;
       display: flex;
       box-sizing: border-box;
       width: 1px;
       height: 217px;
       margin: 0 75px;
     }
-    .statistic-description{
+    
+    .statistic-description {
       max-width: 500px;
       width: 100%;
       padding-right: 40px;
-      h3{
-        color: var(--default-grey-90, #2A2B3B);
+      
+      & h3 {
+        color: #2A2B3B;
         font-family: MacPawFixelBold;
         font-size: 24px;
         font-weight: 700;
         line-height: 110%; /* 26.4px */
         text-align: left;
       }
-      div{
+      
+      & div {
         display: flex;
         width: 100%;
         align-items: center;
         justify-content: space-between;
-        p{
-          color: var(--Grey-50, #95959D);
+        
+        & p {
+          color: #95959D;
           font-family: MacPawFixelMedium;
           font-size: 14px;
           font-style: normal;
           font-weight: 500;
           line-height: 110%; /* 15.4px */
         }
-        span{
+        
+        & span {
           color: var(--default-grey-90, #2A2B3B);
           text-align: right;
           font-family: MacPawFixelMedium;

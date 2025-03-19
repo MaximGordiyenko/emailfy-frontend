@@ -13,7 +13,7 @@
     - [folder-name]
       - [folder-name]_
         - [ComponentName].jsx
-        - [styles].scss
+        - [styles].css
         - [fileNameConstant].js
   - pages
     - [folder-name-page]
@@ -34,9 +34,7 @@
   - validation
     - [validationFileName].js
   - App.js
-  - App.scss
   - index.js
-  - index.scss
 - .dockerignore
 - .env
 - .eslintrc.js

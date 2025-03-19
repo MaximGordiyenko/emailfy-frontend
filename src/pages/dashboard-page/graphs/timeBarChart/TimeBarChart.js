@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import './style.scss';
+import './styles.css';
 import CustomDropdown from '../../../../components/drop-down/CustomDropdown';
 
 const TimeBarChart = () => {

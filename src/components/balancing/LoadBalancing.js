@@ -1,9 +1,9 @@
 import { forwardRef, useEffect, useMemo, useState } from 'react';
-import DatePicker from 'react-datepicker';
+// import DatePicker from 'react-datepicker';
 import { add, format } from 'date-fns';
 import LoadBarChart from './loadBarChart/LoadBarChart.js';
-import './style.scss';
-import 'react-datepicker/dist/react-datepicker.css';
+import './styles.css';
+// import 'react-datepicker/dist/react-datepicker.css';
 import usersGroupRounded from '../../assets/images/usersGroupRounded.svg';
 import fileTextSmall from '../../assets/images/fileTextSmall.svg';
 import plain from '../../assets/images/plain.svg';
@@ -180,13 +180,13 @@ export const LoadBalancing = () => {
                 {activeTab === tabs.schedule && (
                   <>
                     <div className="chart-header-calendar">
-                      <DatePicker
-                        selected={startDate}
-                        minDate={new Date()}
-                        dateFormat="dd MMM, yyyy"
-                        onChange={(date) => setStartDate(date)}
-                        customInput={<CalendarButton />}
-                      />
+                      {/*<DatePicker*/}
+                      {/*  selected={startDate}*/}
+                      {/*  minDate={new Date()}*/}
+                      {/*  dateFormat="dd MMM, yyyy"*/}
+                      {/*  onChange={(date) => setStartDate(date)}*/}
+                      {/*  customInput={<CalendarButton />}*/}
+                      {/*/>*/}
                     </div>
                     <div className="chart-header-time-step">
                       <span>Time step:</span>

@@ -1,4 +1,4 @@
-import './style.scss';
+import './styles.css';
 import { useState, useEffect } from 'react';
 import ProgressBarX from '../../../components/progress-bars/ProgressBarX';
 import { SUBSCRIBERS_GEOGRAPHIC } from '../../../constants/statisticData';
