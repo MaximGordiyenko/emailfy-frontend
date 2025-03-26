@@ -39,12 +39,17 @@ import { DisableAuthPage } from '../pages/auth-page/DisableAuthPage.jsx';
 import { CampaignsList } from '../pages/campaign-page/CampaignsList.jsx';
 import { MailBuilder } from '../pages/mail-builder-page/MailBuilder.jsx';
 import { UploadHtmlPage } from '../pages/campaign-page/email-capmaign/UploadHTMLPage.jsx';
+import { LandingPage } from '../pages/landing-page/LandingPage.jsx';
 
 export const BASE_URL = process.env.NODE_ENV === 'production'
   ? '/emailfy-frontend'
   : '';
 
 export const routes = createBrowserRouter([
+  {
+    path: '/',
+    element: <LandingPage />
+  },
   {
     element: <AuthLayout/>,
     children: [
@@ -252,10 +257,6 @@ export const routes = createBrowserRouter([
     path: `${ROUTE.mailBuilderPage}/${ROUTE.mailBuilderPreview}`,
     element: <MailPreviewPage/>
   },
-  {
-    path: '/',
-    element: <Navigate to={`${ROUTE.login}`} replace/>
-  }
 ],
   {
     basename: BASE_URL

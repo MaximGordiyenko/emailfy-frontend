@@ -8,7 +8,6 @@ import { useTheme } from './context/ThemeContext';
 
 import { ConfigProvider, theme } from 'antd';
 import { themeX, queryClient } from './app.constants';
-import './styles.css';
 
 export const App = () => {
   const { isDarkMode } = useTheme();

@@ -67,6 +67,9 @@ export const themeX = {
     Statistic: {
       titleFontSize: 15,
     },
+    Global: {
+      borderColor: '#7E9D00',
+    },
   },
 };
 

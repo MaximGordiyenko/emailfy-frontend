@@ -9,7 +9,7 @@
     .label-item {
       font-size: 14px;
       font-weight: 500;
-      color: var(--default-grey-50);
+      color: var(--grey-5);
       margin: 0.5em 0;
     }
   }
@@ -18,8 +18,8 @@
     position: absolute;
     top: 0;
     transform: translateX(-20%);
-    background: var(--default-grey-90);
-    color: var(--default-white);
+    background: var(--grey-9);
+    color: var(--grey-1);
     padding: 4px 5px;
     border-radius: 5px;
     font-size: 12px;

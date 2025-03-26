@@ -45,7 +45,7 @@ export const SidebarTools = () => {
         <>
           <ul className="tab-list">{selectedTabs}</ul>
           {(activeTab === 'build-blocks-tab' || activeTab === 'layout-blocks-tab') && (
-            <AppTitle type="h5" alignItems="center" color="--default-green-bg">
+            <AppTitle type="h5" alignItems="center" color="--green-8">
               Drag and drop element
             </AppTitle>
           )}
@@ -71,7 +71,7 @@ export const SidebarTools = () => {
       <>
         <ul className="tab-list">{blocksTabs}</ul>
         {(activeTab === 'build-blocks-tab' || activeTab === 'layout-blocks-tab') && (
-          <AppTitle type="h5" alignItems="center" color="--default-green-bg">
+          <AppTitle type="h5" alignItems="center" color="--green-8">
             Drag and drop element
           </AppTitle>
         )}

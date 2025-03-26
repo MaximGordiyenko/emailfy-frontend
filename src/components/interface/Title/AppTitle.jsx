@@ -3,7 +3,7 @@ import './styles.css';
 export const AppTitle = ({ children, type, padding, margin, color, alignItems }) => {
   const Tag = type || 'p';
 
-  const defaultColor = '--default-grey-90';
+  const defaultColor = '--grey-9';
   const style = {
     alignItems: alignItems || 'flex-start',
     padding: padding || 0,

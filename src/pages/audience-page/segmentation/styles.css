@@ -5,7 +5,7 @@
       .route-status {
         .manual-routes {
           .route-params {
-            color: var(--default-green);
+            color: var(--green-7);
           }
         }
         
@@ -45,7 +45,7 @@
           
           & span {
             font-family: MacPawFixelMedium;
-            color: var(--default-grey-90);
+            color: var(--grey-9);
             font-size: 14px;
           }
         }
@@ -71,11 +71,11 @@
         
         :disabled {
           opacity: 0.5;
-          background-color: var(--default-grey-10);
+          background-color: var(--grey-1);
           cursor: default;
           
           & span {
-            color: var(--default-grey-90);
+            color: var(--grey-9);
           }
         }
       }
@@ -183,7 +183,7 @@
         position: absolute;
         width: 100%;
         z-index: 2;
-        background: var(--default-white);
+        background: var(--grey-1);
         border-radius: 10px;
         top: 78px;
         left: 0;
@@ -208,7 +208,7 @@
         }
         
         .selected-option-li {
-          background: var(--default-grey-10);
+          background: var(--grey-1);
         }
       }
       
@@ -223,7 +223,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: var(--default-white);
+        background: var(--grey-1);
         border-radius: 10px;
         padding: 10px 20px;
         box-sizing: border-box;
@@ -236,7 +236,7 @@
     }
     
     .popup-wrapper {
-      background: var(--default-green);
+      background: var(--green-7);
       border-radius: 20px;
       padding: 20px;
       box-sizing: border-box;
@@ -252,7 +252,7 @@
           cursor: default;
           margin: 0;
           font-size: 14px;
-          color: var(--default-white);
+          color: var(--grey-1);
           font-family: MacPawFixelMedium, "sans-serif";
           
           & b {
@@ -269,10 +269,10 @@
           cursor: pointer;
           align-items: center;
           justify-content: center;
-          background: var(--default-white);
+          background: var(--grey-1);
           
           & span {
-            color: var(--default-grey-90);
+            color: var(--grey-9);
             font-family: MacPawFixelMedium, "sans-serif";
           }
         }
@@ -294,7 +294,7 @@
       
       .placeholder-text {
         font-family: MacPawFixelMedium, "sans-serif";
-        color: var(--default-grey-50);
+        color: var(--grey-5);
         width: 140px !important;
         border: 1px #C0C0C5 solid;
         padding: 5px 5px;

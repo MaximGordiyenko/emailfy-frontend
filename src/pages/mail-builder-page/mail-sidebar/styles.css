@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-around;
     list-style: none;
-    border-bottom: 1px solid var(--tab-color-default);
+    border-bottom: 1px solid var(--grey-7);
     padding: 0;
     margin: 15px 0 5px 0;
     
@@ -23,7 +23,7 @@
       font-style: normal;
       font-weight: 500;
       line-height: normal;
-      color: var(--tab-color-default);
+      color: var(--grey-7);
     }
     
     .tab {
@@ -33,12 +33,12 @@
     }
     
     .tab.is-active {
-      border-bottom: 1px solid var(--tab-color-pressed);
+      border-bottom: 1px solid var(--grey-9);
       border-top: none;
       border-right: none;
       border-left: none;
       font-weight: 900;
-      color: var(--tab-color-pressed);
+      color: var(--grey-9);
     }
   }
   
@@ -75,7 +75,7 @@
     
     /*styles apply paragraph, heading, ... in the tabs*/
     .building-blocks-item {
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--grey-1);
       border-radius: 20px;
       padding: 15px 18px;
       margin: 8px;
@@ -84,7 +84,7 @@
       
       &:hover {
         scale: 1.05;
-        border: 1px solid var(--default-green-bg-hover);
+        border: 1px solid var(--green-8);
       }
       
       .on-drag-splitter {
@@ -105,7 +105,7 @@
       }
       
       &:hover rect:nth-of-type(4) {
-        stroke: var(--default-green-bg-hover);
+        stroke: var(--green-8);
       }
       
       .on-drag-splitter {
@@ -135,8 +135,8 @@
 }
 
 .button-build-block {
-  background: var(--default-green);
-  color: var(--default-white);
+  background: var(--green-7);
+  color: var(--grey-1);
   border: none;
   border-radius: 8px;
   max-width: 200px;
@@ -148,11 +148,11 @@
   width: 100%;
   
   &.is-drag-accept {
-    border: 1px dashed var(--border-color-btn-hover);
+    border: 1px dashed var(--green-8);
   }
   
   &.is-drag-reject {
-    border: 1px dashed var(--default-orange);
+    border: 1px dashed var(--orange-9);
   }
   
   .dropzone-input {}
@@ -165,7 +165,7 @@
     flex-direction: column;
     flex-wrap: nowrap;
     cursor: context-menu;
-    background: var(--btn-icon-bg-pressed);
+    background: var(--grey-3);
     
     & > .dropzone-placeholder-icon {
       border-radius: 0;
@@ -178,10 +178,10 @@
     & > .dropzone-placeholder-text {
       font-family: MacpawFixelMedium;
       font-size: 12px;
-      color: var(--default-grey-30);
+      color: var(--grey-3);
       
       & > .dropzone-placeholder-link {
-        color: var(--default-green);
+        color: var(--green-7);
         font-weight: 700;
         text-decoration-line: underline;
         cursor: pointer;
@@ -208,7 +208,7 @@
   border-radius: 5px;
   margin: 10px 0;
   cursor: pointer;
-  border: 1px solid var(--default-grey-30);
+  border: 1px solid var(--grey-3);
 }
 
 .html-build-block {
@@ -220,15 +220,15 @@
   display: flex;
   
   .unsubscribe-link {
-    color: var(--default-grey-50);
+    color: var(--grey-5);
     padding: 5px 0;
     
     &:active {
-      color: var(--default-grey-50);
+      color: var(--grey-5);
     }
     
     &:visited {
-      color: var(--default-grey-50);
+      color: var(--grey-5);
     }
   }
   
@@ -238,7 +238,7 @@
     margin: 20px auto;
     
     .powered_by {
-      color: var(--default-grey-50)
+      color: var(--grey-5)
     }
     
     .logos-container {
