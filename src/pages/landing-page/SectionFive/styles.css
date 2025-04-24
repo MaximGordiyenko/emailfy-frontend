@@ -1,0 +1,213 @@
+.section-five {
+  padding: 100px 0 200px;
+  background: var(--blue-1);
+  
+  .section-five-row {
+    margin: 0 auto;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .section-five-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    padding: 23px 23px 23px 36px;
+    border-radius: 999px;
+    background: var(--grey-1);
+    position: absolute;
+    z-index: -1;
+    
+    &.section-five-label-green {
+      top: 66px;
+      left: 0;
+      transform: rotate(-13.59deg);
+    }
+    
+    &.section-five-label-orange {
+      top: 0;
+      right: 148px;
+      transform: rotate(6.69deg);
+    }
+    
+    &.section-five-label-yellow {
+      top: 197px;
+      right: -172px;
+      transform: rotate(12.67deg);
+      
+      .switch.active {
+        background: var(--yellow-9);
+      }
+    }
+    
+    &.section-five-label-blue {
+      bottom: 57px;
+      left: -3px;
+      transform: rotate(18.31deg);
+    }
+    
+    &.section-five-label-purple {
+      bottom: 3px;
+      right: 145px;
+      transform: rotate(-6.93deg);
+      
+      .switch.active {
+        background: var(--purple-9);
+      }
+    }
+    
+    .section-five-label-icon {
+    }
+    
+    .section-five-label-text {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 25px;
+      color: var(--grey-9);
+      padding-right: 13px;
+    }
+  }
+  
+  .section-five-column {
+    max-width: 645px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+  }
+  
+  .section-five-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .section-five-breadcrumbs {
+    padding: 20px;
+    background: var(--grey-1);
+    border-radius: 14px;
+    border: 1px solid var(--grey-9);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18px;
+    color: var(--grey-9);
+    
+    .section-five-breadcrumbs-items {
+      padding-top: 2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+  
+  .section-five-description {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: -0.02em;
+    color: var(--grey-9);
+  }
+}
+
+@media (max-width: 1199px) {
+  .section-five {
+    .section-five-row {
+      max-width: 960px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .section-five {
+    padding: 0 16px 100px;
+    
+    .section-five-row {
+      max-width: 100%;
+      border-radius: 30px;
+    }
+    
+    .section-five-label {
+      gap: 7px;
+      padding: 12px 12px 12px 19px;
+      
+      &.section-five-label-green {
+        top: 204px;
+        left: -129px;
+        transform: rotate(-11.54deg);
+      }
+      
+      &.section-five-label-orange {
+        top: 39px;
+        right: 69px;
+        transform: rotate(4.58deg);
+      }
+      
+      &.section-five-label-yellow {
+        top: 134px;
+        right: -87px;
+        transform: rotate(13.15deg);
+      }
+      
+      &.section-five-label-blue {
+        bottom: 64px;
+        left: -25px;
+        transform: rotate(15.58deg);
+      }
+      
+      &.section-five-label-purple {
+        bottom: -6px;
+        right: 26px;
+        transform: rotate(-11.94deg);
+      }
+      
+      .section-five-label-icon {
+        width: 24px;
+        height: 24px;
+      }
+      
+      .section-five-label-text {
+        font-size: 10px;
+        line-height: 14px;
+        padding-right: 7px;
+      }
+    }
+    
+    .section-five-content {
+      gap: 15px;
+      padding: 0 16px;
+    }
+    
+    .section-five-breadcrumbs {
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 15px;
+      
+      .heading {
+        letter-spacing: -2px;
+        
+        .green-text {
+          letter-spacing: -1px;
+          color: var(--green-8);
+        }
+      }
+    }
+    
+    .section-five-description {
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: -0.02em;
+    }
+  }
+}

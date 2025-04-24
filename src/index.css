@@ -1,5 +1,29 @@
 @import './assets/fonts/fonts.css';
 
+:root {
+  --main-opacity: 0.9;
+  --blue-9: #5B93A9;
+  --blue-1: #5c94aa0f;
+  --purple-9: #666DA5;
+  --purple-1: #666da417;
+  --red-9: #FF5656;
+  --green-8: #7E9D00;
+  --green-7: #98B133D5;
+  --green-5: #A5BB4D;
+  --green-1: #43ff640a;
+  --yellow-9: #EDB833;
+  --orange-9: #D36700;
+  --orange-1: #d267000d;
+  --grey-9: #2A2B3B;
+  --grey-7: #6A6B76;
+  --grey-6: #7F8089;
+  --grey-5: #95959D;
+  --grey-4: #AAAAB1;
+  --grey-3: #C0C0C5;
+  --grey-2: #D4D5D8;
+  --grey-1: #EAEAEC;
+}
+
 body {
   margin: 0;
   padding: 0;

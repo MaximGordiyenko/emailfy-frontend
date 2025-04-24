@@ -1,5 +1,5 @@
 .icon-button_close:hover circle {
-  fill: var(--btn-icon-bg-hover);
+  fill: var(--grey-2);
   cursor: pointer;
 }
 
@@ -35,10 +35,10 @@
     visibility: visible;
 
     & rect {
-      fill: var(--default-green);
+      fill: var(--green-7);
 
       &:hover {
-        fill: var(--default-green-bg-pressed);
+        fill: var(--green-5);
       }
     }
   }
@@ -59,10 +59,10 @@
     visibility: visible;
 
     & rect {
-      fill: var(--default-green);
+      fill: var(--green-7);
 
       &:hover {
-        fill: var(--default-green-bg-pressed);
+        fill: var(--green-5);
       }
     }
   }
@@ -71,43 +71,43 @@
 /* Parent .media-query-btn-wrapper in the Header */
 .media-query-icon-btn {
   & path {
-    stroke: var(--default-grey-30);
+    stroke: var(--grey-3);
   }
 
   &:hover path {
-    stroke: var(--default-grey-50);
+    stroke: var(--grey-5);
   }
 
   &.is-desktop path, &.is-mobile path {
-    stroke: var(--default-grey-90);
+    stroke: var(--grey-9);
   }
 }
 
 .tool-btn-icon {
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--grey-1);
   border-radius: 5px;
   padding: 10px 30px;
 
   &:hover {
-    border: 1px solid var(--border-color-btn-hover);
+    border: 1px solid var(--green-8);
   }
 
   & path {
-    stroke: var(--default-grey-30);
+    stroke: var(--grey-3);
   }
 
   &:hover path {
-    stroke: var(--default-grey-50);
+    stroke: var(--grey-5);
   }
 }
 
 .undo-icon, .redo-icon {
   & path {
-    stroke: var(--default-grey-30);
+    stroke: var(--grey-3);
   }
 
   &:hover path {
-    stroke: var(--default-grey-50);
+    stroke: var(--grey-5);
   }
 }
 
@@ -115,18 +115,18 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--grey-1);
   border-radius: 8px;
   padding: 10px;
   cursor: pointer;
   margin: 0 10px;
 
   &.campaign-modal {
-    border: 1px solid var(--campaign-btn-border-color);
+    border: 1px solid var(--green-8);
   }
 
   &:hover {
-    border: 1px solid var(--border-color-btn-hover);
+    border: 1px solid var(--green-8);
   }
 
   .btn-preview-text {
@@ -152,10 +152,10 @@
   justify-content: center;
   align-items: center;
   background: transparent;
-  color: var(--default-grey-50);
+  color: var(--grey-5);
   width: 100%;
   margin: 20px 0;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--grey-1);
   border-radius: 10px;
   font-family: MacPawFixelMedium;
   font-size: 14px;
@@ -169,20 +169,20 @@
   &:hover {}
 
   &.brand-btn-variant-active {
-    color: var(--default-white);
-    background: var(--default-green);
+    color: var(--grey-1);
+    background: var(--green-7);
 
     &:hover {
-      background: var(--default-green-bg-hover);
+      background: var(--green-8);
     }
   }
 
   &.brand-btn-variant-passive {
-    color: var(--btn-icon-color-default);
-    background: var(--btn-icon-bg-default);
+    color: var(--grey-9);
+    background: var(--grey-1);
 
     &:hover {
-      background: var(--btn-icon-bg-hover);
+      background: var(--grey-2);
     }
   }
 }

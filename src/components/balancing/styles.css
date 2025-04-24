@@ -19,11 +19,11 @@
         font-family: MacPawFixelSemiBold;
         font-size: 16px;
         line-height: 21px;
-        color: var(--default-grey-30);
+        color: var(--grey-3);
         
         .label {
           font-family: MacPawFixelBold;
-          color: var(--default-grey-90);
+          color: var(--grey-9);
         }
       }
       
@@ -46,7 +46,7 @@
           padding: 10px 16px;
           gap: 5px;
           border-radius: 10px;
-          background-color: var(--default-grey-10);
+          background-color: var(--grey-1);
           font-family: MacPawFixelMedium;
           font-size: 12px;
           
@@ -69,13 +69,13 @@
         display: flex;
         flex: 1;
         padding: 15px 10px 15px 20px;
-        border-bottom: 2px solid var(--default-grey-20);
+        border-bottom: 2px solid var(--grey-2);
         align-items: center;
         gap: 20px;
         transition: .3s;
         
         &:hover {
-          background-color: var(--default-grey-10);
+          background-color: var(--grey-1);
           cursor: pointer;
           transition: .3s;
         }
@@ -93,57 +93,57 @@
             font-family: MacPawFixelMedium;
             font-size: 14px;
             line-height: 19px;
-            color: var(--default-grey-70);
+            color: var(--grey-7);
           }
           
           .tab-description {
             font-family: MacPawFixelMedium;
             font-size: 12px;
             line-height: 17px;
-            color: var(--default-grey-50);
+            color: var(--grey-5);
           }
         }
         
         &.now {
-          border-bottom-color: var(--default-green);
+          border-bottom-color: var(--green-7);
           
           .tab-title-wrapper {
             .tab-title {
-              color: var(--default-green);
+              color: var(--green-7);
             }
             
             .tab-description {
-              color: var(--default-green);
+              color: var(--green-7);
               opacity: 0.7;
             }
           }
         }
         
         &.schedule {
-          border-bottom-color: var(--default-orange);
+          border-bottom-color: var(--orange-9);
           
           .tab-title-wrapper {
             .tab-title {
-              color: var(--default-orange);
+              color: var(--orange-9);
             }
             
             .tab-description {
-              color: var(--default-orange);
+              color: var(--orange-9);
               opacity: 0.7;
             }
           }
         }
         
         &.auto {
-          border-bottom-color: var(--default-purple);
+          border-bottom-color: var(--purple-9);
           
           .tab-title-wrapper {
             .tab-title {
-              color: var(--default-purple);
+              color: var(--purple-9);
             }
             
             .tab-description {
-              color: var(--default-purple);
+              color: var(--purple-9);
               opacity: 0.7;
             }
           }
@@ -152,7 +152,7 @@
     }
     
     .load-balancing-chart {
-      background-color: var(--default-white);
+      background-color: var(--grey-1);
       padding: 30px;
       border-radius: 20px;
       
@@ -174,7 +174,7 @@
               font-family: MacPawFixelSemiBold;
               font-size: 24px;
               line-height: 24px;
-              color: var(--default-grey-90);
+              color: var(--grey-9);
             }
             
             .chart-header-calendar {
@@ -184,7 +184,7 @@
                 padding: 10px;
                 gap: 10px;
                 border-radius: 10px;
-                border: 1.5px solid var(--default-green);
+                border: 1.5px solid var(--green-7);
                 font-family: MacPawFixelMedium;
                 font-size: 12px;
                 
@@ -211,14 +211,14 @@
               align-items: center;
               font-family: MacPawFixelMedium;
               font-size: 12px;
-              color: var(--default-grey-50);
+              color: var(--grey-5);
               
               .chart-header-stepper {
                 display: flex;
                 gap: 10px;
                 justify-content: center;
                 align-items: center;
-                border: 1px solid var(--default-grey);
+                border: 1px solid var(--grey-1);
                 padding: 6px;
                 border-radius: 10px;
                 
@@ -226,7 +226,7 @@
                   width: 54px;
                   height: 24px;
                   border-radius: 6px;
-                  color: var(--default-grey-90);
+                  color: var(--grey-9);
                   font-family: MacPawFixelMedium;
                   font-size: 12px;
                   display: flex;
@@ -235,8 +235,8 @@
                   transition: .5s;
                   
                   &.active {
-                    background-color: var(--default-green);
-                    color: var(--default-white);
+                    background-color: var(--green-7);
+                    color: var(--grey-1);
                     transition: .5s;
                   }
                   
@@ -245,7 +245,7 @@
                   }
                   
                   &:not(.active):hover {
-                    background-color: var(--default-grey);
+                    background-color: var(--grey-1);
                   }
                 }
               }
@@ -259,7 +259,7 @@
             font-family: MacPawFixelMedium;
             font-size: 12px;
             line-height: 13px;
-            color: var(--default-grey-50);
+            color: var(--grey-5);
             
             .info-title {
             }
@@ -275,15 +275,15 @@
                 border-radius: 12px;
                 
                 &.indicator-low {
-                  background-color: var(--default-green);
+                  background-color: var(--green-7);
                 }
                 
                 &.indicator-medium {
-                  background-color: var(--default-yellow);
+                  background-color: var(--yellow-9);
                 }
                 
                 &.indicator-high {
-                  background-color: var(--default-orange);
+                  background-color: var(--orange-9);
                 }
               }
             }
@@ -293,7 +293,7 @@
         .chart-content {
           .highcharts-crosshair {
             &.highcharts-crosshair-category {
-              stroke: var(--default-grey-10);
+              stroke: var(--grey-1);
             }
           }
           
@@ -306,7 +306,7 @@
               }
               
               &.highcharts-point-selected {
-                stroke: var(--default-grey-10);
+                stroke: var(--grey-1);
               }
             }
           }
@@ -315,7 +315,7 @@
         .chart-footer {
           display: flex;
           padding-top: 30px;
-          border-top: 1px solid var(--default-grey-10);
+          border-top: 1px solid var(--grey-1);
           justify-content: space-between;
           align-items: center;
           
@@ -326,12 +326,12 @@
               display: flex;
               flex-direction: column;
               gap: 10px;
-              border-left: 2px solid var(--default-grey-10);
+              border-left: 2px solid var(--grey-1);
               padding: 0 40px;
               font-family: MacPawFixelMedium;
               font-size: 12px;
               line-height: 17px;
-              color: var(--default-grey-60);
+              color: var(--grey-6);
               
               &:first-child {
                 border-left: none;
@@ -341,10 +341,10 @@
               .chart-footer-info-item-value {
                 font-family: MacPawFixelBold;
                 font-size: 20px;
-                color: var(--default-grey-90);
+                color: var(--grey-9);
                 
                 .item-value-utc {
-                  color: var(--default-grey-30);
+                  color: var(--grey-3);
                 }
                 
                 .item-value-load {
@@ -353,15 +353,15 @@
                   min-width: 77px;
                   
                   &.low {
-                    color: var(--default-green);
+                    color: var(--green-7);
                   }
                   
                   &.medium {
-                    color: var(--default-yellow);
+                    color: var(--yellow-9);
                   }
                   
                   &.high {
-                    color: var(--default-orange);
+                    color: var(--orange-9);
                   }
                 }
               }
@@ -375,10 +375,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: var(--default-green);
+            background-color: var(--green-7);
             font-family: MacPawFixelMedium;
             font-size: 14px;
-            color: var(--default-white);
+            color: var(--grey-1);
             
             &:hover {
               cursor: pointer;

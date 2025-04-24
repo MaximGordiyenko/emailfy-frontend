@@ -5,7 +5,7 @@
     margin: 10px 20px;
     font-family: MacPawFixelSemiBold, "sans-serif";
     font-size: 12px;
-    color: var(--campaign-default-label-color);
+    color: var(--grey-9);
   }
 
   .brand-input-icon-wrapper {
@@ -34,16 +34,16 @@
       margin: 0;
       box-sizing: border-box;
       border-radius: 10px;
-      border: 1px solid var(--default-grey-10);
+      border: 1px solid var(--grey-1);
       outline: none;
       font-size: 12px;
 
       &:focus {
-        outline: 1px solid var(--default-green);
+        outline: 1px solid var(--green-7);
       }
 
       &.errors {
-        border: 1px solid var(--default-red);
+        border: 1px solid var(--red-9);
       }
 
       &.is-active-icon {
@@ -52,11 +52,11 @@
     }
 
     .input-bg-color {
-      background: var(--default-white);
+      background: var(--grey-1);
     }
 
     .default-input-bg-color {
-      background: var(--btn-icon-bg-pressed);
+      background: var(--grey-3);
     }
   }
 }
@@ -76,7 +76,7 @@
 
         .select-placeholder-text {
           font-size: 12px;
-          color: var(--default-grey-50);
+          color: var(--grey-5);
         }
       }
     }
@@ -93,7 +93,7 @@
 
       .react-select__option {
         font-size: 12px;
-        background: var(--default-grey-10);
+        background: var(--grey-1);
         display: block;
         width: 97%;
         -webkit-user-select: none;
@@ -101,29 +101,29 @@
         -ms-user-select: none;
         user-select: none;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-        background: var(--default-grey-10);
+        background: var(--grey-1);
         padding: 10px;
         box-sizing: border-box;
         margin: 8px;
         border-radius: 10px;
-        color: var(--default-grey-90);
+        color: var(--grey-9);
       }
     }
   }
 }
 
 .group-inputs-block {
-  border: 1px solid var(--default-grey-10);
+  border: 1px solid var(--grey-1);
   border-radius: 10px;
-  background: var(--default-white);
+  background: var(--grey-1);
   padding: 8px 10px;
 
   &.focused {
-    border: 1px solid var(--default-green);
+    border: 1px solid var(--green-7);
   }
 
   &.errors {
-    border: 1px solid var(--default-red);
+    border: 1px solid var(--red-9);
   }
 
   & input {
@@ -136,7 +136,7 @@
   .hr {
     height: 1px;
     width: 100%;
-    background: var(--te-icon-bg-pressed);
+    background: var(--grey-1);
   }
 }
 
@@ -146,7 +146,7 @@
   font-weight: 500;
   line-height: 16px;
   text-align: left;
-  color: var(--default-red);
+  color: var(--red-9);
   padding: 5px 20px;
 }
 

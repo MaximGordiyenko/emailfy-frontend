@@ -141,7 +141,7 @@
           font-size: 32px;
           line-height: 42px;
           align-self: start;
-          color: var(--default-grey-90);
+          color: var(--grey-9);
           font-family: MacPawFixelBold;
           margin: 10px auto 20px 0;
         }
@@ -319,7 +319,7 @@
       & h3 {
         font-family: MacPawFixelBold;
         font-size: 24px;
-        color: var(--default-grey-90);
+        color: var(--grey-9);
         margin: 40px auto 10px;
       }
       
@@ -328,12 +328,12 @@
         font-size: 14px;
         line-height: 19px;
         font-family: MacPawFixelMedium;
-        color: var(--default-grey-50);
+        color: var(--grey-5);
       }
     }
     
     & button {
-      background-color: var(--default-green);
+      background-color: var(--green-7);
       width: 205px;
       height: 45px;
       border: none;
@@ -341,7 +341,7 @@
       cursor: pointer;
       
       & span {
-        color: var(--default-white);
+        color: var(--grey-1);
         font-family: MacPawFixelMedium;
         font-size: 14px;
         line-height: 19px;

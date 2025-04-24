@@ -5,11 +5,11 @@
   align-items: flex-start;
   gap: 30px;
   border-radius: 20px;
-  background: var(--default-white, #FAFAFA);
+  background: var(--grey-1, #FAFAFA);
   width: 50%;
-  
+
   .pg-title {
-    color: var(--default-grey-90, #2A2B3B);
+    color: var(--grey-9, #2A2B3B);
     text-align: right;
     font-family: MacPawFixelBold, 'sans-serif';
     font-size: 16px;
@@ -17,32 +17,32 @@
     font-weight: 700;
     line-height: 110%; /* 17.6px */
   }
-  
+
   .bar-box {
     width: 100%;
-    
+
     .bar-element {
       margin: 30px 0;
-      
+
       .pg-desc {
         display: flex;
         justify-content: space-between;
-        
+
         .pg-decs-title {
           text-align: left;
           font-family: MacPawFixelMedium, 'sans-serif';
-          color: var(--default-grey-90, #2A2B3B);
-          
+          color: var(--grey-9, #2A2B3B);
+
           .type-message {
             font-size: 14px;
           }
-          
+
           .date {
             font-size: 12px;
             opacity: 0.5;
           }
         }
-        
+
         .value {
           align-self: flex-end;
         }

@@ -5,55 +5,55 @@
   background: #fafafa;
   justify-content: space-between;
   border-radius: 30px;
-  
+
   .circle-stats {
     width: 100%;
     justify-content: space-between;
     padding: 30px 10px;
     display: flex;
     align-items: center;
-    
+
     #container {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      
+
       .highcharts-point.highcharts-color-0 {
         fill: #ff5656;
       }
     }
-    
+
     .circle-statistic {
       height: 100%;
       margin-left: 60px;
-      
+
       .outer-circle-des {
         display: flex;
         align-items: center;
-        
+
         .line1 {
           width: 22px;
           height: 4px;
           border-radius: 3px;
-          background: var(--default-green, #7E9D00);
+          background: var(--green-7, #7E9D00);
         }
-        
+
         .outer-text {
           margin-left: 11px;
-          
+
           & h5 {
             margin: 0;
-            color: var(--default-grey-20, #95959D);
+            color: var(--grey-2, #95959D);
             font-family: MacPawFixelBold;
             font-size: 14px;
             font-style: normal;
             font-weight: 500;
             line-height: 110%; /* 15.4px */
           }
-          
+
           & p {
-            color: var(--default-grey-90, #2A2B3B);
+            color: var(--grey-9, #2A2B3B);
             font-feature-settings: 'clig' off, 'liga' off;
             font-family: MacPawFixelBold;
             font-size: 24px;
@@ -64,22 +64,22 @@
           }
         }
       }
-      
+
       .inner-circle-des {
         display: flex;
         align-items: center;
         margin-top: 30px;
-        
+
         .line2 {
           width: 22px;
           height: 4px;
           border-radius: 3px;
           background: #FF5656;
         }
-        
+
         .inner-text {
           margin-left: 11px;
-          
+
           & h5 {
             margin: 0;
             color: #95959D;
@@ -89,9 +89,9 @@
             font-weight: 500;
             line-height: 110%; /* 15.4px */
           }
-          
+
           & p {
-            color: var(--default-grey-90, #2A2B3B);
+            color: var(--grey-9, #2A2B3B);
             font-feature-settings: 'clig' off, 'liga' off;
             font-family: MacPawFixelBold;
             font-size: 24px;
@@ -103,7 +103,7 @@
         }
       }
     }
-    
+
     .hr {
       background: #FAFAFA;
       display: flex;
@@ -112,12 +112,12 @@
       height: 217px;
       margin: 0 75px;
     }
-    
+
     .statistic-description {
       max-width: 500px;
       width: 100%;
       padding-right: 40px;
-      
+
       & h3 {
         color: #2A2B3B;
         font-family: MacPawFixelBold;
@@ -126,13 +126,13 @@
         line-height: 110%; /* 26.4px */
         text-align: left;
       }
-      
+
       & div {
         display: flex;
         width: 100%;
         align-items: center;
         justify-content: space-between;
-        
+
         & p {
           color: #95959D;
           font-family: MacPawFixelMedium;
@@ -141,9 +141,9 @@
           font-weight: 500;
           line-height: 110%; /* 15.4px */
         }
-        
+
         & span {
-          color: var(--default-grey-90, #2A2B3B);
+          color: var(--grey-9, #2A2B3B);
           text-align: right;
           font-family: MacPawFixelMedium;
           font-size: 14px;

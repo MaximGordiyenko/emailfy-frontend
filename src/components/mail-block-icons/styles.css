@@ -4,105 +4,105 @@
 }
 
 .building-blocks-item:hover > .paragraph-icon rect:nth-child(n+1) {
-  fill: var(--default-grey-30);
+  fill: var(--grey-3);
   opacity: var(--main-opacity);
 }
 .building-blocks-item:hover > .paragraph-icon rect:nth-child(n+2) {
-  fill: var(--default-purple);
+  fill: var(--purple-9);
   opacity: var(--main-opacity);
 }
 
 .building-blocks-item:hover > .header-icon rect:nth-child(1) {
-  fill: var(--default-green);
+  fill: var(--green-7);
   opacity: var(--main-opacity);
 }
 .building-blocks-item:hover > .header-icon rect:nth-child(n+2),
 .building-blocks-item:hover > .header-icon circle:nth-child(n+3) {
-  fill: var(--default-grey-30);
+  fill: var(--grey-3);
   opacity: var(--main-opacity);
 }
 
 .building-blocks-item:hover > .list-icon rect:nth-child(1) {
-  fill: var(--default-grey-30);
+  fill: var(--grey-3);
   opacity: var(--main-opacity);
 }
 .building-blocks-item:hover > .list-icon rect:nth-child(n+2),
 .building-blocks-item:hover > .list-icon circle:nth-child(n+2) {
-  fill: var(--default-green);
+  fill: var(--green-7);
   opacity: var(--main-opacity);
 }
 
 .building-blocks-item:hover > .button-icon rect {
-  fill: var(--default-green);
+  fill: var(--green-7);
   opacity: var(--main-opacity);
 }
 .building-blocks-item:hover > .button-icon path {
-  fill: var(--default-grey-90);
+  fill: var(--grey-9);
   opacity: var(--main-opacity);
 }
 
 .building-blocks-item:hover > .image-icon path {
-  fill: var(--default-yellow);
+  fill: var(--yellow-9);
   opacity: var(--main-opacity);
 }
 
 .building-blocks-item:hover > .spacing-icon path {
-  fill: var(--default-orange);
+  fill: var(--orange-9);
   opacity: var(--main-opacity);
 }
 .building-blocks-item:hover > .spacing-icon rect {
-  fill: var(--default-grey-30);
+  fill: var(--grey-3);
   opacity: var(--main-opacity);
 }
 
 .building-blocks-item:hover > .divider-icon rect:nth-child(1),
 .divider-icon:hover rect:nth-child(3) {
-  fill: var(--default-grey-30);
+  fill: var(--grey-3);
   opacity: var(--main-opacity);
 }
 .building-blocks-item:hover > .divider-icon rect:nth-child(2) {
-  fill: var(--default-orange);
+  fill: var(--orange-9);
   opacity: var(--main-opacity);
 }
 
 .building-blocks-item:hover > .social-icon path {
-  fill: var(--default-orange);
+  fill: var(--orange-9);
   opacity: var(--main-opacity);
 }
 
 .building-blocks-item:hover > .html-icon path {
-  fill: var(--default-purple);
+  fill: var(--purple-9);
   opacity: var(--main-opacity);
 }
 
 .building-blocks-item:hover > .footer-icon path {
-  fill: var(--default-grey-30);
+  fill: var(--grey-3);
   opacity: var(--main-opacity);
 }
 .building-blocks-item:hover > .footer-icon path:nth-child(1) {
-  fill: var(--default-purple);
+  fill: var(--purple-9);
   opacity: var(--main-opacity);
 }
 
 .building-blocks-item:hover > .video-icon path:nth-child(n+1),
 .building-blocks-item:hover > .video-icon g:nth-child(n+2) {
-  fill: var(--default-orange);
+  fill: var(--orange-9);
   opacity: var(--main-opacity);
 }
 
 .building-blocks-item:hover > .logo-icon path {
-  fill: var(--default-yellow);
+  fill: var(--yellow-9);
   opacity: var(--main-opacity);
 }
 
 .building-blocks-item:hover > .giphy-icon path:nth-child(n+1) {
-  fill: var(--default-purple);
+  fill: var(--purple-9);
   opacity: var(--main-opacity);
 }
 
 .building-text {
   margin: 0;
-  color: var(--default-grey-90);
+  color: var(--grey-9);
   text-align: center;
   font-size: 14px;
   font-style: normal;
@@ -123,46 +123,46 @@
   cursor: pointer;
   
   &:hover {
-    border: 1px solid var(--border-color-btn-hover);
+    border: 1px solid var(--green-8);
     border-radius: 8px;
   }
   
   &:hover .write-icon path {
-    fill: var(--default-green-bg-hover);
+    fill: var(--green-8);
   }
   
   &:hover .spelling-icon path {
-    stroke: var(--default-green-bg-hover);
+    stroke: var(--green-8);
   }
   
   &:hover .continue-icon path {
-    stroke: var(--default-green-bg-hover);
+    stroke: var(--green-8);
   }
   
   &:hover .shorten-icon path {
-    stroke: var(--default-green-bg-hover);
+    stroke: var(--green-8);
   }
   
   &:hover .expand-icon path {
-    stroke: var(--default-green-bg-hover);
+    stroke: var(--green-8);
   }
   
   &:hover .emojis-icon path {
-    stroke: var(--default-green-bg-hover);
+    stroke: var(--green-8);
   }
   
   &:hover .tone-icon path {
-    stroke: var(--default-green-bg-hover);
+    stroke: var(--green-8);
   }
   
   .toolbar-btn-text {
     font-size: 10px;
     font-family: MacPawFixelMedium;
-    color: var(--default-grey-50);
+    color: var(--grey-5);
   }
   
   &:hover .toolbar-btn-text {
-    color: var(--default-green-bg-hover);
+    color: var(--green-8);
     font-weight: 700;
   }
 }

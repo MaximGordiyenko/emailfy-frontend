@@ -1,5 +1,5 @@
 .mail-editor {
-  background: var(--default-white);
+  background: var(--grey-1);
   margin: 0 auto;
   padding: 20px 0;
   border-radius: 5px;
@@ -19,7 +19,7 @@
   &.is-mobile-mode {
     width: 320px;
     height: 80vh;
-    border: 5px solid var(--border-color);
+    border: 5px solid var(--grey-1);
     border-radius: 30px;
     caret-color: transparent;
   }
@@ -30,18 +30,18 @@
   }
 
   .initial-editor-placeholder {
-    border: 1px dashed var(--default-grey-50);
+    border: 1px dashed var(--grey-5);
     border-radius: 5px;
     font-family: MacPawFixelMedium;
     caret-color: transparent;
 
     .placeholder-top-text {
-      color: var(--default-grey-50);
+      color: var(--grey-5);
       text-align: center;
     }
 
     .placeholder-bottom-text {
-      color: var(--default-grey-50);
+      color: var(--grey-5);
       font-weight: 700;
       text-align: center;
     }
@@ -92,7 +92,7 @@
       .footer-build-block + .border-over-child,
       .video-build-block + .border-over-child,
       .giphy-build-block + .border-over-child {
-        border: 1px solid var(--default-green-bg-hover);
+        border: 1px solid var(--green-8);
       }
     }
 
@@ -100,10 +100,10 @@
       display: none;
 
       & rect {
-        fill: var(--default-green);
+        fill: var(--green-7);
 
         &:hover {
-          fill: var(--default-green-bg-pressed);
+          fill: var(--green-5);
         }
       }
     }
@@ -168,11 +168,11 @@
     }
 
     .border-over-child.is-active-border {
-      border: 1px solid var(--default-green-bg-hover);
+      border: 1px solid var(--green-8);
     }
 
     .layout-child.layout-tab-active {
-      border: 1px dashed var(--default-green);
+      border: 1px dashed var(--green-7);
     }
 
     .layout-container {
@@ -212,12 +212,12 @@
 
         /* add border around content of the child block only */
         .is-active-content-border {
-          border: 1px dotted var(--default-green-bg-hover);
+          border: 1px dotted var(--green-8);
         }
 
         /* add border around content of the child block on hover only */
         .is-hover-block:hover {
-          border: 1px solid var(--default-green-bg-hover);
+          border: 1px solid var(--green-8);
         }
 
         .giphy-container {
@@ -253,8 +253,8 @@
         min-height: 130px;
         height: 100px;
         width: 100%;
-        border: 1px dashed var(--border-color);
-        color: var(--default-grey-30);
+        border: 1px dashed var(--grey-1);
+        color: var(--grey-3);
         caret-color: transparent;
         font-family: MacPawFixelMedium;
         font-weight: 500;
@@ -266,7 +266,7 @@
       .layout-child.drop-your-content-here::after {
         content: 'Drop your content here';
         caret-color: transparent;
-        color: var(--default-grey-50);
+        color: var(--grey-5);
         font-family: MacPawFixelMedium;
         position: absolute;
         top: 50%;
@@ -277,11 +277,11 @@
 
       /* Additional style for ::after pseudo-element during drag-over */
       .layout-child.drop-your-content-here.highlight-layout-child::after {
-        color: var(--default-green);
+        color: var(--green-7);
       }
 
       .layout-child.highlight-layout-child {
-        border: 0.1rem solid var(--default-green-bg-hover);
+        border: 0.1rem solid var(--green-8);
       }
 
       .is-active-icon-delete {
@@ -349,7 +349,7 @@
     font-family: MacPawFixelMedium;
     width: 100%;
     margin: 20px auto;
-    color: var(--default-green);
+    color: var(--green-7);
   }
 
   .on-drag-splitter::before {
@@ -360,7 +360,7 @@
     left: 0;
     width: 100%;
     height: 1px;
-    background: var(--default-green);
+    background: var(--green-7);
     transform: translateY(-50%);
   }
 
@@ -369,7 +369,7 @@
     display: inline-block;
     position: relative;
     background-color: white;
-    border: 1px solid var(--default-green);
+    border: 1px solid var(--green-7);
     border-radius: 40px;
     padding: 5px 10px;
     line-height: 1;
@@ -388,7 +388,7 @@
   .giphy-build-block.drop-your-content-here::after,
   .video-build-block.drop-your-content-here::after {
     caret-color: transparent;
-    color: var(--default-grey-50);
+    color: var(--grey-5);
     text-align: center;
     font-family: Kinetika;
     font-size: 24px;

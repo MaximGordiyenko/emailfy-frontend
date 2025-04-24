@@ -3,28 +3,28 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  
+
   .test-header {
     .content-box {
       .btns {
         .filled:disabled {
-          background: var(--default-grey-10);
-          
+          background: var(--grey-1);
+
           & span {
-            color: var(--default-grey-40);
+            color: var(--grey-4);
           }
         }
       }
     }
   }
-  
+
   .pg-bars {
     top: 80px;
     position: absolute;
     width: 100%;
     display: flex;
     align-items: baseline;
-    
+
     .progress-bar-upload {
       font-family: MacpawFixelBold;
       text-align: left;
@@ -33,53 +33,53 @@
       display: flex;
       flex-direction: column;
       height: 10px;
-      
+
       & h1 {
         margin: 0;
         font-size: 24px;
       }
-      
+
       .progress-wrapper {
         .parent-prog-bar {
           height: 2px !important;
         }
-        
+
         .child-prog-bar {
           height: 2px !important;
         }
       }
     }
   }
-  
+
   .inner-content {
     margin: 12vh 0 0 18vw;
     width: 55vw;
     height: 100%;
-    
+
     .count-upload {
       display: flex;
       justify-content: space-between;
-      
+
       .title-count {
         align-items: center;
         font-family: MacpawFixelBold;
         display: flex;
-        
+
         & span {
           opacity: 0.5;
           font-size: 32px;
         }
-        
+
         & p {
           margin: 0 0 0 8px;
           font-size: 32px;
         }
       }
-      
+
       .btns {
         display: flex;
         margin-left: 30px;
-        
+
         .transparent {
           width: 156px;
           height: 44px;
@@ -87,14 +87,14 @@
           border: 1px solid #7e9d00;
           border-radius: 10px;
           cursor: pointer;
-          
+
           & span {
             font-family: MacPawFixelMedium;
             color: #7e9d00;
             font-size: 14px;
           }
         }
-        
+
         .filled {
           cursor: pointer;
           width: 156px;
@@ -103,30 +103,30 @@
           border: none;
           border-radius: 10px;
           margin-left: 10px;
-          
+
           & span {
             font-family: MacPawFixelMedium;
             color: #ffffff;
             font-size: 14px;
           }
         }
-        
+
         :disabled {
           opacity: 0.5;
           cursor: default;
         }
       }
     }
-    
+
     .uploader-box {
       width: 100%;
       display: flex;
       margin-top: 30px;
-      
+
       .uploader {
         width: 675px;
         height: 320px;
-        
+
         & section {
           width: 100%;
           height: 100%;
@@ -138,11 +138,11 @@
           flex-direction: column;
           justify-content: center;
           position: relative;
-          
+
           .modal-hide {
             display: none;
           }
-          
+
           .modal-upload {
             position: fixed;
             background: rgba(0, 0, 0, 0.8);
@@ -158,7 +158,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            
+
             .modal-window {
               background-color: #ffffff;
               width: 28vw;
@@ -168,7 +168,7 @@
               justify-content: space-between;
               padding: 20px;
               border-radius: 10px;
-              
+
               & h1 {
                 margin: 0 0 0px;
                 align-self: center;
@@ -176,39 +176,39 @@
                 font-size: 20px;
                 font-family: MacpawFixelBold;
               }
-              
+
               & span {
                 font-family: MacpawFixelMedium;
                 font-size: 12px;
               }
-              
+
               .btns {
                 display: flex;
                 justify-content: space-evenly;
-                
+
                 & button {
                   width: 161px;
                   height: 42px;
                   font-family: MacPawFixelMedium;
                   font-size: 14px;
                 }
-                
+
                 .bnt1 {
                   border: 1px solid #7e9d00;
                   border-radius: 10px;
                   background-color: transparent;
-                  
+
                   & span {
                     color: #7e9d00;
                     font-size: 14px;
                   }
                 }
-                
+
                 .bnt2 {
                   border: none;
                   border-radius: 10px;
                   background-color: #ff5656;
-                  
+
                   & span {
                     color: #ffffff;
                     font-size: 14px;
@@ -217,34 +217,34 @@
               }
             }
           }
-          
+
           .dropzone {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 150px;
-            
+
             .options-hide {
               display: none;
             }
-            
+
             .options {
               margin-top: 20px;
-              
+
               & p {
                 font-size: 18px;
                 line-height: 15px;
                 font-family: MacPawFixelMedium;
                 cursor: default;
-                
+
                 & a {
                   text-decoration: underline;
                   cursor: pointer;
                   color: #7e9d00;
                 }
               }
-              
+
               & span {
                 margin-top: 20px;
                 line-height: 24.84px;
@@ -252,13 +252,13 @@
                 font-family: MacPawFixelBold;
               }
             }
-            
+
             & img {
               width: 68px;
               height: 60px;
             }
           }
-          
+
           & aside {
             .item-name {
               width: 100%;
@@ -266,10 +266,10 @@
               display: flex;
               justify-content: center;
               align-items: center;
-              
+
               & p {
               }
-              
+
               & button {
                 width: 143px;
                 height: 39px;
@@ -277,21 +277,21 @@
                 display: flex;
                 padding: 10px;
                 align-items: center;
-                background: var(--default-grey-10);
+                background: var(--grey-1);
                 border-radius: 10px;
                 cursor: pointer;
-                
+
                 & span {
-                  color: var(--default-grey-90);
+                  color: var(--grey-9);
                 }
-                
+
                 & img {
                   width: 16px;
                   height: 16px;
                 }
               }
             }
-            
+
             .item-hide {
               display: none;
             }

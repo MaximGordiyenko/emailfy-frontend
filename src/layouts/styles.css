@@ -46,6 +46,19 @@
   background-color: #aaa; /* or add it to the track */
 }
 
+.ant-modal-root {
+  .ant-modal-body {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .ant-modal-footer {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
 .home-layout {
   .ant-layout-content {
     height: 100vh;

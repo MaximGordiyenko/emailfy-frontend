@@ -1,0 +1,37 @@
+.message-container {
+  padding: 10px;
+  
+  .message {
+    max-width: 500px;
+    
+    .profile-container {
+      align-self: flex-end;
+      margin-right: 10px;
+    }
+  }
+  
+  .message-left {
+    align-self: flex-start;
+  }
+  
+  .message-right {
+    align-self: flex-end;
+  }
+  
+  .message-left .message-text {
+    padding: 5px;
+    border-radius: 5px;
+  }
+}
+
+.chat-form-container {
+  justify-content: space-between;
+  
+  .ant-form-item {
+    margin-inline-end: 0;
+    
+    &:nth-of-type(1) {
+      width: 90%;
+    }
+  }
+}

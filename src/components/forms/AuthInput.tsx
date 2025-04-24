@@ -15,6 +15,7 @@ export const AuthInput: FC<AuthFormProps> = ({
                                                name,
                                                label,
                                                required = false,
+                                               disabled,
                                                tooltip,
                                                placeholder,
                                                size,
@@ -41,6 +42,7 @@ export const AuthInput: FC<AuthFormProps> = ({
               {...field}
               placeholder={placeholder}
               size={size}
+              disabled={disabled}
               prefix={prefix}
               allowClear={allowClear}
               addonAfter={addonAfter}

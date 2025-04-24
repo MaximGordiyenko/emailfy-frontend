@@ -15,7 +15,7 @@
     width: 668px;
     border-radius: 20px;
     padding: 30px;
-    background: var(--default-white);
+    background: var(--grey-1);
     position: relative;
     box-sizing: border-box;
     display: flex;
@@ -32,7 +32,7 @@
       .modal-title {
         margin: 0;
         font-family: MacPawFixelBold;
-        color: var(--default-grey-90);
+        color: var(--grey-9);
         font-size: 24px;
         line-height: 33px;
       }
@@ -89,7 +89,7 @@
           padding: 0 10px;
           border-radius: 24px;
           box-sizing: border-box;
-          background-color: var(--default-green);
+          background-color: var(--green-7);
           display: flex;
           justify-content: center;
           align-items: center;
@@ -104,7 +104,7 @@
             font-family: MacPawFixelMedium;
             font-size: 10px;
             letter-spacing: 0.05em;
-            color: var(--default-white);
+            color: var(--grey-1);
           }
         }
         
@@ -114,7 +114,7 @@
         }
         
         .modal-card-title {
-          color: var(--default-grey-90);
+          color: var(--grey-9);
           font-family: MacPawFixelBold;
           font-size: 16px;
         }
@@ -124,7 +124,7 @@
         }
         
         &:hover {
-          --hover-color: var(--default-white);
+          --hover-color: var(--grey-1);
         }
       
       &:hover [ data-hover = "#7E9D00" ] {

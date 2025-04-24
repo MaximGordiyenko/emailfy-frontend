@@ -12,7 +12,7 @@
     }
     
     & p {
-      color: var(--tab-color-pressed);
+      color: var(--grey-9);
       font-family: MacPawFixelMedium;
       font-size: 14px;
       font-style: normal;
