@@ -1,58 +1,22 @@
 .logo-link-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 20px;
+  gap: 20px;
+  text-decoration: none;
   
   .ant-typography {
-    font-family: RubikBurnedRegular;
     margin-top: 8px;
-    
-    &:nth-of-type(1) {
-      transform: rotate(-26deg);
-      background: linear-gradient(to right, #30CFD0, #c43ad6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    
-    &:nth-of-type(2) {
-      margin-top: 8px;
-      background: linear-gradient(to right, #30CFD0, #c43ad6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    
-    &:nth-of-type(3) {
-      transform: rotate(-15deg);
-      background: linear-gradient(to right, #30CFD0, #c43ad6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+    color: var(--grey-7);
   }
   
   .logo-image-animated {
-    margin: 0 3px 0 3px;
-    height: 25px;
-    animation: flip 4s infinite linear; /* Apply flip animation */
-    transform-origin: center; /* Set the pivot point */
-  }
-}
-
-@keyframes flip {
-  0% {
-    transform: rotateY(0deg);
-  }
-  25% {
-    transform: rotateY(0deg); /* Pause at the beginning */
-  }
-  50% {
-    transform: rotateY(180deg); /* Midway flip */
-  }
-  75% {
-    transform: rotateY(180deg); /* Pause at the end of the flip */
-  }
-  100% {
-    transform: rotateY(360deg); /* Complete flip */
+    height: 40px;
+    width: 40px;
+    aspect-ratio: auto 40 / 40;
   }
 }
 

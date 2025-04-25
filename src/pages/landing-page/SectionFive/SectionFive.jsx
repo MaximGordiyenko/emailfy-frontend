@@ -1,4 +1,4 @@
-import {  useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useScreenSize } from '../../../hooks/useScreenSize.js';
 import Switch from '../../../components/switchers/Switch.jsx';
@@ -14,32 +14,32 @@ export const SectionFive = () => {
     if (width < 576) return mobile;
     return desktop;
   };
-
+  
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: getOffset(['-200vh', '0'], ['-1100px', 'start'])
+    offset: getOffset(['-100vh', '0'], ['-1000px', 'start'])
   });
   
-  const labelGreenX = getOffset([900, 0], [-102, -103]);
+  const labelGreenX = getOffset([2000, 0], [-102, -103]);
   const labelGreenY = getOffset([250, 66], [109, 110]);
   const labelGreenR = getOffset([7.59, -13.59], [-11.5, -11.54]);
   
-  const labelOrangeX = getOffset([800, -148], [91, 90]);
+  const labelOrangeX = getOffset([2000, 0], [91, 90]);
   const labelOrangeY = getOffset([250, 0], [-8, -9]);
-  const labelOrangeR = getOffset([-6.69, 6.69], [1.43, 1.44]);
+  const labelOrangeR = getOffset([-100.69, 6.69], [1.43, 1.44]);
   
-  const labelYellowX = getOffset([1000, -170], [-94, -95]);
-  const labelYellowY = getOffset([880, 197], [80, 79]);
+  const labelYellowX = getOffset([2500, 0], [-94, -95]);
+  const labelYellowY = getOffset([380, 197], [80, 79]);
   const labelYellowR = getOffset([-12.67, 12.67], [13.14, 13.15]);
   
-  const labelBlueX = getOffset([1000, -3], [-30, -31]);
-  const labelBlueY = getOffset([200, 57], [61, 60]);
-  const labelBlueR = getOffset([-10.31, 18.31], [15.57, 15.58]);
+  const labelBlueX = getOffset([2500, 0], [-30, -31]);
+  const labelBlueY = getOffset([400, 57], [61, 60]);
+  const labelBlueR = getOffset([-100.31, 18.31], [15.57, 15.58]);
   
-  const labelPurpleX = getOffset([600, -145], [-7, -8]);
-  const labelPurpleY = getOffset([700, 3], [7, 6]);
-  const labelPurpleR = getOffset([6.93, -6.93], [-11.93, -11.94]);
+  const labelPurpleX = getOffset([2050, 0], [-7, -8]);
+  const labelPurpleY = getOffset([900, 3], [7, 6]);
+  const labelPurpleR = getOffset([-200.93, -6.93], [-11.93, -11.94]);
   
   const labelGreenTop = useTransform(scrollYProgress, offsetY, labelGreenY);
   const labelGreenLeft = useTransform(scrollYProgress, offsetY, labelGreenX);
@@ -101,7 +101,7 @@ export const SectionFive = () => {
   };
   
   return (
-    <div className="section-five">
+    <div className="section section-five">
       <div ref={ref} className="section-five-row">
         <motion.div className="section-five-column" style={contentStyle}>
           <div className="section-five-content">
@@ -124,8 +124,8 @@ export const SectionFive = () => {
               <span className="green-text">Pay per feature.</span>
             </Heading>
             <span className="section-five-description">
-              Core tools are always free, a wide range of extensions {width > 576 && <br/>}
-              available for you to select from
+              Core tools are always <span className="green-text">free</span>, a wide range of extensions {width > 576 && <br/>}
+              available for you to select from...
             </span>
           </div>
         </motion.div>

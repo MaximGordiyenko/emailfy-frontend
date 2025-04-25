@@ -36,7 +36,9 @@
             gap: 20px;
             
             .hero-logo-text {
-              font-family: MacPawFixelBold, "sans-serif";
+              font-family: "Audiowide", sans-serif;
+              font-weight: 400;
+              font-style: normal;
               font-size: 32px;
               color: var(--grey-7);
             }
@@ -64,25 +66,58 @@
           
           .hero-cta-container {
             display: flex;
-            justify-content: space-between;
+            gap: 30px;
           }
         }
         
         .hero-images-container {
           position: relative;
           
+          .hero-images-row-1 {
+            display: grid;
+            grid-template-columns: 182px 280px;
+            grid-template-rows: 75px;
+          }
+          
+          .hero-images-row-2 {
+            display: grid;
+            grid-template-columns: 103px 124px;
+            grid-template-rows: 80px;
+          }
+          
+          .hero-images-row-3 {
+            display: grid;
+            grid-template-columns: 102px 83px 77px;
+            grid-template-rows: 150px;
+          }
+          
           .rrr-image {
             position: absolute;
-            right: 242px;
+            right: 325px;
             bottom: 112px;
             transform: rotate(24deg);
-            height: 80px;
-            width: 80px;
+            height: 70px;
+            width: 70px;
           }
           
           .hero-image-wrapper {
             border-radius: 999px;
             overflow: hidden;
+          }
+          
+          .hero-image-1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid var(--grey-9);
+            font-size: 40px;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            color: var(--grey-9);
+            
+            .hero-image-cursor {
+              color: var(--green-8);
+            }
           }
           
           .hero-image-2 {
@@ -114,24 +149,6 @@
           .hero-image-7 {
             height: 128px;
             width: 78px;
-          }
-          
-          .hero-images-row-1 {
-            display: grid;
-            grid-template-columns: 110px 170px 170px;
-            grid-template-rows: 170px;
-          }
-          
-          .hero-images-row-2 {
-            display: grid;
-            grid-template-columns: 91px 117px 170px;
-            grid-template-rows: 95px;
-          }
-          
-          .hero-images-row-3 {
-            display: grid;
-            grid-template-columns: 115px 100px 100px;
-            grid-template-rows: 145px;
           }
         }
       }
@@ -310,6 +327,10 @@
           gap: 25px;
           
           .footer-logo-wrapper {
+            align-items: center;
+            display: flex;
+            gap: 10px;
+            
             .footer-logo-image {
               width: 40px;
               height: 40px;
@@ -459,38 +480,4 @@
 
 .big-title {
   font-size: 150px;
-}
-
-.slider-pagination-item {
-  color: var(--grey-3);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 60px 0;
-  
-  .slider-pagination-progress {
-    border-radius: 2px;
-    height: 100%;
-    left: -24px;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    width: 4px;
-  }
-  
-  .slider-pagination-title {
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 22px;
-    transition: color .3s;
-  }
-  
-  .slider-pagination-description {
-    color: var(--grey-3);
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 25px;
-  }
-  
 }

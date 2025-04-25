@@ -1,5 +1,4 @@
 import { Layout, Typography, Flex, Divider } from 'antd';
-import logo from '../../assets/images/logo_calibri.png';
 import './styles.css';
 
 const { Footer } = Layout;
@@ -9,10 +8,12 @@ export const AppFooter = ({ sidebarWidth }) => {
   return (
     <Footer
       style={{
-        margin: `0 20px 20px ${sidebarWidth}px`,
+        margin: `0 20px 20px ${sidebarWidth}px`
       }}>
       <Divider plain>
-        <img src={logo} alt="brand-logo" />
+        <img src={`https://res.cloudinary.com/maxigord/image/upload/v1745582121/Mailfly/MailFly_logo.png`}
+             alt="brand-logo"
+        />
       </Divider>
       <Flex justify="space-around">
         <Flex vertical align="start" gap="small">
@@ -22,7 +23,7 @@ export const AppFooter = ({ sidebarWidth }) => {
           <Link>Email Marketing</Link>
           <Link>Websites</Link>
         </Flex>
-
+        
         <Flex vertical align="start" gap="small">
           <Title level={4}>Resources</Title>
           <Link>Marketing Library</Link>
@@ -30,14 +31,14 @@ export const AppFooter = ({ sidebarWidth }) => {
           <Link>Marketing Glossary</Link>
           <Link>Integrations Directory</Link>
         </Flex>
-
+        
         <Flex vertical align="start" gap="small">
           <Title level={4}>Community</Title>
           <Link>Agencies & Freelancers</Link>
           <Link>Developers</Link>
           <Link>Events</Link>
         </Flex>
-
+        
         <Flex vertical align="start" gap="small">
           <Title level={4}>Company</Title>
           <Link>Our Story</Link>

@@ -7,3 +7,23 @@
     }
   }
 }
+
+.switch {
+  align-items: center;
+  background: var(--grey-4);
+  border-radius: 16px;
+  box-sizing: border-box;
+  display: flex;
+  height: 32px;
+  justify-content: flex-start;
+  padding: 3px;
+  width: 65px;
+  
+  .switch-button {
+    background: var(--grey-2);
+    border-radius: 13px;
+    height: 26px;
+    width: 26px;
+  }
+  
+}

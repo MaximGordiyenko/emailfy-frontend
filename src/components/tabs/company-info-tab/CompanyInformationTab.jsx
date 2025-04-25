@@ -8,7 +8,7 @@ import CountrySelect from '../../selects/CountriySelect.jsx';
 import { useQuery } from '@tanstack/react-query';
 import { getCountries } from '../../../api/settings/company_info.js';
 import { Space, Flex, Form, Typography, Divider, Tooltip, Image, Modal } from 'antd';
-import TextScroller from '../../scrollers/TextScroller.jsx';
+import TextScroller from '../../scrolls/TextScroller.jsx';
 import './styles.css';
 const { Title, Text, Link } = Typography;
 

@@ -68,9 +68,7 @@ export const LoginPage = () => {
 
   return (
     <div className={'auth-form-container'}>
-      <BrandLogo />
-      <Title level={2}>Glad you’re back!</Title>
-      <Title level={3}>Sign in to continue.</Title>
+      <BrandLogo center={true} />
       {contextHolder}
       <Form layout="vertical" onFinish={handleSubmit(onSubmit)}>
         <AuthInput

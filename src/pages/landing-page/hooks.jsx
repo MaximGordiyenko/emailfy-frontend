@@ -8,7 +8,7 @@ import React, { useRef, useEffect, useState } from 'react';
  * The child element passed as `children` will be the one receiving the transform.
  * The parent container element that triggers the effect is the outer div rendered by this component.
  */
-function ScrollCarouselEffect({ children }) {
+function ScrollCarouselEffect({ children, bg }) {
   // Ref for the parent container element (the one that determines when effect starts)
   const parentRef = useRef(null);
   // Ref for the child element that will have the transform applied
@@ -81,15 +81,14 @@ function ScrollCarouselEffect({ children }) {
   // The outer div is the "parent" that determines the scroll trigger
   // The inner div wraps the children and gets the transform style
   return (
-    <div ref={parentRef}>
+    <div style={{ padding: "50px 0", background: bg }} ref={parentRef}>
       <div
         ref={childRef}
         style={{
           transform: `translateX(${translateX}px)`,
           // Optional: Add a transition for a smoother effect
           // transition: 'transform 0.1s ease-out',
-        }}
-      >
+        }}>
         {/* Render the content passed to this component */}
         {children}
       </div>
