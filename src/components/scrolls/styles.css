@@ -1,0 +1,49 @@
+.text-scroller-container {
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-right: 1px solid #7e9d00;
+  border-left: 1px solid #7e9d00;
+  
+  &:hover {
+    cursor: pointer;
+    color: #7e9d00;
+  }
+}
+
+/* Landing Page */
+.scroll-pagination-item {
+  color: var(--grey-7);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+  .scroll-pagination-progress {
+    border-radius: 2px;
+    height: 100%;
+    left: -24px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 4px;
+  }
+  
+  .scroll-pagination-title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 22px;
+    transition: color .3s;
+  }
+  
+  .scroll-pagination-description {
+    color: var(--grey-6);
+    font-family: MacPawFixelMedium, serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 25px;
+  }
+}

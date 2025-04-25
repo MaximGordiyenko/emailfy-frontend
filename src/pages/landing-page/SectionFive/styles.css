@@ -1,10 +1,10 @@
 .section-five {
-  padding: 100px 0 200px;
   background: var(--blue-1);
   
   .section-five-row {
     margin: 0 auto;
-    height: 600px;
+    height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,12 +29,22 @@
       top: 66px;
       left: 0;
       transform: rotate(-13.59deg);
+      
+      .switch.active {
+        background: var(--green-8);
+        justify-content: flex-end;
+      }
     }
     
     &.section-five-label-orange {
       top: 0;
       right: 148px;
       transform: rotate(6.69deg);
+      
+      .switch.active {
+        background: var(--orange-9);
+        justify-content: flex-end;
+      }
     }
     
     &.section-five-label-yellow {
@@ -44,6 +54,7 @@
       
       .switch.active {
         background: var(--yellow-9);
+        justify-content: flex-end;
       }
     }
     
@@ -51,6 +62,11 @@
       bottom: 57px;
       left: -3px;
       transform: rotate(18.31deg);
+      
+      .switch.active {
+        background: var(--blue-9);
+        justify-content: flex-end;
+      }
     }
     
     &.section-five-label-purple {
@@ -60,6 +76,7 @@
       
       .switch.active {
         background: var(--purple-9);
+        justify-content: flex-end;
       }
     }
     
@@ -88,13 +105,23 @@
     align-items: center;
     gap: 15px;
     text-align: center;
+    
+    .heading {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 35px;
+      letter-spacing: -2px;
+      color: var(--grey-9);
+      
+      & span {
+        color: var(--green-8);
+      }
+    }
   }
   
   .section-five-breadcrumbs {
     padding: 20px;
-    background: var(--grey-1);
     border-radius: 14px;
-    border: 1px solid var(--grey-9);
     display: flex;
     align-items: center;
     gap: 5px;
@@ -108,6 +135,16 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      
+      & > span {
+        font-weight: 700;
+        line-height: 18px;
+        color: var(--grey-9);
+        
+        &:last-child {
+          color: var(--green-8);
+        }
+      }
     }
   }
   
@@ -117,6 +154,13 @@
     line-height: 30px;
     letter-spacing: -0.02em;
     color: var(--grey-9);
+    
+    .green-text {
+      font-size: 24px;
+      line-height: 30px;
+      letter-spacing: -1px;
+      color: var(--green-8);
+    }
   }
 }
 

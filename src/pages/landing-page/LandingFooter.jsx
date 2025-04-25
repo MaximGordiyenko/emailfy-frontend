@@ -8,10 +8,10 @@ export const LandingFooter = () => {
           <div className="footer-logo-container">
             <div className="footer-logo-wrapper">
               <img className="footer-logo-image"
-                   src="https://res.cloudinary.com/maxigord/image/upload/v1738624892/Mailfly/logo_calibri_kdcqis.png"
+                   src="https://res.cloudinary.com/maxigord/image/upload/v1745582121/Mailfly/dinoLogo_uol0eq.png"
                    alt="footer-logo"
               />
-              <span className="footer-logo-text">Mailfly</span>
+              <span className="footer-logo-text">MailFly</span>
             </div>
             <span className="footer-description-text">
               Efficient email marketing, reimagined and refined for unparalleled performance

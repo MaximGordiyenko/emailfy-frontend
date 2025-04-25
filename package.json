@@ -67,6 +67,7 @@
     "recharts": "^2.15.1",
     "socket.io-client": "^4.8.1",
     "sortablejs": "^1.15.6",
+    "typed.js": "^2.1.0",
     "uuid": "^11.1.0",
     "vercel": "^41.4.1",
     "web-vitals": "^4.2.4",

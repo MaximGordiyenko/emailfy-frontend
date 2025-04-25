@@ -22,6 +22,7 @@
   --grey-3: #C0C0C5;
   --grey-2: #D4D5D8;
   --grey-1: #EAEAEC;
+  --grey-0: rgba(236, 235, 234, 0.37);
 }
 
 body {
