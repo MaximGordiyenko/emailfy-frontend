@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/emailfy-frontend/static/css/main.c775369a.css",
-    "main.js": "/emailfy-frontend/static/js/main.e3ee58c0.js",
+    "main.css": "/emailfy-frontend/static/css/main.3bce9a2b.css",
+    "main.js": "/emailfy-frontend/static/js/main.fac89b82.js",
     "static/media/RubikBurned-Regular.ttf": "/emailfy-frontend/static/media/RubikBurned-Regular.507b1e4ab45c6ac0b408.ttf",
     "static/media/MacPawFixelText-Medium.ttf": "/emailfy-frontend/static/media/MacPawFixelText-Medium.17cd841e0d31b9128c5f.ttf",
     "static/media/MacPawFixelText-SemiBold.ttf": "/emailfy-frontend/static/media/MacPawFixelText-SemiBold.bdeae81c8ab0b8537618.ttf",
@@ -11,13 +11,11 @@
     "static/media/MacPawFixelText-Black.ttf": "/emailfy-frontend/static/media/MacPawFixelText-Black.6072a9f94aa11e10e1db.ttf",
     "static/media/MacPawFixelText-Thin.ttf": "/emailfy-frontend/static/media/MacPawFixelText-Thin.502e7f1008f58d98cf5c.ttf",
     "static/media/MacPawFixelText-Regular.ttf": "/emailfy-frontend/static/media/MacPawFixelText-Regular.f0bf8bad064864b406e4.ttf",
-    "static/media/mailMarketing.jpg": "/emailfy-frontend/static/media/mailMarketing.ad394790e48977730e36.jpg",
     "static/media/Bokor-Regular.ttf": "/emailfy-frontend/static/media/Bokor-Regular.c4d9eb79dd308765c8e8.ttf",
     "static/media/gilroy-bold.ttf": "/emailfy-frontend/static/media/gilroy-bold.b900325e44ec0c673e88.ttf",
     "static/media/EduAUVICWANTArrows-Medium.ttf": "/emailfy-frontend/static/media/EduAUVICWANTArrows-Medium.d4f9485c4467bd11b633.ttf",
     "static/media/EduAUVICWANTArrows-Regular.ttf": "/emailfy-frontend/static/media/EduAUVICWANTArrows-Regular.6849ae3c716d2fd996fe.ttf",
     "static/media/EduAUVICWANTArrows-Bold.ttf": "/emailfy-frontend/static/media/EduAUVICWANTArrows-Bold.ee9be5fb16c818bb4b40.ttf",
-    "static/media/logo_calibri.png": "/emailfy-frontend/static/media/logo_calibri.f21f72498f89daaa7aba.png",
     "static/media/upload_html_bg.svg": "/emailfy-frontend/static/media/upload_html_bg.4a66431fdbc173d5fd05.svg",
     "static/media/Frame 980938.svg": "/emailfy-frontend/static/media/Frame 980938.ff5f8e918cc76dc58e33725d5cbe6365.svg",
     "static/media/Frame 980935.svg": "/emailfy-frontend/static/media/Frame 980935.62e6283b04af90c9ff6c8a3c602ca793.svg",
@@ -37,11 +35,11 @@
     "static/media/alignLeft.svg": "/emailfy-frontend/static/media/alignLeft.f42efb9694c24eb368c839d7c0682539.svg",
     "static/media/alignRight.svg": "/emailfy-frontend/static/media/alignRight.b5aa3e65a2e7a6d2302d43422ab883a4.svg",
     "static/media/pieChart2.svg": "/emailfy-frontend/static/media/pieChart2.84a3743001dd1308163ca9392cc8dec8.svg",
+    "index.html": "/emailfy-frontend/index.html",
     "static/media/unlink.svg": "/emailfy-frontend/static/media/unlink.120727a651049093c3df1da0b269c037.svg",
     "static/media/pen.svg": "/emailfy-frontend/static/media/pen.087ac47dbf3414e7dee3e73323df2bda.svg",
     "static/media/plain.svg": "/emailfy-frontend/static/media/plain.2ffea3e0e50a8e574ddd6974b4c68918.svg",
     "static/media/plainGreen.svg": "/emailfy-frontend/static/media/plainGreen.2c2f20141c3c7779e9a3d0213e2abb25.svg",
-    "index.html": "/emailfy-frontend/index.html",
     "static/media/usersGroupRounded.svg": "/emailfy-frontend/static/media/usersGroupRounded.fd65dbe52f8fca09020882cc6eae1a94.svg",
     "static/media/strikethrough.svg": "/emailfy-frontend/static/media/strikethrough.6762d165e4c572f6b2a90470207c0a9d.svg",
     "static/media/link.svg": "/emailfy-frontend/static/media/link.9dc5cdedef872fe5d5997ec60254c64a.svg",
@@ -55,11 +53,11 @@
     "static/media/altArrowDownGrey.svg": "/emailfy-frontend/static/media/altArrowDownGrey.c5b8dd3858d4a9a746779770cdb2e757.svg",
     "static/media/italic.svg": "/emailfy-frontend/static/media/italic.2ff7bfc279173c443ca581410a321bc8.svg",
     "static/media/Check Circle.svg": "/emailfy-frontend/static/media/Check Circle.ba18f68e6df244078b4576b10a2237a3.svg",
-    "main.c775369a.css.map": "/emailfy-frontend/static/css/main.c775369a.css.map",
-    "main.e3ee58c0.js.map": "/emailfy-frontend/static/js/main.e3ee58c0.js.map"
+    "main.3bce9a2b.css.map": "/emailfy-frontend/static/css/main.3bce9a2b.css.map",
+    "main.fac89b82.js.map": "/emailfy-frontend/static/js/main.fac89b82.js.map"
   },
   "entrypoints": [
-    "static/css/main.c775369a.css",
-    "static/js/main.e3ee58c0.js"
+    "static/css/main.3bce9a2b.css",
+    "static/js/main.fac89b82.js"
   ]
 }
