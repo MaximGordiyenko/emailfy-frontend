@@ -49,6 +49,9 @@ export const themeX = {
       collapsedIconSize: 18,
       // fontSize: 16,
     },
+    Message: {
+      colorError: 'red',
+    },
     Divider: {
       colorSplit: '#7E9D00',
     },

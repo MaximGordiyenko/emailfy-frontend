@@ -1,5 +1,17 @@
 .auth-form-container {
   flex: 1;
+  
+  .password-policy-container {
+    .ant-space-item {
+      .ant-typography {
+        color: var(--grey-7);
+        font-family: MacPawFixelMedium, 'sans-serif';
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 110%;
+      }
+    }
+  }
 
   .form {
     display: flex;
