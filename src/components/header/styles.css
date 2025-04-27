@@ -7,6 +7,22 @@
   align-items: center;
   padding: 0;
   
+  .logo-link-container {
+    max-width: 180px;
+    min-width: 180px;
+    width: 180px;
+    padding-left: 15px;
+    
+    .logo-image-animated {
+      height: 30px;
+      width: 30px;
+    }
+    
+    .ant-typography {
+      font-size: 25px;
+    }
+  }
+  
   .ant-flex {
     display: flex;
     flex: 1 1;

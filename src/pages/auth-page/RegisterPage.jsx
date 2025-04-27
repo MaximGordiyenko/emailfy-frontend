@@ -16,56 +16,42 @@ import './styles.css';
 const { Title, Text } = Typography;
 
 export const RegisterPage = () => {
-  const [messageApi] = message.useMessage();
+  const [messageApi, contextHolder] = message.useMessage();
   const navigate = useNavigate();
-
+  
   const {
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm({
     resolver: yupResolver(signUpValidation),
     defaultValues: {
       email: '',
       password: '',
-      confirmPassword: '',
-    },
+      confirmPassword: ''
+    }
   });
-
+  
   const { mutate } = useMutation({
     mutationFn: (data) => signUp(data),
     onSuccess: ({ message, userId }) => {
-      messageApi.open({
-        type: 'success',
-        content: `${message} with user id ${userId}`,
-      });
+      messageApi.success(`${message} with user id ${userId}`);
       navigate(`/${ROUTE.login}`);
     },
     onError: (error) => {
-      if (Array.isArray(error.response?.data?.error)) {
-        error.response.data.error.forEach((el) =>
-          messageApi.open({
-            type: 'error',
-            content: el.message,
-          }),
-        );
-      } else {
-        messageApi.open({
-          type: 'error',
-          content: error.response?.data?.message,
-        });
-      }
-    },
+      messageApi.error(error.response.data.error);
+    }
   });
-
+  
   const onSubmit = async (data) => {
     mutate(data);
   };
-
+  
   return (
     <div className={'auth-form-container'}>
-      <BrandLogo />
-      <Title level={1}>Create an Account</Title>
+      <BrandLogo center={true} />
+      {contextHolder}
+      <Title level={2}>Create an Account</Title>
       <Form layout="vertical" onFinish={handleSubmit(onSubmit)}>
         <AuthInput
           name={'email'}
@@ -76,7 +62,7 @@ export const RegisterPage = () => {
           validateStatus={errors.email ? 'error' : ''}
           help={errors.email?.message}
         />
-
+        
         <AuthInput
           name={'password'}
           label={'Password'}
@@ -86,7 +72,7 @@ export const RegisterPage = () => {
           validateStatus={errors.password ? 'error' : ''}
           help={errors.password?.message}
         />
-
+        
         <AuthInput
           name={'confirmPassword'}
           label={'Confirm Password'}
@@ -96,20 +82,13 @@ export const RegisterPage = () => {
           validateStatus={errors.confirmPassword ? 'error' : ''}
           help={errors.confirmPassword?.message}
         />
-
+        
         <Form.Item>
           <Button type="primary" htmlType="submit" block>
             Register
           </Button>
         </Form.Item>
       </Form>
-      <Space direction="vertical">
-        <Text>Must contain at least 8 characters</Text>
-        <Text>Must contain at least one uppercase character</Text>
-        <Text>Must contain at least one lowercase character</Text>
-        <Text>Must contain at least one number</Text>
-        <Text>Must contain at least one special character @, $, !, %, *, ?, &</Text>
-      </Space>
       <Space>
         <Text>
           By clicking on the “Create an account” button you’re agreeing with our {``}

@@ -41,24 +41,11 @@ export const LoginPage = () => {
     mutationFn: (data) => signIn(data),
     onSuccess: ({ accessToken, refreshToken, message }) => {
       login(accessToken, refreshToken, navigate);
-      messageApi.open({
-        type: 'success',
-        content: `${message}`,
-      });
+      messageApi.success(message);
     },
     onError: (error) => {
       removeToken('accessToken');
-      if (error.response?.data?.message) {
-        messageApi.open({
-          type: 'error',
-          content: error.response.data.message,
-        });
-      } else {
-        messageApi.open({
-          type: 'error',
-          content: 'An unexpected error occurred',
-        });
-      }
+      messageApi.error(error.response.data.message);
     },
   });
 
