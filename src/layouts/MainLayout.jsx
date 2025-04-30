@@ -98,7 +98,7 @@ export const MainLayout = () => {
       };
     }
     
-    connectWebSocket();
+    // connectWebSocket();
   }, []);
   
   // Open chat handler
