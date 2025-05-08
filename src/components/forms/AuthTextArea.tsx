@@ -14,6 +14,7 @@ export const AuthTextArea: FC<AuthFormProps> = ({
                                                   tooltip,
                                                   allowClear,
                                                   placeholder,
+                                                  disabled,
                                                   rows = 4,
                                                   maxLength
                                                 }) => {
@@ -25,6 +26,7 @@ export const AuthTextArea: FC<AuthFormProps> = ({
         render={({field}) => (
           <TextArea
             {...field}
+            disabled={disabled}
             rows={rows}
             placeholder={placeholder}
             maxLength={maxLength}

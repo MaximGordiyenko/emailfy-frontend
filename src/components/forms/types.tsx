@@ -18,4 +18,5 @@ export interface AuthFormProps extends UseControllerProps<any> {
   allowClear?: boolean | ReactNode;
   addonAfter?: ReactNode;
   maxLength?: number;
+  disabled: boolean;
 }
