@@ -1,22 +1,22 @@
-import { Typography, Avatar, Flex, Tag } from 'antd';
+import { Typography, Flex } from 'antd';
 import './styles.css';
 
 const { Text } = Typography;
 
-export const Message = ({ text, source, avatar }) => {
-  const className = source === 'website' ? 'message-left' : 'message-right';
+export const Message = ({ text, source, avatar, timestamp }) => {
+  const formattedTime = timestamp ? new Date(timestamp).toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit'
+  }) : '';
   
   return (
-    <Flex vertical={true} className={`message ${className}`}>
-      <Flex align="center" className="profile-container">
-        <Avatar src={avatar} style={{ color: source === 'website' ? 'green' : 'lime' }}/>
-        <Text>User name</Text>
-      </Flex>
-      <Tag
-        color={source === 'website' ? 'green' : 'lime'}
-        style={{ wordWrap: 'break-word', wordBreak: 'break-word', whiteSpace: 'normal' }}>
-        {text}
-      </Tag>
+    <Flex
+      className={`message-wrapper ${source === 'user' ? 'message-left' : 'message-right'}`}
+      gap={4}>
+      <div className="avatar-container">{avatar}</div>
+      <Text className="message-text">{text}
+        <Text type="secondary" className="message-time">{formattedTime}</Text>
+      </Text>
     </Flex>
   );
 };

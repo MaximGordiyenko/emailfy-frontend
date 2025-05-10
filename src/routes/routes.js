@@ -253,10 +253,6 @@ export const routes = createBrowserRouter([
       }
     ]
   },
-  {
-    path: `${ROUTE.mailBuilderPage}/${ROUTE.mailBuilderPreview}`,
-    element: <MailPreviewPage/>
-  },
 ],
   {
     basename: BASE_URL
