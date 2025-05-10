@@ -5,7 +5,7 @@
   .ant-divider {
     .ant-divider-inner-text {
       & > img {
-        width: 100px;
+        width: 50px;
       }
     }
   }

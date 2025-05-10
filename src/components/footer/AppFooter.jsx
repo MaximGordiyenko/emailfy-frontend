@@ -1,17 +1,26 @@
+import { useLocation } from 'react-router-dom';
 import { Layout, Typography, Flex, Divider } from 'antd';
+import { imageMap } from './constants.js';
 import './styles.css';
 
 const { Footer } = Layout;
 const { Link, Title } = Typography;
 
 export const AppFooter = ({ sidebarWidth }) => {
+  
+  const location = useLocation();
+  const pathname = location.pathname;
+  
+  // Match first route whose path is a prefix of current path
+  const matched = imageMap.find(item => pathname.startsWith(item.route));
+  
   return (
     <Footer
       style={{
         margin: `0 20px 20px ${sidebarWidth}px`
       }}>
       <Divider plain>
-        <img src={`https://res.cloudinary.com/maxigord/image/upload/v1745582121/Mailfly/MailFly_logo.png`}
+        <img src={`${matched?.image}`}
              alt="brand-logo"
         />
       </Divider>

@@ -1,26 +1,32 @@
-.message-container {
+.messages-container {
   padding: 10px;
   
-  .message {
+  .message-wrapper {
     max-width: 500px;
-    
-    .profile-container {
-      align-self: flex-end;
-      margin-right: 10px;
-    }
   }
   
   .message-left {
     align-self: flex-start;
+    background: rgba(44, 45, 42, 0.1);
   }
   
   .message-right {
     align-self: flex-end;
+    background: rgba(50, 0, 255, 0.04);
   }
   
   .message-left .message-text {
     padding: 5px;
     border-radius: 5px;
+  }
+  
+  .message-text {
+  }
+  
+  .message-time {
+    float: right;
+    font-size: 12px;
+    margin-left: 10px;
   }
 }
 
@@ -31,7 +37,7 @@
     margin-inline-end: 0;
     
     &:nth-of-type(1) {
-      width: 90%;
+      width: 85%;
     }
   }
 }

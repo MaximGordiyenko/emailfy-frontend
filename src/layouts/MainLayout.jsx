@@ -1,31 +1,37 @@
-import { useState, useEffect } from 'react';
-import { MainProvider } from '../context/MainContext';
-
-import { Layout, theme, FloatButton, Modal, Typography, Flex } from 'antd';
-import { CommentOutlined, ShrinkOutlined, CloseOutlined } from '@ant-design/icons';
-
+import { useState, useEffect, useRef } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-
-import { Sidebar } from '../components/sidebar/Sidebar';
-import { Head } from '../components/header/Header';
-import { AppFooter } from '../components/footer/AppFooter';
-import { Chat } from '../components/chats/Chat.jsx';
 import { useForm } from 'react-hook-form';
-import { ChatForm } from '../components/chats/ChatForm.jsx';
+import { jwtDecode } from "jwt-decode";
+import { v4 as uuidv4 } from 'uuid';
+
+import { Layout, theme, FloatButton, Modal } from 'antd';
+import { CommentOutlined } from '@ant-design/icons';
+
+import { getToken } from '../api/API.js';
+import { fetchMessages, sendMessageApi } from '../api/chats/chat.js';
 
 import { modalBodyCss } from './layout.constants.js';
+import { MainProvider } from '../context/MainContext';
+
+import { Head } from '../components/header/Header';
+import { Sidebar } from '../components/sidebar/Sidebar';
+import { AppFooter } from '../components/footer/AppFooter';
+import { ChatModalHeader } from '../components/header/ChatModalHeader.jsx';
+import { Chat } from '../components/chats/Chat.jsx';
+import { ChatForm } from '../components/chats/ChatForm.jsx';
+
 import './styles.css';
 
 const { Content } = Layout;
-const { Title, Text } = Typography;
 
 export const MainLayout = () => {
-  const [isOpenModal, setIsOpenModal] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isConnected, setIsConnected] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false);
   const [messages, setMessages] = useState([]);
-  const [socket, setSocket] = useState(null);
-  const [currentSessionId, setCurrentSessionId] = useState(null);
+  const [sessionId, setSessionId] = useState(() => sessionStorage.getItem('sessionId') || '');
+  const [isSessionActive, setIsSessionActive] = useState(!!sessionId);
+  const intervalRef = useRef(null);
+  const pollCountRef = useRef(0);
   
   const { pathname } = useLocation();
   
@@ -34,7 +40,9 @@ export const MainLayout = () => {
   } = theme.useToken();
   
   const { control, handleSubmit, reset, formState: { errors } } = useForm({
-    defaultValues: { chat: '' }
+    defaultValues: {
+      message: ''
+    }
   });
   
   const sidebarWidth = isCollapsed ? 100 : 200;
@@ -48,101 +56,79 @@ export const MainLayout = () => {
     }
   }, [pathname]);
   
-  // Establish WebSocket connection
-  useEffect(() => {
-    function connectWebSocket() {
-      const ws = new WebSocket(process.env.REACT_APP_WSS_URL || "ws://localhost:4001");
-      
-      ws.onopen = () => {
-        console.log('WebSocket Connected');
-        setIsConnected(true);
-        setSocket(ws);
-      };
-      
-      ws.onmessage = (event) => {
-        const data = JSON.parse(event.data);
-        
-        switch (data.type) {
-          case 'MESSAGE':
-            setMessages(prev => [...prev, {
-              text: data.message,
-              source: data.source
-            }]);
-            break;
-          
-          case 'SESSION_CREATED':
-            setCurrentSessionId(data.sessionId);
-            break;
-          
-          case 'ERROR':
-            console.error(data.message);
-            break;
-          
-          case 'STATUS':
-            console.log(data.message);
-            break;
-        }
-      };
-      
-      ws.onclose = () => {
-        console.log('WebSocket Disconnected');
-        setIsConnected(false);
-        setSocket(null);
-        
-        // Attempt reconnection after 3 seconds
-        setTimeout(connectWebSocket, 3000);
-      };
-      
-      ws.onerror = (error) => {
-        console.error('WebSocket Error:', error);
-      };
+  const accessToken = getToken('refreshToken');
+  const { id: accountId } = accessToken ? jwtDecode(accessToken) : { id: null };
+  
+  const toggleModal = () => {
+    setIsOpenModal((prev) => !prev);
+  };
+  
+  const loadMessages = async () => {
+    try {
+      const data = await fetchMessages({ sessionId });
+      setMessages(data);
+    } catch (err) {
+      console.error('Failed to fetch messages:', err);
     }
-    
-    // connectWebSocket();
-  }, []);
+  };
   
-  // Open chat handler
-  const openChat = () => {
-    if (!isConnected) return;
-    
-    // Create new chat session
-    socket.send(JSON.stringify({ type: 'CREATE_SESSION' }));
-    
-    // Clear previous messages
+  const startPolling = () => {
+    stopPolling();
+    pollCountRef.current = 0;
+    intervalRef.current = setInterval(async () => {
+      if (pollCountRef.current >= 10) {
+        console.log('Polling paused after 10 cycles.');
+        stopPolling();
+        return;
+      }
+      await loadMessages();
+      pollCountRef.current += 1;
+    }, 2000);
+  };
+  
+  
+  const stopPolling = () => {
+    clearInterval(intervalRef.current);
+    intervalRef.current = null;
+  };
+  
+  const onSubmit = async ({ message }) => {
+    if (!message.trim()) return;
+    try {
+      await sendMessageApi({ accountId, sessionId, message });
+      await loadMessages();
+      pollCountRef.current = 0;
+      if (!intervalRef.current) startPolling();
+      reset();
+    } catch (err) {
+      console.error('Failed to send message:', err);
+    }
+  };
+  
+  const handleNewSession = () => {
+    const newSessionId = uuidv4();
+    sessionStorage.setItem('sessionId', newSessionId);
+    setSessionId(newSessionId);
     setMessages([]);
+    setIsSessionActive(true);
+    startPolling();
   };
   
-  // Close chat handler
-  const closeChat = () => {
-    if (!isConnected) return;
-    
-    // Close current chat session
-    socket.send(JSON.stringify({ type: 'CLOSE_SESSION' }));
-    
-    // Set chat as closed
-    setCurrentSessionId(null);
+  const handleCloseSession = () => {
+    stopPolling();
+    sessionStorage.removeItem('sessionId');
+    setSessionId('');
+    setMessages([]);
+    setIsSessionActive(false);
   };
   
-  
-  const onSubmit = async (data) => {
-    const { chat } = data;
-    if (!chat.trim() || !isConnected) return;
-    
-    // Send message to server
-    socket.send(JSON.stringify({
-      type: 'MESSAGE',
-      message: chat
-    }));
-    
-    // Add to local messages
-    setMessages(prev => [...prev, {
-      text: chat,
-      source: 'website'
-    }]);
-    
-    // Clear input
-    reset({ chat: '' });
-  };
+  useEffect(() => {
+    if (isSessionActive && sessionId) {
+      loadMessages();
+      startPolling();
+    }
+    return () => stopPolling();
+  }, [sessionId]);
   
   return (
     <MainProvider>
@@ -168,34 +154,46 @@ export const MainLayout = () => {
             <Outlet/>
             
             <Modal
-              title="Ask Support Guy"
+              title={
+                <ChatModalHeader
+                  handleCloseSession={handleCloseSession}
+                  isSessionActive={isSessionActive}
+                  toggleModal={toggleModal}
+                />
+              }
               footer={
                 <ChatForm
-                  control={control} errors={errors} isConnected={isConnected}
-                  handleSubmit={handleSubmit} onSubmit={onSubmit}
+                  control={control}
+                  errors={errors}
+                  reset={reset}
+                  handleSubmit={handleSubmit}
+                  onKeyDown={(e) => e.key === 'Enter' && onSubmit}
+                  disabled={!isSessionActive}
+                  onSubmit={onSubmit}
                 />
               }
               destroyOnClose={true}
               mask={true}
-              closable={{ closeIcon: <CloseOutlined onClick={closeChat}/> }}
+              closable={false}
               open={isOpenModal}
-              onCancel={() => setIsOpenModal((prev) => !prev)}
+              onCancel={toggleModal}
               className="chat-modal"
               styles={{ body: modalBodyCss }}
               width={800}
               centered>
-              <Chat isConnected={isConnected} messages={messages}/>
+              <Chat
+                messages={messages}
+                handleNewSession={handleNewSession}
+                isSessionActive={isSessionActive}
+              />
             </Modal>
             
             <FloatButton.Group shape="circle" style={{ insetInlineEnd: 20 }}>
               <FloatButton
                 tooltip={<div>Click to ask of support</div>}
-                badge={{ count: 5, color: 'blue' }}
+                badge={{ count: messages.length, color: 'blue' }}
                 icon={<CommentOutlined/>}
-                onClick={() => {
-                  setIsOpenModal((prev) => !prev);
-                  openChat();
-                }}
+                onClick={toggleModal}
               />
               <FloatButton.BackTop visibilityHeight={0}/>
             </FloatButton.Group>

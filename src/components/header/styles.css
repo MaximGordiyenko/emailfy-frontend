@@ -57,3 +57,51 @@
     font-size: 14px;
   }
 }
+
+/* Chat Modal Header */
+.chat-head-title {
+  margin-top: 5px;
+}
+
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.header-icon {
+  font-size: 16px;
+  padding: 4px;
+}
+
+/* Specific icon styles */
+.terminate-icon .header-icon {
+  color: #ff4d4f;
+}
+
+.close-icon .header-icon {
+  color: #1f1f1f;
+}
+
+/* Hover effects */
+.terminate-icon:hover {
+  background-color: rgba(255, 77, 79, 0.1);
+}
+
+.close-icon:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+/* Optional: Active state effects */
+.terminate-icon:active {
+  background-color: rgba(255, 77, 79, 0.2);
+}
+
+.close-icon:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
