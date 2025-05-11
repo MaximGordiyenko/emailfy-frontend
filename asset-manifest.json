@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/emailfy-frontend/static/css/main.b739cb17.css",
-    "main.js": "/emailfy-frontend/static/js/main.d71d9d02.js",
+    "main.js": "/emailfy-frontend/static/js/main.52d757c9.js",
     "static/media/RubikBurned-Regular.ttf": "/emailfy-frontend/static/media/RubikBurned-Regular.507b1e4ab45c6ac0b408.ttf",
     "static/media/MacPawFixelText-Medium.ttf": "/emailfy-frontend/static/media/MacPawFixelText-Medium.17cd841e0d31b9128c5f.ttf",
     "static/media/MacPawFixelText-SemiBold.ttf": "/emailfy-frontend/static/media/MacPawFixelText-SemiBold.bdeae81c8ab0b8537618.ttf",
@@ -54,10 +54,10 @@
     "static/media/italic.svg": "/emailfy-frontend/static/media/italic.2ff7bfc279173c443ca581410a321bc8.svg",
     "static/media/Check Circle.svg": "/emailfy-frontend/static/media/Check Circle.ba18f68e6df244078b4576b10a2237a3.svg",
     "main.b739cb17.css.map": "/emailfy-frontend/static/css/main.b739cb17.css.map",
-    "main.d71d9d02.js.map": "/emailfy-frontend/static/js/main.d71d9d02.js.map"
+    "main.52d757c9.js.map": "/emailfy-frontend/static/js/main.52d757c9.js.map"
   },
   "entrypoints": [
     "static/css/main.b739cb17.css",
-    "static/js/main.d71d9d02.js"
+    "static/js/main.52d757c9.js"
   ]
 }
