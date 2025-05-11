@@ -172,7 +172,6 @@ export const MainLayout = () => {
                   onSubmit={onSubmit}
                 />
               }
-              destroyOnClose={true}
               mask={true}
               closable={false}
               open={isOpenModal}

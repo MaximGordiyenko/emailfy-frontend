@@ -8,7 +8,7 @@ export const LandingFooter = () => {
           <div className="footer-logo-container">
             <div className="footer-logo-wrapper">
               <img className="footer-logo-image"
-                   src="https://res.cloudinary.com/maxigord/image/upload/v1745582121/Mailfly/dinoLogo_uol0eq.png"
+                   src="https://res.cloudinary.com/maxigord/image/upload/v1745582121/Mailfly/MailFly_logo.png"
                    alt="footer-logo"
               />
               <span className="footer-logo-text">MailFly</span>

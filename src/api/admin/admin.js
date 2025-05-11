@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export async function check_admin(access_token) {
-  return await axios.get(`/api/admin/check`, {
+  return await axios.get(`/admin/check`, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
@@ -10,7 +10,7 @@ export async function check_admin(access_token) {
 
 export async function give_role(access_token, email, role) {
   return await axios.post(
-    `/api/admin/user/role`,
+    `/admin/user/role`,
     {
       email: email,
       role: role,
@@ -24,7 +24,7 @@ export async function give_role(access_token, email, role) {
 }
 
 export async function init_data(access_token) {
-  return await axios.post(`/api/admin/data/init`, null, {
+  return await axios.post(`/admin/data/init`, null, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
@@ -32,7 +32,7 @@ export async function init_data(access_token) {
 }
 
 export async function get_servers_list(access_token) {
-  return await axios.get(`/api/admin/servers/list`, {
+  return await axios.get(`/admin/servers/list`, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
