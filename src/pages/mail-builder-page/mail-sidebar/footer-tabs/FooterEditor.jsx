@@ -11,7 +11,7 @@ import { MailBuilderContext } from '../../../../context/MailBuilderContext';
 
 import * as resourceManager from '../../builder-script/resourceManager';
 import * as builderScript from '../../builder-script/builderScript';
-import { IconUploader } from '../../../../components/drag-n-drop-uploader/IconUploader';
+import { IconUploader } from '../../../../components/uploaders/IconUploader';
 
 export const FooterEditor = () => {
   const { mailEditorState, setMailEditorState, selectedBlockID, selectedMailEditorBlock } =

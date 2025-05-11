@@ -7,8 +7,15 @@ import ScrollCarouselEffect from './hooks.jsx';
 import { ScrolledQuotes } from '../../components/scrolls/ScrolledQuotes.jsx';
 import { RunningString } from '../../components/runners/RunningString.jsx';
 import './styles.css';
+import { useEffect } from 'react';
 
 export const LandingPage = () => {
+  useEffect(() => {
+    fetch('https://emailfy-156e3ca9-2f30-4e91-886b-76e7c7a35521.railway.app/api/test')
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.error('Error:', err));
+  }, []);
   return (
     <div id="landing-page" className={`landing-page`}>
       <SectionFirst/>

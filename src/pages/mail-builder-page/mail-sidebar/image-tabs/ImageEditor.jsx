@@ -4,7 +4,7 @@ import uploadIcon from '../../../../assets/images/uploadIcon.svg';
 import alternateTextIcon from '../../../../assets/images/alternateTextIcon.svg';
 import { SearchIcon } from '../../../../components/icons/SearchIcon';
 import { BrandInput } from '../../../../components/inputs/BrandInput';
-import { ImageUploader } from '../../../../components/drag-n-drop-uploader/ImageUploader';
+import { ImageUploader } from '../../../../components/uploaders/ImageUploader';
 import { MailBuilderContext } from '../../../../context/MailBuilderContext';
 import * as resourceManager from '../../builder-script/resourceManager';
 import * as builderScript from '../../builder-script/builderScript';

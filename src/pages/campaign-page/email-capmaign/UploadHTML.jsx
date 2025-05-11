@@ -14,7 +14,7 @@ import { getUserEmail } from '../../../helpers/campaignsUtils.js';
 import { LoadBalancing } from '../../../components/balancing/LoadBalancing.js';
 import { UploadCampaignForm } from './UploadCampaignForm.jsx';
 import { AuthInput } from '../../../components/forms/AuthInput.tsx';
-import DefaultUploaderViewer from '../../../components/drag-n-drop-uploader/DefaultUploaderViewer.jsx';
+import DefaultUploaderViewer from '../../../components/uploaders/DefaultUploaderViewer.jsx';
 
 import { Flex, Space, Tooltip, Divider, Typography } from 'antd';
 import { EditOutlined, ExclamationCircleOutlined, InboxOutlined, DeleteOutlined } from '@ant-design/icons';

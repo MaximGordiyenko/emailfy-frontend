@@ -15,7 +15,7 @@ import {
 
 import * as userInfoAPI from '../../../api/settings/account.js';
 import * as emailSettingsAPI from '../../../api/settings/email.js';
-import { ProfileImageUploader } from '../../drag-n-drop-uploader/ProfileImageUploader.jsx';
+import { ProfileImageUploader } from '../../uploaders/ProfileImageUploader.jsx';
 
 import { AppButton } from '../../button/AppButton';
 import { UserInfoBlock } from './UserInfoBlock';
