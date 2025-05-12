@@ -45,7 +45,6 @@
           & h5 {
             margin: 0;
             color: var(--grey-2, #95959D);
-            font-family: MacPawFixelBold;
             font-size: 14px;
             font-style: normal;
             font-weight: 500;
@@ -55,7 +54,6 @@
           & p {
             color: var(--grey-9, #2A2B3B);
             font-feature-settings: 'clig' off, 'liga' off;
-            font-family: MacPawFixelBold;
             font-size: 24px;
             font-style: normal;
             font-weight: 700;
@@ -83,7 +81,6 @@
           & h5 {
             margin: 0;
             color: #95959D;
-            font-family: MacPawFixelBold;
             font-size: 14px;
             font-style: normal;
             font-weight: 500;
@@ -93,7 +90,6 @@
           & p {
             color: var(--grey-9, #2A2B3B);
             font-feature-settings: 'clig' off, 'liga' off;
-            font-family: MacPawFixelBold;
             font-size: 24px;
             font-style: normal;
             font-weight: 700;
@@ -120,7 +116,6 @@
 
       & h3 {
         color: #2A2B3B;
-        font-family: MacPawFixelBold;
         font-size: 24px;
         font-weight: 700;
         line-height: 110%; /* 26.4px */
@@ -135,7 +130,6 @@
 
         & p {
           color: #95959D;
-          font-family: MacPawFixelMedium;
           font-size: 14px;
           font-style: normal;
           font-weight: 500;
@@ -145,7 +139,6 @@
         & span {
           color: var(--grey-9, #2A2B3B);
           text-align: right;
-          font-family: MacPawFixelMedium;
           font-size: 14px;
           font-weight: 500;
           line-height: 110%; /* 15.4px */

@@ -10,7 +10,6 @@
       border: none;
       background: transparent;
       font-size: 32px;
-      font-family: MacPawFixelBold, "sans-serif";
       color: var(--grey-9);
 
       &::placeholder {
@@ -46,12 +45,10 @@
 .campaign_stepper {
   display: flex;
   font-size: 16px;
-  font-family: MacPawFixelBold, "sans-serif";
   color: var(--grey-9);
 
   & span {
     color: var(--grey-5);
-    font-family: MacPawFixelSemiBold, 'sans-serif';
     margin-right: 2px;
   }
 }
@@ -76,7 +73,6 @@
   margin: 10px 0;
 
   & label {
-    font-family: MacPawFixelSemiBold, 'sans-serif';
   }
 
   .campaign-forms_subject, .campaign-forms_group-from {

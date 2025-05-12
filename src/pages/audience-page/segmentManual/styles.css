@@ -36,7 +36,6 @@
             align-self: center;
             max-width: 258px;
             font-size: 20px;
-            font-family: MacpawFixelBold;
           }
           img {
             width: 24px;
@@ -48,7 +47,6 @@
           font-size: 14px;
           align-self: flex-start;
           span {
-            font-family: MacpawFixelMedium;
             color: #7e9d00;
           }
         }
@@ -69,7 +67,6 @@
             justify-content: space-between;
             span {
               color: #2a2b3b;
-              font-family: MacpawFixelMedium;
               opacity: 0.5;
             }
           }
@@ -87,7 +84,6 @@
           padding: 10px 20px;
           width: 146px;
           font-size: 14px;
-          font-family: MacpawFixelMedium;
           border: none;
           border-radius: 10px;
           cursor: pointer;
@@ -139,7 +135,6 @@
           }
           display: flex;
           font-size: 16px;
-          font-family: MacpawFixelMedium;
           margin: 2% 0px 0px 10px;
         }
         img {
@@ -160,7 +155,6 @@
         span {
           font-size: 14px;
           color: #ffffff;
-          font-family: MacpawFixelMedium;
           margin-top: 1%;
         }
         img {
@@ -197,7 +191,6 @@
       align-self: flex-start;
       margin: 0;
       display: flex;
-      font-family: MacpawFixelBold;
       h1 {
         margin: 0;
         font-size: 32px;
@@ -227,7 +220,6 @@
         }
         span {
           margin: 2% 10px 0px 0px;
-          font-family: MacPawFixelMedium;
           color: #7e9d00;
           font-size: 14px;
         }
@@ -241,7 +233,6 @@
         cursor: pointer;
         margin: 0 0 0 10px;
         span {
-          font-family: MacPawFixelMedium;
           color: #7e9d00;
           font-size: 14px;
         }
@@ -255,7 +246,6 @@
         border-radius: 10px;
         margin-left: 10px;
         span {
-          font-family: MacPawFixelMedium;
           color: #ffffff;
           font-size: 14px;
         }
@@ -271,13 +261,6 @@
       align-items: baseline;
       margin: 20px 0;
       .progress-bar-upload {
-        //font-family: MacpawFixelBold;
-        //text-align: left;
-        //width: 50%;
-        //margin: 0px 10px 0px 0px;
-        //display: flex;
-        //flex-direction: column;
-        //height: 47px;
         h1 {
           margin: 0 0 4px;
           font-size: 16px;
@@ -293,7 +276,6 @@
         }
       }
       .progress-bar-segmentation {
-        font-family: MacpawFixelBold;
         text-align: left;
         display: flex;
         flex-direction: column;
@@ -371,7 +353,6 @@
           justify-content: space-between;
           h1 {
             margin: 0;
-            font-family: MacpawFixelBold;
             font-size: 24px;
           }
           img {
@@ -380,7 +361,6 @@
           }
         }
         .data-table {
-          font-family: MacpawFixelMedium;
           .table-title {
             display: flex;
             justify-content: space-between;
@@ -402,7 +382,6 @@
             .contact {
               display: flex;
               justify-content: space-between;
-              font-family: MacpawFixelMedium;
               font-size: 12px;
             }
           }
@@ -414,7 +393,6 @@
               padding: 10px 20px;
               width: 146px;
               font-size: 14px;
-              font-family: MacpawFixelMedium;
               border: none;
               border-radius: 10px;
               cursor: pointer;
@@ -448,7 +426,6 @@
         flex-direction: column;
         align-items: flex-start;
         label {
-          font-family: MacpawFixelMedium;
           margin: 0px 0px 10px 20px;
           align-self: flex-start !important;
         }
@@ -488,11 +465,9 @@
           font-size: 16px;
           line-height: 22px;
           margin: 0px 0 10px 20px;
-          font-family: MacpawFixelMedium;
         }
         p {
           margin: 10px 0 10px 20px;
-          font-family: MacpawFixelMedium;
           max-width: 440px;
           font-size: 14px;
           line-height: 22px;

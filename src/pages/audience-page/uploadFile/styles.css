@@ -26,7 +26,6 @@
     align-items: baseline;
 
     .progress-bar-upload {
-      font-family: MacpawFixelBold;
       text-align: left;
       width: 85%;
       margin: 0px 0px 0px 14vw;
@@ -62,7 +61,6 @@
 
       .title-count {
         align-items: center;
-        font-family: MacpawFixelBold;
         display: flex;
 
         & span {
@@ -89,7 +87,6 @@
           cursor: pointer;
 
           & span {
-            font-family: MacPawFixelMedium;
             color: #7e9d00;
             font-size: 14px;
           }
@@ -105,7 +102,6 @@
           margin-left: 10px;
 
           & span {
-            font-family: MacPawFixelMedium;
             color: #ffffff;
             font-size: 14px;
           }
@@ -174,11 +170,9 @@
                 align-self: center;
                 max-width: 258px;
                 font-size: 20px;
-                font-family: MacpawFixelBold;
               }
 
               & span {
-                font-family: MacpawFixelMedium;
                 font-size: 12px;
               }
 
@@ -189,7 +183,6 @@
                 & button {
                   width: 161px;
                   height: 42px;
-                  font-family: MacPawFixelMedium;
                   font-size: 14px;
                 }
 
@@ -235,7 +228,6 @@
               & p {
                 font-size: 18px;
                 line-height: 15px;
-                font-family: MacPawFixelMedium;
                 cursor: default;
 
                 & a {
@@ -249,7 +241,6 @@
                 margin-top: 20px;
                 line-height: 24.84px;
                 font-size: 18px;
-                font-family: MacPawFixelBold;
               }
             }
 

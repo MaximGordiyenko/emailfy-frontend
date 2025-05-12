@@ -7,7 +7,6 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  font-family: MacPaw Fixel, MacPawFixelMedium, sans-serif;
   color: var(--custom-color);
   caret-color: transparent;
 }

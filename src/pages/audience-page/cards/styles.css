@@ -30,7 +30,6 @@
       .description-block {
         text-align: left;
         margin-left: 20px;
-        font-family: MacPawFixelMedium;
         
         & span {
           font-size: 16px;
@@ -58,13 +57,11 @@
         
         & span {
           font-size: 10px;
-          font-family: MacPawFixelMedium;
         }
         
         & h3 {
           margin: 5px 0 0;
           font-size: 18px;
-          font-family: MacPawFixelBold;
         }
       }
       

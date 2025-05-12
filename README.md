@@ -12,7 +12,6 @@ customer messages directly from Telegram. The deployed solution must fit free ti
 3. Replies from the Telegram bot chat go back to the correct user on the website.
 4. Session and message history stored in database.
 
-### ⚙️ Consideration of architectural approaches 
 ## ⚙️ Consideration of Architectural Approaches
 
 | Feature                     | **Telegram Bot**                         | **WebSocket**                                 |
@@ -41,3 +40,22 @@ customer messages directly from Telegram. The deployed solution must fit free ti
 1. Resume pooling messages after significant amount of time inactivity.
 2. Show FAQ when chat start
 3. Integrate AI to Telegram bot to answer on FAQ
+
+### ⚙️ Setup Telegram for Local Development
+Telegram cannot reach your localhost, so you must expose your local backend via [`Telegram Webhook:` ngrok](https://ngrok.com/).
+#### Start ngrok tunnel
+###### copy/paste command into terminal, then run:
+
+`npx ngrok http 4001`
+
+#### Forwarding Messages
+###### when tunnel is open necessary forward messages to telegram, copy url:
+`https://fc5c-85-209-46-229.ngrok-free.app -> http://localhost:4001`
+
+#### Forwarding
+###### replace url om offered, then run curl:
+`curl -F "url=https://fc5c-85-209-46-229.ngrok-free.app/webhook" \
+     https://api.telegram.org/bot<YOUR_BOT_TOKEN>/setWebhook
+`
+
+Result: `{"ok":true,"result":true,"description":"Webhook was set"}% `

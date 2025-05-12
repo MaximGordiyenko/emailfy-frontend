@@ -7,7 +7,6 @@
   .lang-title {
     color: var(--grey-9, #2A2B3B);
     font-feature-settings: 'clig' off, 'liga' off;
-    font-family: MacPawFixelSemiBold, 'sans-serif';
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -29,7 +28,6 @@
       .title-text {
         margin-left: 10px;
         color: var(--grey-9, #2A2B3B);
-        font-family: MacPawFixelMedium, 'sans-serif';
         font-size: 12px;
         font-weight: 500;
         line-height: 110%; /* 13.2px */
@@ -38,7 +36,6 @@
 
     .lang-value {
       color: var(--grey-9, #2A2B3B);
-      font-family: MacPawFixelBold, "sans-serif";
       font-size: 12px;
       font-weight: 700;
       line-height: 110%; /* 13.2px */

@@ -1,5 +1,5 @@
 import { Button, Flex, Descriptions } from 'antd';
-import { ProfileImageUploader } from '../../drag-n-drop-uploader/ProfileImageUploader';
+import { ProfileImageUploader } from '../../uploaders/ProfileImageUploader';
 import './styles.css';
 
 export const UserInfoBlock = ({

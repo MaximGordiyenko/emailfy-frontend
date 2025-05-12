@@ -103,7 +103,6 @@
     border-radius: 10px;
     
     & .drop-image-placeholder-text {
-      font-family: MacpawFixelMedium;
       font-size: 14px;
       color: var(--grey-4);
       
