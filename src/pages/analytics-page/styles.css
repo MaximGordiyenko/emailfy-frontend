@@ -24,7 +24,6 @@
     box-sizing: border-box;
     width: 212px;
     color: var(--grey-9);
-    font-family: MacPawFixelMedium;
     font-size: 14px;
 
     &:disabled {

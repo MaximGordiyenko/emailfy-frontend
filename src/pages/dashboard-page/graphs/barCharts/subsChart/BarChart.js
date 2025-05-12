@@ -36,19 +36,15 @@
 //       width: 10,
 //       borderRadius: 10,
 //       titleTextStyle: {
-//         fontName: 'MacPawFixelBold, sans-serif',
 //       },
 //       textStyle: {
-//         fontName: 'MacPawFixelBold, sans-serif',
 //       },
 //     },
 //     vAxis: {
 //       minValue: 0,
 //       titleTextStyle: {
-//         fontName: 'MacPawFixelBold, sans-serif',
 //       },
 //       textStyle: {
-//         fontName: 'MacPawFixelBold, sans-serif',
 //       },
 //     },
 //     plotOptions: {

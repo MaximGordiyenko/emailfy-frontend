@@ -4,7 +4,6 @@
    
     
     .progress-bar-upload {
-      /*font-family: MacpawFixelBold, serif;*/
       /*text-align: left;*/
       /*width: 90%;*/
       /*margin: 0px 0px 0px 14vw;*/
@@ -38,7 +37,6 @@
       .title-count {
         flex-direction: column;
         align-items: center;
-        font-family: MacpawFixelMedium, serif;
         display: flex;
         
         & span {
@@ -49,14 +47,13 @@
         
         & p {
           align-self: flex-start;
-          margin: 0 0 0 0px;
+          margin: 0 0 0 0;
           font-size: 14px;
           opacity: 0.7;
         }
         
         .main-text {
           font-size: 32px;
-          font-family: MacpawFixelBold, serif;
           margin: 0px 0px 30px;
           
           & span {
@@ -73,7 +70,6 @@
       align-items: baseline;
       
       .progress-bar-upload {
-        /*font-family: MacpawFixelBold, serif;*/
         /*text-align: left;*/
         /*width: 50%;*/
         /*margin: 0px 10px 0px 0px;*/
@@ -98,7 +94,6 @@
       }
       
       .progress-bar-segmentation {
-        font-family: MacpawFixelBold, serif;
         text-align: left;
         display: flex;
         flex-direction: column;
@@ -152,7 +147,6 @@
       .textarea {
         width: 100%;
         height: 100%;
-        font-family: MacPawFixelMedium;
         resize: none;
         white-space: nowrap;
         border: none;
@@ -226,7 +220,6 @@
         align-self: flex-start;
         border-radius: 0px 10px 10px 0px;
         border: none;
-        font-family: MacpawFixelMedium;
         font-size: 12px;
         width: 980px;
         max-width: 1030px;

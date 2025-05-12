@@ -15,7 +15,6 @@
 
       .country-name {
         color: var(--grey-1, #AAAAB1);
-        font-family: MacPawFixelMedium, 'sans-serif';
         font-size: 12px;
         line-height: 110%; /* 13.2px */
         margin-left: 5px;
@@ -27,14 +26,12 @@
 
       .percentage {
         color: var(--grey-9, #2A2B3B);
-        font-family: MacPawFixelBold, "sans-serif";
         font-size: 20px;
         line-height: 110%; /* 22px */
       }
 
       .count {
         color: var(--grey-3, #AAAAB1);
-        font-family: MacPawFixelBold, 'sans-serif';
         font-size: 12px;
         line-height: 110%;
         align-self: flex-end;

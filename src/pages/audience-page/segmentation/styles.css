@@ -19,7 +19,6 @@
           padding-top: 2px;
           font-size: 16px;
           line-height: 18px;
-          font-family: MacpawFixelMedium;
         }
       }
       
@@ -44,7 +43,6 @@
           }
           
           & span {
-            font-family: MacPawFixelMedium;
             color: var(--grey-9);
             font-size: 14px;
           }
@@ -63,7 +61,6 @@
           align-items: center;
           
           & span {
-            font-family: MacPawFixelMedium;
             color: #ffffff;
             font-size: 14px;
           }
@@ -90,7 +87,6 @@
     align-items: baseline;
     
     .progress-bar-upload {
-      /*font-family: MacpawFixelBold;*/
       /*text-align: left;*/
       /*width: 85%;*/
       /*margin: 0px 0px 0px 15.1vw;*/
@@ -126,7 +122,6 @@
       align-self: flex-start;
       margin: 0;
       display: flex;
-      font-family: MacpawFixelBold;
       
       & h1 {
         margin: 0;
@@ -253,7 +248,6 @@
           margin: 0;
           font-size: 14px;
           color: var(--grey-1);
-          font-family: MacPawFixelMedium, "sans-serif";
           
           & b {
             cursor: pointer;
@@ -273,7 +267,6 @@
           
           & span {
             color: var(--grey-9);
-            font-family: MacPawFixelMedium, "sans-serif";
           }
         }
       }
@@ -293,7 +286,6 @@
       }
       
       .placeholder-text {
-        font-family: MacPawFixelMedium, "sans-serif";
         color: var(--grey-5);
         width: 140px !important;
         border: 1px #C0C0C5 solid;
@@ -336,7 +328,6 @@
           
           & h1 {
             margin: 0;
-            font-family: MacpawFixelBold;
             font-size: 24px;
           }
           
@@ -347,7 +338,6 @@
         }
         
         .data-table {
-          font-family: MacpawFixelMedium;
           
           .table-title {
             display: flex;
@@ -375,7 +365,6 @@
             .contact {
               display: flex;
               justify-content: space-between;
-              font-family: MacpawFixelMedium;
               font-size: 12px;
             }
           }
@@ -389,7 +378,6 @@
               padding: 10px 20px;
               width: 146px;
               font-size: 14px;
-              font-family: MacpawFixelMedium;
               border: none;
               border-radius: 10px;
               cursor: pointer;
@@ -431,7 +419,6 @@
         align-items: flex-start;
         
         & label {
-          font-family: MacpawFixelMedium;
           margin: 0px 0px 10px 20px;
           align-self: flex-start !important;
         }
@@ -480,12 +467,10 @@
           font-size: 16px;
           line-height: 22px;
           margin: 0px 0 10px 20px;
-          font-family: MacpawFixelMedium;
         }
         
         & p {
           margin: 10px 0 10px 20px;
-          font-family: MacpawFixelMedium;
           max-width: 440px;
           font-size: 14px;
           line-height: 22px;
@@ -518,7 +503,6 @@
                         min-width: 50%;
                         right: 0;
                         align-self: flex-start!important;
-                        font-family: MacpawFixelMedium;
                     }
                     .container-input {
                         border: none;

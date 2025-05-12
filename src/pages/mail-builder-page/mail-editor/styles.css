@@ -32,7 +32,6 @@
   .initial-editor-placeholder {
     border: 1px dashed var(--grey-5);
     border-radius: 5px;
-    font-family: MacPawFixelMedium;
     caret-color: transparent;
 
     .placeholder-top-text {
@@ -256,7 +255,6 @@
         border: 1px dashed var(--grey-1);
         color: var(--grey-3);
         caret-color: transparent;
-        font-family: MacPawFixelMedium;
         font-weight: 500;
         display: flex;
         align-items: center;
@@ -267,7 +265,6 @@
         content: 'Drop your content here';
         caret-color: transparent;
         color: var(--grey-5);
-        font-family: MacPawFixelMedium;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -346,7 +343,6 @@
     text-align: center;
     font-weight: 700;
     font-size: 10px;
-    font-family: MacPawFixelMedium;
     width: 100%;
     margin: 20px auto;
     color: var(--green-7);

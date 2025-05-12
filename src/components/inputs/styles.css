@@ -3,7 +3,6 @@
     display: flex;
     justify-content: space-between;
     margin: 10px 20px;
-    font-family: MacPawFixelSemiBold, "sans-serif";
     font-size: 12px;
     color: var(--grey-9);
   }
@@ -141,7 +140,6 @@
 }
 
 .error-message {
-  font-family: MacPawFixelRegular;
   font-size: 12px;
   font-weight: 500;
   line-height: 16px;

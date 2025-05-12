@@ -16,13 +16,11 @@
       gap: 15px;
       
       .label-wrapper {
-        font-family: MacPawFixelSemiBold;
         font-size: 16px;
         line-height: 21px;
         color: var(--grey-3);
         
         .label {
-          font-family: MacPawFixelBold;
           color: var(--grey-9);
         }
       }
@@ -33,7 +31,6 @@
         align-items: center;
         
         .title {
-          font-family: MacPawFixelBold;
           font-size: 32px;
           line-height: 42px;
           padding-right: 5px;
@@ -47,7 +44,6 @@
           gap: 5px;
           border-radius: 10px;
           background-color: var(--grey-1);
-          font-family: MacPawFixelMedium;
           font-size: 12px;
           
           img {
@@ -90,14 +86,12 @@
           flex-direction: column;
           
           .tab-title {
-            font-family: MacPawFixelMedium;
             font-size: 14px;
             line-height: 19px;
             color: var(--grey-7);
           }
           
           .tab-description {
-            font-family: MacPawFixelMedium;
             font-size: 12px;
             line-height: 17px;
             color: var(--grey-5);
@@ -171,7 +165,6 @@
             flex-wrap: wrap;
             
             .chart-header-title {
-              font-family: MacPawFixelSemiBold;
               font-size: 24px;
               line-height: 24px;
               color: var(--grey-9);
@@ -185,7 +178,6 @@
                 gap: 10px;
                 border-radius: 10px;
                 border: 1.5px solid var(--green-7);
-                font-family: MacPawFixelMedium;
                 font-size: 12px;
                 
                 .calendar-button-date {
@@ -209,7 +201,6 @@
               display: flex;
               gap: 10px;
               align-items: center;
-              font-family: MacPawFixelMedium;
               font-size: 12px;
               color: var(--grey-5);
               
@@ -227,7 +218,6 @@
                   height: 24px;
                   border-radius: 6px;
                   color: var(--grey-9);
-                  font-family: MacPawFixelMedium;
                   font-size: 12px;
                   display: flex;
                   justify-content: center;
@@ -256,7 +246,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-family: MacPawFixelMedium;
             font-size: 12px;
             line-height: 13px;
             color: var(--grey-5);
@@ -328,7 +317,6 @@
               gap: 10px;
               border-left: 2px solid var(--grey-1);
               padding: 0 40px;
-              font-family: MacPawFixelMedium;
               font-size: 12px;
               line-height: 17px;
               color: var(--grey-6);
@@ -339,7 +327,6 @@
               }
               
               .chart-footer-info-item-value {
-                font-family: MacPawFixelBold;
                 font-size: 20px;
                 color: var(--grey-9);
                 
@@ -376,7 +363,6 @@
             justify-content: center;
             align-items: center;
             background-color: var(--green-7);
-            font-family: MacPawFixelMedium;
             font-size: 14px;
             color: var(--grey-1);
             

@@ -7,7 +7,6 @@
     top: 25px;
     left: 30px;
     color: var(--grey-9, #2A2B3B);
-    font-family: MacPawFixelBold, "sans-serif";
     font-size: 16px;
     font-weight: 700;
     line-height: 110%; /* 17.6px */
@@ -18,7 +17,7 @@
     top: 20px;
     left: 140px;
     border-radius: 10px;
-    border: 1.5px solid #BFCE80;
+    border: 1px solid #BFCE80;
     display: flex;
     width: 150px;
     height: 32px;
@@ -35,7 +34,6 @@
 
       .placeholder {
         color: var(--grey-9, #2A2B3B);
-        font-family: MacPawFixelMedium, 'sans-serif';
         font-size: 14px;
       }
 

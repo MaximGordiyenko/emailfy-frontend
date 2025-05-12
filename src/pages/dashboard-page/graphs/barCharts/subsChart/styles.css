@@ -21,11 +21,9 @@
   padding: 20px;
   box-sizing: border-box;
   height: 400px;
-  font-family: MacPawFixelBold, 'sans-serif';
 }
 
 text {
-  font-family: MacPawFixelBold, 'sans-serif';
 }
 
 .highcharts-label.highcharts-tooltip {
@@ -51,7 +49,6 @@ text {
 }
 
 .highcharts-data-table table {
-  font-family: MacPawFixelMedium, sans-serif;
   border-collapse: collapse;
   border: 1px solid #ebebeb;
   margin: 10px auto;
