@@ -28,6 +28,11 @@ jobs:
       - name: List assets folder contents
         run: ls -la src/assets/images
       
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
       - name: Build project
         run: yarn build
       
