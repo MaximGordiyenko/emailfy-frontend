@@ -4,8 +4,8 @@
 import fs from "fs";
 import fetch from "node-fetch";
 
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const REPO = process.env.GITHUB_REPOSITORY || "your-username/your-repo";
+const GITHUB_TOKEN = process.env.GIT_TOKEN;
+const REPO = process.env.GIT_REPOSITORY || "MaximGordiyenko/emailfy-frontend";
 const API_URL = `https://api.github.com/repos/${REPO}/issues`;
 const ISSUE_FILE = ".github/issues.json";
 
