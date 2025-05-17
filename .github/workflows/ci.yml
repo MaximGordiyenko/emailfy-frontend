@@ -38,6 +38,5 @@ jobs:
           
       - name: Deploy to GitHub Pages
         env:
-          GHP_TOKEN: ${{ secrets.GHP_TOKEN }}
-        run: |
-          npx gh-pages -d build -r https://x-access-token:${GHP_TOKEN}@github.com/MaximGordiyenko/emailfy-frontend.git
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: yarn deploy

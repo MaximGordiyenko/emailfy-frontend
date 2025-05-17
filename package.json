@@ -82,7 +82,7 @@
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.{js,jsx,json,css,scss,md}\"",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build -r https://x-access-token:${GITHUB_TOKEN}@github.com/MaximGordiyenko/emailfy-frontend.git"
   },
   "browserslist": {
     "production": [
