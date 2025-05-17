@@ -2,11 +2,6 @@
   <em>Mailfly | Email Marketing Platform</em>
 </h1>
 
-<h3 align="center">
-  Marketing platform designed to help businesses to create drag-and-drop emails, automate analytics, management 
-campaign.
-</h3>
-
 <div align="center" style="display: flex; justify-content: center; align-items: flex-start; gap: 10px; flex-wrap: wrap;">
 
   <!-- First Column -->
@@ -49,102 +44,31 @@ campaign.
   </div>
 </div>
 
----
 
-<div align="left">
+## 🚀 Core Platform Features
 
-  <div style="display: inline-block; text-align: left; line-height: 2; font-size: 16px;">
-    <p>📊 <a href="#dashboard">Dashboard</a> - <em>Your central overview of performance, growth, and engagement 
-             metrics.
-          </em></p>
+| Pages        | Goal                                                              | Functionalities                                                                         |
+|--------------|-------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| 🔐 Auth      | Secure user identity and control access to platform functionality | Email/password login, JWT sessions, 2FA, OAuth, role-based access, token management     |
+| ✅ Dashboard  | Provide a high-level overview of account performance and activity | KPI cards, recent campaigns, quota widget, activity feed, quick actions                 |
+| 📊 Analytics | Visualize campaign and engagement data through intuitive reports  | Charts for opens/clicks, breakdown by segment/device, campaign comparison, export tools |
+| 👥 Audience  | Manage contact lists and create targeted segments                 | Contact grid, tagging, segmentation, imports/exports, filtering, contact profile view   |
+| ✉️ Campaigns | Build, send, and optimize email campaigns                         | Campaign wizard, template editor, scheduling, A/B testing, per-campaign analytics       |
+| ⚙️ Settings  | Configure account, teams, branding, and developer integrations    | Billing, roles & invites, domain setup, API key/token management, brand customization   |
 
-  <p>📨 <a href="#campaign">Campaign</a> - <em>Create, manage, and track email campaigns with ease.</em></p>
-    <div style="margin-left: 20px; font-size: 14px;">
-      <p>• <a href="#create-campaign">Create</a></p>
-      <p>• <a href="#scheduled-campaigns">Scheduled</a></p>
-      <p>• <a href="#campaign-reports">Reports</a></p>
-    </div>
+## 🧩 Add-on Features
 
-  <p>👥 <a href="#audience">Audience</a> - <em>Manage your contact list and build targeted groups.</em></p>
-    <div style="margin-left: 20px; font-size: 14px;">
-      <p>• <a href="#all-contacts">All Contacts</a></p>
-      <p>• <a href="#import-contacts">Import</a></p>
-    </div>
-
-   <p>🧩 <a href="#segments">Segments</a> - <em>Create dynamic groups based on user behavior or properties.</em></p>
-    <div style="margin-left: 20px; font-size: 14px;">
-      <p>• <a href="#create-segment">Create Segment</a></p>
-      <p>• <a href="#segment-rules">Rules</a></p>
-    </div>
-
-   <p>🔔 <a href="#subscriptions">Subscriptions</a> - <em>Control how users opt in/out and manage email preferences.</em></p>
-    <div style="margin-left: 20px; font-size: 14px;">
-      <p>• <a href="#manage-consent">Manage Consent</a></p>
-      <p>• <a href="#opt-in-settings">Opt-In Settings</a></p>
-    </div>
-
-   <p>⚙️ <a href="#settings">Settings</a> - <em>Platform configurations, integrations, and preferences.</em></p>
-    <div style="margin-left: 20px; font-size: 14px;">
-      <p>• <a href="#user-settings">User Settings</a></p>
-      <p>• <a href="#api-keys">API Keys</a></p>
-    </div>
-
-   <p>🧱 <a href="#layout">Layout</a> - <em>Representation of core design of website outside of any pages</em></p>
-    <div style="margin-left: 20px; font-size: 14px;">
-      <p>• <a href="#chat">Chat</a></p>
-    </div>
-  </div>
-</div>
-
-## <a name="dashboard"></a>📊 Dashboard
+| Feature            | Goal                                                              | Key Functionalities                                                                                  |
+|--------------------|-------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| 💬 Support Chat    | Enable real-time support communication between users and the team | Website chat widget, Telegram integration, message forwarding with session context, visitor tracking |
+| 📥 Email Templates | Enhance campaign creation with ready-made, customizable templates | Pre-built templates, drag-and-drop editor, brand presets, reusable blocks                            |
+| 🔔 Notifications   | Keep users informed about system events or campaign statuses      | Email/push notifications for campaign sends, quota alerts, bounced contacts                          |
 
 ---
-## <a name="campaign"></a>📨 Campaign
-### <a name="create-campaign"></a>Create
-### <a name="scheduled-campaigns"></a>Scheduled
-### <a name="campaign-reports"></a>Reports
 
----
-## <a name="audience"></a>👥 Audience
-### <a name="all-contacts"></a>All Contacts
-### <a name="import-contacts"></a>Import
+##  💬 Support Chat
 
----
-## <a name="segments"></a>🧩 Segments
-### <a name="create-segment"></a>Create Segment
-### <a name="segment-rules"></a>Rules
-
----
-## <a name="subscriptions"></a>🔔 Subscriptions
-### <a name="manage-consent"></a>Manage Consent
-### <a name="opt-in-settings"></a>Opt-In Settings
-
----
-## <a name="settings"></a>⚙️ Settings
-### <a name="user-settings"></a>User Settings
-### <a name="api-keys"></a>API Keys
-
----
-## <a name="layout"></a>🧱 Layout
-### <a name="chat"></a>💬 Website Chat
-
-1. Develop a MVP chat for a website that integrates with Telegram
-2. The deployed solution must fit free tier for check POC.
-
-### 📞 Communication Flow
-
-1. Chat (web) sends messages to a backend.
-2. Backend forwards messages to a single Telegram (bot).
-3. Replies from the Telegram chat go back to the correct user on the website.
-4. Session and message history stored in database.
-
-### 📲 Feature
-
-1. Resume pooling messages after significant amount of time inactivity.
-2. Show FAQ when chat start
-3. Integrate AI to Telegram bot to answer on FAQ
-
-### 🧠 Architecture of Telegram Bot Communication Methods
+#### Research Telegram Bot Communication Methods
 | **Feature**                 | **Webhook (Telegram)**                       | **Long Polling (Telegram)**        | **WebSocket**                             |
 |-----------------------------|----------------------------------------------|------------------------------------|-------------------------------------------|
 | ✅ **Official Support**      | ✅ Yes – Fully supported                      | ✅ Yes – Fully supported            | ❌ No – Not natively supported by Telegram |
@@ -158,29 +82,35 @@ campaign.
 | 🧠 **Best Use Case**        | ✅ Production bots needing reliability        | ✅ Quick prototypes/dev bots        | ✅ Live UIs, games, dashboards             |
 | 💰 **Cost/Effort**          | ✅ Low – Simple + efficient                   | ✅ Low – Easy to start              | ⚠️ Medium – Needs infra/setup             |
 
-### ⚙️ Setup Telegram for Local Development
+### 🧪 Setup Telegram Webhook (Local Development)
+##### Telegram cannot reach your localhost directly, so you’ll need to expose your local server using a tunneling service like [ngrok](https://ngrok.com).
 
-Telegram cannot reach your localhost, so you must expose your local backend via [
-`Telegram Webhook:` ngrok](https://ngrok.com/).
+1. Start a tunnel with ngrok, run in terminal:
+```bash
+npx ngrok http 4001
+```
+2. Copy the HTTPS forwarding URL from output of ngrok:
+```
+https://fc5c-85-209-46-229.ngrok-free.app -> http://localhost:4001
+```
 
-#### Start ngrok tunnel
+3. Register the tunnel with Telegram, replace <YOUR_BOT_TOKEN> and run:
+```curl
+curl -F "url=https://fc5c-85-209-46-229.ngrok-free.app/webhook" \
+https://api.telegram.org/bot<YOUR_BOT_TOKEN>/setWebhook
+```
+###### ✅ Your Telegram bot will now forward incoming messages to your local server via ngrok.
 
-###### copy/paste command into terminal, then run:
+### 🚀 Setup Telegram Webhook (Production)
+##### In production, Telegram must send messages to a publicly accessible HTTPS URL served by your backend.
 
-`npx ngrok http 4001`
+1. Ensure your backend is live and secured over HTTPS:
+```url
+https://api.yourdomain.com/webhook
+```
 
-#### Forwarding Messages
-
-###### when tunnel is open necessary forward messages to telegram, copy url:
-
-`https://fc5c-85-209-46-229.ngrok-free.app -> http://localhost:4001`
-
-#### Forwarding
-
-###### replace url om offered, then run curl:
-
-`curl -F "url=https://fc5c-85-209-46-229.ngrok-free.app/webhook" \
-     https://api.telegram.org/bot<YOUR_BOT_TOKEN>/setWebhook
-`
-
-Result: `{"ok":true,"result":true,"description":"Webhook was set"}% `
+2. Register the production webhook, replace <YOUR_BOT_TOKEN> and run:
+```url
+curl -F "url=https://api.yourdomain.com/webhook" \
+https://api.telegram.org/bot<YOUR_BOT_TOKEN>/setWebhook
+```
