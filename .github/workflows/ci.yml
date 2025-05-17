@@ -25,19 +25,16 @@ jobs:
       - name: Install dependencies
         run: yarn install
         
-      - name: List assets folder contents
-        run: ls -la src/assets/images
-      
-      - name: Configure Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
       - name: Build project
         run: yarn build
       
       - name: Run dummy test
         run: yarn test
+        
+      - name: Set up Git identity
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
         
       - name: Deploy to GitHub Pages
         env:
