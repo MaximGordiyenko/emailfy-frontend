@@ -41,7 +41,7 @@ jobs:
         run: ls -la src/assets/images
         
       - name: List assets folder contents
-        run: ls -la ../../assets/images/
+        run: ls -la src/assets/images
       
       - name: Build project
         run: yarn build
