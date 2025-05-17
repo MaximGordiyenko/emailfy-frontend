@@ -1,13 +1,13 @@
-module.exports = {
+export default {
   testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest', // Transform all JS/JSX/TS/TSX
+    '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
   },
   transformIgnorePatterns: [
-    '/node_modules/(?!(@bundled-es-modules/statuses)/).+\\.js$', // Important!
-    '^.+\\.module\\.(css|sass|scss)$', // Example for CSS modules
+    '/node_modules/(?!(@bundled-es-modules/statuses)/).+\\.js$',
+    '^.+\\.module\\.(css|sass|scss)$',
   ],
   moduleNameMapper: {
-    '^msw$': './node_modules/msw/lib/index.js', // Still important for MSW
+    '^msw$': './node_modules/msw/lib/index.js',
   },
 };

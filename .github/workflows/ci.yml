@@ -24,21 +24,6 @@ jobs:
       
       - name: Install dependencies
         run: yarn install
-      
-      - name: Show current directory
-        run: pwd
-      
-      - name: List root files
-        run: ls -la
-      
-      - name: List src directory
-        run: ls -la src
-      
-      - name: List assets directory
-        run: ls -la src/assets
-      
-      - name: List images directory
-        run: ls -la src/assets/images
         
       - name: List assets folder contents
         run: ls -la src/assets/images
