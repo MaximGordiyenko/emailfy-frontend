@@ -15,12 +15,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
-      - name: Set up Git identity
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-      
+  
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
@@ -36,7 +31,13 @@ jobs:
       - name: Run dummy test
         run: yarn test
         
+      - name: Configure Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
       - name: Deploy to GitHub Pages
         env:
-          GITHUB_TOKEN: ${{ secrets.GHP_TOKEN }}
-        run: yarn deploy
+          GHP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npx gh-pages -d build -r https://x-access-token:${GHP_TOKEN}@github.com/MaximGordiyenko/emailfy-frontend.git
