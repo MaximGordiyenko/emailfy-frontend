@@ -81,7 +81,7 @@
     "test": "jest",
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.{js,jsx,json,css,scss,md}\"",
-    "predeploy": "npm run build",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
   "browserslist": {
