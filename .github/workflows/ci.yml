@@ -1,4 +1,4 @@
-name: React CI
+name: React CI + Deploy to GitHub Pages
 
 on:
   push:
@@ -15,6 +15,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        
+      - name: Set up Git identity
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
       
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -31,12 +36,7 @@ jobs:
       - name: Run dummy test
         run: yarn test
         
-      - name: Set up Git identity
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        
       - name: Deploy to GitHub Pages
         env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GHP_TOKEN }}
         run: yarn deploy
