@@ -1,7 +1,4 @@
 import React, { useState, useEffect, createContext } from 'react';
-import validated from '../../../../assets/images/placeholderTemporarly.png';
-import disabled from '../../../../assets/images/disabledCheckCircle.svg';
-import voidCircle from '../../../../assets/images/voidCheckCircle.svg';
 import { FirstForm } from './forms/FirstForm.jsx';
 import { SecondForm } from './forms/SecondForm.jsx';
 import { ThirdForm } from './forms/ThirdForm.jsx';
@@ -14,8 +11,6 @@ import * as userInfoAPI from '../../../../api/settings/account.js';
 import { getToken } from '../../../../api/API.js';
 import { Button, Steps, Flex, Space, message } from 'antd';
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { signInValidation } from '../../../../validation/auth.js';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import './styles.css';
 
