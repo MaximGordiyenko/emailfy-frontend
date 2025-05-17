@@ -1,27 +1,27 @@
-import apple from '../../assets/images/dashboard/apple-filled-white-icon.svg';
-import android from '../../assets/images/dashboard/Frame 980067.svg';
-import chrome from '../../assets/images/dashboard/Frame 980071.svg';
-import explorer from '../../assets/images/dashboard/svg3769.svg';
-import na from '../../assets/images/dashboard/Frame 980075.svg';
+import apple from '../../assets/dashboard/apple-filled-white-icon.svg';
+import android from '../../assets/dashboard/Frame 980067.svg';
+import chrome from '../../assets/dashboard/Frame 980071.svg';
+import explorer from '../../assets/dashboard/svg3769.svg';
+import na from '../../assets/dashboard/Frame 980075.svg';
 
-import outlook from '../../assets/images/dashboard/Frame 980073.svg';
-import appleMail from '../../assets/images/dashboard/Subtract.svg';
-import yahoo from '../../assets/images/dashboard/yahoo-symbol 1.svg';
-import hotmail from '../../assets/images/dashboard/Frame 980074.svg';
+import outlook from '../../assets/dashboard/Frame 980073.svg';
+import appleMail from '../../assets/dashboard/Subtract.svg';
+import yahoo from '../../assets/dashboard/yahoo-symbol 1.svg';
+import hotmail from '../../assets/dashboard/Frame 980074.svg';
 
-import chinese from '../../assets/images/dashboard/china.svg';
-import spanish from '../../assets/images/dashboard/spain.svg';
-import english from '../../assets/images/dashboard/united kingdom.svg';
-import hindi from '../../assets/images/dashboard/india.svg';
-import arabian from '../../assets/images/dashboard/united arab emirates.svg';
-import netherlands from '../../assets/images/dashboard/netherlands.svg';
-import portugal from '../../assets/images/dashboard/portugal.svg';
-import other from '../../assets/images/dashboard/Other.svg';
+import chinese from '../../assets/dashboard/china.svg';
+import spanish from '../../assets/dashboard/spain.svg';
+import english from '../../assets/dashboard/united kingdom.svg';
+import hindi from '../../assets/dashboard/india.svg';
+import arabian from '../../assets/dashboard/united arab emirates.svg';
+import netherlands from '../../assets/dashboard/netherlands.svg';
+import portugal from '../../assets/dashboard/portugal.svg';
+import other from '../../assets/dashboard/Other.svg';
 
-import brazil from '../../assets/images/dashboard/brazil.svg';
-import usa from '../../assets/images/dashboard/united states.svg';
-import germany from '../../assets/images/dashboard/germany.svg';
-import australia from '../../assets/images/dashboard/australia.svg';
+import brazil from '../../assets/dashboard/brazil.svg';
+import usa from '../../assets/dashboard/united states.svg';
+import germany from '../../assets/dashboard/germany.svg';
+import australia from '../../assets/dashboard/australia.svg';
 
 export const DEVICES_DATA = {
   mobile_devices: {

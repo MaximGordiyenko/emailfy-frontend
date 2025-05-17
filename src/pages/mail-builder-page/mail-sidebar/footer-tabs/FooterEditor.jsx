@@ -3,9 +3,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { ReactSortable } from 'react-sortablejs';
 import { Accordion } from '../../../../components/accordion/Accordion';
 
-import TextSquare from '../../../../assets/images/footer/TextSquare.svg';
-import ChatRoundLike from '../../../../assets/images/footer/ChatRoundLike.svg';
-import UserMinusRounded from '../../../../assets/images/footer/UserMinusRounded.svg';
+import TextSquare from '../../../../assets/footer/TextSquare.svg';
+import ChatRoundLike from '../../../../assets/footer/ChatRoundLike.svg';
+import UserMinusRounded from '../../../../assets/footer/UserMinusRounded.svg';
 
 import { MailBuilderContext } from '../../../../context/MailBuilderContext';
 
