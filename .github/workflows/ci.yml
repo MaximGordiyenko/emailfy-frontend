@@ -25,6 +25,9 @@ jobs:
       - name: Install dependencies
         run: yarn install
       
+      - name: List assets folder contents
+        run: ls -la ./assets/images/
+      
       - name: Build project
         run: yarn build
       
