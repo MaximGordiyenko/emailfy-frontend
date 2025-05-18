@@ -3,48 +3,48 @@
     "title": "Implement Dashboard Overview Widgets",
     "body": "Create real-time KPI widgets for open rate, click rate, unsubscribe rate, and delivery trends.",
     "labels": ["dashboard", "frontend"],
-    "assignees": ["your-github-username"]
+    "assignees": ["MaximGordiyenko"]
   },
   {
     "title": "Create Analytics Event Tracking",
     "body": "Track user engagement metrics like opens, clicks, bounces, and unsubscribes across campaigns.",
     "labels": ["analytics", "backend"],
-    "assignees": ["your-github-username"]
+    "assignees": ["MaximGordiyenko"]
   },
   {
     "title": "Design Audience Management Table",
     "body": "Implement paginated, filterable table to manage subscribers with tags, segments, and import/export.",
     "labels": ["audience", "frontend"],
-    "assignees": ["your-github-username"]
+    "assignees": ["MaximGordiyenko"]
   },
   {
     "title": "Build Campaign Creation Wizard",
     "body": "Step-by-step campaign builder for selecting audience, editing content, and setting schedule.",
     "labels": ["campaigns", "frontend", "ux"],
-    "assignees": ["your-github-username"]
+    "assignees": ["MaximGordiyenko"]
   },
   {
     "title": "Add Campaign Analytics Endpoints",
     "body": "Expose endpoints to provide real-time stats for sent campaigns, including click heatmaps.",
     "labels": ["campaigns", "backend", "api"],
-    "assignees": ["your-github-username"]
+    "assignees": ["MaximGordiyenko"]
   },
   {
     "title": "Implement Billing & Subscription UI",
     "body": "Create interface to manage plan, view usage limits, update payment method and invoices.",
     "labels": ["settings", "billing", "frontend"],
-    "assignees": ["your-github-username"]
+    "assignees": ["MaximGordiyenko"]
   },
   {
     "title": "Develop Team Management Permissions",
     "body": "Support roles and invitations for team members to collaborate with access control.",
     "labels": ["settings", "teams", "backend"],
-    "assignees": ["your-github-username"]
+    "assignees": ["MaximGordiyenko"]
   },
   {
     "title": "Integrate Custom Domain Setup",
     "body": "Allow users to connect their own domains for email delivery and white labeling.",
     "labels": ["settings", "domains", "devops"],
-    "assignees": ["your-github-username"]
+    "assignees": ["MaximGordiyenko"]
   }
 ]

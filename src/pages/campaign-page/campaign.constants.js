@@ -1,6 +1,6 @@
-import html from '../../assets/images/compaigns/Frame 980935.svg';
-import text from '../../assets/images/compaigns/Frame 980936.svg';
-import custom from '../../assets/images/compaigns/Frame 980938.svg';
+import html from '../../assets/compaigns/Frame 980935.svg';
+import text from '../../assets/compaigns/Frame 980936.svg';
+import custom from '../../assets/compaigns/Frame 980938.svg';
 import emails from '../../assets/images/emails.png';
 import { ROUTE } from '../../routes/routes.constants.js';
 
