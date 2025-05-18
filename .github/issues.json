@@ -8,7 +8,7 @@
     "milestone": "v1.0 - Dashboard Features",
     "project": "Email Marketing Platform",
     "branch": "feature/dashboard-widgets",
-    "child_issues": [
+    "sub_issues": [
       {
         "id": 2002,
         "title": "Design KPI widget UI components",
@@ -44,7 +44,7 @@
     "milestone": "v1.0 - Analytics Core",
     "project": "Email Marketing Platform",
     "branch": "feature/analytics-event-tracking",
-    "child_issues": [
+    "sub_issues": [
       {
         "id": 2102,
         "title": "Define database schema for event tracking",
@@ -80,7 +80,7 @@
     "milestone": "v1.0 - Audience Management",
     "project": "Email Marketing Platform",
     "branch": "feature/audience-management-table",
-    "child_issues": [
+    "sub_issues": [
       {
         "id": 2202,
         "title": "Design table UI with pagination and filtering",
@@ -116,7 +116,7 @@
     "milestone": "v1.0 - Campaign Features",
     "project": "Email Marketing Platform",
     "branch": "feature/campaign-wizard",
-    "child_issues": [
+    "sub_issues": [
       {
         "id": 2302,
         "title": "Design campaign creation UI/UX flow",
@@ -160,7 +160,7 @@
     "milestone": "v1.0 - Campaign Analytics",
     "project": "Email Marketing Platform",
     "branch": "feature/campaign-analytics-api",
-    "child_issues": [
+    "sub_issues": [
       {
         "id": 2402,
         "title": "Design API schema for campaign statistics",
@@ -196,7 +196,7 @@
     "milestone": "v1.0 - Billing & Subscription",
     "project": "Email Marketing Platform",
     "branch": "feature/billing-ui",
-    "child_issues": [
+    "sub_issues": [
       {
         "id": 2502,
         "title": "Design billing dashboard UI",
@@ -232,7 +232,7 @@
     "milestone": "v1.0 - Team Management",
     "project": "Email Marketing Platform",
     "branch": "feature/team-management",
-    "child_issues": [
+    "sub_issues": [
       {
         "id": 2602,
         "title": "Design roles and permissions model",
@@ -268,7 +268,7 @@
     "milestone": "v1.0 - Domain & Delivery",
     "project": "Email Marketing Platform",
     "branch": "feature/custom-domain-setup",
-    "child_issues": [
+    "sub_issues": [
       {
         "id": 2702,
         "title": "Implement domain verification flow",
