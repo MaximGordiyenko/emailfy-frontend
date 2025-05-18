@@ -1,14 +1,13 @@
-name: Sync GitHub Issues from JSON
+name: Sync GitHub Issues and Project Cards
 
 on:
-  workflow_dispatch:  # manual trigger from Actions tab
+  workflow_dispatch:
 
 jobs:
-  sync-issues:
+  sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -16,10 +15,12 @@ jobs:
           node-version: 20
       
       - name: Install dependencies
-        run: npm install @octokit/rest
+        run: npm install @octokit/rest @octokit/request
       
-      - name: Sync issues
+      - name: Sync issues and add to project
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
+          PROJECT_ID: ${{ secrets.PROJECT_ID }}
         run: node sync-issues.js
