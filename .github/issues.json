@@ -6,7 +6,7 @@
     "labels": ["dashboard", "frontend"],
     "assignees": ["MaximGordiyenko"],
     "milestone": "v1.0 - Dashboard Features",
-    "project": "Email Marketing Platform",
+    "projects": "Email Marketing Platform",
     "branch": "feature/dashboard-widgets",
     "sub_issue": [
       {
