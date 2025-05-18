@@ -5,9 +5,81 @@ import { request } from '@octokit/request';
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
 const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
-const projectId = process.env.PROJECT_ID;
 
 const issues = JSON.parse(fs.readFileSync('.github/issues.json', 'utf8'));
+
+// Cache for project name => project ID
+const projectCache = new Map();
+
+async function getProjectIdByName(projectName) {
+  if (projectCache.has(projectName)) {
+    return projectCache.get(projectName);
+  }
+  
+  // List all user/org projects (v2) for the repo owner (assumes owner is org or user)
+  // GitHub API: list projects under a repository
+  // We use GraphQL API to get ProjectV2 info by name since REST doesn't list v2 projects easily.
+  
+  const query = `
+    query($owner: String!, $repo: String!) {
+      repository(owner: $owner, name: $repo) {
+        projectsV2(first: 50) {
+          nodes {
+            id
+            title
+          }
+        }
+      }
+    }
+  `;
+  
+  const response = await request('POST /graphql', {
+    headers: { authorization: `token ${GITHUB_TOKEN}` },
+    query,
+    owner,
+    repo,
+  });
+  
+  const projects = response.data.repository.projectsV2.nodes;
+  const project = projects.find(p => p.title === projectName);
+  if (!project) throw new Error(`Project with name "${projectName}" not found in repo ${owner}/${repo}`);
+  
+  projectCache.set(projectName, project.id);
+  return project.id;
+}
+
+async function addIssueToProjects(issueNodeId, projectNames) {
+  if (!projectNames) return;
+  if (!Array.isArray(projectNames)) projectNames = [projectNames];
+  
+  for (const projectName of projectNames) {
+    try {
+      const projectId = await getProjectIdByName(projectName);
+      await request(
+        `POST /graphql`,
+        {
+          headers: { authorization: `token ${GITHUB_TOKEN}` },
+          query: `
+            mutation($projectId: ID!, $issueId: ID!) {
+              addProjectV2ItemById(input: {projectId: $projectId, contentId: $issueId}) {
+                item { id }
+              }
+            }
+          `,
+          projectId,
+          issueId: issueNodeId
+        }
+      );
+      console.log(`Added issue ${issueNodeId} to project "${projectName}".`);
+    } catch (err) {
+      if (err.message.includes('already exists')) {
+        console.log(`Issue ${issueNodeId} is already in project "${projectName}".`);
+      } else {
+        console.error(`Failed to add issue ${issueNodeId} to project "${projectName}":`, err.message);
+      }
+    }
+  }
+}
 
 async function addIssueLink(subjectId, objectId, linkType = "PARENT") {
   try {
@@ -39,11 +111,10 @@ async function addIssueLink(subjectId, objectId, linkType = "PARENT") {
 }
 
 async function run() {
-  // Map your local issue IDs to GitHub issue data (number and node_id)
   const localToGitHub = {};
   
   for (const issue of issues) {
-    // Check if issue exists already
+    // Check existing open issues
     const { data: existingIssues } = await octokit.issues.listForRepo({
       owner,
       repo,
@@ -82,33 +153,10 @@ async function run() {
     
     localToGitHub[issue.id] = { number: issueNumber, node_id: issueNodeId };
     
-    // Add to project (same as your original code)
-    try {
-      await request(
-        `POST /graphql`,
-        {
-          headers: { authorization: `token ${GITHUB_TOKEN}` },
-          query: `
-            mutation($projectId: ID!, $issueId: ID!) {
-              addProjectV2ItemById(input: {projectId: $projectId, contentId: $issueId}) {
-                item { id }
-              }
-            }
-          `,
-          projectId,
-          issueId: issueNodeId
-        }
-      );
-      console.log(`Added issue #${issueNumber} to project.`);
-    } catch (err) {
-      if (err.message.includes('already exists')) {
-        console.log(`Issue #${issueNumber} is already in the project.`);
-      } else {
-        console.error(`Failed to add issue #${issueNumber} to project:`, err.message);
-      }
-    }
+    // Add issue to projects defined in issue.projects
+    await addIssueToProjects(issueNodeId, issue.projects);
     
-    // Create sub-issues and link explicitly
+    // Process sub-issues
     if (issue.sub_issue && issue.sub_issue.length) {
       for (const sub of issue.sub_issue) {
         let subFound = existingIssues.find(i => i.title === sub.title);
@@ -145,31 +193,8 @@ async function run() {
         // Link sub-issue explicitly to main issue (sub-issue is CHILD of main issue)
         await addIssueLink(issueNodeId, subNodeId, "CHILD");
         
-        // Optionally add sub-issue to project too
-        try {
-          await request(
-            `POST /graphql`,
-            {
-              headers: { authorization: `token ${GITHUB_TOKEN}` },
-              query: `
-                mutation($projectId: ID!, $issueId: ID!) {
-                  addProjectV2ItemById(input: {projectId: $projectId, contentId: $issueId}) {
-                    item { id }
-                  }
-                }
-              `,
-              projectId,
-              issueId: subNodeId
-            }
-          );
-          console.log(`Added sub-issue #${subNumber} to project.`);
-        } catch (err) {
-          if (err.message.includes('already exists')) {
-            console.log(`Sub-issue #${subNumber} is already in the project.`);
-          } else {
-            console.error(`Failed to add sub-issue #${subNumber} to project:`, err.message);
-          }
-        }
+        // Add sub-issue to projects if sub.projects exists, otherwise inherit parent projects
+        await addIssueToProjects(subNodeId, sub.projects || issue.projects);
       }
     }
   }
