@@ -26,4 +26,4 @@ jobs:
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           PROJECT_ID: ${{ secrets.PROJECT_ID }}
-        run: node sync-issues.js
+        run: node .github/scripts/sync-issues.js
