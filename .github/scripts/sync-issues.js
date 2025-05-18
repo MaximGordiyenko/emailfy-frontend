@@ -1,6 +1,6 @@
-const fs = require('fs');
-const { Octokit } = require('@octokit/rest');
-const { request } = require("@octokit/request");
+import fs from 'fs';
+import { Octokit } from '@octokit/rest';
+import { request } from '@octokit/request';
 
 const PERSONAL_ACCESS_TOKEN = process.env.PERSONAL_ACCESS_TOKEN;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
