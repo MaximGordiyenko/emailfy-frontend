@@ -57,7 +57,7 @@ async function run() {
     if (found) {
       issueNumber = found.number;
       issueNodeId = found.node_id;
-      console.log(`Updating issue #${issueNumber}: ${issue}`);
+      console.log(`Updating issue #${issueNumber}: ${JSON.stringify(issue)}`);
       await octokit.issues.update({
         owner,
         repo,
