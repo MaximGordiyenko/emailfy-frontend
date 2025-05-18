@@ -1,4 +1,4 @@
-name: Sync GitHub Issues and Project Cards
+name: Sync GitHub Issues
 
 on:
   workflow_dispatch:

@@ -39,20 +39,23 @@ async function addIssueLink(subjectId, objectId, linkType = "PARENT") {
 }
 
 async function run() {
-  // Fetch open milestones once and map title => number
-  const { data: milestones } = await octokit.issues.listMilestones({
+  // Fetch milestones once and map title -> id
+  const milestonesResponse = await octokit.issues.listMilestones({
     owner,
     repo,
     state: 'open',
+    per_page: 100,
   });
-  const milestoneMap = new Map();
-  for (const m of milestones) milestoneMap.set(m.title, m.number);
+  const milestoneMap = {};
+  for (const m of milestonesResponse.data) {
+    milestoneMap[m.title] = m.number; // milestone ID is `number` here for REST API
+  }
   
   // Map your local issue IDs to GitHub issue data (number and node_id)
   const localToGitHub = {};
   
   for (const issue of issues) {
-    // Fetch all open issues once per iteration (could optimize but okay for now)
+    // Check if issue exists already
     const { data: existingIssues } = await octokit.issues.listForRepo({
       owner,
       repo,
@@ -63,12 +66,12 @@ async function run() {
     let found = existingIssues.find(i => i.title === issue.title);
     let issueNumber, issueNodeId;
     
-    // Resolve milestone number if exists
-    let milestoneNumber;
+    // Resolve milestone number from title
+    let milestoneNumber = undefined;
     if (issue.milestone) {
-      milestoneNumber = milestoneMap.get(issue.milestone);
+      milestoneNumber = milestoneMap[issue.milestone];
       if (!milestoneNumber) {
-        console.warn(`Milestone "${issue.milestone}" not found for issue "${issue.title}". Skipping milestone assignment.`);
+        console.warn(`Warning: Milestone "${issue.milestone}" not found for issue "${issue.title}"`);
       }
     }
     
@@ -83,7 +86,7 @@ async function run() {
         body: issue.body,
         labels: issue.labels,
         assignees: issue.assignees,
-        milestone: milestoneNumber,
+        milestone: milestoneNumber, // assign milestone by number or undefined
       });
     } else {
       const newIssue = await octokit.issues.create({
@@ -102,7 +105,7 @@ async function run() {
     
     localToGitHub[issue.id] = { number: issueNumber, node_id: issueNodeId };
     
-    // Add the issue to the project (GitHub Project V2)
+    // Add to project
     try {
       await request(
         `POST /graphql`,
@@ -128,18 +131,18 @@ async function run() {
       }
     }
     
-    // Handle sub-issues recursively (one level here)
+    // Handle sub-issues (with milestone same logic)
     if (issue.sub_issue && issue.sub_issue.length) {
       for (const sub of issue.sub_issue) {
         let subFound = existingIssues.find(i => i.title === sub.title);
         let subNumber, subNodeId;
         
-        // Resolve milestone for sub-issue if any
-        let subMilestoneNumber;
+        // Resolve milestone number for sub-issue
+        let subMilestoneNumber = undefined;
         if (sub.milestone) {
-          subMilestoneNumber = milestoneMap.get(sub.milestone);
+          subMilestoneNumber = milestoneMap[sub.milestone];
           if (!subMilestoneNumber) {
-            console.warn(`Milestone "${sub.milestone}" not found for sub-issue "${sub.title}". Skipping milestone.`);
+            console.warn(`Warning: Milestone "${sub.milestone}" not found for sub-issue "${sub.title}"`);
           }
         }
         
@@ -173,10 +176,10 @@ async function run() {
         
         localToGitHub[sub.id] = { number: subNumber, node_id: subNodeId };
         
-        // Explicitly link sub-issue as CHILD of main issue
+        // Link sub-issue explicitly to main issue
         await addIssueLink(issueNodeId, subNodeId, "CHILD");
         
-        // Add sub-issue to project too
+        // Add sub-issue to project
         try {
           await request(
             `POST /graphql`,
