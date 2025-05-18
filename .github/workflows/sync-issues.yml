@@ -1,7 +1,11 @@
-name: Sync GitHub Issues and Project Cards
+name: Sync GitHub Issues
 
 on:
   workflow_dispatch:
+  
+permissions:
+  issues: write
+  contents: read
 
 jobs:
   sync:
