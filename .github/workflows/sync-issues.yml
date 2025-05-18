@@ -14,8 +14,11 @@ jobs:
         with:
           node-version: 20
       
-      - name: Install dependencies
-        run: npm install @octokit/rest @octokit/request
+      - name: Install Yarn
+        run: npm install -g yarn
+        
+      - name: Install dependencies with Yarn
+        run: yarn add @octokit/rest @octokit/request
       
       - name: Sync issues and add to project
         env:
