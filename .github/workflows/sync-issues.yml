@@ -2,6 +2,10 @@ name: Sync GitHub Issues and Project Cards
 
 on:
   workflow_dispatch:
+  
+permissions:
+  issues: write
+  contents: read
 
 jobs:
   sync:
