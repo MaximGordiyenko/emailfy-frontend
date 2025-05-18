@@ -5,81 +5,9 @@ import { request } from '@octokit/request';
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
 const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
+const projectId = process.env.PROJECT_ID;
 
 const issues = JSON.parse(fs.readFileSync('.github/issues.json', 'utf8'));
-
-// Cache for project name => project ID
-const projectCache = new Map();
-
-async function getProjectIdByName(projectName) {
-  if (projectCache.has(projectName)) {
-    return projectCache.get(projectName);
-  }
-  
-  // List all user/org projects (v2) for the repo owner (assumes owner is org or user)
-  // GitHub API: list projects under a repository
-  // We use GraphQL API to get ProjectV2 info by name since REST doesn't list v2 projects easily.
-  
-  const query = `
-    query($owner: String!, $repo: String!) {
-      repository(owner: $owner, name: $repo) {
-        projectsV2(first: 50) {
-          nodes {
-            id
-            title
-          }
-        }
-      }
-    }
-  `;
-  
-  const response = await request('POST /graphql', {
-    headers: { authorization: `token ${GITHUB_TOKEN}` },
-    query,
-    owner,
-    repo,
-  });
-  
-  const projects = response.data.repository.projectsV2.nodes;
-  const project = projects.find(p => p.title === projectName);
-  if (!project) throw new Error(`Project with name "${projectName}" not found in repo ${owner}/${repo}`);
-  
-  projectCache.set(projectName, project.id);
-  return project.id;
-}
-
-async function addIssueToProjects(issueNodeId, projectNames) {
-  if (!projectNames) return;
-  if (!Array.isArray(projectNames)) projectNames = [projectNames];
-  
-  for (const projectName of projectNames) {
-    try {
-      const projectId = await getProjectIdByName(projectName);
-      await request(
-        `POST /graphql`,
-        {
-          headers: { authorization: `token ${GITHUB_TOKEN}` },
-          query: `
-            mutation($projectId: ID!, $issueId: ID!) {
-              addProjectV2ItemById(input: {projectId: $projectId, contentId: $issueId}) {
-                item { id }
-              }
-            }
-          `,
-          projectId,
-          issueId: issueNodeId
-        }
-      );
-      console.log(`Added issue ${issueNodeId} to project "${projectName}".`);
-    } catch (err) {
-      if (err.message.includes('already exists')) {
-        console.log(`Issue ${issueNodeId} is already in project "${projectName}".`);
-      } else {
-        console.error(`Failed to add issue ${issueNodeId} to project "${projectName}":`, err.message);
-      }
-    }
-  }
-}
 
 async function addIssueLink(subjectId, objectId, linkType = "PARENT") {
   try {
@@ -111,10 +39,20 @@ async function addIssueLink(subjectId, objectId, linkType = "PARENT") {
 }
 
 async function run() {
+  // Fetch open milestones once and map title => number
+  const { data: milestones } = await octokit.issues.listMilestones({
+    owner,
+    repo,
+    state: 'open',
+  });
+  const milestoneMap = new Map();
+  for (const m of milestones) milestoneMap.set(m.title, m.number);
+  
+  // Map your local issue IDs to GitHub issue data (number and node_id)
   const localToGitHub = {};
   
   for (const issue of issues) {
-    // Check existing open issues
+    // Fetch all open issues once per iteration (could optimize but okay for now)
     const { data: existingIssues } = await octokit.issues.listForRepo({
       owner,
       repo,
@@ -124,6 +62,15 @@ async function run() {
     
     let found = existingIssues.find(i => i.title === issue.title);
     let issueNumber, issueNodeId;
+    
+    // Resolve milestone number if exists
+    let milestoneNumber;
+    if (issue.milestone) {
+      milestoneNumber = milestoneMap.get(issue.milestone);
+      if (!milestoneNumber) {
+        console.warn(`Milestone "${issue.milestone}" not found for issue "${issue.title}". Skipping milestone assignment.`);
+      }
+    }
     
     if (found) {
       issueNumber = found.number;
@@ -136,6 +83,7 @@ async function run() {
         body: issue.body,
         labels: issue.labels,
         assignees: issue.assignees,
+        milestone: milestoneNumber,
       });
     } else {
       const newIssue = await octokit.issues.create({
@@ -145,6 +93,7 @@ async function run() {
         body: issue.body,
         labels: issue.labels,
         assignees: issue.assignees,
+        milestone: milestoneNumber,
       });
       issueNumber = newIssue.data.number;
       issueNodeId = newIssue.data.node_id;
@@ -153,14 +102,46 @@ async function run() {
     
     localToGitHub[issue.id] = { number: issueNumber, node_id: issueNodeId };
     
-    // Add issue to projects defined in issue.projects
-    await addIssueToProjects(issueNodeId, issue.projects);
+    // Add the issue to the project (GitHub Project V2)
+    try {
+      await request(
+        `POST /graphql`,
+        {
+          headers: { authorization: `token ${GITHUB_TOKEN}` },
+          query: `
+            mutation($projectId: ID!, $issueId: ID!) {
+              addProjectV2ItemById(input: {projectId: $projectId, contentId: $issueId}) {
+                item { id }
+              }
+            }
+          `,
+          projectId,
+          issueId: issueNodeId
+        }
+      );
+      console.log(`Added issue #${issueNumber} to project.`);
+    } catch (err) {
+      if (err.message.includes('already exists')) {
+        console.log(`Issue #${issueNumber} is already in the project.`);
+      } else {
+        console.error(`Failed to add issue #${issueNumber} to project:`, err.message);
+      }
+    }
     
-    // Process sub-issues
+    // Handle sub-issues recursively (one level here)
     if (issue.sub_issue && issue.sub_issue.length) {
       for (const sub of issue.sub_issue) {
         let subFound = existingIssues.find(i => i.title === sub.title);
         let subNumber, subNodeId;
+        
+        // Resolve milestone for sub-issue if any
+        let subMilestoneNumber;
+        if (sub.milestone) {
+          subMilestoneNumber = milestoneMap.get(sub.milestone);
+          if (!subMilestoneNumber) {
+            console.warn(`Milestone "${sub.milestone}" not found for sub-issue "${sub.title}". Skipping milestone.`);
+          }
+        }
         
         if (subFound) {
           subNumber = subFound.number;
@@ -172,6 +153,7 @@ async function run() {
             body: sub.body + `\n\nThis task is a sub-issue of #${issueNumber}.`,
             labels: sub.labels,
             assignees: sub.assignees,
+            milestone: subMilestoneNumber,
           });
           console.log(`Updated sub-issue #${subNumber}: ${sub.title}`);
         } else {
@@ -182,6 +164,7 @@ async function run() {
             body: sub.body + `\n\nThis task is a sub-issue of #${issueNumber}.`,
             labels: sub.labels,
             assignees: sub.assignees,
+            milestone: subMilestoneNumber,
           });
           subNumber = newSub.data.number;
           subNodeId = newSub.data.node_id;
@@ -190,11 +173,34 @@ async function run() {
         
         localToGitHub[sub.id] = { number: subNumber, node_id: subNodeId };
         
-        // Link sub-issue explicitly to main issue (sub-issue is CHILD of main issue)
+        // Explicitly link sub-issue as CHILD of main issue
         await addIssueLink(issueNodeId, subNodeId, "CHILD");
         
-        // Add sub-issue to projects if sub.projects exists, otherwise inherit parent projects
-        await addIssueToProjects(subNodeId, sub.projects || issue.projects);
+        // Add sub-issue to project too
+        try {
+          await request(
+            `POST /graphql`,
+            {
+              headers: { authorization: `token ${GITHUB_TOKEN}` },
+              query: `
+                mutation($projectId: ID!, $issueId: ID!) {
+                  addProjectV2ItemById(input: {projectId: $projectId, contentId: $issueId}) {
+                    item { id }
+                  }
+                }
+              `,
+              projectId,
+              issueId: subNodeId
+            }
+          );
+          console.log(`Added sub-issue #${subNumber} to project.`);
+        } catch (err) {
+          if (err.message.includes('already exists')) {
+            console.log(`Sub-issue #${subNumber} is already in the project.`);
+          } else {
+            console.error(`Failed to add sub-issue #${subNumber} to project:`, err.message);
+          }
+        }
       }
     }
   }
