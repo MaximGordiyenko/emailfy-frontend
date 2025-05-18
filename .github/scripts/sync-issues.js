@@ -13,7 +13,7 @@ async function run() {
   const projectId = process.env.PROJECT_ID;
   
   // Load issues JSON
-  const issues = JSON.parse(fs.readFileSync('issues.json', 'utf8'));
+  const issues = JSON.parse(fs.readFileSync('.github/issues.json', 'utf8'));
   
   for (const issue of issues) {
     // Find existing open issue with same title
