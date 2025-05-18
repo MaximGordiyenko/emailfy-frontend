@@ -39,6 +39,18 @@ async function addIssueLink(subjectId, objectId, linkType = "PARENT") {
 }
 
 async function run() {
+  // Fetch milestones once and map title -> id
+  const milestonesResponse = await octokit.issues.listMilestones({
+    owner,
+    repo,
+    state: 'open',
+    per_page: 100,
+  });
+  const milestoneMap = {};
+  for (const m of milestonesResponse.data) {
+    milestoneMap[m.title] = m.number; // milestone ID is `number` here for REST API
+  }
+  
   // Map your local issue IDs to GitHub issue data (number and node_id)
   const localToGitHub = {};
   
@@ -54,10 +66,19 @@ async function run() {
     let found = existingIssues.find(i => i.title === issue.title);
     let issueNumber, issueNodeId;
     
+    // Resolve milestone number from title
+    let milestoneNumber = undefined;
+    if (issue.milestone) {
+      milestoneNumber = milestoneMap[issue.milestone];
+      if (!milestoneNumber) {
+        console.warn(`Warning: Milestone "${issue.milestone}" not found for issue "${issue.title}"`);
+      }
+    }
+    
     if (found) {
       issueNumber = found.number;
       issueNodeId = found.node_id;
-      console.log(`Updating issue #${issueNumber}: ${JSON.stringify(issue)}`);
+      console.log(`Updating issue #${issueNumber}: ${issue.title}`);
       await octokit.issues.update({
         owner,
         repo,
@@ -65,7 +86,7 @@ async function run() {
         body: issue.body,
         labels: issue.labels,
         assignees: issue.assignees,
-        milestone: issue.milestone,
+        milestone: milestoneNumber, // assign milestone by number or undefined
       });
     } else {
       const newIssue = await octokit.issues.create({
@@ -75,7 +96,7 @@ async function run() {
         body: issue.body,
         labels: issue.labels,
         assignees: issue.assignees,
-        milestone: issue.milestone,
+        milestone: milestoneNumber,
       });
       issueNumber = newIssue.data.number;
       issueNodeId = newIssue.data.node_id;
@@ -84,7 +105,7 @@ async function run() {
     
     localToGitHub[issue.id] = { number: issueNumber, node_id: issueNodeId };
     
-    // Add to project (same as your original code)
+    // Add to project
     try {
       await request(
         `POST /graphql`,
@@ -110,11 +131,20 @@ async function run() {
       }
     }
     
-    // Create sub-issues and link explicitly
+    // Handle sub-issues (with milestone same logic)
     if (issue.sub_issue && issue.sub_issue.length) {
       for (const sub of issue.sub_issue) {
         let subFound = existingIssues.find(i => i.title === sub.title);
         let subNumber, subNodeId;
+        
+        // Resolve milestone number for sub-issue
+        let subMilestoneNumber = undefined;
+        if (sub.milestone) {
+          subMilestoneNumber = milestoneMap[sub.milestone];
+          if (!subMilestoneNumber) {
+            console.warn(`Warning: Milestone "${sub.milestone}" not found for sub-issue "${sub.title}"`);
+          }
+        }
         
         if (subFound) {
           subNumber = subFound.number;
@@ -126,7 +156,7 @@ async function run() {
             body: sub.body + `\n\nThis task is a sub-issue of #${issueNumber}.`,
             labels: sub.labels,
             assignees: sub.assignees,
-            milestone: sub.milestone,
+            milestone: subMilestoneNumber,
           });
           console.log(`Updated sub-issue #${subNumber}: ${sub.title}`);
         } else {
@@ -137,7 +167,7 @@ async function run() {
             body: sub.body + `\n\nThis task is a sub-issue of #${issueNumber}.`,
             labels: sub.labels,
             assignees: sub.assignees,
-            milestone: sub.milestone,
+            milestone: subMilestoneNumber,
           });
           subNumber = newSub.data.number;
           subNodeId = newSub.data.node_id;
@@ -146,10 +176,10 @@ async function run() {
         
         localToGitHub[sub.id] = { number: subNumber, node_id: subNodeId };
         
-        // Link sub-issue explicitly to main issue (sub-issue is CHILD of main issue)
+        // Link sub-issue explicitly to main issue
         await addIssueLink(issueNodeId, subNodeId, "CHILD");
         
-        // Optionally add sub-issue to project too
+        // Add sub-issue to project
         try {
           await request(
             `POST /graphql`,

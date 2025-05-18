@@ -3,20 +3,31 @@
     "id": 2001,
     "title": "Implement Dashboard Overview Widgets",
     "body": "Create real-time KPI widgets for open rate, click rate, unsubscribe rate, and delivery trends.",
-    "labels": ["dashboard", "frontend"],
-    "assignees": ["MaximGordiyenko"],
-    "milestone": "[Dashboard Features]",
-    "projects": "Email Marketing Platform",
+    "labels": [
+      "dashboard",
+      "frontend"
+    ],
+    "assignees": [
+      "MaximGordiyenko"
+    ],
+    "milestone": 1,
+    "project": "Email Marketing Platform",
     "branch": "feature/dashboard-widgets",
     "sub_issue": [
       {
         "id": 2002,
         "title": "Design KPI widget UI components",
         "body": "Design reusable React components for displaying KPI widgets on dashboard.",
-        "labels": ["dashboard", "frontend", "design"],
-        "assignees": ["MaximGordiyenko"],
-        "milestone": "[Dashboard Features]",
-        "parent_issue": 2001
+        "labels": [
+          "dashboard",
+          "frontend",
+          "design"
+        ],
+        "assignees": [
+          "MaximGordiyenko"
+        ],
+        "parent_issue": 2001,
+        "milestone": 1
       }
     ]
   }
