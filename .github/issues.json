@@ -3,13 +3,8 @@
     "id": 2001,
     "title": "Implement Dashboard Overview Widgets",
     "body": "Create real-time KPI widgets for open rate, click rate, unsubscribe rate, and delivery trends.",
-    "labels": [
-      "dashboard",
-      "frontend"
-    ],
-    "assignees": [
-      "MaximGordiyenko"
-    ],
+    "labels": ["dashboard", "frontend"],
+    "assignees": ["MaximGordiyenko"],
     "milestone": 1,
     "project": "Email Marketing Platform",
     "branch": "feature/dashboard-widgets",
@@ -18,16 +13,410 @@
         "id": 2002,
         "title": "Design KPI widget UI components",
         "body": "Design reusable React components for displaying KPI widgets on dashboard.",
-        "labels": [
-          "dashboard",
-          "frontend",
-          "design"
-        ],
-        "assignees": [
-          "MaximGordiyenko"
-        ],
+        "labels": ["dashboard", "frontend", "design"],
+        "assignees": ["MaximGordiyenko"],
         "parent_issue": 2001,
         "milestone": 1
+      },
+      {
+        "id": 2003,
+        "title": "Implement real-time data fetching for KPIs",
+        "body": "Set up API endpoints and websocket subscriptions to fetch real-time KPI data.",
+        "labels": ["dashboard", "backend", "api"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2001,
+        "milestone": 1
+      },
+      {
+        "id": 2004,
+        "title": "Integrate KPI widgets with backend data",
+        "body": "Connect frontend widgets with backend API and ensure real-time updates.",
+        "labels": ["dashboard", "frontend", "integration"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2001,
+        "milestone": 1
+      }
+    ]
+  },
+  {
+    "id": 2101,
+    "title": "Create Analytics Event Tracking",
+    "body": "Track user engagement metrics like opens, clicks, bounces, and unsubscribes across campaigns.",
+    "labels": ["analytics", "backend"],
+    "assignees": ["MaximGordiyenko"],
+    "milestone": 2,
+    "project": "Email Marketing Platform",
+    "branch": "feature/analytics-event-tracking",
+    "sub_issue": [
+      {
+        "id": 2102,
+        "title": "Define database schema for event tracking",
+        "body": "Design schema to store events such as email opens, clicks, bounces, unsubscribes.",
+        "labels": ["analytics", "database", "backend"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2101,
+        "milestone": 2
+      },
+      {
+        "id": 2103,
+        "title": "Implement event ingestion API",
+        "body": "Create backend endpoints to receive and validate event tracking data.",
+        "labels": ["analytics", "backend", "api"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2101,
+        "milestone": 2
+      },
+      {
+        "id": 2104,
+        "title": "Build event processing and aggregation pipeline",
+        "body": "Develop backend processes to aggregate event data for reporting.",
+        "labels": ["analytics", "backend", "processing"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2101,
+        "milestone": 2
+      }
+    ]
+  },
+  {
+    "id": 2201,
+    "title": "Design Audience Management Table",
+    "body": "Implement paginated, filterable table to manage subscribers with tags, segments, and import/export functionality.",
+    "labels": ["audience", "frontend"],
+    "assignees": ["MaximGordiyenko"],
+    "milestone": 3,
+    "project": "Email Marketing Platform",
+    "branch": "feature/audience-management-table",
+    "sub_issue": [
+      {
+        "id": 2202,
+        "title": "Design table UI with pagination and filtering",
+        "body": "Create responsive UI for subscriber list with pagination, search, and filters.",
+        "labels": ["audience", "frontend", "design"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2201,
+        "milestone": 3
+      },
+      {
+        "id": 2203,
+        "title": "Implement backend API for audience data",
+        "body": "Create endpoints to support querying subscribers with filters and pagination.",
+        "labels": ["audience", "backend", "api"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2201,
+        "milestone": 3
+      },
+      {
+        "id": 2204,
+        "title": "Add import/export functionality for audience",
+        "body": "Enable CSV import/export and tagging features for subscriber lists.",
+        "labels": ["audience", "backend", "frontend"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2201,
+        "milestone": 3
+      }
+    ]
+  },
+  {
+    "id": 2301,
+    "title": "Build Campaign Creation Wizard",
+    "body": "Step-by-step campaign builder for selecting audience, editing content, and setting schedule.",
+    "labels": ["campaigns", "frontend", "ux"],
+    "assignees": ["MaximGordiyenko"],
+    "milestone": 4,
+    "project": "Email Marketing Platform",
+    "branch": "feature/campaign-wizard",
+    "sub_issue": [
+      {
+        "id": 2302,
+        "title": "Design campaign creation UI/UX flow",
+        "body": "Design wireframes and UI components for multi-step campaign creation.",
+        "labels": ["campaigns", "frontend", "design", "ux"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2301,
+        "milestone": 4
+      },
+      {
+        "id": 2303,
+        "title": "Implement audience selection step",
+        "body": "Allow users to select existing audience segments or create new ones.",
+        "labels": ["campaigns", "frontend", "backend"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2301,
+        "milestone": 4
+      },
+      {
+        "id": 2304,
+        "title": "Create email content editor step",
+        "body": "Integrate WYSIWYG editor or HTML editor for email content creation.",
+        "labels": ["campaigns", "frontend"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2301,
+        "milestone": 4
+      },
+      {
+        "id": 2305,
+        "title": "Add scheduling and delivery options step",
+        "body": "Implement UI to schedule send time and configure delivery preferences.",
+        "labels": ["campaigns", "frontend"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2301,
+        "milestone": 4
+      }
+    ]
+  },
+  {
+    "id": 2401,
+    "title": "Add Campaign Analytics Endpoints",
+    "body": "Expose endpoints to provide real-time stats for sent campaigns, including click heatmaps.",
+    "labels": ["campaigns", "backend", "api"],
+    "assignees": ["MaximGordiyenko"],
+    "milestone": 5,
+    "project": "Email Marketing Platform",
+    "branch": "feature/campaign-analytics-api",
+    "sub_issue": [
+      {
+        "id": 2402,
+        "title": "Design API schema for campaign statistics",
+        "body": "Define REST API contract for campaign open rates, click rates, and heatmaps.",
+        "labels": ["campaigns", "backend", "api"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2401,
+        "milestone": 5
+      },
+      {
+        "id": 2403,
+        "title": "Implement backend data aggregation for analytics",
+        "body": "Develop backend logic to calculate stats from raw event data.",
+        "labels": ["campaigns", "backend"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2401,
+        "milestone": 5
+      },
+      {
+        "id": 2404,
+        "title": "Create API endpoints to serve analytics data",
+        "body": "Implement API endpoints with pagination and filtering options.",
+        "labels": ["campaigns", "backend", "api"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2401,
+        "milestone": 5
+      }
+    ]
+  },
+  {
+    "id": 2501,
+    "title": "Implement Billing & Subscription UI",
+    "body": "Create interface to manage plan, view usage limits, update payment method and invoices.",
+    "labels": ["settings", "billing", "frontend"],
+    "assignees": ["MaximGordiyenko"],
+    "milestone": 6,
+    "project": "Email Marketing Platform",
+    "branch": "feature/billing-ui",
+    "sub_issue": [
+      {
+        "id": 2502,
+        "title": "Design billing dashboard UI",
+        "body": "Create visual design and layout for billing and subscription management.",
+        "labels": ["settings", "billing", "frontend", "design"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2501,
+        "milestone": 6
+      },
+      {
+        "id": 2503,
+        "title": "Integrate payment gateway APIs",
+        "body": "Connect to payment providers (Stripe, PayPal) for subscription payments.",
+        "labels": ["settings", "billing", "backend", "api"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2501,
+        "milestone": 6
+      },
+      {
+        "id": 2504,
+        "title": "Implement subscription plan selection and limits display",
+        "body": "Allow users to upgrade/downgrade plans and view usage quotas.",
+        "labels": ["settings", "billing", "frontend"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2501,
+        "milestone": 6
+      }
+    ]
+  },
+  {
+    "id": 2601,
+    "title": "Develop Team Management Permissions",
+    "body": "Support roles and invitations for team members to collaborate with access control.",
+    "labels": ["settings", "teams", "backend"],
+    "assignees": ["MaximGordiyenko"],
+    "milestone": 7,
+    "project": "Email Marketing Platform",
+    "branch": "feature/team-management",
+    "sub_issue": [
+      {
+        "id": 2602,
+        "title": "Design roles and permissions model",
+        "body": "Define user roles, permissions matrix and inheritance rules.",
+        "labels": ["settings", "teams", "backend", "design"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2601,
+        "milestone": 7
+      },
+      {
+        "id": 2603,
+        "title": "Implement invitations and user onboarding",
+        "body": "Build API and UI for inviting team members and accepting invites.",
+        "labels": ["settings", "teams", "backend", "frontend"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2601,
+        "milestone": 7
+      },
+      {
+        "id": 2604,
+        "title": "Enforce access control across platform",
+        "body": "Apply permissions checks on frontend routes and backend APIs.",
+        "labels": ["settings", "teams", "backend", "frontend"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2601,
+        "milestone": 7
+      }
+    ]
+  },
+  {
+    "id": 2701,
+    "title": "Integrate Custom Domain Setup",
+    "body": "Allow users to connect their own domains for email delivery and white labeling.",
+    "labels": ["settings", "domains", "devops"],
+    "assignees": ["MaximGordiyenko"],
+    "milestone": 8,
+    "project": "Email Marketing Platform",
+    "branch": "feature/custom-domain-setup",
+    "sub_issue": [
+      {
+        "id": 2702,
+        "title": "Implement domain verification flow",
+        "body": "Allow users to verify ownership of custom domains via DNS records.",
+        "labels": ["settings", "domains", "backend", "devops"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2701,
+        "milestone": 8
+      },
+      {
+        "id": 2703,
+        "title": "Configure sending infrastructure for custom domains",
+        "body": "Set up SPF, DKIM, and DMARC records for email deliverability.",
+        "labels": ["settings", "domains", "devops"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2701,
+        "milestone": 8
+      },
+      {
+        "id": 2704,
+        "title": "Create UI for managing connected domains",
+        "body": "Allow users to add, remove, and view status of custom domains.",
+        "labels": ["settings", "domains", "frontend"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2701,
+        "milestone": 8
+      }
+    ]
+  },
+  {
+    "id": 2801,
+    "title": "Design and Implement Landing Page",
+    "body": "Create a responsive and engaging landing page to showcase product features and benefits.",
+    "labels": ["landing", "frontend", "design"],
+    "assignees": ["MaximGordiyenko"],
+    "milestone": 8,
+    "project": "Email Marketing Platform",
+    "branch": "feature/landing-page",
+    "sub_issue": [
+      {
+        "id": 2802,
+        "title": "Design hero section with call to action",
+        "body": "Create a hero banner with headline, description, and CTA button.",
+        "labels": ["landing", "frontend", "design"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2801
+      },
+      {
+        "id": 2803,
+        "title": "Build features showcase section",
+        "body": "Add a section that highlights key platform features with icons and descriptions.",
+        "labels": ["landing", "frontend"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2801
+      },
+      {
+        "id": 2804,
+        "title": "Implement testimonials carousel",
+        "body": "Display customer testimonials in an auto-rotating carousel.",
+        "labels": ["landing", "frontend"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2801
+      },
+      {
+        "id": 2805,
+        "title": "Add pricing section",
+        "body": "Display different plans with features and pricing comparison.",
+        "labels": ["landing", "frontend"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2801
+      },
+      {
+        "id": 2806,
+        "title": "Create FAQ accordion section",
+        "body": "Answer common questions using a collapsible accordion UI.",
+        "labels": ["landing", "frontend"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2801
+      },
+      {
+        "id": 2807,
+        "title": "Implement footer with navigation links and contact info",
+        "body": "Add footer with product links, legal info, and contact options.",
+        "labels": ["landing", "frontend"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2801
+      }
+    ]
+  },
+  {
+    "id": 2901,
+    "title": "Develop Main Application Layout",
+    "body": "Create a consistent layout template for all pages including header, sidebar, and content area.",
+    "labels": ["layout", "frontend"],
+    "assignees": ["MaximGordiyenko"],
+    "milestone": 9,
+    "project": "Email Marketing Platform",
+    "branch": "feature/main-layout",
+    "sub_issue": [
+      {
+        "id": 2902,
+        "title": "Integrate support chat widget into layout",
+        "body": "Add persistent chat support widget available across all pages.",
+        "labels": ["layout", "frontend", "chat"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 2901
+      }
+    ]
+  },
+  {
+    "id": 3001,
+    "title": "Implement Login and Registration Pages",
+    "body": "Create authentication pages for users to login or register an account.",
+    "labels": ["auth", "frontend"],
+    "assignees": ["MaximGordiyenko"],
+    "milestone": 10,
+    "project": "Email Marketing Platform",
+    "branch": "feature/auth-pages",
+    "sub_issue": [
+      {
+        "id": 3002,
+        "title": "Handle JWT token storage and refresh logic",
+        "body": "Implement secure token handling in local/session storage and refresh token flow.",
+        "labels": ["auth", "frontend", "security"],
+        "assignees": ["MaximGordiyenko"],
+        "parent_issue": 3001
       }
     ]
   }
