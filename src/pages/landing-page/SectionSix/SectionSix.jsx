@@ -25,8 +25,8 @@ export const SectionSix = () => {
   }, [value]);
   
   return (
-    <div className="calculator">
-      <div className="calculator-row">
+    <div className="section">
+      <div className="section-four-row">
         <motion.div
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1, transition: { duration: 0.7, ease: 'easeIn' } }}
