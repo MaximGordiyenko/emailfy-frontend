@@ -1,8 +1,7 @@
-import empty from '../../assets/images/emptyState.svg';
 import { Typography, Button, Empty } from 'antd';
 import './styles.css';
 
-export const EmptyPlaceholder = () => {
+export const EmptyPlaceholder = ({ empty }) => {
   return (
     <Empty
       image={empty}
