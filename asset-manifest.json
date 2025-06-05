@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/emailfy-frontend/static/css/main.d88f1c8e.css",
-    "main.js": "/emailfy-frontend/static/js/main.87681590.js",
+    "main.js": "/emailfy-frontend/static/js/main.9002cda6.js",
     "static/media/upload_html_bg.svg": "/emailfy-frontend/static/media/upload_html_bg.4a66431fdbc173d5fd05.svg",
     "static/media/Frame 980938.svg": "/emailfy-frontend/static/media/Frame 980938.ff5f8e918cc76dc58e33725d5cbe6365.svg",
     "static/media/Frame 980935.svg": "/emailfy-frontend/static/media/Frame 980935.62e6283b04af90c9ff6c8a3c602ca793.svg",
@@ -9,7 +9,6 @@
     "static/media/audienceListEmpty.svg": "/emailfy-frontend/static/media/audienceListEmpty.6b304038f9a55f3f0fd8dc98b678cb26.svg",
     "static/media/Upload icon.svg": "/emailfy-frontend/static/media/Upload icon.cc0337bf65c2550350a39a9307a4321b.svg",
     "static/media/fileTextSmall.svg": "/emailfy-frontend/static/media/fileTextSmall.3997576a139a1ab43442f583d57324d3.svg",
-    "static/media/emptyState.svg": "/emailfy-frontend/static/media/emptyState.07c3fc0f40b6596458b5b3efeb06c79e.svg",
     "static/media/Upload icon 2.svg": "/emailfy-frontend/static/media/Upload icon 2.87ed233e65ec8c6838bd3f5c885177a7.svg",
     "static/media/alternateTextIcon.svg": "/emailfy-frontend/static/media/alternateTextIcon.95390bbc1969789c9df8d1e868ad3bb9.svg",
     "static/media/TextSquare.svg": "/emailfy-frontend/static/media/TextSquare.a45119fcc5debcfae82e7a1afc7f43a0.svg",
@@ -38,10 +37,10 @@
     "static/media/italic.svg": "/emailfy-frontend/static/media/italic.2ff7bfc279173c443ca581410a321bc8.svg",
     "static/media/Check Circle.svg": "/emailfy-frontend/static/media/Check Circle.ba18f68e6df244078b4576b10a2237a3.svg",
     "main.d88f1c8e.css.map": "/emailfy-frontend/static/css/main.d88f1c8e.css.map",
-    "main.87681590.js.map": "/emailfy-frontend/static/js/main.87681590.js.map"
+    "main.9002cda6.js.map": "/emailfy-frontend/static/js/main.9002cda6.js.map"
   },
   "entrypoints": [
     "static/css/main.d88f1c8e.css",
-    "static/js/main.87681590.js"
+    "static/js/main.9002cda6.js"
   ]
 }
