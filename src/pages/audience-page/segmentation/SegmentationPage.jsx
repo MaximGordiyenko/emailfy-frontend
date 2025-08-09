@@ -112,6 +112,7 @@ export const SegmentationPage = () => {
           onSelect={handleSelect}
           isCheckImg={checked}
         />
+   
         <div className={'placeholder'}>
           <div className={'hr1'} />
           <span className={'placeholder-text'}>Will be available later</span>

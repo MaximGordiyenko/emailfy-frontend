@@ -8,7 +8,6 @@
   visibility: hidden;
   position: relative;
   bottom: 2px;
-  left: 750px;
   z-index: 2;
   background-color: initial;
   border: none;
@@ -22,12 +21,10 @@
   }
 
   &:nth-of-type(2) {
-    left: 740px;
     bottom: 2px;
   }
 
   &:nth-of-type(3) {
-    left: 730px;
     bottom: 2px;
   }
 

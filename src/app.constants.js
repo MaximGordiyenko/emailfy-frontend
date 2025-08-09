@@ -20,6 +20,9 @@ export const themeX = {
       colorPrimary: '#7E9D00',
       colorPrimaryHover: '#A5BB4D',
     },
+    Radio: {
+      colorPrimary: '#7E9D00',
+    },
     Table: {
       // filterDropdownBg: '#7E9D00',
     },

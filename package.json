@@ -1,6 +1,5 @@
 {
   "name": "emailfy-frontend",
-  "homepage": "https://MaximGordiyenko.github.io/emailfy-frontend",
   "description": "Marketing platform designed to help businesses to create drag-and-drop emails, automate analytics, management campaign.",
   "version": "2.0.0",
   "type": "module",
