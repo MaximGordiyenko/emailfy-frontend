@@ -4,7 +4,7 @@ import { saveContent } from '../../pages/mail-builder-page/builder-script/builde
 
 import { AppButton } from '../button/AppButton.jsx';
 import { ThemeSwitcher } from '../switchers/ThemeSwitcher.jsx';
-import { EmailClientSelect } from '../selects/EmailClientSelect.jsx';
+import { AppSelect } from '../selects/AppSelect.jsx';
 
 import { Select } from 'antd';
 import {
@@ -44,7 +44,8 @@ export const getHeaderConfigs = (
     isOpenSendMailModal, setIsOpenSendMailModal,
     mediaQuery, setMediaQuery,
     isOpenMenuTag, setIsOpenMenuTag,
-    emailCampaignStep, setEmailCampaignStep
+    emailCampaignStep,
+    emailClientOptions, setSelectedEmailClientID
   } = useMainContext();
   
   const isDesktopMode = mediaQuery === 70 ? ' is-desktop' : '';
@@ -72,7 +73,11 @@ export const getHeaderConfigs = (
               { value: '4', label: 'Day' }
             ]}
           />
-          <EmailClientSelect placeholder={'Select Email Campaign'}/>
+          <AppSelect
+            placeholder={'Select Email Campaign'}
+            emailClientOptions={emailClientOptions}
+            setSelectedEmailClientID={setSelectedEmailClientID}
+          />
         </>
       )
     },

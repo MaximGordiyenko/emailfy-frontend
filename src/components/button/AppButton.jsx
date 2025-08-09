@@ -3,6 +3,8 @@ import './styles.css';
 
 export const AppButton = ({
                             variant = 'primary',
+                            key,
+                            className,
                             kind,
                             onClick,
                             disabled,
@@ -21,6 +23,7 @@ export const AppButton = ({
   
   return (
     <Button
+      key={key}
       type={variant}
       variant={kind}
       disabled={disabled}
@@ -29,6 +32,7 @@ export const AppButton = ({
       color={color}
       iconPosition={iconPosition}
       size={size}
+      className={className}
       {...buttonRoles}>
       {label || children}
     </Button>
