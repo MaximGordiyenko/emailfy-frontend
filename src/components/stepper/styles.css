@@ -1,0 +1,13 @@
+.survey-stepper-container {
+
+  .survey-resolver-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    
+    .survey-resolver-button {
+      margin-top: 20px;
+    }
+  }
+}

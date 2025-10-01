@@ -92,7 +92,7 @@ const helloText = [
         </div>
         <div className="hero-column">
           <div className="hero-images-container">
-            <div className="hero-images-row-1">
+            <div className="hero-images-row">
               <motion.div
                 initial="hidden"
                 animate={'visible'}
@@ -113,7 +113,7 @@ const helloText = [
                 </video>
               </div>
             </div>
-            <div className="hero-images-row-2">
+            <div className="hero-images-row">
               <div className="hero-image-wrapper hero-image-3"
                    style={{ opacity: 1, willChange: 'auto', transform: 'none' }}>
                 <video preload="true" width="100%" height="100%" playsInline="" autoPlay={true} loop={true}
@@ -135,7 +135,7 @@ const helloText = [
                 </video>
               </div>
             </div>
-            <div className="hero-images-row-3">
+            <div className="hero-images-row">
               <div className="hero-image-wrapper hero-image-5"
                    style={{ opacity: 1, willChange: 'auto', transform: 'none' }}>
                 <video preload="true" width="100%" height="100%" playsInline="" autoPlay={true} loop={true}

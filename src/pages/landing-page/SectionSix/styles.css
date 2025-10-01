@@ -1,172 +1,159 @@
-.calculator {
-  padding: 200px 0;
-  background-color: var(--purple-1);
+
+.calculator-column {
+  display: flex;
+  align-items: center;
   
-  .calculator-row {
-    margin: 0 auto;
-    max-width: 1140px;
+  .calculator-content {
     display: flex;
-    gap: 20px;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 425px;
     
-    .calculator-column {
+    .calculator-content-header {
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      gap: 20px;
       
-      .calculator-content {
+      .calculator-content-header-title {
+      }
+      
+      .calculator-content-header-text {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 25px;
+        color: var(--grey-9);
+      }
+    }
+    
+    .calculator-content-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      
+      .calculator-content-footer-title {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 26px;
+        color: var(--grey-9);
+      }
+      
+      .calculator-content-footer-text {
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 15px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--grey-3);
+      }
+    }
+  }
+  
+  .calculator-slider-container {
+    box-sizing: border-box;
+    width: 657px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    flex: 1;
+    padding: 80px;
+    border-radius: 100px;
+    border: 3px solid var(--grey-6);
+    
+    .calculator-slider-heading {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 35px;
+      letter-spacing: 1px;
+      color: var(--grey-9);
+    }
+    
+    .calculator-slider-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      
+      .calculator-slider-content {
         display: flex;
-        flex-direction: column;
-        gap: 40px;
-        max-width: 425px;
+        justify-content: space-between;
+        align-items: center;
         
-        .calculator-content-header {
+        .calculator-slider-info {
           display: flex;
           flex-direction: column;
-          gap: 20px;
           
-          .calculator-content-header-title {
-          }
-          
-          .calculator-content-header-text {
+          .calculator-slider-value {
             font-size: 16px;
-            font-weight: 500;
-            line-height: 25px;
-            color: var(--grey-9);
-          }
-        }
-        
-        .calculator-content-footer {
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-          
-          .calculator-content-footer-title {
-            font-size: 24px;
             font-weight: 700;
-            line-height: 26px;
+            line-height: 20px;
             color: var(--grey-9);
           }
           
-          .calculator-content-footer-text {
+          .calculator-slider-label {
             font-size: 12px;
             font-weight: 600;
             line-height: 15px;
             letter-spacing: 1px;
-            text-transform: uppercase;
             color: var(--grey-3);
+            text-transform: uppercase;
+          }
+        }
+        
+        .calculator-slider-price {
+          .green-text {
+            font-size: 32px;
           }
         }
       }
       
-      .calculator-slider-container {
-        box-sizing: border-box;
-        width: 657px;
-        display: flex;
-        flex-direction: column;
-        gap: 50px;
-        flex: 1;
-        padding: 80px;
-        border-radius: 100px;
-        border: 3px solid var(--grey-6);
+      .calculator-slider {
+        position: relative;
         
-        .calculator-slider-heading {
-          font-size: 32px;
-          font-weight: 700;
-          line-height: 35px;
-          letter-spacing: 1px;
-          color: var(--grey-9);
+        .calculator-slider-input {
+          .StepRangeSlider__tooltip {
+            display: none;
+          }
+          
+          .StepRangeSlider__thumb {
+            box-sizing: border-box;
+            width: 24px;
+            height: 24px;
+            border-radius: 12px;
+            border: 3px solid var(--grey-9);
+            background: var(--green-8);
+          }
+          
+          .StepRangeSlider__handle {
+            z-index: 1;
+          }
+          
+          .StepRangeSlider__track {
+            height: 12px;
+            border: 3px solid var(--grey-9);
+            border-radius: 10px;
+          }
         }
         
-        .calculator-slider-wrapper {
+        .active-track {
+          position: absolute;
+          width: 80%;
+          height: 6px;
+          left: 5px;
+          top: 8px;
+          border-radius: 3px;
+          background: var(--green-7);
+          z-index: 0;
+        }
+        
+        .calculator-slider-ruler {
+          margin-top: 10px;
           display: flex;
-          flex-direction: column;
-          gap: 20px;
-          
-          .calculator-slider-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            
-            .calculator-slider-info {
-              display: flex;
-              flex-direction: column;
-              
-              .calculator-slider-value {
-                font-size: 16px;
-                font-weight: 700;
-                line-height: 20px;
-                color: var(--grey-9);
-              }
-              
-              .calculator-slider-label {
-                font-size: 12px;
-                font-weight: 600;
-                line-height: 15px;
-                letter-spacing: 1px;
-                color: var(--grey-3);
-                text-transform: uppercase;
-              }
-            }
-            
-            .calculator-slider-price {
-              .green-text {
-                font-size: 32px;
-              }
-            }
-          }
-          
-          .calculator-slider {
-            position: relative;
-            
-            .calculator-slider-input {
-              .StepRangeSlider__tooltip {
-                display: none;
-              }
-              
-              .StepRangeSlider__thumb {
-                box-sizing: border-box;
-                width: 24px;
-                height: 24px;
-                border-radius: 12px;
-                border: 3px solid var(--grey-9);
-                background: var(--green-8);
-              }
-              
-              .StepRangeSlider__handle {
-                z-index: 1;
-              }
-              
-              .StepRangeSlider__track {
-                height: 12px;
-                border: 3px solid var(--grey-9);
-                border-radius: 10px;
-              }
-            }
-            
-            .active-track {
-              position: absolute;
-              width: 80%;
-              height: 6px;
-              left: 5px;
-              top: 8px;
-              border-radius: 3px;
-              background: var(--green-7);
-              z-index: 0;
-            }
-            
-            .calculator-slider-ruler {
-              margin-top: 10px;
-              display: flex;
-              gap: 10px;
-              justify-content: space-between;
-              align-items: center;
-              font-size: 12px;
-              font-weight: 600;
-              line-height: 15px;
-              color: var(--grey-5);
-            }
-          }
+          gap: 10px;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 15px;
+          color: var(--grey-5);
         }
       }
     }
